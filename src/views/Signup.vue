@@ -66,7 +66,7 @@
                                         </div>
                                         <!--Submit Button-->
                                         <div class="col-lg-12 text-center">
-                                            <button type="submit">Sign Up</button>
+                                            <button type="submit" :disabled="loading">Sign Up<span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
                                         </div>
                                        
                                         

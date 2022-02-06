@@ -26,6 +26,9 @@
                             </div>
                              <form name="form" @submit.prevent="handleLogin">
                                 <div class="row">
+                                     <div class="col-lg-12">
+                                            <div v-if="message" class="alert alert-danger" role="alert">{{message}}</div>
+                                     </div>
                                     <!--Email-->
                                     <div class="col-lg-12">
                                         <label for="email">Email</label>
@@ -44,8 +47,15 @@
                                     </div>
                                     <!--Submit Button-->
                                     <div class="col-lg-12 text-center">
-                                        <button type="submit">Log In</button>
+                                        <button type="submit" :disabled="loading">Log In <span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
+                                       
                                     </div>
+                                    <!-- <div  v-show="loading" class="col-lg-12 text-center">
+                                        <button class="btn btn-primary btn-block" :disabled="loading">
+                                            <span v-show="loading" class="spinner-border spinner-border-sm"></span>
+           
+                                        </button>
+                                    </div> -->
                                 </div>
                             </form>
                         </div>

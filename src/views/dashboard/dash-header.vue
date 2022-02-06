@@ -125,7 +125,7 @@
                         </li>
     
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href @click.prevent="logOut">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -236,7 +236,7 @@
             </li>
             <!--Log Out-->
             <li class="nav-item">
-                <a class="nav-link collapsed">
+                <a class="nav-link collapsed" href @click.prevent="logOut">
                     <img src="@/assets/images/menu-logout.png">
                     <span>Log Out</span>
                 </a>
@@ -256,6 +256,12 @@ export default {
   },
   mounted() {
     if (!this.currentUser) {
+      this.$router.push('/login');
+    }
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('auth/logout');
       this.$router.push('/login');
     }
   },
