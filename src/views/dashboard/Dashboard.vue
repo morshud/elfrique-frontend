@@ -14,11 +14,11 @@
                 </ol>
             </nav>
         </div>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 Your account is not yet verified. Click on the verification link sent to your email to verify your email to avoid account disabling. If you didn't get the verification code click on the verify button below to get a code. <br>
                 <button type="button" class="btn btn-success">Verify Now</button>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+        </div> -->
         <!--Page Body-->
         <section class="section dashboard mt-3">
             <div class="col-lg-12">
@@ -614,6 +614,21 @@
       'dash-header': Header,
       'dash-footer': Footer,
       },
+
+      
+  computed: {
+    currentUser() {
+      const user= this.$store.state.auth.user;
+      if (user) {
+        return user;
+      }
+    }
+  },
+     mounted() {
+         if (!this.currentUser) {
+            this.$router.push('/login');
+    }
+  },
       mounted(){
         window.scrollTo(0,0)
       },

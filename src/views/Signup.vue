@@ -107,6 +107,7 @@ export default {
         password: '',
         confirmpassword: ''
       },
+      loading: false,
       submitted: false,
       successful: false,
       message: ''
@@ -125,6 +126,7 @@ export default {
   methods: {
     handleRegister() {
         this.message = '';
+        this.loading = true;
         this.submitted = true;
       
         this.$store.dispatch('auth/register', this.user).then(
@@ -132,13 +134,15 @@ export default {
         data => {
             this.message = data.message;
             this.successful = true;
+            
         },
         error => {
             this.message =
             (error.response && error.response.data && error.response.data.message) ||
-            error.message ||
+            error.message || error?.errors ||
             error.toString();
             this.successful = false;
+            this.loading = false;
         }
         );
         

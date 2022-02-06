@@ -96,11 +96,11 @@
                 <li class="nav-item dropdown pe-3">
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                         <img src="@/assets/images/profile-img.jpg" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">{{currentUser.firstname}}</span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2" :key = "currentUser">{{currentUser.firstname}}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>{{currentUser.firstname}} {{currentUser.lastname}}</h6>
+                            <h6  :key = "currentUser">{{currentUser.firstname}} {{currentUser.lastname}}</h6>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
@@ -251,7 +251,12 @@ export default {
   name: 'dashboard',
   computed: {
     currentUser() {
-      return this.$store.state.auth.user;
+      const user = JSON.parse(localStorage.getItem("user"));
+      console.log(user);
+      if (user) {
+          console.log(user)
+        return user;
+      }
     }
   },
   mounted() {
@@ -259,6 +264,7 @@ export default {
       this.$router.push('/login');
     }
   },
+
   methods: {
     logOut() {
       this.$store.dispatch('auth/logout');
