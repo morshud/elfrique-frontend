@@ -20,8 +20,8 @@
 
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-              <img src="@/assets/images/profile-img.jpg" alt="Profile" class="rounded-circle">
-              <h2>Kevin Anderson</h2>
+              <img src="@/assets/images/profile-img.png" alt="Profile" class="rounded-circle">
+              <h2>{{content.firstname}}  {{content.lastname}}</h2>
             </div>
           </div>
 
@@ -56,110 +56,179 @@
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
 
                   <h5 class="card-title">Profile Details</h5>
+                 
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                    <div class="col-lg-3 col-md-4 label ">First Name</div>
+                    <div class="col-lg-9 col-md-8">{{content.firstname}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Country</div>
-                    <div class="col-lg-9 col-md-8">USA</div>
+                    <div class="col-lg-3 col-md-4 label ">Last Name</div>
+                    <div class="col-lg-9 col-md-8">{{content.lastname}}</div>
                   </div>
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Address</div>
-                    <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
-                  </div>
-
+                  
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                    <div class="col-lg-9 col-md-8">{{content.phonenumber}}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                    <div class="col-lg-9 col-md-8">{{content.email}}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Gender</div>
-                    <div class="col-lg-9 col-md-8">Male</div>
+                    <div class="col-lg-9 col-md-8">{{content.gender}}</div>
                   </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Account Name</div>
+                    <div class="col-lg-9 col-md-8">{{content.accountname}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Account Number</div>
+                    <div class="col-lg-9 col-md-8">{{content.accountnumber}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Bank</div>
+                    <div class="col-lg-9 col-md-8">{{content.bankname}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">About</div>
+                    <div class="col-lg-9 col-md-8">{{content.about}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Twitter URL</div>
+                    <div class="col-lg-9 col-md-8">{{content.twitterURL}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Facebook Url</div>
+                    <div class="col-lg-9 col-md-8">{{content.facebookURL}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Instgram Url</div>
+                    <div class="col-lg-9 col-md-8">{{content.instagramURL}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Registered On</div>
+                    <div class="col-lg-9 col-md-8">{{format_date(content.createdAt)}}</div>
+                  </div>
+
+
+
+
 
                 </div>
 
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-
+ 
                   <!-- Profile Edit Form -->
-                  <form>
+                    <div  v-if="message" :class="successful ? 'alert-success' : 'alert-danger'" class="alert  alert-dismissible fade show" role="alert">
+                      {{message}} 
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                     <!-- <div v-if="message" class="alert" :class="successful ? 'alert-success' : 'alert-danger'" >{{message}}</div> -->
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="@/assets/images/profile-img.jpg" alt="Profile">
+                        <img src="@/assets/images/profile-img.png" alt="Profile">
                         <div class="pt-2">
                           <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
                           <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
                         </div>
                       </div>
                     </div>
+                     <form  name="form" @submit.prevent="editProfile">
+                        <div class="row mb-3">
+                          
+                          <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input  v-model="profile.firstname" name="firstname" type="text" class="form-control" id="firstName" placeholder="Enter first name">
+                          </div>
+                        </div>
 
-                    <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="fullName" type="text" class="form-control" id="fullName" placeholder="Enter full name">
-                      </div>
+                        <div class="row mb-3">
+                          
+                          <label for="lastName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input  v-model="profile.lastname" name="lastname" type="text" class="form-control" id="lastName" placeholder="Enter lastname name">
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="bank" class="col-md-4 col-lg-3 col-form-label">Bank</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input v-model="profile.bankname" name="bankname" type="text" class="form-control" id="bank" placeholder="Enter Bank Name">
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="accountnumber" class="col-md-4 col-lg-3 col-form-label">Account Number</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input v-model="profile.accountnumber" name="address" type="text" class="form-control"  placeholder="Enter Account Number">
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label for="accountname" class="col-md-4 col-lg-3 col-form-label">Account Name</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input v-model="profile.accountname" name="address" type="text" class="form-control" placeholder="Enter Account Name">
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input  v-model="profile.phonenumber" name="phonenumber" type="text" class="form-control" id="Phone" placeholder="Enter your phone number">
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input v-model="profile.email" name="email" type="email" class="form-control" id="Email" placeholder="Enter your email address">
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="gender" class="col-md-4 col-lg-3 col-form-label"  aria-placeholder="choose gender">Gender</label>
+                          <div class="col-md-8 col-lg-9">
+                              <select v-model="profile.gender" name="gender" id="gender" class="form-control">
+                                  <option value="choose gender" hidden>Choose Gender</option>
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                              </select>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="About" class="col-md-4 col-lg-3 col-form-label">About</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input v-model="profile.about" name="about" type="text" class="form-control" rows="4" cols="50" >
+                          </div>
+                        </div>
+                        
+                        
+
+                        <div class="text-center">
+                          <button type="submit" class="btn btn-success"  :disabled="loading">Save Changes <span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
+                        </div>
+                      </form><!-- End Profile Edit Form -->
+
                     </div>
 
-                    <div class="row mb-3">
-                      <label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="country" type="text" class="form-control" id="Country" placeholder="Enter country">
-                      </div>
-                    </div>
+                    <div class="tab-pane fade pt-3" id="profile-settings">
 
-                    <div class="row mb-3">
-                      <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="address" type="text" class="form-control" id="Address" placeholder="Enter address">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="Phone" placeholder="Enter your phone number">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" placeholder="Enter your email address">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Gender</label>
-                      <div class="col-md-8 col-lg-9">
-                          <select name="gender" id="gender" class="form-control">
-                              <option value="choose gender" hidden>Choose Gender</option>
-                              <option value="male">Male</option>
-                              <option value="female">Female</option>
-                          </select>
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-success">Save Changes</button>
-                    </div>
-                  </form><!-- End Profile Edit Form -->
-
-                </div>
-
-                <div class="tab-pane fade pt-3" id="profile-settings">
-
-                  <!-- Settings Form -->
+                      <!-- Settings Form -->
                   <form>
 
                     <div class="row mb-3">
@@ -200,32 +269,36 @@
                 </div>
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
+                   <div  v-if="message" :class="successful ? 'alert-success' : 'alert-danger'" class="alert  alert-dismissible fade show" role="alert">
+                      {{message}} 
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                   <!-- Change Password Form -->
-                  <form>
+                  <form  name="form" @submit.prevent="changePassword">
 
                     <div class="row mb-3">
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="currentPassword">
+                        <input v-model="password.oldPassword" name="oldPassword" type="password" class="form-control" id="currentPassword">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="newpassword" type="password" class="form-control" id="newPassword">
+                        <input v-model="password.newPassword" name="newPassword" type="password" class="form-control" id="newPassword">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                        <input v-model="password.confirmpassword" name="confirmpassword" type="password" class="form-control" id="renewPassword">
                       </div>
                     </div>
 
                     <div class="text-center">
-                      <button type="submit" class="btn btn-success">Change Password</button>
+                      <button type="submit" class="btn btn-success" :disabled="loading" >Change Password <span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
                     </div>
                   </form><!-- End Change Password Form -->
 
@@ -247,14 +320,104 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import ProfileService from '../../service/profile.service'
+    import moment from 'moment'
+
+  
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
       },
-      mounted(){
-        window.scrollTo(0,0)
+      data() {
+    return {
+      content: '',
+      message: '',
+      successful: false,
+      loading: false,
+       profile: {
+        firstname: '',
+        lastname: '',
+        phone: '',
+        email: '',
+        accountname: '',
+        accountnumber: '',
+        bankname: '',
+        about: '',
+
+      },
+      password: {
+        oldPassword: '',
+        newPassword: '',
+        confirmpassword: '',
       }
-    }
+    };
+  },
+  created() {
+    ProfileService.getProfile().then(
+      response => {
+        this.content = response.data.profile;
+        this.profile = this.content;
+      },
+      error => {
+        this.message =
+          (error.response && error.response.data && error.response.data.message) ||
+          error.message ||
+          error.toString();
+        this.successful = false;
+      }
+    );
+  },
+  methods: { 
+      format_date(value){
+         if (value) {
+           return moment(String(value)).format('MM/DD/YYYY hh:mm')
+          }
+      },
+
+      editProfile(){
+        this.loading = true;
+        ProfileService.editProfile(this.profile).then(
+          response => {
+            this.message = response.data.message;
+            this.successful = true;
+            this.loading = false;
+
+},
+          error => {
+            this.message =
+              (error.response && error.response.data && error.response.data.message) ||
+              /* error.messag */error.response.data.errors[0].message|| "something went wrong please try again";
+              error.toString();
+            this.successful = false;
+            this.loading = false;
+          }
+        );
+      },
+
+      changePassword(){
+        this.loading = true;
+        ProfileService.changePassword(this.password).then(
+          response => {
+            this.message = response.data.message;
+            this.successful = true;
+            this.loading = false;
+          },
+          error => {
+            this.message =
+              (error.response && error.response.data && error.response.data.message) ||
+              /* error.messag */error.response.data.errors[0].message|| "something went wrong please try again";
+              error.toString();
+            this.successful = false;
+            this.loading = false;
+          }
+        );
+      }
+   },
+
+  mounted(){
+        window.scrollTo(0,0)
+      }  
+}
 </script>

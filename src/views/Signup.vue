@@ -139,11 +139,11 @@ export default {
         error => {
             this.message =
             (error.response && error.response.data && error.response.data.message) ||
-            error.message || error?.errors ||
-            error.toString();
+           /*  error.message */ error.response.data.errors[0].message|| "password does not match or too short"
+            /* error.toString(); */
             this.successful = false;
             this.loading = false;
-        }
+        },
         );
         
       
