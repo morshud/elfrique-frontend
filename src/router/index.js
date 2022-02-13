@@ -13,7 +13,9 @@ import Forgot from "../views/Forgot.vue";
 import Dashboard from "../views/dashboard/Dashboard.vue";
 import DashProfile from "../views/dashboard/Profile.vue";
 import DashStartVoting from "../views/dashboard/StartVoting.vue";
+import DashCreateVoting from "../views/dashboard/CreateVote.vue";
 import DashAddContestant from "../views/dashboard/AddContestant.vue";
+import DashAddNominee from "../views/dashboard/AddNominee.vue";
 import DashAddSponsors from "../views/dashboard/AddSponsors.vue";
 import DashAddCategory from "../views/dashboard/AddCategory.vue";
 import DashAddInfo from "../views/dashboard/AddInfo.vue";
@@ -59,6 +61,12 @@ const routes = [
     name: "DashStartVoting",
     component: DashStartVoting,
   },
+
+  {
+    path: "/organiser/create-voting",
+    name: "DashCreateVoting",
+    component: DashCreateVoting,
+  },
   {
     path: "/organiser/add-contestant",
     name: "DashAddContestant",
@@ -73,6 +81,11 @@ const routes = [
     path: "/organiser/add-category",
     name: "DashAddCategory",
     component: DashAddCategory,
+  },
+  {
+    path: "/organiser/add-nominee",
+    name: "DashAddNominee",
+    component: DashAddNominee,
   },
   { path: "/organiser/add-info", name: "DashAddInfo", component: DashAddInfo },
   {

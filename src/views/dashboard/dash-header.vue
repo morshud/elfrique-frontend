@@ -163,6 +163,7 @@
                     <li><router-link to="/organiser/add-contestant" class="routers"><a><i class="bi bi-circle"></i><span>Add Contestants</span></a></router-link></li>
                     <li><router-link to="/organiser/add-sponsor" class="routers"><a><i class="bi bi-circle"></i><span>Add Sponsors</span></a></router-link></li>
                     <li><router-link to="/organiser/add-category" class="routers"><a><i class="bi bi-circle"></i><span>Add Category</span></a></router-link></li>
+                    <li><router-link to="/organiser/add-nominee" class="routers"><a><i class="bi bi-circle"></i><span>Add Nominees</span></a></router-link></li>
                     <li><router-link to="/organiser/add-info" class="routers"><a><i class="bi bi-circle"></i><span>Add Info</span></a></router-link></li>
                     <li><router-link to="/organiser/search-vote" class="routers"><a><i class="bi bi-circle"></i><span>Search For Vote</span></a></router-link></li>
                 </ul>
