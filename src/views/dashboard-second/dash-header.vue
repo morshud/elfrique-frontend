@@ -21,7 +21,7 @@
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
                 <li>
-                    <a href="/seller/dashboard" class="switch-link-header">Switch To Sellers Dashboard <i class="bi bi-record2-fill"></i></a>
+                    <a href="/organiser/dashboard" class="switch-link-header">Switch To User Dashboard <i class="bi bi-record2-fill"></i></a>
                 </li>
                 <!--Notification Nav-->
                 <li class="nav-item dropdown">
@@ -145,9 +145,9 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item sider-switch-link">
-                <a href="/seller/dashboard" class="nav-link collapsed">
+                <a href="/organiser/dashboard" class="nav-link collapsed">
                     <i class="bi bi-record2-fill"></i>
-                    <span>Switch To Sellers Dashboard</span>
+                    <span>Switch To User Dashboard</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -164,7 +164,7 @@
                 </a></router-link>
             </li>
             <!--Voting-->
-            <li class="nav-item">
+             <!--<li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#voting-nav" data-bs-toggle="collapse" href="#">
                     <img src="@/assets/images/menu-vote.png"><span></span>Voting<i class="bi bi-chevron-down ms-auto"></i>
                 </a>
@@ -181,7 +181,7 @@
                     <li><router-link to="/organiser/search-vote" class="routers"><a><i class="bi bi-circle"></i><span>Search For Vote</span></a></router-link></li>
                 </ul>
             </li>
-            <!--Registration-->
+            Registration
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#reg-nav" data-bs-toggle="collapse" href="#">
                     <img src="@/assets/images/menu-registration.png"><span></span>Registration<i class="bi bi-chevron-down ms-auto"></i>
@@ -195,7 +195,7 @@
                     <li><router-link to="/organiser/search-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Search For Tickets</span></a></router-link></li>
                 </ul>
             </li>
-            <!--Forms-->
+            Forms
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
                     <img src="@/assets/images/menu-form.png"><span></span>Forms<i class="bi bi-chevron-down ms-auto"></i>
@@ -208,7 +208,7 @@
                     <li><router-link to="/organiser/search-form" class="routers"><a><i class="bi bi-circle"></i><span>Search For Forms</span></a></router-link></li>
                 </ul>
             </li>
-            <!--Trivia-->
+            Trivia
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#trivia-nav" data-bs-toggle="collapse" href="#">
                     <img src="@/assets/images/menu-trivia.png"><span></span>Trivia<i class="bi bi-chevron-down ms-auto"></i>
@@ -222,7 +222,7 @@
                     <li><router-link to="/organiser/search-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Search For Trivia</span></a></router-link></li>
                 </ul>
             </li>
-            <!--Vendor-->
+            Vendor
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#vendor-nav" data-bs-toggle="collapse" href="#">
                     <img src="@/assets/images/menu-vendor.png"><span></span>Vendor<i class="bi bi-chevron-down ms-auto"></i>
@@ -233,7 +233,7 @@
                     <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Search For Vendor</span></a></router-link></li>
                 </ul>
             </li>
-             <!--Travel-->
+             Travel
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#travel-nav" data-bs-toggle="collapse" href="#">
                     <img src="@/assets/images/menu-travel.png"><span></span>Travel & Tour<i class="bi bi-chevron-down ms-auto"></i>
@@ -242,7 +242,7 @@
                     <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Travel Plan</span></a></router-link></li>
                 </ul>
             </li>
-            <!--Short URL-->
+            Short URL
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#url-nav" data-bs-toggle="collapse" href="#">
                     <img src="@/assets/images/menu-url.png"><span></span>Short URLs<i class="bi bi-chevron-down ms-auto"></i>
@@ -251,7 +251,7 @@
                     <li><router-link to="/organiser/create-url" class="routers"><a><i class="bi bi-circle"></i><span>Create URL</span></a></router-link></li>
                     <li><router-link to="/organiser/view-url" class="routers"><a><i class="bi bi-circle"></i><span>View URL</span></a></router-link></li>
                 </ul>
-            </li>
+            </li> -->
             <!--Log Out-->
             <li class="nav-item">
                 <a class="nav-link collapsed" href @click.prevent="logOut">

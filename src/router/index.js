@@ -44,6 +44,11 @@ import DashVoteSalesAnalytics from "../views/dashboard/VoteSalesAnalytics.vue";
 import DashResultSetting from "../views/dashboard/ResultSetting.vue";
 import DashTriviaSalesAnalytics from "../views/dashboard/TriviaSalesAnalytics.vue";
 
+//seller dashboard
+
+import SecondDashboard from "../views/dashboard-second/Dashboard.vue";
+import SecondDashProfile from "../views/dashboard-second/Profile.vue";
+
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/blogs", name: "Blogs", component: Blogs },
@@ -212,6 +217,18 @@ const routes = [
     component: DashCreateURL,
   },
   { path: "/organiser/view-url", name: "DashViewURL", component: DashViewURL },
+
+  //seller dashboard
+  {
+    path: "/seller/dashboard",
+    name: "SecondDashboard",
+    component: SecondDashboard,
+  },
+  {
+    path: "/seller/profile",
+    name: "SecondDashProfile",
+    component: SecondDashProfile,
+  },
 ];
 
 const router = createRouter({
