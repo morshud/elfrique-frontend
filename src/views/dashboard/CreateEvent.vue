@@ -14,10 +14,18 @@
                 </ol>
             </nav>
         </div><!-- End Page Title -->
+        <div  v-if="error" class=" alert-danger alert  alert-dismissible fade show" role="alert">
+                           {{error}} 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div  v-if="message" class= 'alert-success alert  alert-dismissible fade show' role="alert">
+                        {{message}} 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
 
         <div class="container start-voting-div create-event-div">
             <div class="row justify-content-center">
-                <form>
+                 <form name="form" @submit.prevent="createEvents">
                     <div class="row justify-content-center">
                         <div class="col-lg-11 event-details-header">Details</div>
                         <!--Details DIV-->
@@ -26,12 +34,12 @@
                                 <!--Event Title-->
                                 <div class="col-lg-12 mt-2">
                                     <label for="event title">Event Title</label>
-                                    <input class="input" type="text" placeholder="Enter event title">
+                                    <input v-model="eventContent.title" class="input" type="text" placeholder="Enter event title" required>
                                 </div>
                                 <!--Country-->
                                 <div class="col-lg-6 mt-4">
                                     <label for="country">Country</label>
-                                    <select class="input" required name="country">
+                                    <select v-model="eventContent.country" class="input" required name="country">
                                         <option value="select country" hidden>Select Country</option>
                                         <option value="Afganistan">Afghanistan</option>
                                         <option value="Albania">Albania</option>
@@ -284,48 +292,48 @@
                                 <!--State-->
                                 <div class="col-lg-6 mt-4">
                                     <label for="state">State</label>
-                                    <input class="input" type="text" placeholder="Enter state">
+                                    <input  v-model="eventContent.state" class="input" type="text" placeholder="Enter state" required>
                                 </div>
                                 <!--City-->
                                 <div class="col-lg-6 mt-4">
                                     <label for="city">City</label>
-                                    <input class="input" type="text" placeholder="Enter city">
+                                    <input  v-model="eventContent.city" class="input" type="text" placeholder="Enter city" required>
                                 </div>
                                 <!--Location-->
                                 <div class="col-lg-6 mt-4">
                                     <label for="location">Location/Venue</label>
-                                    <input class="input" type="text" placeholder="Enter event location">
+                                    <input  v-model="eventContent.venue" class="input" type="text" placeholder="Enter event location" required>
                                 </div>
                                 <!--Start Date-->
                                 <div class="col-lg-6 mt-4">
                                     <label for="start date">Start Date</label>
-                                    <input class="input" type="date">
+                                    <input  v-model="eventContent.startdate" class="input" type="date" required>
                                 </div>
                                 <!--End Date-->
                                 <div class="col-lg-6 mt-4">
                                     <label for="end date">End Date</label>
-                                    <input class="input" type="date">
+                                    <input  v-model="eventContent.enddate" class="input" type="date" required>
                                 </div>
                                 <!--Event Image-->
                                 <div class="col-lg-12 mt-4">
                                     <label for="event image">Event Image</label>
-                                    <input class="input" type="file" accept=".jpg, .jpeg, .png, .jfif">
-                                    <small class="text-danger font-weight-bold">(only .jpg, .jpeg, .png, .jfif or .webp format)</small>
+                                    <input class="input" type="file" ref="file" accept=".jpg, .jpeg, .png, .jfif"  v-on:change="handleFileUpload()" required>
+                                    <small class="text-danger font-weight-bold">(only .jpg, .jpeg, .png, .jfif or .webp format) </small>
                                 </div>
                                 <!--Event Description-->
                                 <div class="col-lg-12 mt-4">
                                     <label for="event description">Event Description</label>
-                                    <textarea class="input" cols="30" rows="4" placeholder="Enter details here..."></textarea>
+                                    <textarea  v-model="eventContent.description" class="input" cols="30" rows="4" placeholder="Enter details here..." ></textarea>
                                 </div>
                                 <!--Organiser Name-->
                                 <div class="col-lg-12 mt-4">
                                     <label for="organiser name">Organiser Name</label>
-                                    <input class="input" type="text" placeholder="Enter name">
+                                    <input  v-model="eventContent.organizer" class="input" type="text" placeholder="Enter name" required>
                                 </div>
                                 <!--Payment Gateway-->
                                 <div class="col-lg-12 mt-4">
                                     <label for="payment gateway">Select Payment Gateway</label>
-                                    <select name="gateway" id="gateway">
+                                    <select  v-model="eventContent.paymentgateway" name="gateway" id="gateway" required>
                                         <option value="paystack">Paystack</option>
                                         <option value="flutterwave">Flutterwave</option>
                                         <option value="payu">Payu</option>
@@ -335,7 +343,7 @@
                                 <!--Timezone-->
                                 <div class="col-lg-12 mt-4">
                                     <label for="select timezone">Select Your Timezone</label>
-                                    <select name="timezone" id="timezone">
+                                    <select  v-model="eventContent.timezone" name="timezone" id="timezone" required>
                                         <option value="Africa/Abidjan">Africa/Abidjan</option>
                                         <option value="Africa/Accra">Africa/Accra</option>
                                         <option value="Africa/Addis_Ababa">Africa/Addis_Ababa</option>
@@ -766,71 +774,6 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-11 event-details-header mt-4">Tickets</div>
-                        <!--Add Ticket DIV-->
-                        <div class="col-lg-11 start-voting-inner-div">
-                            <h5 class="text-center">Click on the add ticket button below and follow the prompt to add ticket(s) for your free or paid event. <br> Note that you can add both ticket types for free or paid events</h5>
-                            <div class="row">
-                                <!--Add Ticket Button Modal-->
-                                <div class="col-lg-12 text-center">
-                                    <a type="button" class="btn-add-ticket" data-bs-toggle="modal" data-bs-target="#mainBackdrop">
-                                    Add Ticket <i class="bi bi-plus-circle-fill"></i>
-                                    </a>
-                                </div> 
-                                <!--Add Ticket Modal-->
-                                <div class="col-lg-12">
-                                    <div class="modal fade" id="mainBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="mainBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdropLabel">What type of ticket do you want to add?</h5>
-                                                    <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
-                                                </div>
-                                                <div class="modal-body text-center">
-                                                    <a type="button" data-bs-toggle="modal" data-bs-target="#paidBackdrop" class="btn-ticket-btn">Paid Ticket</a>
-                                                    <a type="button" data-bs-toggle="modal" data-bs-target="#freeBackdrop" class="btn-ticket-btn">Free Ticket</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Paid Modal-->
-                                <div class="col-lg-12">
-                                    <div class="modal fade" id="paidBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="paidBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdropLabel">How many paid ticket types do you wish to add?</h5>
-                                                    <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <input class="input" type="number" placeholder="Enter number">
-                                                    <button style="width: 80px; background-color: blue; padding: 5px 1px;" type="submit" class="mt-2">Ok</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Free Modal-->
-                                <div class="col-lg-12">
-                                    <div class="modal fade" id="freeBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="freeBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdropLabel">How many free ticket types do you wish to add?</h5>
-                                                    <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <input class="input" type="number" placeholder="Enter number">
-                                                    <button style="width: 80px; background-color: blue; padding: 5px 1px;" type="submit" class="mt-2">Ok</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="col-lg-11 event-details-header mt-4">Category</div>
                         <!--Category DIV-->
                         <div class="col-lg-11 start-voting-inner-div">
@@ -838,7 +781,7 @@
                                 <!--Event Title-->
                                 <div class="col-lg-12 mt-2">
                                     <label for="number of contestants">Event Category</label>
-                                    <select id="category" name="category" required>
+                                    <select  v-model="eventContent.category" id="category" name="category" required>
                                         <option value="select category" hidden>Select a Category</option>
                                         <option value="1">Conference</option>
                                         <option value="2">Music & Dance</option>
@@ -864,7 +807,7 @@
                         </div>
 
                         <div class="col-lg-11 mt-4">
-                            <button type="submit">Create Event</button>
+                            <button type="submit" class="btn btn-success" :disabled="loading" >Create Event<span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
                         </div>
                     </div>
                 </form>
@@ -878,12 +821,94 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import EventService from '../../service/event.service'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
       },
+      data(){
+          return{
+              eventContent:{
+                    title:'',
+                    description:'',
+                    startdate:'',
+                    enddate:'',
+                    timezone:'Africa/Lagos',
+                    venue:'',
+                    country:'',
+                    state:'',
+                    city:'',
+                    paymentgateway:'',
+                    category:'',
+                    organizer:'',
+
+                    
+                },
+                file: '',
+                error: '',
+                loading: false,
+                message: '',
+
+            }
+        },
+
+    computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
+    
+  },
+
+  created() {
+
+    if (!this.loggedIn) {
+      this.$router.push('/login');
+        }
+    },
+
+    methods:{
+        createEvents(){
+            this.loading = true;
+
+            let formData = new FormData();
+            formData.append('image', this.file);
+            formData.append('title', this.eventContent.title);
+            formData.append('startdate', this.eventContent.startdate);
+            formData.append('enddate', this.eventContent.enddate);
+            formData.append('timezone', this.eventContent.timezone);
+            formData.append('venue', this.eventContent.venue);
+            formData.append('country', this.eventContent.country);
+            formData.append('state', this.eventContent.state);
+            formData.append('paymentgateway', this.eventContent.paymentgateway);
+            formData.append('city', this.eventContent.city);
+            formData.append('description', this.eventContent.description);
+            formData.append('category', this.eventContent.category);
+            formData.append('organisation', this.eventContent.organizer);
+
+            EventService.createEvent(formData).then(response => {
+                    
+                    this.message = "Event Created Successfully";
+                    console.log(this.eventscontent);
+                    this.loading = false;
+
+            },
+            error => {
+                console.log(error);
+                this.error = error.response.data.message;
+                console.log(error.response.data);
+
+
+                this.loading = false;
+            });
+        },
+
+            
+        handleFileUpload(){
+        this.file = this.$refs.file.files[0];
+      }
+     },
       mounted(){
         window.scrollTo(0,0)
 

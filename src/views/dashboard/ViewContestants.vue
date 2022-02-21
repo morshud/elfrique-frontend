@@ -1,16 +1,16 @@
 <template>
-    <title>View Event | Elfrique</title>
+    <title>View Contestants | Elfrique</title>
     <dash-header/>
 
     <!--------Main Content--------->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>View Event</h1>
+            <h1>View Contestants</h1>
             <nav>
                 <ol class="breadcrumb">
                 <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
-                <li class="breadcrumb-item active">Registration</li>
-                <li class="breadcrumb-item active">View Event</li>
+                <li class="breadcrumb-item active">Voting</li>
+                <li class="breadcrumb-item active">View Contestants</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -36,32 +36,42 @@
                 <table class="table datatable card-table-table">
                     <thead>
                     <tr>
-                    
-                        <th scope="col">Event ID</th>
+                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Title</th>
                         <th scope="col">Image</th>
                         <th scope="col">Date Added</th>
-                        <th scope="col">Starting Date</th>
-                        <th scope="col">Closing Date</th>
-                        <th scope="col">Ticket Details</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Fee</th>
                         <th scope="col">Status</th>
                         <th scope="col">Options</th>
-                        <th scope="col">Event Link</th>
+                        <th scope="col">Vote Link</th>
                     </tr>
                     </thead>
-                    <tbody v-for="con in content" :key="con.id">
+                    <tbody>
                     <tr>
-                        
-                        <td>{{con.id}}</td>
-                        <td>{{con.title}}</td>
-                        <td><img :src="con.image" alt="event-pics" contain height="100" width="150" ></td>
-                        <td>{{format_date(con.createdAt)}}</td>
-                        <td>{{format_date(con.startdate)}}</td>
-                        <td>{{format_date(con.enddate)}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th scope="row">1</th>
+                        <td>122</td>
+                        <td>My Vote</td>
+                        <td><img src="@/assets/images/blog-img.jpg"></td>
+                        <td>2022-02-08 <br> 11:08:38</td>
+                        <td>Free</td>
+                        <td>Free</td>
+                        <td>Off</td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Options
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                                    <li><a class="dropdown-item" href="#">Enable</a></li>
+                                    <li><a class="dropdown-item" href="#">Disable</a></li>
+                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                        <td><a href="#">Vote Link</a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -83,7 +93,7 @@
         </div>
       </div>
     </section>
-    
+
     </main>
 
     <dash-footer/>
@@ -92,42 +102,11 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
-    import EventService from '../../service/event.service'
-    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
-      },
-      data(){
-        return{
-          title: 'View Event',
-          content: '',
-          }
-        },
-        computed: {
-        loggedIn() {
-            return this.$store.state.auth.status.loggedIn;
-            },
-        },
-        created(){
-          if (!this.loggedIn) {
-                this.$router.push('/login');
-    }
-
-            EventService.getEvents().then(response => {
-                this.content = response.data.events;
-                console.log(this.content);
-            }
-            )
-        },
-        methods: { 
-            format_date(value){
-                if (value) {
-                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
-          }
-    }
       },
       mounted(){
         window.scrollTo(0,0)

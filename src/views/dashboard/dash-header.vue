@@ -1,4 +1,5 @@
 <template>
+<link rel="shortcut icon" href="@/assets/images/favicon.png" type="image/x-icon">
     <!--------Header--------->
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="d-flex align-items-center justify-content-center">
@@ -19,6 +20,9 @@
         <!--Nav Icon-->
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
+                <li>
+                    <a href="#" class="switch-link-header">Switch To Sellers Dashboard <i class="bi bi-record2-fill"></i></a>
+                </li>
                 <!--Notification Nav-->
                 <li class="nav-item dropdown">
                     <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
@@ -140,6 +144,12 @@
     <!--------Sidebar--------->
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
+            <li class="nav-item sider-switch-link">
+                <a href="#" class="nav-link collapsed">
+                    <i class="bi bi-record2-fill"></i>
+                    <span>Switch To Sellers Dashboard</span>
+                </a>
+            </li>
             <li class="nav-item">
                 <router-link to="/organiser/dashboard" class="routers"><a class="nav-link collapsed">
                     <img src="@/assets/images/menu-dashboard.png">
@@ -164,6 +174,9 @@
                     <li><router-link to="/organiser/add-sponsor" class="routers"><a><i class="bi bi-circle"></i><span>Add Sponsors</span></a></router-link></li>
                     <li><router-link to="/organiser/add-category" class="routers"><a><i class="bi bi-circle"></i><span>Add Category</span></a></router-link></li>
                     <li><router-link to="/organiser/add-nominee" class="routers"><a><i class="bi bi-circle"></i><span>Add Nominees</span></a></router-link></li>
+                    <li><router-link to="/organiser/view-contestants" class="routers"><a><i class="bi bi-circle"></i><span>View Contestants</span></a></router-link></li>
+                    <li><router-link to="/organiser/view-vote-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Sales Analytics</span></a></router-link></li>
+                    <li><router-link to="/organiser/result-setting" class="routers"><a><i class="bi bi-circle"></i><span>Result Setting</span></a></router-link></li>
                     <li><router-link to="/organiser/add-info" class="routers"><a><i class="bi bi-circle"></i><span>Add Info</span></a></router-link></li>
                     <li><router-link to="/organiser/search-vote" class="routers"><a><i class="bi bi-circle"></i><span>Search For Vote</span></a></router-link></li>
                 </ul>
@@ -175,8 +188,11 @@
                 </a>
                 <ul id="reg-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li><router-link to="/organiser/create-event" class="routers"><a><i class="bi bi-circle"></i><span>Create Event</span></a></router-link></li>
+                    <li><router-link to="/organiser/add-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Add Ticket</span></a></router-link></li>
                     <li><router-link to="/organiser/view-event" class="routers"><a><i class="bi bi-circle"></i><span>View Event</span></a></router-link></li>
-                    <li><router-link to="/organiser/search-event" class="routers"><a><i class="bi bi-circle"></i><span>Search For Event</span></a></router-link></li>
+                    <li><router-link to="/organiser/personal-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Personal Ticket</span></a></router-link></li>
+                    <li><router-link to="/organiser/event-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Sales Analytics</span></a></router-link></li>
+                    <li><router-link to="/organiser/search-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Search For Tickets</span></a></router-link></li>
                 </ul>
             </li>
             <!--Forms-->
@@ -188,17 +204,8 @@
                     <li><router-link to="/organiser/create-form" class="routers"><a><i class="bi bi-circle"></i><span>Create Form</span></a></router-link></li>
                     <li><router-link to="/organiser/view-form" class="routers"><a><i class="bi bi-circle"></i><span>View Forms</span></a></router-link></li>
                     <li><router-link to="/organiser/personal-form" class="routers"><a><i class="bi bi-circle"></i><span>Personal Forms</span></a></router-link></li>
+                    <li><router-link to="/organiser/form-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Sales Analytics</span></a></router-link></li>
                     <li><router-link to="/organiser/search-form" class="routers"><a><i class="bi bi-circle"></i><span>Search For Forms</span></a></router-link></li>
-                </ul>
-            </li>
-            <!--Tickets-->
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#ticket-nav" data-bs-toggle="collapse" href="#">
-                    <img src="@/assets/images/menu-ticket.png"><span></span>Tickets<i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="ticket-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li><router-link to="/organiser/personal-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Personal Ticket</span></a></router-link></li>
-                    <li><router-link to="/organiser/search-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Search For Tickets</span></a></router-link></li>
                 </ul>
             </li>
             <!--Trivia-->
@@ -211,7 +218,8 @@
                     <li><router-link to="/organiser/view-trivia" class="routers"><a><i class="bi bi-circle"></i><span>View Trivia</span></a></router-link></li>
                     <li><router-link to="/organiser/update-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Update Trivia</span></a></router-link></li>
                     <li><router-link to="/organiser/view-result" class="routers"><a><i class="bi bi-circle"></i><span>View Results</span></a></router-link></li>
-                    <li><router-link to="/organiser/search-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Search</span></a></router-link></li>
+                    <li><router-link to="/organiser/trivia-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Sales Analytics</span></a></router-link></li>
+                    <li><router-link to="/organiser/search-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Search For Trivia</span></a></router-link></li>
                 </ul>
             </li>
             <!--Vendor-->
@@ -223,6 +231,15 @@
                     <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Create Vendor</span></a></router-link></li>
                     <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>View Vendor</span></a></router-link></li>
                     <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Search For Vendor</span></a></router-link></li>
+                </ul>
+            </li>
+             <!--Travel-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#travel-nav" data-bs-toggle="collapse" href="#">
+                    <img src="@/assets/images/menu-travel.png"><span></span>Travel & Tour<i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="travel-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Travel Plan</span></a></router-link></li>
                 </ul>
             </li>
             <!--Short URL-->

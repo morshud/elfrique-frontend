@@ -5,7 +5,7 @@
     <!--------Main Content--------->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Search For Vote(s)</h1>
+            <h1>Search For Tivia(s)</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>

@@ -21,13 +21,16 @@ import DashAddCategory from "../views/dashboard/AddCategory.vue";
 import DashAddInfo from "../views/dashboard/AddInfo.vue";
 import DashSearchVote from "../views/dashboard/SearchVote.vue";
 import DashCreateEvent from "../views/dashboard/CreateEvent.vue";
+import DashAddTicket from "../views/dashboard/AddTicket.vue";
 import DashViewEvent from "../views/dashboard/ViewEvent.vue";
-import DashSearchEvent from "../views/dashboard/SearchEvent.vue";
+/* import DashSearchEvent from "../views/dashboard/SearchEvent.vue"; */
+import DashEventSalesAnalytics from "../views/dashboard/EventSalesAnalytics.vue";
 import DashPersonalTicket from "../views/dashboard/PersonalTicket.vue";
 import DashSearchTicket from "../views/dashboard/SearchTicket.vue";
 import DashCreateForm from "../views/dashboard/CreateForm.vue";
 import DashViewForm from "../views/dashboard/ViewForm.vue";
 import DashPersonalForm from "../views/dashboard/PersonalForm.vue";
+import DashFormSalesAnalytics from "../views/dashboard/FormSalesAnalytics.vue";
 import DashSearchForm from "../views/dashboard/SearchForm.vue";
 import DashCreateTrivia from "../views/dashboard/CreateTrivia.vue";
 import DashViewTrivia from "../views/dashboard/ViewTrivia.vue";
@@ -36,6 +39,10 @@ import DashViewResult from "../views/dashboard/ViewResult.vue";
 import DashSearchTrivia from "../views/dashboard/SearchTrivia.vue";
 import DashCreateURL from "../views/dashboard/CreateURL.vue";
 import DashViewURL from "../views/dashboard/ViewURL.vue";
+import DashViewContestants from "../views/dashboard/ViewContestants.vue";
+import DashVoteSalesAnalytics from "../views/dashboard/VoteSalesAnalytics.vue";
+import DashResultSetting from "../views/dashboard/ResultSetting.vue";
+import DashTriviaSalesAnalytics from "../views/dashboard/TriviaSalesAnalytics.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -89,24 +96,50 @@ const routes = [
   },
   { path: "/organiser/add-info", name: "DashAddInfo", component: DashAddInfo },
   {
+    path: "/organiser/view-contestants",
+    name: "DashViewContestants",
+    component: DashViewContestants,
+  },
+  {
+    path: "/organiser/view-vote-analytics",
+    name: "DashVoteSalesAnalytics",
+    component: DashVoteSalesAnalytics,
+  },
+  {
+    path: "/organiser/result-setting",
+    name: "DashResultSetting",
+    component: DashResultSetting,
+  },
+  {
     path: "/organiser/search-vote",
     name: "DashSearchVote",
     component: DashSearchVote,
   },
+
   {
     path: "/organiser/create-event",
     name: "DashCreateEvent",
     component: DashCreateEvent,
   },
   {
+    path: "/organiser/add-ticket",
+    name: "DashAddTicket",
+    component: DashAddTicket,
+  },
+  {
     path: "/organiser/view-event",
     name: "DashViewEvent",
     component: DashViewEvent,
   },
-  {
+  /* {
     path: "/organiser/search-event",
     name: "DashSearchEvent",
     component: DashSearchEvent,
+  }, */
+  {
+    path: "/organiser/event-sales-analytics",
+    name: "DashEventSalesAnalytics",
+    component: DashEventSalesAnalytics,
   },
   {
     path: "/organiser/personal-ticket",
@@ -134,6 +167,11 @@ const routes = [
     component: DashPersonalForm,
   },
   {
+    path: "/organiser/form-sales-analytics",
+    name: "DashFormSalesAnalytics",
+    component: DashFormSalesAnalytics,
+  },
+  {
     path: "/organiser/search-form",
     name: "DashSearchForm",
     component: DashSearchForm,
@@ -157,6 +195,11 @@ const routes = [
     path: "/organiser/view-result",
     name: "DashViewResult",
     component: DashViewResult,
+  },
+  {
+    path: "/organiser/trivia-sales-analytics",
+    name: "DashTriviaSalesAnalytics",
+    component: DashTriviaSalesAnalytics,
   },
   {
     path: "/organiser/search-trivia",

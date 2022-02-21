@@ -1,16 +1,16 @@
 <template>
-    <title>Search For Event Ticket | Elfrique</title>
+    <title>Trivia Sales Analytics | Elfrique</title>
     <dash-header/>
 
     <!--------Main Content--------->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Search For Event Ticket</h1>
+            <h1>Sales Analytics</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
-                    <li class="breadcrumb-item active">Tickets</li>
-                    <li class="breadcrumb-item active">Search For Event Ticket</li>
+                    <li class="breadcrumb-item active">Trivia</li>
+                    <li class="breadcrumb-item active">Sales Analytics</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -20,12 +20,13 @@
                 <div class="col-lg-10 start-voting-inner-div">
                     <form>
                         <div class="row">
-                            <div class="col-lg-12 mt-2">
-                                <label for="number of contestants">Event Ticket Reference Number</label>
-                                <input class="input" type="text" placeholder="Enter event ticket reference number">
+                            <div class="col-lg-12 mt-4">
+                                <select name="gateway" id="gateway">
+                                    <option value="select vote option">Select Your Trivia Option</option>
+                                </select>
                             </div>
                             <div class="col-lg-12 mt-4">
-                                <button type="submit" value="proceed">Search <i class="bi bi-binoculars"></i></button>
+                                <button type="submit">View Analytics</button>
                             </div>
                         </div>
                     </form>
