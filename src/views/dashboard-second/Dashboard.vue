@@ -6,7 +6,7 @@
     <main id="main" class="main">
         <!--Page Title-->
         <div class="pagetitle">
-            <h1>Seller Dashboard</h1>
+            <h1>User Dashboard</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>

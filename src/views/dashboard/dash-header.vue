@@ -21,7 +21,7 @@
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
                 <li>
-                    <a href="/seller/dashboard" class="switch-link-header">Switch To Sellers Dashboard <i class="bi bi-record2-fill"></i></a>
+                    <a href="/user/dashboard" class="switch-link-header">Switch To User Dashboard <i class="bi bi-record2-fill"></i></a>
                 </li>
                 <!--Notification Nav-->
                 <li class="nav-item dropdown">
@@ -145,9 +145,9 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item sider-switch-link">
-                <a href="/seller/dashboard" class="nav-link collapsed">
+                <a href="/user/dashboard" class="nav-link collapsed">
                     <i class="bi bi-record2-fill"></i>
-                    <span>Switch To Sellers Dashboard</span>
+                    <span>Switch To User Dashboard</span>
                 </a>
             </li>
             <li class="nav-item">

@@ -48,6 +48,37 @@ import DashTriviaSalesAnalytics from "../views/dashboard/TriviaSalesAnalytics.vu
 
 import SecondDashboard from "../views/dashboard-second/Dashboard.vue";
 import SecondDashProfile from "../views/dashboard-second/Profile.vue";
+import SecondDashStartVoting from "../views/dashboard-second/StartVoting.vue";
+import SecondDashCreateVoting from "../views/dashboard-second/CreateVote.vue";
+import SecondDashAddContestant from "../views/dashboard-second/AddContestant.vue";
+import SecondDashAddNominee from "../views/dashboard-second/AddNominee.vue";
+import SecondDashAddSponsors from "../views/dashboard-second/AddSponsors.vue";
+import SecondDashAddCategory from "../views/dashboard-second/AddCategory.vue";
+import SecondDashAddInfo from "../views/dashboard-second/AddInfo.vue";
+import SecondDashSearchVote from "../views/dashboard-second/SearchVote.vue";
+import SecondDashCreateEvent from "../views/dashboard-second/CreateEvent.vue";
+import SecondDashAddTicket from "../views/dashboard-second/AddTicket.vue";
+import SecondDashViewEvent from "../views/dashboard-second/ViewEvent.vue";
+import SecondDashSearchEvent from "../views/dashboard-second/SearchEvent.vue";
+import SecondDashEventSalesAnalytics from "../views/dashboard-second/EventSalesAnalytics.vue";
+import SecondDashPersonalTicket from "../views/dashboard-second/PersonalTicket.vue";
+import SecondDashSearchTicket from "../views/dashboard-second/SearchTicket.vue";
+import SecondDashCreateForm from "../views/dashboard-second/CreateForm.vue";
+import SecondDashViewForm from "../views/dashboard-second/ViewForm.vue";
+import SecondDashPersonalForm from "../views/dashboard-second/PersonalForm.vue";
+import SecondDashFormSalesAnalytics from "../views/dashboard-second/FormSalesAnalytics.vue";
+import SecondDashSearchForm from "../views/dashboard-second/SearchForm.vue";
+import SecondDashCreateTrivia from "../views/dashboard-second/CreateTrivia.vue";
+import SecondDashViewTrivia from "../views/dashboard-second/ViewTrivia.vue";
+import SecondDashUpdateTrivia from "../views/dashboard-second/UpdateTrivia.vue";
+import SecondDashViewResult from "../views/dashboard-second/ViewResult.vue";
+import SecondDashSearchTrivia from "../views/dashboard-second/SearchTrivia.vue";
+import SecondDashCreateURL from "../views/dashboard-second/CreateURL.vue";
+import SecondDashViewURL from "../views/dashboard-second/ViewURL.vue";
+import SecondDashViewContestants from "../views/dashboard-second/ViewContestants.vue";
+import SecondDashVoteSalesAnalytics from "../views/dashboard-second/VoteSalesAnalytics.vue";
+import SecondDashResultSetting from "../views/dashboard-second/ResultSetting.vue";
+import SecondDashTriviaSalesAnalytics from "../views/dashboard-second/TriviaSalesAnalytics.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -220,14 +251,136 @@ const routes = [
 
   //seller dashboard
   {
-    path: "/seller/dashboard",
+    path: "/user/dashboard",
     name: "SecondDashboard",
     component: SecondDashboard,
   },
   {
-    path: "/seller/profile",
+    path: "/user/profile",
     name: "SecondDashProfile",
     component: SecondDashProfile,
+  },
+
+  {
+    path: "/user/view-contestants",
+    name: "SecondDashViewContestants",
+    component: SecondDashViewContestants,
+  },
+  {
+    path: "/user/view-vote-analytics",
+    name: "SecondDashVoteSalesAnalytics",
+    component: SecondDashVoteSalesAnalytics,
+  },
+  {
+    path: "/user/result-setting",
+    name: "SecondDashResultSetting",
+    component: SecondDashResultSetting,
+  },
+  {
+    path: "/user/search-vote",
+    name: "SecondDashSearchVote",
+    component: SecondDashSearchVote,
+  },
+
+  {
+    path: "/user/create-event",
+    name: "SecondDashCreateEvent",
+    component: SecondDashCreateEvent,
+  },
+  {
+    path: "/user/add-ticket",
+    name: "SecondDashAddTicket",
+    component: SecondDashAddTicket,
+  },
+  {
+    path: "/user/view-event",
+    name: "SecondDashViewEvent",
+    component: SecondDashViewEvent,
+  },
+  /* {
+    path: "/user/search-event",
+    name: "SecondDashSearchEvent",
+    component: SecondDashSearchEvent,
+  }, */
+  {
+    path: "/user/event-sales-analytics",
+    name: "SecondDashEventSalesAnalytics",
+    component: SecondDashEventSalesAnalytics,
+  },
+  {
+    path: "/user/personal-ticket",
+    name: "SecondDashPersonalTicket",
+    component: SecondDashPersonalTicket,
+  },
+  {
+    path: "/user/search-ticket",
+    name: "SecondDashSearchTicket",
+    component: SecondDashSearchTicket,
+  },
+  {
+    path: "/user/create-form",
+    name: "SecondDashCreateForm",
+    component: SecondDashCreateForm,
+  },
+  {
+    path: "/user/view-form",
+    name: "SecondDashViewForm",
+    component: SecondDashViewForm,
+  },
+  {
+    path: "/user/personal-form",
+    name: "SecondDashPersonalForm",
+    component: SecondDashPersonalForm,
+  },
+  {
+    path: "/user/form-sales-analytics",
+    name: "SecondDashFormSalesAnalytics",
+    component: SecondDashFormSalesAnalytics,
+  },
+  {
+    path: "/user/search-form",
+    name: "SecondDashSearchForm",
+    component: SecondDashSearchForm,
+  },
+  {
+    path: "/user/create-trivia",
+    name: "SecondDashCreateTrivia",
+    component: SecondDashCreateTrivia,
+  },
+  {
+    path: "/user/view-trivia",
+    name: "SecondDashViewTrivia",
+    component: SecondDashViewTrivia,
+  },
+  {
+    path: "/user/update-trivia",
+    name: "SecondDashUpdateTrivia",
+    component: SecondDashUpdateTrivia,
+  },
+  {
+    path: "/user/view-result",
+    name: "SecondDashViewResult",
+    component: SecondDashViewResult,
+  },
+  {
+    path: "/user/trivia-sales-analytics",
+    name: "SecondDashTriviaSalesAnalytics",
+    component: SecondDashTriviaSalesAnalytics,
+  },
+  {
+    path: "/user/search-trivia",
+    name: "SecondDashSearchTrivia",
+    component: SecondDashSearchTrivia,
+  },
+  {
+    path: "/user/create-url",
+    name: "SecondDashCreateURL",
+    component: SecondDashCreateURL,
+  },
+  {
+    path: "/user/view-url",
+    name: "SecondDashViewURL",
+    component: SecondDashViewURL,
   },
 ];
 
