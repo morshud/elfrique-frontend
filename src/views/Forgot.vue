@@ -6,9 +6,9 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5">
-                        <router-link to="/" class="routers">
+                        <a href="http://elfrique.greenmouseproperties.com" class="routers">
                             <img src="@/assets/images/logo.png" alt="Elfrique Logo">
-                        </router-link>
+                        </a>
                         <div class="form-area">
                             <div class="header-form">
                                 <h3>Forgot Password</h3>

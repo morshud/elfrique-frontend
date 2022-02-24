@@ -6,9 +6,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 text-area">
-                        <router-link to="/" class="routers">
+                        <a href="http://elfrique.greenmouseproperties.com" class="routers">
                             <img src="@/assets/images/logo.png" alt="Elfrique Logo">
-                        </router-link>
+                        </a>
                         <p class="text-first">Log In</p>
                         <div class="line-rule"></div>
                         <h1>Welcome back!</h1>
