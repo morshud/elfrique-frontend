@@ -1,13 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 :root {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Sarabun", sans-serif !important;
+  font-family: 'Sarabun', sans-serif !important;
   scroll-behavior: smooth;
 }
-a {
+a{
   text-decoration: none !important;
 }
 
@@ -48,7 +48,7 @@ a {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: #3b702a;
+  background: #3B702A;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -112,7 +112,7 @@ a {
   line-height: 0;
 }
 .dropdown-menu .dropdown-item:hover {
-  background-color: #3b702a !important;
+  background-color: #3B702A !important;
 }
 @media (min-width: 768px) {
   .dropdown-menu-arrow::before {
@@ -247,7 +247,7 @@ a {
 }
 .accordion-flush .accordion-button:not(.collapsed) {
   box-shadow: none;
-  color: #3b702a;
+  color: #3B702A;
 }
 .accordion-flush .accordion-body {
   padding: 0 0 15px 0;
@@ -265,7 +265,7 @@ a {
   transition: 0.3s;
 }
 .breadcrumb a:hover {
-  color: #3b702a;
+  color: #3B702A;
 }
 .breadcrumb .active {
   color: #3b702a86;
@@ -283,66 +283,71 @@ a {
 }
 .nav-tabs-bordered .nav-link:hover,
 .nav-tabs-bordered .nav-link:focus {
-  color: #3b702a;
+  color: #3B702A;
 }
 .nav-tabs-bordered .nav-link.active {
   background-color: #fff;
   color: #1f694d;
   border-bottom: 2px solid #000;
 }
-.tabs-dashboard button {
+.tabs-dashboard button{
   color: #274b1b !important;
 }
 
 /* Referral Link Here */
-.referral-link-here {
+.referral-link-here{
   width: 100%;
   padding: 20px 40px;
   margin-bottom: -30px;
 }
-.referral-link-here input {
+.referral-link-here input{
   padding: 12px;
 }
-.referral-link-here .input-url {
+.referral-link-here .input-url{
   width: 90% !important;
-  border: 1px solid #3b702a;
+  border: 1px solid #3B702A;
   border-radius: 5px 0px 0px 5px;
 }
-.referral-link-here .input-url-button {
+.referral-link-here .input-url-button{
   width: 10% !important;
-  background-color: #3b702a;
+  background-color: #3B702A;
   color: #fff;
-  border: 1px solid #3b702a;
+  border: 1px solid #3B702A;
   border-radius: 0px 5px 5px 0px;
 }
-.referral-link-here .input-url-button:hover {
+.referral-link-here .input-url-button:hover{
   background-color: #274b1b;
   border: 1px solid #274b1b;
 }
-.card-table .p-text {
+.card-table .p-text{
   clear: right;
   margin-bottom: -40px;
   font-weight: 600;
   color: #838383;
 }
-@media (max-width: 770px) {
-  .referral-link-here .input-url {
+@media (max-width: 770px){
+  .referral-link-here .input-url{
     width: 80% !important;
   }
-  .referral-link-here .input-url-button {
+  .referral-link-here .input-url-button{
     width: 20% !important;
   }
 }
-@media (max-width: 460px) {
-  .referral-link-here {
+@media(max-width: 590px){
+  .card-table .p-text{
+    margin-top: 50px;
+  }
+}
+@media (max-width: 460px){
+  .referral-link-here{
     padding: 20px 20px;
   }
 }
-@media (max-width: 400px) {
-  .referral-link-here .input-url {
+@media (max-width: 400px){
+  .referral-link-here .input-url{
     width: 60% !important;
   }
-  .referral-link-here .input-url-button {
+  .referral-link-here .input-url-button{
     width: 40% !important;
   }
 }
@@ -404,7 +409,7 @@ header .logo img {
   background: none;
 }
 .header .search-form button i {
-  color: #3b702a;
+  color: #3B702A;
 }
 @media (max-width: 1199px) {
   .header .search-bar {
@@ -432,7 +437,7 @@ header .logo img {
     display: inline-block;
   }
 }
-@media (max-width: 412px) {
+@media(max-width: 412px){
   header .logo {
     width: 160px;
   }
@@ -441,7 +446,7 @@ header .logo img {
 /*--------------------------------------------------------------
 # Header Nav
 --------------------------------------------------------------*/
-.header-nav {
+.header-nav{
   background-color: #00000000;
 }
 .header-nav ul {
@@ -453,10 +458,10 @@ header .logo img {
 }
 .header-nav .nav-icon {
   font-size: 20px;
-  color: #3b702a;
+  color: #3B702A;
 }
 .header-nav .nav-profile {
-  color: #3b702a;
+  color: #3B702A;
 }
 .header-nav .nav-profile img {
   max-height: 36px;
@@ -623,7 +628,7 @@ header .logo img {
   align-items: center;
   font-size: 15px;
   font-weight: 600;
-  color: #3b702a;
+  color: #3B702A;
   transition: 0.3;
   background: #f6f9ff;
   padding: 10px 15px;
@@ -632,9 +637,9 @@ header .logo img {
 .sidebar-nav .nav-link i {
   font-size: 16px;
   margin-right: 10px;
-  color: #3b702a;
+  color: #3B702A;
 }
-.sidebar-nav .nav-link img {
+.sidebar-nav .nav-link img{
   width: 15px;
   margin-right: 10px;
 }
@@ -646,11 +651,11 @@ header .logo img {
   color: #000000;
 }
 .sidebar-nav .nav-link:hover {
-  color: #3b702a;
-  background: #f6f9ff;
+  color: #172c10;
+  background: #c8f1ba;
 }
 .sidebar-nav .nav-link:hover i {
-  color: #3b702a;
+  color: #3B702A;
 }
 .sidebar-nav .nav-link .bi-chevron-down {
   margin-right: 0;
@@ -682,10 +687,10 @@ header .logo img {
 }
 .sidebar-nav .nav-content a:hover,
 .sidebar-nav .nav-content a.active {
-  color: #3b702a;
+  color: #3B702A;
 }
 .sidebar-nav .nav-content a.active i {
-  background-color: #3b702a;
+  background-color: #3B702A;
 }
 
 /*--------------------------------------------------------------
@@ -743,7 +748,7 @@ header .logo img {
   flex-shrink: 0;
   flex-grow: 0;
 }
-.dashboard .card-icon img {
+.dashboard .card-icon img{
   width: 58px;
 }
 .dashboard .vote-card .card-icon {
@@ -1101,92 +1106,92 @@ header .logo img {
 }
 
 .dataTable-wrapper.no-header .dataTable-container {
-  border-top: 1px solid #d9d9d9;
+	border-top: 1px solid #d9d9d9;
 }
 
 .dataTable-wrapper.no-footer .dataTable-container {
-  border-bottom: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
 }
 
 .dataTable-top,
 .dataTable-bottom {
-  padding: 8px 10px;
+	padding: 8px 10px;
 }
 
 .dataTable-top > nav:first-child,
 .dataTable-top > div:first-child,
 .dataTable-bottom > nav:first-child,
 .dataTable-bottom > div:first-child {
-  float: left;
+	float: left;
 }
 
 .dataTable-top > nav:last-child,
 .dataTable-top > div:last-child,
 .dataTable-bottom > nav:last-child,
 .dataTable-bottom > div:last-child {
-  float: right;
+	float: right;
 }
 
 .dataTable-selector {
-  padding: 6px;
+	padding: 6px;
 }
 
 .dataTable-input {
-  padding: 6px 12px;
+	padding: 6px 12px;
 }
 
 .dataTable-info {
-  margin: 7px 0;
+	margin: 7px 0;
 }
 
 /* PAGER */
 .dataTable-pagination ul {
-  margin: 0;
-  padding-left: 0;
+	margin: 0;
+	padding-left: 0;
 }
 
 .dataTable-pagination li {
-  list-style: none;
-  float: left;
+	list-style: none;
+	float: left;
 }
 
 .dataTable-pagination a {
-  border: 1px solid transparent;
-  float: left;
-  margin-left: 2px;
-  padding: 6px 12px;
-  position: relative;
-  text-decoration: none;
-  color: #333;
+	border: 1px solid transparent;
+	float: left;
+	margin-left: 2px;
+	padding: 6px 12px;
+	position: relative;
+	text-decoration: none;
+	color: #333;
 }
 
 .dataTable-pagination a:hover {
-  background-color: #d9d9d9;
+	background-color: #d9d9d9;
 }
 
 .dataTable-pagination .active a,
 .dataTable-pagination .active a:focus,
 .dataTable-pagination .active a:hover {
-  background-color: #d9d9d9;
-  cursor: default;
+	background-color: #d9d9d9;
+	cursor: default;
 }
 
 .dataTable-pagination .ellipsis a,
 .dataTable-pagination .disabled a,
 .dataTable-pagination .disabled a:focus,
 .dataTable-pagination .disabled a:hover {
-  cursor: not-allowed;
+	cursor: not-allowed;
 }
 
 .dataTable-pagination .disabled a,
 .dataTable-pagination .disabled a:focus,
 .dataTable-pagination .disabled a:hover {
-  cursor: not-allowed;
-  opacity: 0.4;
+	cursor: not-allowed;
+	opacity: 0.4;
 }
 
 .dataTable-pagination .pager a {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 /*--------------------------------------------------------------
@@ -1195,54 +1200,72 @@ header .logo img {
 .card-table {
   padding: 40px 20px !important;
   border-radius: 10px !important;
-  overflow-x: auto !important;
+  overflow-x:auto !important;
 }
-.card-table .buttons-table button {
+.card-table .buttons-table button{
   padding: 5px 10px;
   margin-right: 5px;
   border: none;
   border: 1px solid #7a7a7a;
   border-radius: 5px;
-  background-color: #efefef;
-}
-.card-table button:hover {
+  background-color: #EFEFEF;
+} 
+.card-table button:hover{
   border: 1px solid #535353;
   background-color: #dbdbdb;
 }
-.card-table .search-table {
+.card-table .search-table{
   float: right;
   margin-bottom: 20px;
 }
-.card-table .search-table form input {
+.card-table .search-table form input{
   padding: 5px 7px;
   border: none;
   border-radius: 5px;
   border: 1px solid #535353;
 }
-.card-table .search-table form input:focus {
+.card-table .search-table form input:focus{
   outline: none;
   border: 2px solid #535353;
 }
-.card-table .card-table-table {
-  margin-top: 30px;
+.card-table .card-table-table{
+  margin-top: 45px;
   width: 100% !important;
-  border-collapse: collapse !important;
 }
-.card-table .card-table-table .table-delete-button {
-  background-color: #dc3545;
+.card-table .card-table-table th, .card-table .card-table-table td{
+  border: 1px solid #9c9c9c;
+  border-collapse: collapse;
+}
+.card-table .card-table-table .table-delete-button{
+  background-color: #DC3545;
   color: #fff;
   border-radius: 5px;
   border: none;
   padding: 3px 12px;
 }
-.card-table .card-table-table .table-delete-button:hover {
+.card-table .card-table-table .table-delete-button:hover{
   background-color: #b42a38;
 }
-.card-table nav {
+.card-table .card-table-table .btn{
+  color: #ffffff !important;
+}
+.card-table .card-table-table .btn:hover{
+  color: #000000 !important;
+}
+.card-table .card-table-table td img{
+  width: 150px;
+}
+.card-table .card-table-table td .dropdown li{
+  line-height: 10px;
+}
+.card-table .card-table-table td .dropdown .dropdown-item:hover{
+  color: #ffffff !important;
+}
+.card-table nav{
   float: right;
 }
-@media (max-width: 590px) {
-  .card-table .search-table {
+@media(max-width: 590px){
+  .card-table .search-table{
     float: left;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -1253,40 +1276,40 @@ header .logo img {
 /*--------------------------------------------------------------
 # SHORT URL
 --------------------------------------------------------------*/
-.short-url-dash {
+.short-url-dash{
   padding: 10px 10px 20px 10px !important;
 }
-.short-url-dash .box-note {
-  background-color: #f8d7da;
+.short-url-dash .box-note{
+  background-color: #F8D7DA;
   color: #000;
   padding: 15px 20px 10px 20px;
   border-radius: 10px;
   margin-top: 20px;
 }
-.short-url-dash form {
+.short-url-dash form{
   margin-top: 20px;
 }
-.short-url-dash form label {
+.short-url-dash form label{
   display: block;
   font-size: 16px;
   padding-bottom: 5px;
   margin-top: 15px;
 }
-.short-url-dash form input {
+.short-url-dash form input{
   width: 100%;
   padding: 11px 10px;
   border-radius: 5px;
   border: none;
-  border: 1px solid #3b702a;
+  border: 1px solid #3B702A;
   font-size: 16px;
   color: #000;
 }
-.short-url-dash form input:focus {
+.short-url-dash form input:focus{
   outline: none;
-  border: 2px solid #3b702a;
+  border: 2px solid #3B702A;
 }
-.short-url-dash form button {
-  background-color: #3b702a;
+.short-url-dash form button{
+  background-color: #3B702A;
   color: #fff;
   border: none;
   padding: 10px;
@@ -1294,10 +1317,10 @@ header .logo img {
   border-radius: 10px;
   margin-top: 10px;
 }
-.short-url-dash form button:hover {
+.short-url-dash form button:hover{
   background-color: #274b1b;
 }
-.short-url-dash .created-url-here {
+.short-url-dash .created-url-here{
   background-color: #fff;
   box-shadow: 0px 0px 20px #d8d8d8;
   border-radius: 5px;
@@ -1305,38 +1328,38 @@ header .logo img {
   width: 100% !important;
   padding: 50px 30px;
 }
-.short-url-dash .created-url-here input {
+.short-url-dash .created-url-here input{
   padding: 12px;
 }
-.short-url-dash .created-url-here .input-url {
+.short-url-dash .created-url-here .input-url{
   width: 80% !important;
-  border: 1px solid #3b702a;
+  border: 1px solid #3B702A;
   border-radius: 5px 0px 0px 5px;
 }
-.short-url-dash .created-url-here .input-url-button {
+.short-url-dash .created-url-here .input-url-button{
   width: 20% !important;
-  background-color: #3b702a;
+  background-color: #3B702A;
   color: #fff;
-  border: 1px solid #3b702a;
+  border: 1px solid #3B702A;
   border-radius: 0px 5px 5px 0px;
 }
-.short-url-dash .created-url-here .input-url-button:hover {
+.short-url-dash .created-url-here .input-url-button:hover{
   background-color: #274b1b;
   border: 1px solid #274b1b;
 }
-@media (max-width: 566px) {
-  .short-url-dash .created-url-here .input-url {
+@media (max-width: 566px){
+  .short-url-dash .created-url-here .input-url{
     width: 70% !important;
   }
-  .short-url-dash .created-url-here .input-url-button {
+  .short-url-dash .created-url-here .input-url-button{
     width: 30% !important;
   }
 }
-@media (max-width: 400px) {
-  .short-url-dash .created-url-here .input-url {
+@media (max-width: 400px){
+  .short-url-dash .created-url-here .input-url{
     width: 60% !important;
   }
-  .short-url-dash .created-url-here .input-url-button {
+  .short-url-dash .created-url-here .input-url-button{
     width: 40% !important;
   }
 }
@@ -1344,17 +1367,17 @@ header .logo img {
 /*--------------------------------------------------------------
 # START VOTING
 --------------------------------------------------------------*/
-.start-voting-div {
+.start-voting-div{
   padding: 10px 10px 40px 10px;
 }
-.start-voting-inner-div {
-  background-color: #fff;
+.start-voting-inner-div{
+  background-color:  #fff;
   box-shadow: 0px 0px 20px #acacac3a;
   padding: 20px 30px !important;
   border-radius: 10px;
 }
-.start-voting-div .start-vote-details {
-  background-color: #f8d7da;
+.start-voting-div .start-vote-details{
+  background-color: #F8D7DA;
   color: #000;
   padding: 10px 40px 10px 20px;
   border-radius: 5px;
@@ -1362,19 +1385,18 @@ header .logo img {
   font-size: 18px;
   margin-bottom: 30px;
 }
-.start-voting-div form label {
+.start-voting-div form label{
   display: block;
   font-size: 18px;
   font-weight: 600;
   padding-bottom: 5px;
 }
-.start-voting-div form span {
+.start-voting-div form span{
   font-size: 16px;
   font-weight: 500;
   margin-right: 40px;
 }
-.start-voting-div form select,
-.start-voting-div form .input {
+.start-voting-div form select, .start-voting-div form .input{
   width: 100%;
   padding: 8px;
   border-radius: 5px;
@@ -1384,31 +1406,30 @@ header .logo img {
   font-weight: 500;
   background-color: #ffffff;
 }
-.start-voting-div form select:focus,
-.start-voting-div form .input:focus {
+.start-voting-div form select:focus, .start-voting-div form .input:focus{
   outline: none;
-  border: 2px solid #3b702a;
+  border: 2px solid #3B702A;
   background-color: #ffffff;
 }
-.start-voting-div form button {
-  background-color: #3b702a;
+.start-voting-div form button{
+  background-color: #3B702A;
   color: #fff;
   border: none;
   border-radius: 5px;
   width: 150px;
   padding: 10px 15px;
 }
-.start-voting-div form button:hover {
+.start-voting-div form button:hover{
   background-color: #2b521e;
 }
-@media (max-width: 565px) {
-  .start-voting-div {
+@media(max-width: 565px){
+  .start-voting-div{
     padding: 10px 5px 20px 5px;
   }
-  .start-voting-inner-div {
+  .start-voting-inner-div{
     padding: 20px 20px !important;
   }
-  .start-voting-div form span {
+  .start-voting-div form span{
     margin-right: 20px;
   }
 }
@@ -1416,22 +1437,22 @@ header .logo img {
 /*--------------------------------------------------------------
 # CREATE EVENT
 --------------------------------------------------------------*/
-.create-event-div .event-details-header {
-  background-color: #f8d7da;
+.create-event-div .event-details-header{
+  background-color: #F8D7DA;
   color: #000;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 23px;
   font-weight: 600;
 }
-.create-event-div form {
+.create-event-div form{
   width: 100% !important;
 }
-.create-event-div form label {
+.create-event-div form label{
   font-size: 16px;
 }
-.create-event-div .btn-add-ticket {
-  background-color: #0b5ed7;
+.create-event-div .btn-add-ticket{
+  background-color: #0B5ED7;
   color: #fff;
   padding: 15px 20px;
   border-radius: 10px;
@@ -1440,59 +1461,275 @@ header .logo img {
   font-weight: 500;
   margin-top: 20px;
 }
-.create-event-div .btn-add-ticket:hover {
+.create-event-div .btn-add-ticket:hover{
   background-color: #0949a8;
 }
-.create-event-div .modal-title {
+.create-event-div .modal-title{
   font-size: 17px !important;
 }
-.create-event-div .btn-ticket-btn {
+.create-event-div .btn-ticket-btn{
   padding: 10px 20px;
-  background-color: #0b5ed7;
+  background-color: #0B5ED7;
   border-radius: 15px;
   color: #fff;
   font-size: 17px;
   font-weight: 500;
   margin: 7px;
 }
-.create-event-div .modal-body .input {
+.create-event-div .modal-body .input{
   width: 100%;
   padding: 12px;
   border-radius: 5px;
   border: 1px solid #949494;
 }
-.create-event-div .modal-body .input:focus {
+.create-event-div .modal-body .input:focus{
   outline: none;
-  border: 2px solid #3b702a;
+  border: 2px solid #3B702A;
 }
-.create-event-div form button {
+.create-event-div form button{
   width: 180px;
   padding: 15px 5px;
   font-size: 17px;
 }
-.create-event-div form .optionDivQuestion {
+.create-event-div form .optionDivQuestion{
   margin-top: -30px;
 }
-.switch-link-header {
-  background-color: #3b702a !important;
+
+
+/*--------------------------------------------------------------
+# OVERVIEW BOX SECTION
+--------------------------------------------------------------*/
+.overview-box-section{
+  padding: 30px 10px 50px 10px;
+}
+.overview-box-section .overview-box{
+  background-color: #ffffff;
+  width: 250px;
+  margin: 10px;
+  border: 1px solid #a8a8a8;
+  border-radius: 10px;
+  padding: 10px 5px 5px 5px;
+  transition: 0.6s;
+}
+.overview-box-section .overview-box:hover{
+  transform: scale(1.1);
+  background-color: #ebffe4;
+  border: 1px solid #274b1b;
+}
+.overview-box-section .overview-box img{
+  width: 65px;
+  padding-bottom: 10px;
+}
+.overview-box-section .overview-box p{
+  font-weight: 600;
+  color: #000000;
+  font-size: 16px;
+}
+@media(max-width: 1499px){
+  .overview-box-section .overview-box{
+    width: 210px;
+  }
+}
+@media(max-width: 1299px){
+  .overview-box-section .overview-box{
+    width: 180px;
+  }
+  .overview-box-section .overview-box img{
+    width: 60px;
+  }
+}
+@media(max-width: 1199px){
+  .overview-box-section .overview-box{
+    width: 200px;
+  }
+}
+@media(max-width: 719px){
+  .overview-box-section .overview-box{
+    width: 180px;
+  }
+}
+@media(max-width: 659px){
+  .overview-box-section .overview-box{
+    width: 150px;
+  }
+  .overview-box-section .overview-box img{
+    width: 55px;
+  }
+  .overview-box-section .overview-box p{
+    font-size: 15px;
+  }
+}
+@media(max-width: 569px){
+  .overview-box-section .overview-box{
+    width: 45%;
+    margin: 5px;
+  }
+}
+
+
+/*--------------------------------------------------------------
+# PAYOUT SETTING PAGE
+--------------------------------------------------------------*/
+.payout-setting-div .event-details-headerTwo{
+  padding: 8px 20px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.payout-setting-div form label{
+  font-size: 14px;
+}
+.payout-setting-div form .input{
+  padding: 5px 8px;
+}
+.payout-setting-div form button{
+  width: 230px;
+  padding: 10px 5px;
+  font-size: 17px;
+}
+.payout-setting-div .switch{
+  display: inline-flex;
+}
+.payout-setting-div .switch input[type=checkbox]{
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+.payout-setting-div .switch input[type=checkbox]:checked + label{
+  background: green;
+}
+.payout-setting-div .switch input[type=checkbox]:checked + label::after{
+  left: calc(100% - 4px);
+  transform: translateX(-100%);
+}
+.payout-setting-div .switch label{
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  background: grey;
+  display: block;
+  border-radius: 24px;
+  position: relative;
+  margin-top: -10px;
+}
+.payout-setting-div .switch label::after{
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 16px;
+  transition: 0.3s;
+}
+
+/*--------------------------------------------------------------
+# EVENT SETTING PAGE
+--------------------------------------------------------------*/
+.event-setting-btn-div{
+  width: 100%;
+  clear: right;
+}
+.event-setting-btn-div .btn-add{
+  background-color: #3B702A;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px 25px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.event-setting-btn-div .btn-add:hover{
+  background-color: #488833;
+}
+.event-setting-btn-div .header-modal{
+  background-color: #d0ffc0;
+  padding: 10px 5px 5px 5px !important;
+  color: #000;
+}
+.event-setting-btn-div .header-modal p{
+  font-weight: 700;
+  font-size: 20px;
+}
+.event-setting-btn-div form input{
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #adadad;
+  width: 100%;
+}
+.event-setting-btn-div form button{
+  width: 130px;
+  padding: 10px 5px;
+  border: none;
+  background-color: #3B702A;
+  color: #fff;
+  border-radius: 5px;
+}
+.event-setting-btn-div form button:hover{
+  border: none;
+  background-color: #284b1d;
+  color: #fff;
+  border-radius: 5px;
+}
+@media(max-width: 590px){
+  .event-setting-btn-div{
+    float: left;
+  }
+}
+
+
+/*--------------------------------------------------------------
+# SUBSCRIBE EMAIL SECTION
+--------------------------------------------------------------*/
+.subscribe-email-section form .email-input{
+  width: 80%;
+  padding: 8px 11px;
+  color: #000000;
+  border: 1px solid #505050;
+  border-right: none;
+  border-radius: 5px 0px 0px 5px;
+}
+.subscribe-email-section form .email-input:focus{
+  outline: none;
+  border: 1px solid #505050;
+  border-right: none;
+}
+.subscribe-email-section form .remove-input{
+  width: 20%;
+  padding: 8px 3px;
+  background-color: #e61e1e;
+  color: #ffff;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #e61e1e;
+  border-radius: 0px 5px 5px 0px;
+}
+.subscribe-email-section form .remove-input:hover{
+  background-color: #c21919;
+  border: 1px solid #c21919;
+}
+
+.switch-link-header{
+  background-color: #3B702A !important;
   padding: 7px 15px !important;
   border-radius: 5px !important;
   color: #fff !important;
-  border: 1px solid #3b702a;
+  border: 1px solid #3B702A;
 }
-.switch-link-header:hover {
+.switch-link-header:hover{
   background-color: #ecffe6 !important;
-  color: #3b702a !important;
-  border: 1px solid #3b702a;
+  color: #3B702A !important;
+  border: 1px solid #3B702A;
 }
-.sider-switch-link {
+.sider-switch-link{
   display: none !important;
 }
-@media (max-width: 591px) {
-  .switch-link-header {
+@media(max-width: 591px){
+  .switch-link-header{
     display: none !important;
   }
-  .sider-switch-link {
+  .sider-switch-link{
     display: block !important;
   }
 }

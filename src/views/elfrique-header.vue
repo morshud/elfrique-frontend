@@ -33,24 +33,24 @@
                                     </div>
                                     <div class="col-lg-1"></div>
                                     <div class="col-lg-4">
-                                        <a href="#"><i class="bi bi-arrow-right-short"></i> Vote Management System</a>
-                                        <a href="#"><i class="bi bi-arrow-right-short"></i> Trivia Management System</a>
-                                        <a href="#"><i class="bi bi-arrow-right-short"></i> Travels & Tours Management System</a>
+                                        <router-link to="/vote-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Vote Management System</a></router-link>
+                                        <router-link to="/trivia-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Trivia Management System</a></router-link>
+                                        <router-link to="/travel-tour-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Travels & Tours Management System</a></router-link>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="#"><i class="bi bi-arrow-right-short"></i> Event Forms Management System</a>
-                                        <a href="#"><i class="bi bi-arrow-right-short"></i> Event Tickets Management System</a>
-                                        <a href="#"><i class="bi bi-arrow-right-short"></i> Event Vendors Management System</a>
+                                        <router-link to="/event-form-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Event Forms Management System</a></router-link>
+                                        <router-link to="/event-ticket-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Event Tickets Management System</a></router-link>
+                                        <router-link to="/event-vendor-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Event Vendors Management System</a></router-link>
                                     </div>
                                 </div>
                             </div>
                             <ul class="dropdown-menu mobile-dropdown" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-right-short"></i> Vote Management System</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-right-short"></i> Event Tickets Management System</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-right-short"></i> Trivia Management System</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-right-short"></i> Event Vendors Management System</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-right-short"></i> Event Forms Management System</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-right-short"></i> Travels & Tours Management System</a></li>
+                                <li><router-link to="/vote-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Vote Management System</a></router-link></li>
+                                <li><router-link to="/event-ticket-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Event Tickets Management System</a></router-link></li>
+                                <li><router-link to="/trivia-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Trivia Management System</a></router-link></li>
+                                <li><router-link to="/event-vendor-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Event Vendors Management System</a></router-link></li>
+                                <li><router-link to="/event-form-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Event Forms Management System</a></router-link></li>
+                                <li><router-link to="/travel-tour-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Travels & Tours Management System</a></router-link></li>
                             </ul>
                         </li>
                         <li class="nav-item">

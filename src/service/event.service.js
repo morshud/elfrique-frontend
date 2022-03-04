@@ -64,6 +64,10 @@ class EventService {
       }
     );
   }
+
+  allEvents() {
+    return axios.get(API_URL + "allEvents", { headers: authHeader() });
+  }
 }
 
 export default new EventService();

@@ -1,5 +1,7 @@
 const initialState = {
   voteContent: {},
+  contest: {},
+  contestant: {},
 };
 
 export const vote = {
@@ -13,6 +15,13 @@ export const vote = {
     getMessage({ commit }, message) {
       commit("setMessage", message);
     },
+
+    getSingleContest({ commit }, contest) {
+      commit("setSingleContest", contest);
+    },
+    getContestant({ commit }, contestant) {
+      commit("setContestant", contestant);
+    },
   },
   mutations: {
     setVoteContent(state, voteContent) {
@@ -20,6 +29,12 @@ export const vote = {
     },
     setMessage(state, message) {
       state.message = message;
+    },
+    setSingleContest(state, contest) {
+      state.contest = contest;
+    },
+    setContestant(state, contestant) {
+      state.contestant = contestant;
     },
   },
 };

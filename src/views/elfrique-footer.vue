@@ -2,7 +2,7 @@
     <footer>
       <div class="container">
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-5">
             <div class="main-ft">
               <router-link to="/" class="routers"><img src="@/assets/images/logo.png"></router-link>
               <h5>An innovative and complete goal-oriented company. We use through our website and short codes to help customers achieve their goals.</h5>
@@ -17,7 +17,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-2"></div>
+          <div class="col-lg-1"></div>
           <div class="col-lg-2">
             <div class="link-ft">
               <h4>Company</h4>
@@ -25,20 +25,20 @@
               <p><router-link to="/blogs" class="routers"><a>Blogs</a></router-link></p>
               <p><router-link to="/pricing" class="routers"><a>Pricing</a></router-link></p>
               <p><router-link to="/contact" class="routers"><a>Contact Us</a></router-link></p>
-              <p><a href="#">Buyers Guide</a></p>
-              <p><a href="#">Sellers Guide</a></p>
+              <p><router-link to="#" class="routers"><a>Buyers Guide</a></router-link></p>
+              <p><router-link to="#" class="routers"><a>Sellers Guide</a></router-link></p>
             </div>
           </div>
           <div class="col-lg-2">
             <div class="link-ft">
               <h4>Our Services</h4>
               <div class="line-rule"></div>
-              <p><a href="#">Event Forms</a></p>
-              <p><a href="#">Event Tickets</a></p>
-              <p><a href="#">Event Vendors</a></p>
-              <p><a href="#">Trivia System</a></p>
-              <p><a href="#">Travel & Tours</a></p>
-              <p><a href="#">Voting Contests</a></p>
+              <p><router-link to="/event-form-management" class="routers"><a>Event Forms</a></router-link></p>
+              <p><router-link to="/event-ticket-management" class="routers"><a>Event Tickets</a></router-link></p>
+              <p><router-link to="/event-vendor-management" class="routers"><a>Event Vendors</a></router-link></p>
+              <p><router-link to="/trivia-management" class="routers"><a>Trivia System</a></router-link></p>
+              <p><router-link to="/travel-tour-management" class="routers"><a>Travel & Tours</a></router-link></p>
+              <p><router-link to="/vote-management" class="routers"><a>Voting Contests</a></router-link></p>
             </div>
           </div>
           <div class="col-lg-2">

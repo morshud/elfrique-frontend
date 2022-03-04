@@ -8,8 +8,29 @@ import Privacy from "../views/Privacy.vue";
 import Terms from "../views/Terms.vue";
 import Login from "../views/Login.vue";
 import Signup from "../views/Signup.vue";
-import VerifyEmail from "../views/VerifyEmail.vue";
 import Forgot from "../views/Forgot.vue";
+import VerifyEmail from "../views/VerifyEmail.vue";
+///////////////////SERVICES
+//Voting System
+import ServiceVoteManagementSystem from "../views/VoteManagementSystem.vue";
+import VotVotingContent from "../views/VotingContent.vue";
+import VotContestantProfile from "../views/ContestantProfile.vue";
+//Event Form
+import ServiceEventFormManagementSystem from "../views/EventFormManagementSystem.vue";
+import EvtForEventFormContent from "../views/EventFormContent.vue";
+//Trivia System
+import ServiceTriviaManagementSystem from "../views/TriviaManagementSystem.vue";
+import TriTriviaContent from "../views/TriviaContent.vue";
+import TriTriviaContentInstruction from "../views/TriviaContentInstruction.vue";
+import TriTriviaContentQuiz from "../views/TriviaContentQuiz.vue";
+//Event Ticket
+import ServiceEventTicketManagementSystem from "../views/EventTicketManagementSystem.vue";
+import TicTicketContent from "../views/TicketContent.vue";
+//Travel And Tour System
+import ServiceTravelAndTourManagementSystem from "../views/TravelAndTourManagementSystem.vue";
+//Event Vendor
+import ServiceEventVendorManagementSystem from "../views/EventVendorManagementSystem.vue";
+///////////////////////////////////////////User Dashboard
 import Dashboard from "../views/dashboard/Dashboard.vue";
 import DashProfile from "../views/dashboard/Profile.vue";
 import DashStartVoting from "../views/dashboard/StartVoting.vue";
@@ -79,6 +100,90 @@ import SecondDashViewContestants from "../views/dashboard-second/ViewContestants
 import SecondDashVoteSalesAnalytics from "../views/dashboard-second/VoteSalesAnalytics.vue";
 import SecondDashResultSetting from "../views/dashboard-second/ResultSetting.vue";
 import SecondDashTriviaSalesAnalytics from "../views/dashboard-second/TriviaSalesAnalytics.vue";
+import DashCreateVendorService from "../views/dashboard/CreateVendorService.vue";
+import DashViewVendor from "../views/dashboard/ViewVendor.vue";
+import DashSearchVendor from "../views/dashboard/SearchVendor.vue";
+///////////////////////////////////////////Super Admin
+import SuperAdminDashboard from "../views/superadmin/Dashboard.vue";
+import SuperAdminProfile from "../views/superadmin/Profile.vue";
+/////////////////////////////////////////
+import SuperAdminGenOverviewGeneral from "../views/superadmin/OverviewGeneral.vue";
+import SuperAdminGenViewOrganiser from "../views/superadmin/ViewOrganiser.vue";
+import SuperAdminGenShortLinks from "../views/superadmin/ShortLinks.vue";
+import SuperAdminGenSubscribers from "../views/superadmin/Subscribers.vue";
+import SuperAdminGenAddSubscribers from "../views/superadmin/AddSubscribers.vue";
+import SuperAdminGenSearchAirtime from "../views/superadmin/SearchAirtime.vue";
+import SuperAdminGenViewAirtimeLogs from "../views/superadmin/ViewAirtimeLogs.vue";
+import SuperAdminGenViewPayout from "../views/superadmin/ViewPayout.vue";
+import SuperAdminGenPayuLog from "../views/superadmin/PayuLog.vue";
+import SuperAdminGenSearchPayuLogs from "../views/superadmin/SearchPayuLogs.vue";
+import SuperAdminGenAddFaq from "../views/superadmin/AddFaq.vue";
+import SuperAdminGenViewFaq from "../views/superadmin/ViewFAQs.vue";
+///////////////////////////////////
+import SuperAdminVotOverviewVoting from "../views/superadmin/OverviewVoting.vue";
+import SuperAdminVotViewContest from "../views/superadmin/ViewContest.vue";
+import SuperAdminVotVotePayoutSetting from "../views/superadmin/VotePayoutSetting.vue";
+import SuperAdminVotStartVoting from "../views/superadmin/StartVoting.vue";
+import SuperAdminVotAddContestant from "../views/superadmin/AddContestant.vue";
+import SuperAdminVotAddSponsors from "../views/superadmin/AddSponsors.vue";
+import SuperAdminVotAddCategory from "../views/superadmin/AddCategory.vue";
+import SuperAdminVotAddInfo from "../views/superadmin/AddInfo.vue";
+import SuperAdminVotViewContestants from "../views/superadmin/ViewContestants.vue";
+import SuperAdminVotVoteSalesAnalytics from "../views/superadmin/VoteSalesAnalytics.vue";
+import SuperAdminVotResultSetting from "../views/superadmin/ResultSetting.vue";
+import SuperAdminVotSearchVote from "../views/superadmin/SearchVote.vue";
+///////////////////////////////////////
+import SuperAdminRegOverviewRegistration from "../views/superadmin/OverviewRegistration.vue";
+import SuperAdminRegCreateEvent from "../views/superadmin/CreateEvent.vue";
+import SuperAdminRegViewEvent from "../views/superadmin/ViewEvent.vue";
+import SuperAdminRegEventSetting from "../views/superadmin/EventSetting.vue";
+import SuperAdminRegPersonalTicket from "../views/superadmin/PersonalTicket.vue";
+import SuperAdminRegEventCashPayment from "../views/superadmin/EventCashPayment.vue";
+import SuperAdminRegEventPayoutSetting from "../views/superadmin/EventPayoutSetting.vue";
+import SuperAdminRegEventSalesAnalytics from "../views/superadmin/EventSalesAnalytics.vue";
+import SuperAdminRegSearchTicket from "../views/superadmin/SearchTicket.vue";
+///////////////////////////////////////
+import SuperAdminFomOverviewForms from "../views/superadmin/OverviewForms.vue";
+import SuperAdminFomCreateForm from "../views/superadmin/CreateForm.vue";
+import SuperAdminFomViewForm from "../views/superadmin/ViewForm.vue";
+import SuperAdminFomPersonalForm from "../views/superadmin/PersonalForm.vue";
+import SuperAdminFomFormCashPayment from "../views/superadmin/FormCashPayment.vue";
+import SuperAdminFomFormPayoutSetting from "../views/superadmin/FormPayoutSetting.vue";
+import SuperAdminFomFormSalesAnalytics from "../views/superadmin/FormSalesAnalytics.vue";
+import SuperAdminFomSearchForm from "../views/superadmin/SearchForm.vue";
+///////////////////////////////////////
+import SuperAdminTriOverviewTrivia from "../views/superadmin/OverviewTrivia.vue";
+import SuperAdminTriCreateTrivia from "../views/superadmin/CreateTrivia.vue";
+import SuperAdminTriViewTrivia from "../views/superadmin/ViewTrivia.vue";
+import SuperAdminTriUpdateTrivia from "../views/superadmin/UpdateTrivia.vue";
+import SuperAdminTriViewResult from "../views/superadmin/ViewResult.vue";
+import SuperAdminTriTriviaCashPayment from "../views/superadmin/TriviaCashPayment.vue";
+import SuperAdminTriTriviaSalesAnalytics from "../views/superadmin/TriviaSalesAnalytics.vue";
+import SuperAdminTriSearchTrivia from "../views/superadmin/SearchTrivia.vue";
+///////////////////////////////////////
+import SuperAdminVenCreateVendorService from "../views/superadmin/CreateVendorService.vue";
+import SuperAdminVenViewVendor from "../views/superadmin/ViewVendor.vue";
+import SuperAdminVenSearchVendor from "../views/superadmin/SearchVendor.vue";
+///////////////////////////////////////
+import SuperAdminTrlTravelBooking from "../views/superadmin/TravelBooking.vue";
+import SuperAdminTrlHotelBooking from "../views/superadmin/HotelBooking.vue";
+import SuperAdminTrleVisa from "../views/superadmin/eVisa.vue";
+///////////////////////////////////////
+import SuperAdminBlgCreateBlogPost from "../views/superadmin/CreateBlogPost.vue";
+import SuperAdminBlgViewBlogs from "../views/superadmin/ViewBlogs.vue";
+///////////////////////////////////////
+import SuperAdminAnaOverviewSalesAnalytics from "../views/superadmin/OverviewSalesAnalytics.vue";
+import SuperAdminAnaVotingAnalytics from "../views/superadmin/VotingAnalytics.vue";
+import SuperAdminAnaFormAnalytics from "../views/superadmin/FormAnalytics.vue";
+import SuperAdminAnaTicketAnalytics from "../views/superadmin/TicketAnalytics.vue";
+import SuperAdminAnaTriviaAnalytics from "../views/superadmin/TriviaAnalytics.vue";
+import SuperAdminAnaVendorAnalytics from "../views/superadmin/VendorAnalytics.vue";
+///////////////////////////////////////
+import SuperAdminURLCreateURL from "../views/superadmin/CreateURL.vue";
+import SuperAdminURLViewURL from "../views/superadmin/ViewURL.vue";
+///////////////////////////////////////
+import SuperAdminNotContactList from "../views/superadmin/ContactList.vue";
+import SuperAdminNotSMSLogs from "../views/superadmin/SMSLogs.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -90,13 +195,86 @@ const routes = [
   { path: "/terms", name: "Terms", component: Terms },
   { path: "/login", name: "Login", component: Login },
   { path: "/signup", name: "Signup", component: Signup },
+  { path: "/forgot", name: "Forgot", component: Forgot },
+  ///////////////Services
+  //voting system
+  {
+    path: "/vote-management",
+    name: "ServiceVoteManagementSystem",
+    component: ServiceVoteManagementSystem,
+  },
+  {
+    path: "/voting-content",
+    name: "VotVotingContent",
+    component: VotVotingContent,
+  },
+  {
+    path: "/contestant-profile",
+    name: "VotContestantProfile",
+    component: VotContestantProfile,
+  },
+  //Event Form
+  {
+    path: "/event-form-management",
+    name: "ServiceEventFormManagementSystem",
+    component: ServiceEventFormManagementSystem,
+  },
+  {
+    path: "/event-form-content",
+    name: "EvtForEventFormContent",
+    component: EvtForEventFormContent,
+  },
+  //Trivia System
+  {
+    path: "/trivia-management",
+    name: "ServiceTriviaManagementSystem",
+    component: ServiceTriviaManagementSystem,
+  },
+  {
+    path: "/trivia-content",
+    name: "TriTriviaContent",
+    component: TriTriviaContent,
+  },
+  {
+    path: "/trivia-content-instruction",
+    name: "TriTriviaContentInstruction",
+    component: TriTriviaContentInstruction,
+  },
+  {
+    path: "/trivia-content-quiz",
+    name: "TriTriviaContentQuiz",
+    component: TriTriviaContentQuiz,
+  },
+  //Event Ticket
+  {
+    path: "/event-ticket-management",
+    name: "ServiceEventTicketManagementSystem",
+    component: ServiceEventTicketManagementSystem,
+  },
+  {
+    path: "/ticket-content",
+    name: "TicTicketContent",
+    component: TicTicketContent,
+  },
+  //Travel And Tour System
+  {
+    path: "/travel-tour-management",
+    name: "ServiceTravelAndTourManagementSystem",
+    component: ServiceTravelAndTourManagementSystem,
+  },
+  //Event Vendor
+  {
+    path: "/event-vendor-management",
+    name: "ServiceEventVendorManagementSystem",
+    component: ServiceEventVendorManagementSystem,
+  },
+  ///////////////////////////////////////////User Dashboard
   {
     path: "/verify",
     name: "verify",
     component: VerifyEmail,
     props: (route) => ({ email: route.query.email, token: route.query.token }),
   },
-  { path: "/forgot", name: "Forgot", component: Forgot },
   { path: "/organiser/dashboard", name: "Dashboard", component: Dashboard },
   { path: "/organiser/profile", name: "DashProfile", component: DashProfile },
   {
@@ -381,6 +559,378 @@ const routes = [
     path: "/user/view-url",
     name: "SecondDashViewURL",
     component: SecondDashViewURL,
+  },
+  {
+    path: "/organiser/view-vendor",
+    name: "DashViewVendor",
+    component: DashViewVendor,
+  },
+  {
+    path: "/organiser/search-vendor",
+    name: "DashSearchVendor",
+    component: DashSearchVendor,
+  },
+  ///////////////////////////////////////////Super Admin
+  {
+    path: "/superadmin/dashboard",
+    name: "SuperAdminDashboard",
+    component: SuperAdminDashboard,
+  },
+  {
+    path: "/superadmin/profile",
+    name: "SuperAdminProfile",
+    component: SuperAdminProfile,
+  },
+  //////////////////////////////
+  {
+    path: "/superadmin/overview-general",
+    name: "SuperAdminGenOverviewGeneral",
+    component: SuperAdminGenOverviewGeneral,
+  },
+  {
+    path: "/superadmin/view-organisers",
+    name: "SuperAdminGenViewOrganiser",
+    component: SuperAdminGenViewOrganiser,
+  },
+  {
+    path: "/superadmin/short-links",
+    name: "SuperAdminGenShortLinks",
+    component: SuperAdminGenShortLinks,
+  },
+  {
+    path: "/superadmin/subscribers",
+    name: "SuperAdminGenSubscribers",
+    component: SuperAdminGenSubscribers,
+  },
+  {
+    path: "/superadmin/add-subscribers",
+    name: "SuperAdminGenAddSubscribers",
+    component: SuperAdminGenAddSubscribers,
+  },
+  {
+    path: "/superadmin/search-airtime",
+    name: "SuperAdminGenSearchAirtime",
+    component: SuperAdminGenSearchAirtime,
+  },
+  {
+    path: "/superadmin/view-airtime-logs",
+    name: "SuperAdminGenViewAirtimeLogs",
+    component: SuperAdminGenViewAirtimeLogs,
+  },
+  {
+    path: "/superadmin/view-payout",
+    name: "SuperAdminGenViewPayout",
+    component: SuperAdminGenViewPayout,
+  },
+  {
+    path: "/superadmin/payu-log",
+    name: "SuperAdminGenPayuLog",
+    component: SuperAdminGenPayuLog,
+  },
+  {
+    path: "/superadmin/search-payu-logs",
+    name: "SuperAdminGenSearchPayuLogs",
+    component: SuperAdminGenSearchPayuLogs,
+  },
+  {
+    path: "/superadmin/add-faq",
+    name: "SuperAdminGenAddFaq",
+    component: SuperAdminGenAddFaq,
+  },
+  {
+    path: "/superadmin/view-faqs",
+    name: "SuperAdminGenViewFaq",
+    component: SuperAdminGenViewFaq,
+  },
+  {
+    path: "/superadmin/view-faqs",
+    name: "SuperAdminGenViewFaq",
+    component: SuperAdminGenViewFaq,
+  },
+  ////////////////////////////////////
+  {
+    path: "/superadmin/overview-voting",
+    name: "SuperAdminVotOverviewVoting",
+    component: SuperAdminVotOverviewVoting,
+  },
+  {
+    path: "/superadmin/view-contest",
+    name: "SuperAdminVotViewContest",
+    component: SuperAdminVotViewContest,
+  },
+  {
+    path: "/superadmin/vote-payout-setting",
+    name: "SuperAdminVotVotePayoutSetting",
+    component: SuperAdminVotVotePayoutSetting,
+  },
+  {
+    path: "/superadmin/start-voting",
+    name: "SuperAdminVotStartVoting",
+    component: SuperAdminVotStartVoting,
+  },
+  {
+    path: "/superadmin/add-contestant",
+    name: "SuperAdminVotAddContestant",
+    component: SuperAdminVotAddContestant,
+  },
+  {
+    path: "/superadmin/add-sponsor",
+    name: "SuperAdminVotAddSponsors",
+    component: SuperAdminVotAddSponsors,
+  },
+  {
+    path: "/superadmin/add-category",
+    name: "SuperAdminVotAddCategory",
+    component: SuperAdminVotAddCategory,
+  },
+  {
+    path: "/superadmin/add-info",
+    name: "SuperAdminVotAddInfo",
+    component: SuperAdminVotAddInfo,
+  },
+  {
+    path: "/superadmin/view-contestants",
+    name: "SuperAdminVotViewContestants",
+    component: SuperAdminVotViewContestants,
+  },
+  {
+    path: "/superadmin/vote-sales-analytics",
+    name: "SuperAdminVotVoteSalesAnalytics",
+    component: SuperAdminVotVoteSalesAnalytics,
+  },
+  {
+    path: "/superadmin/result-setting",
+    name: "SuperAdminVotResultSetting",
+    component: SuperAdminVotResultSetting,
+  },
+  {
+    path: "/superadmin/search-for-vote",
+    name: "SuperAdminVotSearchVote",
+    component: SuperAdminVotSearchVote,
+  },
+  ///////////////////////////////
+  {
+    path: "/superadmin/overview-registration",
+    name: "SuperAdminRegOverviewRegistration",
+    component: SuperAdminRegOverviewRegistration,
+  },
+  {
+    path: "/superadmin/create-event",
+    name: "SuperAdminRegCreateEvent",
+    component: SuperAdminRegCreateEvent,
+  },
+  {
+    path: "/superadmin/view-event",
+    name: "SuperAdminRegViewEvent",
+    component: SuperAdminRegViewEvent,
+  },
+  {
+    path: "/superadmin/event-setting",
+    name: "SuperAdminRegEventSetting",
+    component: SuperAdminRegEventSetting,
+  },
+  {
+    path: "/superadmin/personal-ticket",
+    name: "SuperAdminRegPersonalTicket",
+    component: SuperAdminRegPersonalTicket,
+  },
+  {
+    path: "/superadmin/event-cash-payment",
+    name: "SuperAdminRegEventCashPayment",
+    component: SuperAdminRegEventCashPayment,
+  },
+  {
+    path: "/superadmin/event-payout-setting",
+    name: "SuperAdminRegEventPayoutSetting",
+    component: SuperAdminRegEventPayoutSetting,
+  },
+  {
+    path: "/superadmin/event-sales-analytics",
+    name: "SuperAdminRegEventSalesAnalytics",
+    component: SuperAdminRegEventSalesAnalytics,
+  },
+  {
+    path: "/superadmin/search-ticket",
+    name: "SuperAdminRegSearchTicket",
+    component: SuperAdminRegSearchTicket,
+  },
+  ///////////////////////////////////////
+  {
+    path: "/superadmin/overview-forms",
+    name: "SuperAdminFomOverviewForms",
+    component: SuperAdminFomOverviewForms,
+  },
+  {
+    path: "/superadmin/create-form",
+    name: "SuperAdminFomCreateForm",
+    component: SuperAdminFomCreateForm,
+  },
+  {
+    path: "/superadmin/view-forms",
+    name: "SuperAdminFomViewForm",
+    component: SuperAdminFomViewForm,
+  },
+  {
+    path: "/superadmin/personal-forms",
+    name: "SuperAdminFomPersonalForm",
+    component: SuperAdminFomPersonalForm,
+  },
+  {
+    path: "/superadmin/form-cash-payment",
+    name: "SuperAdminFomFormCashPayment",
+    component: SuperAdminFomFormCashPayment,
+  },
+  {
+    path: "/superadmin/form-payout-setting",
+    name: "SuperAdminFomFormPayoutSetting",
+    component: SuperAdminFomFormPayoutSetting,
+  },
+  {
+    path: "/superadmin/form-sales-analytics",
+    name: "SuperAdminFomFormSalesAnalytics",
+    component: SuperAdminFomFormSalesAnalytics,
+  },
+  {
+    path: "/superadmin/search-forms",
+    name: "SuperAdminFomSearchForm",
+    component: SuperAdminFomSearchForm,
+  },
+  ///////////////////////////////////////
+  {
+    path: "/superadmin/overview-trivia",
+    name: "SuperAdminTriOverviewTrivia",
+    component: SuperAdminTriOverviewTrivia,
+  },
+  {
+    path: "/superadmin/create-trivia",
+    name: "SuperAdminTriCreateTrivia",
+    component: SuperAdminTriCreateTrivia,
+  },
+  {
+    path: "/superadmin/view-trivia",
+    name: "SuperAdminTriViewTrivia",
+    component: SuperAdminTriViewTrivia,
+  },
+  {
+    path: "/superadmin/update-trivia",
+    name: "SuperAdminTriUpdateTrivia",
+    component: SuperAdminTriUpdateTrivia,
+  },
+  {
+    path: "/superadmin/view-result",
+    name: "SuperAdminTriViewResult",
+    component: SuperAdminTriViewResult,
+  },
+  {
+    path: "/superadmin/trivia-cash-payment",
+    name: "SuperAdminTriTriviaCashPayment",
+    component: SuperAdminTriTriviaCashPayment,
+  },
+  {
+    path: "/superadmin/trivia-sales-analytics",
+    name: "SuperAdminTriTriviaSalesAnalytics",
+    component: SuperAdminTriTriviaSalesAnalytics,
+  },
+  {
+    path: "/superadmin/search-trivia",
+    name: "SuperAdminTriSearchTrivia",
+    component: SuperAdminTriSearchTrivia,
+  },
+  ///////////////////////////////////////
+  {
+    path: "/superadmin/create-vendor-service",
+    name: "SuperAdminVenCreateVendorService",
+    component: SuperAdminVenCreateVendorService,
+  },
+  {
+    path: "/superadmin/view-vendor",
+    name: "SuperAdminVenViewVendor",
+    component: SuperAdminVenViewVendor,
+  },
+  {
+    path: "/superadmin/search-vendor",
+    name: "SuperAdminVenSearchVendor",
+    component: SuperAdminVenSearchVendor,
+  },
+  ///////////////////////////////////////
+  {
+    path: "/superadmin/travel-booking",
+    name: "SuperAdminTrlTravelBooking",
+    component: SuperAdminTrlTravelBooking,
+  },
+  {
+    path: "/superadmin/hotel-booking",
+    name: "SuperAdminTrlHotelBooking",
+    component: SuperAdminTrlHotelBooking,
+  },
+  {
+    path: "/superadmin/e-visa",
+    name: "SuperAdminTrleVisa",
+    component: SuperAdminTrleVisa,
+  },
+  ///////////////////////////////////////
+  {
+    path: "/superadmin/create-blog",
+    name: "SuperAdminBlgCreateBlogPost",
+    component: SuperAdminBlgCreateBlogPost,
+  },
+  {
+    path: "/superadmin/view-blogs",
+    name: "SuperAdminBlgViewBlogs",
+    component: SuperAdminBlgViewBlogs,
+  },
+  ///////////////////////////////////////
+  {
+    path: "/superadmin/overview-sales-analytics",
+    name: "SuperAdminAnaOverviewSalesAnalytics",
+    component: SuperAdminAnaOverviewSalesAnalytics,
+  },
+  {
+    path: "/superadmin/voting-analytics",
+    name: "SuperAdminAnaVotingAnalytics",
+    component: SuperAdminAnaVotingAnalytics,
+  },
+  {
+    path: "/superadmin/form-analytics",
+    name: "SuperAdminAnaFormAnalytics",
+    component: SuperAdminAnaFormAnalytics,
+  },
+  {
+    path: "/superadmin/ticket-analytics",
+    name: "SuperAdminAnaTicketAnalytics",
+    component: SuperAdminAnaTicketAnalytics,
+  },
+  {
+    path: "/superadmin/trivia-analytics",
+    name: "SuperAdminAnaTriviaAnalytics",
+    component: SuperAdminAnaTriviaAnalytics,
+  },
+  {
+    path: "/superadmin/vendor-analytics",
+    name: "SuperAdminAnaVendorAnalytics",
+    component: SuperAdminAnaVendorAnalytics,
+  },
+  ///////////////////////////////////////
+  {
+    path: "/superadmin/create-url",
+    name: "SuperAdminURLCreateURL",
+    component: SuperAdminURLCreateURL,
+  },
+  {
+    path: "/superadmin/view-url",
+    name: "SuperAdminURLViewURL",
+    component: SuperAdminURLViewURL,
+  },
+  ///////////////////////////////////////
+  {
+    path: "/superadmin/contact-list",
+    name: "SuperAdminNotContactList",
+    component: SuperAdminNotContactList,
+  },
+  {
+    path: "/superadmin/sms-logs",
+    name: "SuperAdminNotSMSLogs",
+    component: SuperAdminNotSMSLogs,
   },
 ];
 

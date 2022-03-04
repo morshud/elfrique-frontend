@@ -68,6 +68,10 @@ class VoteService {
       }
     );
   }
+
+  getAllContests() {
+    return axios.get(API_URL + "allVoteContest", { headers: authHeader() });
+  }
 }
 
 export default new VoteService();

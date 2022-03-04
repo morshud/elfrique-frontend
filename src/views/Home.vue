@@ -1,5 +1,5 @@
 <template>
-  <title>Home | Elfrique – Complete Event Management System</title>
+  <title>Elfrique – Complete Event Management System</title>
   <elfrique-header/>
 
   <!--Welcome Screen-->
@@ -113,52 +113,64 @@
       </div>
       <div class="row justify-content-center boxes">
         <div class="col-md-4">
-          <a href="#">
-            <div class="box">
-            <div class="main-box box1"></div>
-            <h3>Voting Contests <i class="bi bi-arrow-right"></i></h3>
-            </div>
-          </a>
+          <router-link to="/vote-management" class="routers">
+            <a>
+              <div class="box">
+              <div class="main-box box1"></div>
+              <h3>Voting Contests <i class="bi bi-arrow-right"></i></h3>
+              </div>
+            </a>
+          </router-link>
         </div>
         <div class="col-md-4">
-          <a href="#">
-            <div class="box">
-            <div class="main-box box2"></div>
-            <h3>Event Tickets <i class="bi bi-arrow-right"></i></h3>
-            </div>
-          </a>
+          <router-link to="/event-ticket-management" class="routers">
+            <a>
+              <div class="box">
+              <div class="main-box box2"></div>
+              <h3>Event Tickets <i class="bi bi-arrow-right"></i></h3>
+              </div>
+            </a>
+          </router-link>
         </div>
         <div class="col-md-4">
-          <a href="#">
-            <div class="box">
-            <div class="main-box box3"></div>
-            <h3>Travel & Tours <i class="bi bi-arrow-right"></i></h3>
-            </div>
-          </a>
+          <router-link to="/travel-tour-management" class="routers">
+            <a>
+              <div class="box">
+              <div class="main-box box3"></div>
+              <h3>Travel & Tours <i class="bi bi-arrow-right"></i></h3>
+              </div>
+            </a>
+          </router-link>
         </div>
         <div class="col-md-4">
-          <a href="#">
-            <div class="box">
-            <div class="main-box box4"></div>
-            <h3>Event Vendors <i class="bi bi-arrow-right"></i></h3>
-            </div>
-          </a>
+          <router-link to="/event-vendor-management" class="routers">
+            <a>
+              <div class="box">
+              <div class="main-box box4"></div>
+              <h3>Event Vendors <i class="bi bi-arrow-right"></i></h3>
+              </div>
+            </a>
+          </router-link>
         </div>
         <div class="col-md-4">
-          <a href="#">
-            <div class="box">
-            <div class="main-box box5"></div>
-            <h3>Trivia System <i class="bi bi-arrow-right"></i></h3>
-            </div>
-          </a>
+        <router-link to="/trivia-management" class="routers">
+            <a>
+              <div class="box">
+              <div class="main-box box5"></div>
+              <h3>Trivia System <i class="bi bi-arrow-right"></i></h3>
+              </div>
+            </a>
+          </router-link>
         </div>
         <div class="col-md-4">
-          <a href="#">
-            <div class="box">
-            <div class="main-box box6"></div>
-            <h3>Event Forms <i class="bi bi-arrow-right"></i></h3>
-            </div>
-          </a>
+          <router-link to="/event-form-management" class="routers">
+            <a>
+              <div class="box">
+              <div class="main-box box6"></div>
+              <h3>Event Forms <i class="bi bi-arrow-right"></i></h3>
+              </div>
+            </a>
+          </router-link>
         </div>
       </div>
     </div>
