@@ -10,6 +10,9 @@ import Login from "../views/Login.vue";
 import Signup from "../views/Signup.vue";
 import Forgot from "../views/Forgot.vue";
 import VerifyEmail from "../views/VerifyEmail.vue";
+///////////////////E-visa
+import eVisaUnitedArabEmirates from "../views/evisa/UnitedArabEmirates.vue";
+///////////////////SERVICES
 ///////////////////SERVICES
 //Voting System
 import ServiceVoteManagementSystem from "../views/VoteManagementSystem.vue";
@@ -196,6 +199,12 @@ const routes = [
   { path: "/login", name: "Login", component: Login },
   { path: "/signup", name: "Signup", component: Signup },
   { path: "/forgot", name: "Forgot", component: Forgot },
+  ///////////////E-Visa
+  {
+    path: "/evisa/uae",
+    name: "eVisaUnitedArabEmirates",
+    component: eVisaUnitedArabEmirates,
+  },
   ///////////////Services
   //voting system
   {
@@ -426,6 +435,21 @@ const routes = [
     component: DashCreateURL,
   },
   { path: "/organiser/view-url", name: "DashViewURL", component: DashViewURL },
+  {
+    path: "/organiser/create-vendor-service",
+    name: "DashCreateVendorService",
+    component: DashCreateVendorService,
+  },
+  {
+    path: "/organiser/view-vendor",
+    name: "DashViewVendor",
+    component: DashViewVendor,
+  },
+  {
+    path: "/organiser/search-vendor",
+    name: "DashSearchVendor",
+    component: DashSearchVendor,
+  },
 
   //seller dashboard
   {

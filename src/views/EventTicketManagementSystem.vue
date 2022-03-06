@@ -42,7 +42,7 @@
                             <p class="card-text card-text-after"><i class="bi bi-geo-alt-fill"></i> : {{con.venue}}</p>
                             <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : {{format_date(con.startdate)}}</p>
                             <p class="card-text card-text-after"><i class="bi bi-alarm-fill"></i> : 13:50</p>
-                            <router-link to="/ticket-content" class="routers"><a class="btn-view">Buy Ticket</a></router-link>
+                            <router-link to="/ticket-content" class="routers"  v-on:click="getEvent(con)"><a class="btn-view">Buy Ticket</a></router-link>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
     </section>
     <!--Service Content Event Form Ends-->
 
-    <elfrique-newsletter/>
+    
     <elfrique-footer/>
 </template>
 <script>
@@ -88,8 +88,18 @@
                      return moment(String(value)).format('MM/DD/YYYY hh:mm')
           }
         },
-
+        
+            getEvent(contest){
+              this.$store.dispatch('vote/getSingleEvent',contest).then(
+            () => {
+            //console.log(this.$store.state.vote.voteContent)
+              /* this.$router.push('/voting-content'); */
+          }
+            )
+        }
         },
+
+        
       mounted(){
         window.scrollTo(0,0)
       }

@@ -9,68 +9,68 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="offcanvas offcanvas-end" tabindex="-100" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <button data-bs-dismiss="offcanvas">
-                        <i class="bi bi-x-square"></i>
-                    </button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-center flex-grow-1">
-                        <li class="nav-item">
-                            <router-link to="/" class="routers"><a class="nav-link">Home</a></router-link>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#">
-                            Our Services
-                            </a>
-                            <div class="dropdown-content container desktop-dropdown">
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <h1>Featured Services</h1>
-                                        <div class="line-hr"></div>
-                                        <p>You can contact us for any enquires.</p>
-                                        <router-link to="/contact" class="routers"><a class="contact-megamenu">Contact Us <i class="bi bi-arrow-right"></i></a></router-link>
-                                    </div>
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-4">
-                                        <router-link to="/vote-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Vote Management System</a></router-link>
-                                        <router-link to="/trivia-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Trivia Management System</a></router-link>
-                                        <router-link to="/travel-tour-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Travels & Tours Management System</a></router-link>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <router-link to="/event-form-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Event Forms Management System</a></router-link>
-                                        <router-link to="/event-ticket-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Event Tickets Management System</a></router-link>
-                                        <router-link to="/event-vendor-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Event Vendors Management System</a></router-link>
+                    <div class="offcanvas-header">
+                        <button data-bs-dismiss="offcanvas">
+                            <i class="bi bi-x-square"></i>
+                        </button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1">
+                            <li class="nav-item">
+                                <router-link to="/" class="routers"><a class="nav-link">Home</a></router-link>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#">
+                                Our Services
+                                </a>
+                                <div class="dropdown-content container desktop-dropdown">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <h1>Featured Services</h1>
+                                            <div class="line-hr"></div>
+                                            <p>You can contact us for any enquires.</p>
+                                            <router-link to="/contact" class="routers"><a class="contact-megamenu">Contact Us <i class="bi bi-arrow-right"></i></a></router-link>
+                                        </div>
+                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-4">
+                                            <router-link to="/vote-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Vote Management System</a></router-link>
+                                            <router-link to="/trivia-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Trivia Management System</a></router-link>
+                                            <router-link to="/travel-tour-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Travels & Tours Management System</a></router-link>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <router-link to="/event-form-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Event Forms Management System</a></router-link>
+                                            <router-link to="/event-ticket-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Event Tickets Management System</a></router-link>
+                                            <router-link to="/event-vendor-management" class="routers"><a><i class="bi bi-arrow-right-short"></i> Event Vendors Management System</a></router-link>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <ul class="dropdown-menu mobile-dropdown" aria-labelledby="navbarDropdown">
-                                <li><router-link to="/vote-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Vote Management System</a></router-link></li>
-                                <li><router-link to="/event-ticket-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Event Tickets Management System</a></router-link></li>
-                                <li><router-link to="/trivia-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Trivia Management System</a></router-link></li>
-                                <li><router-link to="/event-vendor-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Event Vendors Management System</a></router-link></li>
-                                <li><router-link to="/event-form-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Event Forms Management System</a></router-link></li>
-                                <li><router-link to="/travel-tour-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Travels & Tours Management System</a></router-link></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/pricing" class="routers"><a class="nav-link">Pricing</a></router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/blogs" class="routers"><a class="nav-link">Blogs</a></router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/contact" class="routers"><a class="nav-link">Contact</a></router-link>
-                        </li>
-                    </ul>
-                    <div class="login-div">
-                        <router-link to="/login" class="routers"><a class="btn-login">Login</a></router-link>
-                        <router-link to="/signup" class="routers"><a class="btn-signup">Sign Up <i class="bi bi-arrow-right"></i></a></router-link>
+                                <ul class="dropdown-menu mobile-dropdown" aria-labelledby="navbarDropdown">
+                                    <li><router-link to="/vote-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Vote Management System</a></router-link></li>
+                                    <li><router-link to="/event-ticket-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Event Tickets Management System</a></router-link></li>
+                                    <li><router-link to="/trivia-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Trivia Management System</a></router-link></li>
+                                    <li><router-link to="/event-vendor-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Event Vendors Management System</a></router-link></li>
+                                    <li><router-link to="/event-form-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Event Forms Management System</a></router-link></li>
+                                    <li><router-link to="/travel-tour-management" class="routers"><a class="dropdown-item"><i class="bi bi-arrow-right-short"></i> Travels & Tours Management System</a></router-link></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <router-link to="/pricing" class="routers"><a class="nav-link">Pricing</a></router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link to="/blogs" class="routers"><a class="nav-link">Blogs</a></router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link to="/contact" class="routers"><a class="nav-link">Contact</a></router-link>
+                            </li>
+                        </ul>
+                        <div class="login-div">
+                            <a href="https://elfrique-proj.netlify.app/login" class="btn-login">Login</a>
+                            <a href="https://elfrique-proj.netlify.app/signup" class="btn-signup">Sign Up <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                        <div class="icon-hambuger">
+                            <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fas fa-bars"></i></a>
+                        </div>
                     </div>
-                    <div class="icon-hambuger">
-                        <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fas fa-bars"></i></a>
-                    </div>
-                </div>
                 </div>
             </div>
         </nav>

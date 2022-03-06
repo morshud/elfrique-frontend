@@ -2,6 +2,7 @@ const initialState = {
   voteContent: {},
   contest: {},
   contestant: {},
+  event: {},
 };
 
 export const vote = {
@@ -22,6 +23,10 @@ export const vote = {
     getContestant({ commit }, contestant) {
       commit("setContestant", contestant);
     },
+
+    getSingleEvent({ commit }, event) {
+      commit("setSingleEvent", event);
+    },
   },
   mutations: {
     setVoteContent(state, voteContent) {
@@ -35,6 +40,9 @@ export const vote = {
     },
     setContestant(state, contestant) {
       state.contestant = contestant;
+    },
+    setSingleEvent(state, event) {
+      state.event = event;
     },
   },
 };

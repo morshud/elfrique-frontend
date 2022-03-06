@@ -59,7 +59,7 @@
       <div class="row">
         <div class="col-lg-5">
           <div class="img-area">
-            <img class="main-img" src="@/assets/images/about-section-img.jpg">
+            <img class="main-img" src="@/assets/images/about-section-img.jpg"  ondragstart="return false;">
           </div>
         </div>
         <div class="col-lg-1"></div>
@@ -78,19 +78,19 @@
                 <div class="line-rule"></div>
               </div>
               <div class="logo-box">
-                  <img src="@/assets/images/client-logo.png">
+                  <img src="@/assets/images/client-logo.png"  ondragstart="return false;">
               </div>
               <div class="logo-box">
-                  <img src="@/assets/images/client-logo1.png">
+                  <img src="@/assets/images/client-logo1.png"  ondragstart="return false;">
               </div>
               <div class="logo-box">
-                  <img src="@/assets/images/client-logo2.png">
+                  <img src="@/assets/images/client-logo2.png" ondragstart="return false;">
               </div>
               <div class="logo-box">
-                  <img src="@/assets/images/client-logo3.png">
+                  <img src="@/assets/images/client-logo3.png" ondragstart="return false;">
               </div>
               <div class="logo-box">
-                  <img src="@/assets/images/client-logo4.png">
+                  <img src="@/assets/images/client-logo4.png" ondragstart="return false;">
               </div>
             </div>
           </div>
@@ -192,7 +192,7 @@
             <div class="reason-box">
               <div class="box-div">
                 <div class="box-icon">
-                  <img src="@/assets/images/fast-pay-out.jpg">
+                  <img src="@/assets/images/fast-pay-out.jpg" ondragstart="return false;">
                 </div>
                 <div class="box-text">
                   <h2>Fast Pay-Out</h2>
@@ -201,7 +201,7 @@
               </div>
               <div class="box-div">
                 <div class="box-icon">
-                  <img src="@/assets/images/excellence-reporting.jpg">
+                  <img src="@/assets/images/excellence-reporting.jpg" ondragstart="return false;">
                 </div>
                 <div class="box-text">
                   <h2>Excellent Reporting</h2>
@@ -210,7 +210,7 @@
               </div>
               <div class="box-div">
                 <div class="box-icon">
-                  <img src="@/assets/images/marketing-support.jpg">
+                  <img src="@/assets/images/marketing-support.jpg" ondragstart="return false;">
                 </div>
                 <div class="box-text">
                   <h2>Marketing Support</h2>
@@ -219,7 +219,7 @@
               </div>
               <div class="box-div">
                 <div class="box-icon">
-                  <img src="@/assets/images/excellent-support.jpg">
+                  <img src="@/assets/images/excellent-support.jpg" ondragstart="return false;">
                 </div>
                 <div class="box-text">
                   <h2>Excellent Support</h2>
@@ -228,7 +228,7 @@
               </div>
               <div class="box-div">
                 <div class="box-icon">
-                  <img src="@/assets/images/multiple-payment-option.jpg">
+                  <img src="@/assets/images/multiple-payment-option.jpg" ondragstart="return false;">
                 </div>
                 <div class="box-text">
                   <h2>Multiple Payment Option</h2>
@@ -237,7 +237,7 @@
               </div>
               <div class="box-div">
                 <div class="box-icon">
-                  <img src="@/assets/images/safe-payemnt.jpg">
+                  <img src="@/assets/images/safe-payemnt.jpg" ondragstart="return false;">
                 </div>
                 <div class="box-text">
                   <h2>Payment is 100% Safe</h2>
@@ -248,7 +248,7 @@
           </div>
         </div>
         <div class="col-lg-6 img-area">
-          <img src="@/assets/images/why-us-img.jpg">
+          <img src="@/assets/images/why-us-img.jpg" ondragstart="return false;">
         </div>
       </div>
     </div>

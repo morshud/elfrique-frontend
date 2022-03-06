@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-md-5 text-center">
                     <div class="img-area">
-                        <img src="@/assets/images/service-vote.png">
+                        <img src="@/assets/images/service-vote.png" ondragstart="return false;">
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
     <!--Service Header Ends-->
 
     <!--Service Content Vote-->
-    <section class="service-content-vote">
+    <section class="service-content-vote" mb-5>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -55,7 +55,7 @@
                                 <div class="row" >
                                     <div class="col-md-3 py-2" v-for="con in voteContent" :key="con.id" >
                                         <div class="card">
-                                            <img :src="con.image" class="card-img-top">
+                                            <img :src="con.image" ondragstart="return false;" class="card-img-top">
                                             <div class="card-body">
                                                 <p class="card-text main-text"><i class="bi bi-award-fill"></i> : {{con.title}}</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : {{con.type}}</p>
@@ -177,7 +177,7 @@
                                 <div class="row">
                                     <div class="col-md-3 py-2">
                                         <div class="card">
-                                            <img src="@/assets/images/voting-img1.jpg" class="card-img-top">
+                                            <img src="@/assets/images/voting-img1.jpg" ondragstart="return false;" class="card-img-top">
                                             <div class="card-body">
                                                 <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Nigeria governor score card award 2022</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
@@ -189,7 +189,7 @@
                                     </div>
                                     <div class="col-md-3 py-2">
                                         <div class="card">
-                                            <img src="@/assets/images/voting-img1.jpg" class="card-img-top">
+                                            <img src="@/assets/images/voting-img1.jpg" ondragstart="return false;" class="card-img-top">
                                             <div class="card-body">
                                                 <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Nigeria governor score card award 2022</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
@@ -201,7 +201,7 @@
                                     </div>
                                     <div class="col-md-3 py-2">
                                         <div class="card">
-                                            <img src="@/assets/images/voting-img1.jpg" class="card-img-top">
+                                            <img src="@/assets/images/voting-img1.jpg" ondragstart="return false;" class="card-img-top">
                                             <div class="card-body">
                                                 <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Nigeria governor score card award 2022</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
@@ -213,7 +213,7 @@
                                     </div>
                                     <div class="col-md-3 py-2">
                                         <div class="card">
-                                            <img src="@/assets/images/voting-img1.jpg" class="card-img-top">
+                                            <img src="@/assets/images/voting-img1.jpg" ondragstart="return false;" class="card-img-top">
                                             <div class="card-body">
                                                 <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Nigeria governor score card award 2022</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
@@ -232,7 +232,7 @@
                                 <div class="row">
                                     <div class="col-md-3 py-2">
                                         <div class="card">
-                                            <img src="@/assets/images/voting-img2.jpg" class="card-img-top">
+                                            <img src="@/assets/images/voting-img2.jpg" ondragstart="return false;"  class="card-img-top">
                                             <div class="card-body">
                                                 <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Title Here</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
@@ -244,7 +244,7 @@
                                     </div>
                                     <div class="col-md-3 py-2">
                                         <div class="card">
-                                            <img src="@/assets/images/voting-img2.jpg" class="card-img-top">
+                                            <img src="@/assets/images/voting-img2.jpg" ondragstart="return false;"  class="card-img-top">
                                             <div class="card-body">
                                                 <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Title Here</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
@@ -256,7 +256,7 @@
                                     </div>
                                     <div class="col-md-3 py-2">
                                         <div class="card">
-                                            <img src="@/assets/images/voting-img2.jpg" class="card-img-top">
+                                            <img src="@/assets/images/voting-img2.jpg" ondragstart="return false;" class="card-img-top">
                                             <div class="card-body">
                                                 <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Title Here</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
@@ -275,7 +275,7 @@
                                 <div class="row">
                                     <div class="col-md-3 py-2">
                                         <div class="card">
-                                            <img src="@/assets/images/voting-img3.jpg" class="card-img-top">
+                                            <img src="@/assets/images/voting-img3.jpg" ondragstart="return false;" class="card-img-top">
                                             <div class="card-body">
                                                 <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Title Here</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>

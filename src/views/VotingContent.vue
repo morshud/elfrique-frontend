@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="img-area">
-                        <img :src="contest.image">
+                        <img :src="contest.image" ondragstart="return false;">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -91,7 +91,7 @@
                                     </div>
                                     <div class="col-md-3 py-2" v-for="con in contest.contestants" :key="con.id">
                                         <div class="card">
-                                            <img :src="con.image" class="card-img-top">
+                                            <img :src="con.image" ondragstart="return false;" class="card-img-top">
                                             <div class="card-body">
                                                 <p class="card-text main-text"><i class="bi bi-person-video"></i> : {{con.fullname}}</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-circle-square"></i> : {{con.contestantnumber}} (contestant number)</p>

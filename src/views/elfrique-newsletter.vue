@@ -3,7 +3,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-5 img-area">
-            <img src="@/assets/images/newsletter-img.jpg">
+            <img src="@/assets/images/newsletter-img.jpg" ondragstart="return false;">
           </div>
           <div class="col-md-7">
             <div class="newsletter-div">

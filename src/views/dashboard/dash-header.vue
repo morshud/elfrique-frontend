@@ -227,19 +227,19 @@
                 <a class="nav-link collapsed" data-bs-target="#vendor-nav" data-bs-toggle="collapse" href="#">
                     <img src="@/assets/images/menu-vendor.png"><span></span>Vendor<i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="vendor-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Create Vendor</span></a></router-link></li>
-                    <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>View Vendor</span></a></router-link></li>
-                    <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Search For Vendor</span></a></router-link></li>
+                <ul id="vendor-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li><router-link to="/organiser/create-vendor-service" class="routers"><a><i class="bi bi-circle"></i><span>Create Vendor Service</span></a></router-link></li>
+                    <li><router-link to="/organiser/view-vendor" class="routers"><a><i class="bi bi-circle"></i><span>View Vendor</span></a></router-link></li>
+                    <li><router-link to="/organiser/search-vendor" class="routers"><a><i class="bi bi-circle"></i><span>Search For Vendor</span></a></router-link></li>
                 </ul>
             </li>
-             <!--Travel-->
+            <!--Travel-->
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#travel-nav" data-bs-toggle="collapse" href="#">
                     <img src="@/assets/images/menu-travel.png"><span></span>Travel & Tour<i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="travel-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Travel Plan</span></a></router-link></li>
+                    <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Travel Booking</span></a></router-link></li>
                 </ul>
             </li>
             <!--Short URL-->
