@@ -38,7 +38,7 @@
                         <img :src="con.image" class="card-img-top">
                         <div class="card-body">
                             <p class="card-text main-text"><i class="bi bi-ticket-detailed-fill"></i> : {{con.title}}</p>
-                            <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : {{con.fee}}</p>
+                            <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : {{con.type}}</p>
                             <p class="card-text card-text-after"><i class="bi bi-geo-alt-fill"></i> : {{con.venue}}</p>
                             <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : {{format_date(con.startdate)}}</p>
                             <p class="card-text card-text-after"><i class="bi bi-alarm-fill"></i> : 13:50</p>
