@@ -82,7 +82,7 @@ import SecondDashAddInfo from "../views/dashboard-second/AddInfo.vue";
 import SecondDashSearchVote from "../views/dashboard-second/SearchVote.vue";
 import SecondDashCreateEvent from "../views/dashboard-second/CreateEvent.vue";
 import SecondDashAddTicket from "../views/dashboard-second/AddTicket.vue";
-import SecondDashViewEvent from "../views/dashboard-second/ViewEvent.vue";
+/* import SecondDashViewEvent from "../views/dashboard-second/ViewEvent.vue"; */
 import SecondDashSearchEvent from "../views/dashboard-second/SearchEvent.vue";
 import SecondDashEventSalesAnalytics from "../views/dashboard-second/EventSalesAnalytics.vue";
 import SecondDashPersonalTicket from "../views/dashboard-second/PersonalTicket.vue";
@@ -99,7 +99,7 @@ import SecondDashViewResult from "../views/dashboard-second/ViewResult.vue";
 import SecondDashSearchTrivia from "../views/dashboard-second/SearchTrivia.vue";
 import SecondDashCreateURL from "../views/dashboard-second/CreateURL.vue";
 import SecondDashViewURL from "../views/dashboard-second/ViewURL.vue";
-import SecondDashViewContestants from "../views/dashboard-second/ViewContestants.vue";
+/* import SecondDashViewContestants from "../views/dashboard-second/ViewContestants.vue"; */
 import SecondDashVoteSalesAnalytics from "../views/dashboard-second/VoteSalesAnalytics.vue";
 import SecondDashResultSetting from "../views/dashboard-second/ResultSetting.vue";
 import SecondDashTriviaSalesAnalytics from "../views/dashboard-second/TriviaSalesAnalytics.vue";
@@ -463,11 +463,11 @@ const routes = [
     component: SecondDashProfile,
   },
 
-  {
+  /* {
     path: "/user/view-contestants",
     name: "SecondDashViewContestants",
     component: SecondDashViewContestants,
-  },
+  }, */
   {
     path: "/user/view-vote-analytics",
     name: "SecondDashVoteSalesAnalytics",
@@ -494,11 +494,11 @@ const routes = [
     name: "SecondDashAddTicket",
     component: SecondDashAddTicket,
   },
-  {
+  /* {
     path: "/user/view-event",
     name: "SecondDashViewEvent",
     component: SecondDashViewEvent,
-  },
+  }, */
   /* {
     path: "/user/search-event",
     name: "SecondDashSearchEvent",
