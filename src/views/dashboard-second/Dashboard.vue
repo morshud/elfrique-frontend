@@ -123,8 +123,8 @@
             </div>
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-body">
-                        <!--Tabs-->
+                    <!-- <div class="card-body">
+                        
                         <ul class="nav nav-tabs tabs-dashboard" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="voting-tab" data-bs-toggle="tab" data-bs-target="#voting"
@@ -150,9 +150,9 @@
                                 <button class="nav-link" id="payout-tab" data-bs-toggle="tab" data-bs-target="#payout" type="button" role="tab"
                                     aria-controls="blog" aria-selected="false">Payouts</button>
                             </li>
-                        </ul>
+                        </ul> -->
 
-                        <div class="tab-content pt-2" id="myTabContent">
+                        <!-- <div class="tab-content pt-2" id="myTabContent">
 
                             <div class="tab-pane fade show active" id="voting" role="tabpanel" aria-labelledby="voting-tab">
                                 <div class="card">
@@ -173,7 +173,7 @@
                                                 <input type="text" placeholder="Search...">
                                             </form>
                                         </div>
-                                        <!--Table-->
+                                        
                                         <table class="table datatable card-table-table">
                                             <thead>
                                             <tr>
@@ -237,9 +237,9 @@
                                             <form>
                                                 <input type="text" placeholder="Search...">
                                             </form>
-                                        </div>
+                                        </div> -->
                                         <!--Table-->
-                                        <table class="table datatable card-table-table">
+                                        <!-- <table class="table datatable card-table-table">
                                             <thead>
                                             <tr>
                                                 <th scope="col">#</th>
@@ -306,9 +306,9 @@
                                             <form>
                                                 <input type="text" placeholder="Search...">
                                             </form>
-                                        </div>
+                                        </div> -->
                                         <!--Table-->
-                                        <table class="table datatable card-table-table">
+                                        <!-- <table class="table datatable card-table-table">
                                             <thead>
                                             <tr>
                                                 <th scope="col">#</th>
@@ -373,9 +373,9 @@
                                             <form>
                                                 <input type="text" placeholder="Search...">
                                             </form>
-                                        </div>
+                                        </div> -->
                                         <!--Table-->
-                                        <table class="table datatable card-table-table">
+                                        <!-- <table class="table datatable card-table-table">
                                             <thead>
                                             <tr>
                                                 <th scope="col">#</th>
@@ -421,7 +421,7 @@
                             </div>
 
                             <div class="tab-pane fade" id="referrals" role="tabpanel" aria-labelledby="referrals-tab">
-                                <!--People You Referred-->
+                                
                                 <div class="card">
                                     <div class="referral-link-here">
                                         <h3 class="mb-3 text-dark font-weight-bold">Your referral link:</h3>
@@ -441,7 +441,7 @@
                                                 <input type="text" placeholder="Search...">
                                             </form>
                                         </div>
-                                        <!--Table-->
+                                        
                                         <p class="text-center p-text">People you referred</p>
                                         <table class="table datatable card-table-table">
                                             <thead>
@@ -474,7 +474,7 @@
                                         </nav>
                                     </div>  
                                 </div>
-                                <!--Your Referral Earnings-->
+                        
                                 <div class="card">
                                     <div class="card-body card-table">
                                         <div class="buttons-table">
@@ -488,9 +488,9 @@
                                             <form>
                                                 <input type="text" placeholder="Search...">
                                             </form>
-                                        </div>
-                                        <!--Table-->
-                                        <p class="text-center p-text">Your referral earnings</p>
+                                        </div> -->
+                                
+                                        <!-- <p class="text-center p-text">Your referral earnings</p>
                                         <table class="table datatable card-table-table">
                                             <thead>
                                             <tr>
@@ -547,7 +547,7 @@
                                                 <input type="text" placeholder="Search...">
                                             </form>
                                         </div>
-                                        <!--Table-->
+                                        
                                         <table class="table datatable card-table-table">
                                             <thead>
                                             <tr>
@@ -594,8 +594,8 @@
                             </div>
 
                         </div>
-                    </div>
-                </div>
+                    </div>-->
+                </div> 
             </div>
         </section>
     </main>
