@@ -14,6 +14,16 @@
                 </ol>
             </nav>
         </div><!-- End Page Title -->
+        <div  v-if="error" class=" alert-danger alert  alert-dismissible fade show" role="alert">
+                           {{error}} 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div  v-if="message" class= 'alert-success alert  alert-dismissible fade show' role="alert">
+                            
+                            {{message}}
+                            .... Add Questions your trivia. <router-link to="/organiser/add-Question" class="routers"><strong>Click Here!</strong></router-link>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
 
         <div class="container start-voting-div create-event-div">
             <div class="row justify-content-center">
@@ -27,14 +37,7 @@
                         <li class="bg-light py-2 px-2 text-dark">Duration is how long the user is allowed to answer the questions after which it is automatically submitted if the time elapses and the user has not clicked the submit button, it is to be provided in minutes</li>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                    <div  v-if="error" class=" alert-danger alert  alert-dismissible fade show" role="alert">
-                           {{error}} 
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <div  v-if="message" class= 'alert-success alert  alert-dismissible fade show' role="alert">
-                          {{message}} 
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+                    
                 </div>
                 <form name="form" @submit.prevent="createTrivia">
                     <div class="row justify-content-center">

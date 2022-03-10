@@ -215,6 +215,7 @@
                 </a>
                 <ul id="trivia-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li><router-link to="/organiser/create-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Create Trivia</span></a></router-link></li>
+                    <li><router-link to="/organiser/add-Question" class="routers"><a><i class="bi bi-circle"></i><span>Add Question</span></a></router-link></li>
                     <li><router-link to="/organiser/view-trivia" class="routers"><a><i class="bi bi-circle"></i><span>View Trivia</span></a></router-link></li>
                     <li><router-link to="/organiser/update-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Update Trivia</span></a></router-link></li>
                     <li><router-link to="/organiser/view-result" class="routers"><a><i class="bi bi-circle"></i><span>View Results</span></a></router-link></li>

@@ -48,15 +48,15 @@
                         <th scope="col">Link</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody  v-for="(con,index) in content" :key="con.id">
                     <tr>
-                        <th scope="row">1</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th scope="row">{{index}}</th>
+                        <td>{{con.id}}</td>
+                        <td>{{con.title}}</td>
+                        <td>{{con.details}}</td>
+                        <td>{{con.instruction}}</td>
+                        <td><img :src="con.image" alt="event-pics" contain height="100" width="150" ></td>
+                        <td>{{con.duration}}</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -90,14 +90,45 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import TriviaService from '../../service/trivia.service'
+    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
       },
+      data(){
+        return{
+          content: '',
+          }
+        },
+        computed: {
+        loggedIn() {
+            return this.$store.state.auth.status.loggedIn;
+            },
+        },
+        created(){
+          if (!this.loggedIn) {
+                this.$router.push('/login');
+    }
+
+            TriviaService.getTrivias().then(response => {
+                this.content = response.data.trivia;
+                console.log(this.content);
+            }
+            )
+        },
+        methods: { 
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+          }
+    }
+      },
       mounted(){
         window.scrollTo(0,0)
       }
     }
+
 </script>

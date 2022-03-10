@@ -46,6 +46,7 @@ import DashAddInfo from "../views/dashboard/AddInfo.vue";
 import DashSearchVote from "../views/dashboard/SearchVote.vue";
 import DashCreateEvent from "../views/dashboard/CreateEvent.vue";
 import DashAddTicket from "../views/dashboard/AddTicket.vue";
+import DashAddQuestion from "../views/dashboard/AddQuestion.vue";
 import DashViewEvent from "../views/dashboard/ViewEvent.vue";
 /* import DashSearchEvent from "../views/dashboard/SearchEvent.vue"; */
 import DashEventSalesAnalytics from "../views/dashboard/EventSalesAnalytics.vue";
@@ -403,6 +404,11 @@ const routes = [
     path: "/organiser/create-trivia",
     name: "DashCreateTrivia",
     component: DashCreateTrivia,
+  },
+  {
+    path: "/organiser/add-Question",
+    name: "DashAddQuestion",
+    component: DashAddQuestion,
   },
   {
     path: "/organiser/view-trivia",

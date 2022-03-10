@@ -11,124 +11,85 @@
                     <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
                     <li class="breadcrumb-item active">Trivia</li>
                     <li class="breadcrumb-item active">Create Trivia</li>
+                     <li class="breadcrumb-item active">Add Questions</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
-
-        <div class="container start-voting-div create-event-div">
+         <div class="container start-voting-div create-event-div">
             <div class="row justify-content-center">
-                <div class="col-lg-11">
-                    <div class="start-vote-details alert alert-dismissible fade show" role="alert">
-                        <span class="text-danger text-lg"><strong>NOTE*</strong></span>
-                        <br>
-                        <li class="bg-light py-2 px-2 text-dark mt-2">Trivia title is the title for the trivia you want to setup, which will also serve as identifier for this trivia</li>
-                        <li class="bg-light py-2 px-2 text-dark">Trivia details are the necessary details the user answering should see when he/she navigates to the trivia page</li>
-                        <li class="bg-light py-2 px-2 text-dark">Instruction(s) are the necessary steps or guideline the user is shown before he starts answering the questions</li>
-                        <li class="bg-light py-2 px-2 text-dark">Duration is how long the user is allowed to answer the questions after which it is automatically submitted if the time elapses and the user has not clicked the submit button, it is to be provided in minutes</li>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                </div>
-                <form>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-11 start-voting-inner-div">
+               <div class="col-lg-11 start-voting-inner-div">
+                        <div class="start-vote-details alert alert-dismissible fade show" role="alert">
+                                Select the trivia name to continue.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div  v-if="error" class=" alert-danger alert  alert-dismissible fade show" role="alert">
+                                {{error}}}} 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div  v-if="message" class= 'alert-success alert  alert-dismissible fade show' role="alert">
+                                {{message}} 
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <form name="form" @submit.prevent="createQuestions">
+                                        
                             <div class="row">
-                                <!--Trivia Title-->
-                                <div class="col-lg-12 mt-2">
-                                    <label for="trivia title">Trivia Title</label>
-                                    <input class="input" type="text" placeholder="Enter trivia title">
-                                </div>
-                                <!--Trivia Image-->
+                                            
                                 <div class="col-lg-12 mt-4">
-                                    <label for="trivia image">Trivia Image</label>
-                                    <input class="input" type="file" accept=".jpg, .jpeg, .png, .jfif">
-                                    <small class="text-danger font-weight-bold">(only .jpg, .jpeg, .png, .jfif or .webp format)</small>
+                                    <label for="vote option">Trivia Name</label>
+                                    <select v-model="triviaId" name="gateway" id="gateway" aria-placeholder="Select your event name" required>
+                                        <option value="select vote option" disabled >Select Your Vote Option</option>
+                                        <option :value="con.id" v-for="con in content" :key="con.id" >{{con.title}}</option>
+
+                                    </select>
                                 </div>
-                                <!--Form Type-->
-                                <div class="col-lg-12 mt-4">
-                                    <label for="trivia type">Trivia Type</label>
-                                    <input class="radio" type="radio" name="trivia" id="paid"> <span>Paid</span>
-                                    <input class="radio" type="radio" name="trivia" id="free"> <span>Free</span>
-                                </div>
-                                <!--Trivia Details-->
-                                <div class="col-lg-12 mt-4">
-                                    <label for="trivia details">Trivia Details</label>
-                                    <textarea class="input" cols="30" rows="4" placeholder="Enter details here..."></textarea>
-                                </div>
-                                <!--Instruction-->
-                                <div class="col-lg-12 mt-4">
-                                    <label for="instruction">Instruction(s)</label>
-                                    <textarea class="input" cols="30" rows="4" placeholder="Type instruction..."></textarea>
-                                </div>
-                                <!--Duration-->
-                                <div class="col-lg-12 mt-4">
-                                    <label for="duration">Duration (in minutes)</label>
-                                    <input class="input" type="number">
-                                </div>
-                                <!--Number of Times-->
-                                <div class="col-lg-12 mt-4">
-                                    <label for="number of times">Number of Times User Can Answer</label>
-                                    <input class="radio" type="radio" name="times" id="once"> <span>Once</span>
-                                    <input class="radio" type="radio" name="times" id="unlimited"> <span>Unlimited</span>
-                                </div>
+                                        <!--Question DIV-->
+                                        <div v-if="triviaId" class="col-lg-11 start-voting-inner-div">
+                                            <div class="col-lg-11 event-details-header mt-3 text-center">Question(s)</div>
+                                            <div v-for="(con, idx) in questionForm" :key="idx" class="row">
+                                                <!--Question-->
+                                                <div class="col-lg-12 mt-4">
+                                                    <label for="question">Question</label>
+                                                    <textarea v-model="con.questionDetails.question" class="input" cols="30" rows="4" placeholder="Type question here..."></textarea>
+                                                </div>
+                                                <!--Question Image-->
+                                                <div class="col-lg-12 mt-4">
+                                                    <label for="question image">Question Image (optional)</label>
+                                                    <input class="input" type="file" accept=".jpg, .jpeg, .png, .jfif" v-on:change="handleFileUpload(idx)">
+                                                    <small class="text-danger font-weight-bold">(only .jpg, .jpeg, .png, .jfif or .webp format)</small>
+                                                </div>
+                                                <!--Nature of Question-->
+                                                <div class="col-lg-12 mt-4">
+                                                    <label for="nature of question">Nature of Question</label>
+                                                    <input v-model="con.questionDetails.nature" class="radio" type="radio" name="question" id="multichoice" checked> <span>Multichoice</span>
+                                                    <input v-model="con.questionDetails.nature" class="radio" type="radio" name="question" id="theory"> <span>Theory</span>
+                                                </div>
+                                                <!--Option-->
+                                                <div v-for="(n, index) in numberOFOption" :key="index"  class="col-lg-12 alert mt-2 alert-dismissible optionDivQuestion">
+                                                    <label for="option">Option</label>
+                                                    <input v-model="con.options[index]" class="input" type="text">
+                                                    <a type="button" class="btn btn-sm btn-danger"  v-on:click="removeOption">Remove</a>
+                                                </div>
+                                               
+                                                <!--Add Option-->
+                                                <div class="col-lg-12">
+                                                    <a type="button" class="btn-success btn-sm"  v-on:click="addOption">Add Option</a>
+                                                </div>
+                                                <!--Add New Question-->
+                                                <div class="col-lg-12 mt-4">
+                                                    <a type="button" class="btn-primary btn-lg"  v-on:click="addQuestion">Add New Question <i class="bi bi-plus-circle-fill"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Submit Trivia Button-->
+                                        <div class="col-lg-11 mt-4">
+                                           <button type="submit" class="btn btn-success" :disabled="loading" >Submit Question(s)<span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <!--Question DIV-->
-                        <div class="col-lg-11 event-details-header mt-3 text-center">Question(s)</div>
-                        <div class="col-lg-11 start-voting-inner-div">
-                            <div class="row">
-                                <!--Question-->
-                                <div class="col-lg-12 mt-4">
-                                    <label for="question">Question</label>
-                                    <textarea class="input" cols="30" rows="4" placeholder="Type question here..."></textarea>
-                                </div>
-                                <!--Question Image-->
-                                <div class="col-lg-12 mt-4">
-                                    <label for="question image">Question Image (optional)</label>
-                                    <input class="input" type="file" accept=".jpg, .jpeg, .png, .jfif">
-                                    <small class="text-danger font-weight-bold">(only .jpg, .jpeg, .png, .jfif or .webp format)</small>
-                                </div>
-                                <!--Nature of Question-->
-                                <div class="col-lg-12 mt-4">
-                                    <label for="nature of question">Nature of Question</label>
-                                    <input class="radio" type="radio" name="question" id="multichoice" checked> <span>Multichoice</span>
-                                    <input class="radio" type="radio" name="question" id="theory"> <span>Theory</span>
-                                </div>
-                                <!--Option-->
-                                <div class="col-lg-12 alert mt-2 alert-dismissible optionDivQuestion">
-                                    <label for="option">Option</label>
-                                    <input class="input" type="text">
-                                    <a type="button" class="btn btn-sm btn-danger" aria-label="Close" data-bs-dismiss="alert">Remove</a>
-                                </div>
-                                <!--Option-->
-                                <div class="col-lg-12 alert mt-2 alert-dismissible optionDivQuestion">
-                                    <label for="option">Option</label>
-                                    <input class="input" type="text">
-                                    <a type="button" class="btn btn-sm btn-danger" aria-label="Close" data-bs-dismiss="alert">Remove</a>
-                                </div>
-                                <!--Option-->
-                                <div class="col-lg-12 alert mt-2 alert-dismissible optionDivQuestion">
-                                    <label for="option">Option</label>
-                                    <input class="input" type="text">
-                                    <a type="button" class="btn btn-sm btn-danger" aria-label="Close" data-bs-dismiss="alert">Remove</a>
-                                </div>
-                                <!--Add Option-->
-                                <div class="col-lg-12">
-                                    <a type="button" class="btn-success btn-sm">Add Option</a>
-                                </div>
-                                <!--Add New Question-->
-                                <div class="col-lg-12 mt-4">
-                                    <a type="button" class="btn-primary btn-lg">Add New Question <i class="bi bi-plus-circle-fill"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Submit Trivia Button-->
-                        <div class="col-lg-11 mt-4">
-                            <button type="submit">Submit Trivia</button>
-                        </div>
                     </div>
-                </form>
-            </div>
-        </div>
+                
     </main>
 
     <dash-footer/>
@@ -146,16 +107,10 @@
       },
       data(){
           return{
-              triviaContent:{
-                    title:'',
-                    details:'',
-                    instructions:'',
-                    duration:'',
-                    type:'',
-                    numberoftimes:'',
-
-                    
-                },
+                content: '',
+                triviaId: '',
+                numberOFOption: 4,
+                numberOfQuestion: 1,
                 file: '',
                 error: '',
                 loading: false,
@@ -168,50 +123,93 @@
     loggedIn() {
       return this.$store.state.auth.status.loggedIn;
     },
+    questionForm: function (){
+            let questionForm = []
+            for(let i = 0; i < this.numberOfQuestion; i++){
+                questionForm.push({
+                    questionDetails: {
+                       question: '',
+                        nature: 'multichoice',
+                        answer: '',
+                    },
+                    options: [],
+                    file: '',
+                })
+            }
+    
+            return questionForm
+        
+        },
     
   },
-
-  created() {
-
-    if (!this.loggedIn) {
+    created() {
+     if (!this.loggedIn) {
       this.$router.push('/login');
+    }
+
+    TriviaService.getTrivias().then
+    (
+        response => {
+            this.content = response.data.trivia;
         }
+    )
+
+
     },
 
     methods:{
-        createEvents(){
+        createQuestions(){
             this.loading = true;
+            console.log(this.questionForm)
 
-            let formData = new FormData();
-            formData.append('image', this.file);
-            formData.append('title', this.triviaContent.title);
-            formData.append('details', this.triviaContent.details);
-            formData.append('instruction', this.triviaContent.instruction);
-            formData.append('duration', this.triviaContent.duration);
-            formData.append('type', this.triviaContent.type);
-            formData.append('numberoftimes', this.triviaContent.numberoftimes);
-    
-            TriviaService.createEvent(formData).then(response => {
-                    
-                    this.message = "Trivia Created Successfully";
-                    this.loading = false;
+            if (this.questionForm){
+                for (let i = 0; i < this.numberOfQuestion; i++) {
+                let formData = new FormData();
+                formData.append('image', this.questionForm[i].file);
+                formData.append('questionDetails[question]', this.questionForm[i].questionDetails.question)
+                formData.append('questionDetails[nature]', this.questionForm[i].questionDetails.nature)
+                formData.append('questionDetails[answer]', this.questionForm[i].questionDetails.answer)
+                for (let j = 0; j < this.questionForm[i].options.length; j++) {
+                    formData.append('options['+j+']', this.questionForm[i].options[j])
+                }
+                
+                TriviaService.addQuestion(formData, this.triviaId).then
+                (
+                    response => {
+                        console.log(response);
+                        this.message = "Question(s) added successfully";
+                        this.loading = false;
+                        window.scrollTo(0,0)
+                         
+                    },
 
-            },
-            error => {
-                console.log(error);
-                this.error = error.response.data.message;
-                console.log(error.response.data);
-
-
-                this.loading = false;
-            });
+                    error => {
+                        this.error = error.response.data.message;
+                        this.loading = false;
+                        console.log(error);
+                        window.scrollTo(0,0)
+                    }   
+                )
+            }
+            }
+            
         },
 
             
-        handleFileUpload(){
-        this.file = this.$refs.file.files[0];
-      }
-     },
+        handleFileUpload(n){
+        this.questionForm[parseInt(n)].file = this.$refs.file[n].files[0];
+      },
+        addOption(){
+            this.numberOFOption++;
+        },
+        removeOption(){
+            this.numberOFOption--;
+        },
+
+        addQuestion(){
+            this.numberOfQuestion++;
+        },
+    },
       mounted(){
         window.scrollTo(0,0)
       }

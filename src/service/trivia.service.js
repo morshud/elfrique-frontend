@@ -11,9 +11,13 @@ class VoteService {
     });
   }
 
-  addCategory(categoryForm, contestId) {
-    return axios.post(API_URL + "createCategories/" + contestId, categoryForm, {
-      headers: authHeader2(),
+  getTrivias() {
+    return axios.get(API_URL + "getAllTrivia", { headers: authHeader() });
+  }
+
+  addQuestion(questionForm, triviaId) {
+    return axios.post(API_URL + "addQuestion/" + triviaId, questionForm, {
+      headers: authHeader(),
     });
   }
 
