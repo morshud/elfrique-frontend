@@ -230,7 +230,7 @@
                 if(event.id == this.eventId){
                     console.log(event.title)
                     return event.title;
-                }
+                } 
                 return null;
             })
          },

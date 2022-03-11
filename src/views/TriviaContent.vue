@@ -7,18 +7,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="img-area">
-                        <img src="@/assets/images/trivia-listimg.jpg">
+                        <img 
+                        :src="trivia.image">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="text-title-area">
-                        <h1>Testing for Wipe Out Naija</h1>
+                        <h1>{{trivia.title}}</h1>
                         <small>Organised by : <span>Organiser Name Here</span></small>
                         <div class="details-header">
                             <h5>Price</h5>
-                            <p><i class="bi bi-credit-card-fill"></i> : Free</p>
+                            <p><i class="bi bi-credit-card-fill"></i> : {{trivia.type}}</p>
                             <h5>Duration</h5>
-                            <p><i class="bi bi-alarm"></i> : 3 Minutes</p>
+                            <p><i class="bi bi-alarm"></i> : {{trivia.duration}} Minutes</p>
                         </div>
                         <div class="details-social">
                             <h5>Share on:</h5>
@@ -52,9 +53,9 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <h1>Event Details</h1>
-                                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum repudiandae ipsam incidunt suscipit itaque saepe delectus tempora tenetur esse animi voluptas at debitis, aperiam placeat excepturi voluptate maxime ullam eos quas molestiae. Omnis dolorem nihil error molestiae beatae, consectetur ab eum nostrum autem, voluptas provident velit ea recusandae odit eveniet.</h6>
+                                        <h6>{{trivia.details}}</h6>
                                         <h1 class="mt-5">Instructions</h1>
-                                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum repudiandae ipsam incidunt suscipit itaque saepe delectus tempora tenetur esse ani.</h6>
+                                        <h6>{{trivia.instruction}}</h6>
                                     </div>
                                     <form>
                                         <div class="row">
@@ -91,15 +92,15 @@
                             <div class="container organiser-area">
                                 <div class="row justify-content-center px-2">
                                     <div class="col-lg-12">
-                                        <h1>Oragniser Details</h1>
+                                         <h1>Oragniser Details</h1>
                                         <h4>Name</h4>
-                                        <p>Organiser Name Here</p>
+                                        <p>{{trivia.adminuser.profile.firstname}} {{trivia.adminuser.profile.lastname}}</p>
                                         <h4>Email</h4>
-                                        <p>organiseremailhere@email.com</p>
+                                        <p>{{trivia.adminuser.profile.email}}</p>
                                         <h4>Phone Number</h4>
-                                        <p>08062632031</p>
+                                        <p>{{trivia.adminuser.profile.phonenumber}}</p>
                                         <h4>About</h4>
-                                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id alias modi suscipit doloribus cum debitis in explicabo, ex impedit sit quia, nisi, enim assumenda accusamus? Assumenda maxime suscipit fuga facere cum ut sunt porro optio ipsum iure sint, eveniet nesciunt accusantium necessitatibus ratione soluta quia molestiae. Esse itaque ex doloremque.</h6>
+                                        <h6>{{trivia.adminuser.profile.about}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -122,6 +123,11 @@
       'elfrique-header':Header,
       'elfrique-footer':Footer,
       },
+       computed: {
+         trivia() {
+             return this.$store.state.vote.trivia
+            }
+     },
       mounted(){
         window.scrollTo(0,0)
       }

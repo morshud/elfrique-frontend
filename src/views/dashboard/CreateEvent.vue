@@ -873,7 +873,7 @@
             this.loading = true;
 
             let formData = new FormData();
-            formData.append('image', this.file);
+            formData.append('image', this.file);                                                                                                                                                                                                                                           
             formData.append('title', this.eventContent.title);
             formData.append('startdate', this.eventContent.startdate);
             formData.append('enddate', this.eventContent.enddate);
