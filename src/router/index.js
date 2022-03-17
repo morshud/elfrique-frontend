@@ -110,6 +110,7 @@ import DashSearchVendor from "../views/dashboard/SearchVendor.vue";
 ///////////////////////////////////////////Super Admin
 import SuperAdminDashboard from "../views/superadmin/Dashboard.vue";
 import SuperAdminProfile from "../views/superadmin/Profile.vue";
+import SuperAdminLogin from "../views/superadmin/Login.vue";
 /////////////////////////////////////////
 import SuperAdminGenOverviewGeneral from "../views/superadmin/OverviewGeneral.vue";
 import SuperAdminGenViewOrganiser from "../views/superadmin/ViewOrganiser.vue";
@@ -601,6 +602,12 @@ const routes = [
     component: DashSearchVendor,
   },
   ///////////////////////////////////////////Super Admin
+  {
+    path: "/superadmin",
+    name: "SuperAdminLogin",
+    component: SuperAdminLogin,
+  },
+
   {
     path: "/superadmin/dashboard",
     name: "SuperAdminDashboard",

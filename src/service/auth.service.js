@@ -21,8 +21,28 @@ class AuthService {
     return response.data;
   }
 
+  async loginSuperAdmin(user) {
+    const response = await axios.post(API_URL + "adminLogin", {
+      email: user.email,
+      password: user.password,
+    });
+    if (response.data.token) {
+      localStorage.setItem(
+        "SuperAdmin",
+        JSON.stringify({
+          token: response.data.token,
+        })
+      );
+    }
+    return response.data;
+  }
+
   logout() {
     localStorage.removeItem("user");
+  }
+
+  logoutAdmin() {
+    localStorage.removeItem("SuperAdmin");
   }
 
   register(user) {

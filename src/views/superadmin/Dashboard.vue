@@ -609,6 +609,20 @@
       'dash-header': Header,
       'dash-footer': Footer,
       },
+
+      computed: {
+    currentUser() {
+      const user= this.$store.state.auth.user;
+      if (user) {
+        return user;
+      }
+    }
+  },
+     mounted() {
+         if (!this.currentUser) {
+            this.$router.push('/login');
+    }
+     },
       mounted(){
         window.scrollTo(0,0)
       }

@@ -140,12 +140,12 @@
                 </a></router-link>
             </li>
             <!--Profile-->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <router-link to="/superadmin/profile" class="routers"><a class="nav-link collapsed">
                     <img src="@/assets/images/menu-profile.png">
                     <span>Profile</span>
                 </a></router-link>
-            </li>
+            </li> -->
             <!--General-->
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#general-nav" data-bs-toggle="collapse" href="#">
@@ -306,7 +306,7 @@
             </li>
             <!--Log Out-->
             <li class="nav-item">
-                <a class="nav-link collapsed">
+                <a class="nav-link collapsed" href @click.prevent="logOut">
                     <img src="@/assets/images/menu-logout.png">
                     <span>Log Out</span>
                 </a>
@@ -317,6 +317,25 @@
 <style scoped src="@/assets/css/dashStyle.css"></style>
 <script>
 export default {
+ computed: {
+    currentUser() {
+      const user= this.$store.state.auth.user;
+      if (user) {
+        return user;
+      }
+    }
+  },
+   methods: {
+    logOut() {
+      this.$store.dispatch('admin/logout');
+      this.$router.push('/');
+    }
+  },
+    mounted() {
+         if (!this.currentUser) {
+            this.$router.push('/login');
+    }
+     },
   mounted(){
     window.scrollTo(0,0)
 
