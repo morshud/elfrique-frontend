@@ -51,8 +51,8 @@
                                         </div>
                                         <!--Referral Email-->
                                         <div class="col-lg-6">
-                                            <label for="email">Referral Email <small>(Optional)</small></label>
-                                            <input v-model="user.referral_email" name="referral_email" type="email" placeholder="Referral email address">
+                                            <label for="email">Referral<small>(Optional)</small></label>
+                                            <input v-model="user.referral_email" name="referral_email" type="text" placeholder="Referral ID">
                                         </div>
                                         <!--Password-->
                                         <div class="col-lg-6">

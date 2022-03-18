@@ -36,6 +36,13 @@ html, body{
     background-position: center center;
     background-repeat: no-repeat;
 }
+.bodySuper{
+    background-image: linear-gradient(90deg,  #000000da, #000000da), url('../images/authImages/loginbg.jpg') !important;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
 @media(max-width: 1560px){
     .bodySignup, .bodyLogin{
         height: auto;

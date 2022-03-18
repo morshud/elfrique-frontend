@@ -1734,3 +1734,69 @@ header .logo img {
     display: block !important;
   }
 }
+
+/*--------------------------------------------------------------
+# TOP BOXES
+--------------------------------------------------------------*/
+.topBox{
+  padding: 25px 5px 20px 15px;
+  background-color: #ECFFE6;
+  border-radius: 10px;
+  box-shadow: 0px 0 20px #bebebe42;
+}
+.topBox img{
+  width: 58px;
+}
+.topBox span{
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.topBox p{
+  float: right;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: -30px;
+  margin-right: 10px;
+  color: #26471b;
+}
+
+.user_crm_wrapper {
+  background: 0 0
+}
+
+.user_crm_wrapper .single_crm {
+  background: #fff;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  padding: 5px
+}
+
+.user_crm_wrapper .single_crm .crm_head {
+  background: #5d9947;
+  padding: 8px 20px;
+  border-radius: 13px
+}
+
+.user_crm_wrapper .single_crm .crm_head i {
+  color: #fff
+}
+.user_crm_wrapper .single_crm .crm_head img{
+  width: 20px;
+}
+
+.user_crm_wrapper .single_crm .crm_body {
+  padding: 15px 23px
+}
+
+.user_crm_wrapper .single_crm .crm_body h4 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #242934;
+}
+
+.user_crm_wrapper .single_crm .crm_body p {
+  font-size: 17px;
+  color: #000;
+  font-weight: 500;
+}

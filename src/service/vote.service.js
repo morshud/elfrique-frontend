@@ -1,6 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header2";
 import authHeader2 from "./auth-header";
+import spHeader from "./super-authHeader";
 
 const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
 
@@ -71,6 +72,10 @@ class VoteService {
 
   getAllContests() {
     return axios.get(API_URL + "allVoteContest", { headers: authHeader() });
+  }
+
+  getAllContestForAdmin() {
+    return axios.get(API_URL + "getAllContests", { headers: spHeader() });
   }
 }
 

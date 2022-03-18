@@ -88,7 +88,7 @@ export default {
   },
   created() {
     if (this.loggedIn) {
-      this.$router.push('/organiser/dashboard');
+      this.$router.push('/user/dashboard');
     }
   },
   methods: {

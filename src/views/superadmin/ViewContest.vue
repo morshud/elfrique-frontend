@@ -115,12 +115,38 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import VoteService from '../../service/vote.service'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
       },
+      data() {
+        return {
+            Content: ''
+
+            
+        }
+        }, 
+
+        computed: {
+        loggedIn() {
+            return this.$store.state.admin.status.loggedIn;
+            },
+        },
+
+        created() {
+
+              if (!this.loggedIn) {
+                this.$router.push('/superadmin');
+              }
+            VoteService.getAllContestForAdmin().then(response => {
+                this.Content = response.data.voteContests;
+                console.log(this.Content);
+            })
+
+        },
       mounted(){
         window.scrollTo(0,0)
       }

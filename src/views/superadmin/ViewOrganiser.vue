@@ -100,8 +100,19 @@
 
             
         }
-     },
+        }, 
+
+        computed: {
+        loggedIn() {
+            return this.$store.state.admin.status.loggedIn;
+            },
+        },
+
         created() {
+
+              if (!this.loggedIn) {
+                this.$router.push('/superadmin');
+              }
             AuthService.getOrganizers().then(response => {
                 this.Content = response.data.users;
                 console.log(this.Content);
