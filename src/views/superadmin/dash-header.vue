@@ -317,7 +317,7 @@
 <style scoped src="@/assets/css/dashStyle.css"></style>
 <script>
 export default {
- computed: {
+ computed : {
     currentUser() {
       const user= this.$store.state.auth.user;
       if (user) {

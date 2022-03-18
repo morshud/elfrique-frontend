@@ -1,4 +1,5 @@
 import axios from "axios";
+import spHeader from "./super-authHeader";
 
 const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
 
@@ -61,6 +62,10 @@ class AuthService {
     return axios.get(
       API_URL + "verifyemail?email=" + email + "&token=" + token
     );
+  }
+
+  getOrganizers() {
+    return axios.get(API_URL + "getAllUsers", { headers: spHeader() });
   }
 }
 

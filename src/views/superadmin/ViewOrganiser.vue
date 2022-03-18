@@ -46,11 +46,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Organiser Name Here</td>
-                        <td><a href="mailto:">organiseremail@email.com</a></td>
-                        <td><a href="tel:">+1234567890</a></td>
+                    <tr  v-for="(con,index) in Content" :key="con.id">
+                        <th scope="row">{{index + 1}}</th>
+                        <td>{{con.firstname}} {{con.lastname}}</td>
+                        <td><a href="mailto:">{{con.email}}</a></td>
+                        <td><a href="tel:">{{con.phonenumber}}</a></td>
                         <td>Feb 2nd, 2022</td>
                         <td>
                             <button class="btn btn-primary btn-sm mx-1 text-dark">Edit</button>
@@ -87,12 +87,27 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import AuthService from '../../service/auth.service'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
       },
+      data() {
+        return {
+            Content: ''
+
+            
+        }
+     },
+        created() {
+            AuthService.getOrganizers().then(response => {
+                this.Content = response.data.users;
+                console.log(this.Content);
+            })
+
+        },
       mounted(){
         window.scrollTo(0,0)
       }
