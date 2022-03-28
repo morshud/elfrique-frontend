@@ -19,12 +19,12 @@
             <div class="container-fluid">
                 <div class="row justify-content-center text-center">
                     <!--Create Trivia-->
-                    <router-link to="/superadmin/create-trivia" class="routers overview-box">
+                    <a href="/superadmin/create-trivia" class="routers overview-box">
                         <div class="text-center">
                             <img src="@/assets/images/icon-tri-createtrivia.png">
                             <p>Create Trivia</p>
                         </div>
-                    </router-link>
+                    </a>
                     <!--View Trivia-->
                     <router-link to="/superadmin/view-trivia" class="routers overview-box">
                         <div class="text-center">

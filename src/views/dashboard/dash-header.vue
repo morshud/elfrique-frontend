@@ -187,7 +187,7 @@
                     <img src="@/assets/images/menu-registration.png"><span></span>Registration<i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="reg-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li><router-link to="/organiser/create-event" class="routers"><a><i class="bi bi-circle"></i><span>Create Event</span></a></router-link></li>
+                    <li><a href="/organiser/create-event" class="routers"><a><i class="bi bi-circle"></i><span>Create Event</span></a></a></li>
                     <li><router-link to="/organiser/add-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Add Ticket</span></a></router-link></li>
                     <li><router-link to="/organiser/view-event" class="routers"><a><i class="bi bi-circle"></i><span>View Event</span></a></router-link></li>
                     <li><router-link to="/organiser/personal-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Personal Ticket</span></a></router-link></li>
@@ -201,7 +201,8 @@
                     <img src="@/assets/images/menu-form.png"><span></span>Forms<i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li><router-link to="/organiser/create-form" class="routers"><a><i class="bi bi-circle"></i><span>Create Form</span></a></router-link></li>
+                    <li><a href="/organiser/create-form" class="routers"><a><i class="bi bi-circle"></i><span>Create Form</span></a></a></li>
+                    <li><a href="/organiser/build-form" class="routers"><a><i class="bi bi-circle"></i><span>Build Form</span></a></a></li>
                     <li><router-link to="/organiser/view-form" class="routers"><a><i class="bi bi-circle"></i><span>View Forms</span></a></router-link></li>
                     <li><router-link to="/organiser/personal-form" class="routers"><a><i class="bi bi-circle"></i><span>Personal Forms</span></a></router-link></li>
                     <li><router-link to="/organiser/form-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Sales Analytics</span></a></router-link></li>
@@ -214,7 +215,7 @@
                     <img src="@/assets/images/menu-trivia.png"><span></span>Trivia<i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="trivia-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li><router-link to="/organiser/create-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Create Trivia</span></a></router-link></li>
+                    <li><a href="/organiser/create-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Create Trivia</span></a></a></li>
                     <li><router-link to="/organiser/add-Question" class="routers"><a><i class="bi bi-circle"></i><span>Add Question</span></a></router-link></li>
                     <li><router-link to="/organiser/view-trivia" class="routers"><a><i class="bi bi-circle"></i><span>View Trivia</span></a></router-link></li>
                     <li><router-link to="/organiser/update-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Update Trivia</span></a></router-link></li>
@@ -229,7 +230,7 @@
                     <img src="@/assets/images/menu-vendor.png"><span></span>Vendor<i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="vendor-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-                    <li><router-link to="/organiser/create-vendor-service" class="routers"><a><i class="bi bi-circle"></i><span>Create Vendor Service</span></a></router-link></li>
+                    <li><a href="/organiser/create-vendor-service" class="routers"><a><i class="bi bi-circle"></i><span>Create Vendor Service</span></a></a></li>
                     <li><router-link to="/organiser/view-vendor" class="routers"><a><i class="bi bi-circle"></i><span>View Vendor</span></a></router-link></li>
                     <li><router-link to="/organiser/search-vendor" class="routers"><a><i class="bi bi-circle"></i><span>Search For Vendor</span></a></router-link></li>
                 </ul>

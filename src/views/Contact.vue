@@ -26,21 +26,21 @@
                 </div>
                 <div class="col-md-4">
                     <div class="box text-center">
-                        <img src="@/assets/images/email-icon.png">
+                        <img src="@/assets/images/email-icon.png" ondragstart="return false;">
                         <h4>Email Us:</h4>
                         <p><a href="mailto:info@elfrique.com">info@elfrique.com</a></p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="box text-center">
-                        <img src="@/assets/images/tel-icon.png">
+                        <img src="@/assets/images/tel-icon.png" ondragstart="return false;">
                         <h4>Call Us:</h4>
                         <p><a href="tel:+2349071130455">+234 907 113 0455</a></p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="box text-center">
-                        <img src="@/assets/images/whatsapp-icon.png">
+                        <img src="@/assets/images/whatsapp-icon.png" ondragstart="return false;">
                         <h4>WhatsApp:</h4>
                         <p><a href="https://wa.me/+2349013209138" target="_blank">+234 901 320 9138</a></p>
                     </div>

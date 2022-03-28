@@ -19,17 +19,33 @@
                     </ul>
                     <div class="dropdown">
                         <button class="btn-destination" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            E-Visa Detinations <i class="bi bi-caret-down-fill"></i>
+                            E-Visa Destinations <i class="bi bi-caret-down-fill"></i>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Turkey</a></li>
-                            <li><a class="dropdown-item" href="#">Malawi</a></li>
-                            <li><a class="dropdown-item" href="#">Zambia</a></li>
-                            <li><a class="dropdown-item" href="#">Ethiopia</a></li>
-                            <li><a class="dropdown-item" href="#">Tanzania</a></li>
-                            <li><a class="dropdown-item" href="#">Zimbabwe</a></li>
-                            <li><a class="dropdown-item" href="#">United Arab Emirates</a></li>
-                            <li><a class="dropdown-item" href="#">East Africa Tourist Visa</a></li>
+                            <li>
+                                <router-link to="/evisa/turkey" class="routers"><a class="dropdown-item">Turkey</a></router-link>
+                            </li>
+                            <li>
+                                <router-link to="/evisa/malawi" class="routers"><a class="dropdown-item">Malawi</a></router-link>
+                            </li>
+                            <li>
+                                <router-link to="/evisa/zambia" class="routers"><a class="dropdown-item">Zambia</a></router-link>
+                            </li>
+                            <li>
+                                <router-link to="/evisa/ethiopia" class="routers"><a class="dropdown-item">Ethiopia</a></router-link>
+                            </li>
+                            <li>
+                                <router-link to="/evisa/tanzania" class="routers"><a class="dropdown-item">Tanzania</a></router-link>
+                            </li>
+                            <li>
+                                <router-link to="/evisa/zimbabwe" class="routers"><a class="dropdown-item">Zimbabwe</a></router-link>
+                            </li>
+                            <li>
+                                <router-link to="/evisa/uae" class="routers"><a class="dropdown-item">United Arab Emirates</a></router-link>
+                            </li>
+                            <li>
+                                <router-link to="/evisa/east-africa-tourist" class="routers"><a class="dropdown-item">East Africa Tourist Visa</a></router-link>
+                            </li>
                         </ul>
                     </div>
                     <div class="backHomepage">

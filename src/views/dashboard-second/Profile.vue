@@ -164,13 +164,102 @@
                             <input  v-model="profile.lastname" name="lastname" type="text" class="form-control" id="lastName" placeholder="Enter lastname name">
                           </div>
                         </div>
-
                         <div class="row mb-3">
-                          <label for="bank" class="col-md-4 col-lg-3 col-form-label">Bank</label>
+                          <label for="Email" class="col-md-4 col-lg-3 col-form-label">Bank Name</label>
                           <div class="col-md-8 col-lg-9">
-                            <input v-model="profile.bankname" name="bankname" type="text" class="form-control" id="bank" placeholder="Enter Bank Name">
-                          </div>
-                        </div>
+                            <select v-model="profile.bankname" class="form-control">
+                              <option value="Choose Bank Name" hidden>Choose Bank Name</option>
+                              <option value="AB Microfinance Bank">AB Microfinance Bank</option>
+                              <option value="ASOSavings & Loan">ASOSavings & Loan</option>
+                              <option value="Access Bank Plc">Access Bank Plc</option>
+                              <option value="Access Money">Access Money</option>
+                              <option value="Access Y'ello & Beta">Access Y'ello & Beta</option>
+                              <option value="ACCIONO MFB">ACCIONO MFB</option>
+                              <option value="Addosser Microfinance Bank">Addosser Microfinance Bank</option>
+                              <option value="Advans La Fayette">Advans La Fayette</option>
+                              <option value="Alat By Wema">Alat By Wema</option>
+                              <option value="AssetMatrix MFB">AssetMatrix MFB</option>
+                              <option value="Bowen MFB">Bowen MFB</option>
+                              <option value="Carbon">Carbon</option>
+                              <option value="Cellulant">Cellulant</option>
+                              <option value="CIti Bank">CIti Bank</option>
+                              <option value="Contec Global">Contec Global</option>
+                              <option value="CoreStep Microfinance Bank">CoreStep Microfinance Bank</option>
+                              <option value="Coronation">Coronation</option>
+                              <option value="Diamond Bank">Diamond Bank</option>
+                              <option value="Eartholeum">Eartholeum</option>
+                              <option value="e-BARCs MFB">e-BARCs MFB</option>
+                              <option value="Ecobank Mobile">Ecobank Mobile</option>
+                              <option value="Ecobank Nigeria Plc">Ecobank Nigeria Plc</option>
+                              <option value="Ecobank Xpress Account">Ecobank Xpress Account</option>
+                              <option value="Ekondo MFB">Ekondo MFB</option>
+                              <option value="Enterprise Bank">Enterprise Bank</option>
+                              <option value="Eyowo">Eyowo</option>
+                              <option value="eTranzact">eTranzact</option>
+                              <option value="FBN Mobile">FBN Mobile</option>
+                              <option value="FCMB Easy Account">FCMB Easy Account</option>
+                              <option value="FET">FET</option>
+                              <option value="FFS MFB">FFS MFB</option>
+                              <option value="FINCA MFB">FINCA MFB</option>
+                              <option value="FirstMonie Wallet">FirstMonie Wallet</option>
+                              <option value="Fidelity Bank">Fidelity Bank</option>
+                              <option value="Fidelity Mobile">Fidelity Mobile</option>
+                              <option value="FinaTrust MFB">FinaTrust MFB</option>
+                              <option value="First Bank Of Nigeria">First Bank Of Nigeria</option>
+                              <option value="First City Monument Bank FCMB">First City Monument Bank FCMB</option>
+                              <option value="FortisMobile">FortisMobile</option>
+                              <option value="GTMobile">GTMobile</option>
+                              <option value="Globus Bank">Globus Bank</option>
+                              <option value="GoMoney">GoMoney</option>
+                              <option value="Guaranty Trust Bank GTB">Guaranty Trust Bank GTB</option>
+                              <option value="Hedonmark">Hedonmark</option>
+                              <option value="Heritage Banking">Heritage Banking</option>
+                              <option value="Hope PSB">Hope PSB</option>
+                              <option value="Innovectives Kesh">Innovectives Kesh</option>
+                              <option value="Intellifin">Intellifin</option>
+                              <option value="Jaiz Bank Plc">Jaiz Bank Plc</option>
+                              <option value="Kegow">Kegow</option>
+                              <option value="Keystone Bank">Keystone Bank</option>
+                              <option value="Kredi Money Microfinance Bank">Kredi Money Microfinance Bank</option>
+                              <option value="Kuda MFB">Kuda MFB</option>
+                              <option value="Letshego Microfinance Bank">Letshego Microfinance Bank</option>
+                              <option value="Lotus Bank">Lotus Bank</option>
+                              <option value="Mint - Finex MFB">Mint - Finex MFB</option>
+                              <option value="Monie Point">Monie Point</option>
+                              <option value="Mkudi">Mkudi</option>
+                              <option value="MoneyBox">MoneyBox</option>
+                              <option value="Nigeria Int'l Bank (CITIGROUP)">Nigeria Int'l Bank (CITIGROUP)</option>
+                              <option value="One Finance">One Finance</option>
+                              <option value="Paga">Paga</option>
+                              <option value="Palmpay">Palmpay</option>
+                              <option value="Parkway">Parkway</option>
+                              <option value="Parkway-ReadyCash">Parkway-ReadyCash</option>
+                              <option value="Polaris Bank Plc">Polaris Bank Plc</option>
+                              <option value="Providus Bank Plc">Providus Bank Plc</option>
+                              <option value="Rubies MFB">Rubies MFB</option>
+                              <option value="Stanbic IBTC @ease Wallet">Stanbic IBTC @ease Wallet</option>
+                              <option value="Stanbic Mobile">Stanbic Mobile</option>
+                              <option value="Standard Chartered Bank">Standard Chartered Bank</option>
+                              <option value="Sterling Bank">Sterling Bank</option>
+                              <option value="TRJBank">TRJBank</option>
+                              <option value="TagPay">TagPay</option>
+                              <option value="TessyMobile">TessyMobile</option>
+                              <option value="Titan Trust Bank">Titan Trust Bank"</option>
+                              <option value="Union Bank Of Nigeria">Union Bank Of Nigeria</option>
+                              <option value="United Bank For Africa">United Bank For Africa</option>
+                              <option value="Unity Bank Plc">Unity Bank Plc</option>
+                              <option value="VFB MFB">VFB MFB</option>
+                              <option value="VNetworks">VNetworks</option>
+                              <option value="Wema Bank">Wema Bank</option>
+                              <option value="Wetland MFB">Wetland MFB</option>
+                              <option value="Zenith Bank">Zenith Bank</option>
+                              <option value="Zenith Mobile">Zenith Mobile</option>
+                              <option value="Zinternet - KongaPay">Zinternet - KongaPay</option>
+                              <option value="9PSB">9PSB</option>
+                            </select>
+                      </div>
+                    </div>
+
 
                         <div class="row mb-3">
                           <label for="accountnumber" class="col-md-4 col-lg-3 col-form-label">Account Number</label>
@@ -213,12 +302,9 @@
                         <div class="row mb-3">
                           <label for="About" class="col-md-4 col-lg-3 col-form-label">About</label>
                           <div class="col-md-8 col-lg-9">
-                            <input v-model="profile.about" name="about" type="text" class="form-control" rows="4" cols="50" >
+                            <textarea  class="form-control" cols="30" rows="5" v-model="profile.about"></textarea>
                           </div>
                         </div>
-                        
-                        
-
                         <div class="text-center">
                           <button type="submit" class="btn btn-success"  :disabled="loading">Save Changes <span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
                         </div>
@@ -226,7 +312,7 @@
 
                     </div>
 
-                    <div class="tab-pane fade pt-3" id="profile-settings">
+                <div class="tab-pane fade pt-3" id="profile-settings">
 
                       <!-- Settings Form -->
                   <form>

@@ -22,7 +22,7 @@
             <div class="link-ft">
               <h4>Company</h4>
               <div class="line-rule"></div>
-              <p><router-link to="/blogs" class="routers"><a>Blogs</a></router-link></p>
+              <p><router-link to="/blogs" class="routers"><a>Blog</a></router-link></p>
               <p><router-link to="/pricing" class="routers"><a>Pricing</a></router-link></p>
               <p><router-link to="/contact" class="routers"><a>Contact Us</a></router-link></p>
               <p><router-link to="#" class="routers"><a>Buyers Guide</a></router-link></p>

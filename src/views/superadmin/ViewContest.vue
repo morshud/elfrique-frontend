@@ -51,14 +51,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
+                    <tr v-for="(con, index) in Content" :key="con.id" contain height="100" width="150">
+                        <th scope="row">{{index + 1}}</th>
                         <td>33</td>
                         <td>Web App</td>
-                        <td><img src="@/assets/images/welcomebg.jpg"></td>
-                        <td>2022-01-29 09:45:50</td>
-                        <td>Paid</td>
-                        <td>50</td>
+                        <td><img :src="con.image"></td>
+                        <td>{{format_date(con.startdate)}}</td>
+                        <td>{{con.type}}</td>
+                        <td>{{con.fee}}</td>
                         <td>OFF</td>
                         <td><a href="#">Vote Link</a></td>
                         <td>
@@ -116,6 +116,7 @@
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
     import VoteService from '../../service/vote.service'
+    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
@@ -147,6 +148,13 @@
             })
 
         },
+        methods: { 
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+          }
+    }
+      },
       mounted(){
         window.scrollTo(0,0)
       }

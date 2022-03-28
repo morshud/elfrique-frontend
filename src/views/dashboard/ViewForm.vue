@@ -36,7 +36,6 @@
                 <table class="table datatable card-table-table">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Form ID</th>
                         <th scope="col">Title</th>
                         <th scope="col">Image</th>
@@ -48,15 +47,15 @@
                         <th scope="col">Form Link</th>
                     </tr>
                     </thead>
-                    <tbody>
+                     <tbody v-for="con in content" :key="con.id">
                     <tr>
-                        <th scope="row">1</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
+                        <td>{{con.id}}</td>
+                        <td>{{con.title}}</td>
+                        <td><img :src="con.image" alt="event-pics" contain height="100" width="150" ></td>
+                        <td>{{format_date(con.createdAt)}}</td>
+                        <td>{{format_date(con.startdate)}}</td>
+                        <td>{{format_date(con.enddate)}}</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -90,11 +89,42 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import EventService from '../../service/form.service'
+    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
+      },
+      data(){
+        return{
+          title: 'View Event',
+          content: '',
+          }
+        },
+        computed: {
+        loggedIn() {
+            return this.$store.state.auth.status.loggedIn;
+            },
+        },
+        created(){
+          if (!this.loggedIn) {
+                this.$router.push('/login');
+    }
+
+            EventService.getForms().then(response => {
+                this.content = response.data.form;
+                console.log(this.content);
+            }
+            )
+        },
+        methods: { 
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+          }
+    }
       },
       mounted(){
         window.scrollTo(0,0)

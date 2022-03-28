@@ -300,74 +300,74 @@
                         </router-link>
                     </div>
                     <div class="box evisa-box">
-                        <a href="#">
+                        <router-link to="/evisa/turkey" class="routers">
                             <div class="img-area">
                                 <img src="@/assets/images/flag-turkey.png" ondragstart="return false;">
                             </div>
                             <div class="text-area">
                                 <h5 class="title">Turkey</h5>
                             </div>
-                        </a>
+                        </router-link>
                     </div>
                     <div class="box evisa-box">
-                        <a href="#">
+                        <router-link to="/evisa/tanzania" class="routers">
                             <div class="img-area">
                                 <img src="@/assets/images/flag-tanzania.png" ondragstart="return false;">
                             </div>
                             <div class="text-area">
                                 <h5 class="title">Tanzania</h5>
                             </div>
-                        </a>
+                        </router-link>
                     </div>
                     <div class="box evisa-box">
-                        <a href="#">
+                        <router-link to="/evisa/east-africa-tourist" class="routers">
                             <div class="img-area">
                                 <img src="@/assets/images/flag-eastAfrica.png" ondragstart="return false;">
                             </div>
                             <div class="text-area">
                                 <h5 class="title">East Africa Tourist Visa (Kenya, Rwanda & Uganda)</h5>
                             </div>
-                        </a>
+                        </router-link>
                     </div>
                     <div class="box evisa-box">
-                        <a href="#">
+                        <router-link to="/evisa/ethiopia" class="routers">
                             <div class="img-area">
                                 <img src="@/assets/images/flag-ethiopia.png" ondragstart="return false;">
                             </div>
                             <div class="text-area">
                                 <h5 class="title">Ethiopia</h5>
                             </div>
-                        </a>
+                        </router-link>
                     </div>
                     <div class="box evisa-box">
-                        <a href="#">
+                        <router-link to="/evisa/malawi" class="routers">
                             <div class="img-area">
                                 <img src="@/assets/images/flag-malawi.png" ondragstart="return false;">
                             </div>
                             <div class="text-area">
                                 <h5 class="title">Malawi</h5>
                             </div>
-                        </a>
+                        </router-link>
                     </div>
                     <div class="box evisa-box">
-                        <a href="#">
+                        <router-link to="/evisa/zimbabwe" class="routers">
                             <div class="img-area">
                                 <img src="@/assets/images/flag-zimbabwe.png" ondragstart="return false;">
                             </div>
                             <div class="text-area">
                                 <h5 class="title">Zimbabwe</h5>
                             </div>
-                        </a>
+                        </router-link>
                     </div>
                     <div class="box evisa-box">
-                        <a href="#">
+                        <router-link to="/evisa/zambia" class="routers">
                             <div class="img-area">
                                 <img src="@/assets/images/flag-zambia.png" ondragstart="return false;">
                             </div>
                             <div class="text-area">
                                 <h5 class="title">Zambia</h5>
                             </div>
-                        </a>
+                        </router-link>
                     </div>
                 </div>
             </div>

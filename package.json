@@ -20,12 +20,14 @@
     "vue": "^3.0.0",
     "vue-plugin-load-script": "^2.1.0",
     "vue-router": "^4.0.0-0",
+    "vue2-editor": "^2.10.3",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0"
+    "@vue/compiler-sfc": "^3.0.0",
+    "vue-html5-editor": "^1.1.1"
   }
 }

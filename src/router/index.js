@@ -53,6 +53,7 @@ import DashEventSalesAnalytics from "../views/dashboard/EventSalesAnalytics.vue"
 import DashPersonalTicket from "../views/dashboard/PersonalTicket.vue";
 import DashSearchTicket from "../views/dashboard/SearchTicket.vue";
 import DashCreateForm from "../views/dashboard/CreateForm.vue";
+import DashBuildForm from "../views/dashboard/BuildForm.vue";
 import DashViewForm from "../views/dashboard/ViewForm.vue";
 import DashPersonalForm from "../views/dashboard/PersonalForm.vue";
 import DashFormSalesAnalytics from "../views/dashboard/FormSalesAnalytics.vue";
@@ -199,7 +200,12 @@ const routes = [
   { path: "/privacy", name: "Privacy", component: Privacy },
   { path: "/terms", name: "Terms", component: Terms },
   { path: "/login", name: "Login", component: Login },
-  { path: "/signup", name: "Signup", component: Signup },
+  {
+    path: "/signup",
+    name: "Signup",
+    component: Signup,
+    props: (route) => ({ referral: route.query.referral }),
+  },
   { path: "/forgot", name: "Forgot", component: Forgot },
   ///////////////E-Visa
   {
@@ -380,6 +386,11 @@ const routes = [
     path: "/organiser/create-form",
     name: "DashCreateForm",
     component: DashCreateForm,
+  },
+  {
+    path: "/organiser/build-form",
+    name: "DashBuildForm",
+    component: DashBuildForm,
   },
   {
     path: "/organiser/view-form",

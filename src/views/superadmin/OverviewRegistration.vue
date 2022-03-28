@@ -19,12 +19,12 @@
             <div class="container-fluid">
                 <div class="row justify-content-center text-center">
                     <!--Create Event-->
-                    <router-link to="/superadmin/create-event" class="routers overview-box">
+                    <a href="/superadmin/create-event" class="routers overview-box">
                         <div class="text-center">
                             <img src="@/assets/images/icon-reg-create-event.png">
                             <p>Create Event</p>
                         </div>
-                    </router-link>
+                    </a>
                     <!--View Event-->
                     <router-link to="/superadmin/view-event" class="routers overview-box">
                         <div class="text-center">

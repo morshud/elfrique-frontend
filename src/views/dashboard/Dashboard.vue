@@ -425,7 +425,7 @@
                                 <div class="card">
                                     <div class="referral-link-here">
                                         <h3 class="mb-3 text-dark font-weight-bold">Your referral link:</h3>
-                                        <input class="input-url" type="url" placeholder="Your created short url will appear here" disabled value="https://elfrique.com/register/262400">
+                                        <input class="input-url" type="url" placeholder="Your created short url will appear here" disabled :value="referral">
                                         <input class="input-url-button" type="button" value="Copy">
                                     </div>
                                     <div class="card-body card-table">
@@ -452,10 +452,10 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td></td>
-                                                <td></td>
+                                            <tr v-for="(con,index) in content" :key="con.id">
+                                                <th scope="row">{{index + 1}}</th>
+                                                <td>{{con.user.email}}</td>
+                                                <td>{{con.user.firstname}} {{con.user.lastname}}</td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -608,12 +608,23 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import ProfileService from '../../service/profile.service'
+    import ReferralService from '../../service/referral.service'
     export default {
       name: "Elfrique",
       components:{
-      'dash-header': Header,
+      'dash-header': Header, 
       'dash-footer': Footer,
       },
+      data() {
+    return {
+      ref_Id: '',
+      referral: '',
+      message: '',
+      content: '',
+
+    }
+    },
 
       
   computed: {
@@ -623,6 +634,45 @@
         return user;
       }
     }
+    },
+    created() {
+
+     if (!this.currentUser) {
+       this.$router.push('/login');
+      
+    }
+
+    ProfileService.getProfile().then(
+      response => {
+        this.ref_Id = response.data.profile.adminuser.reference;
+        this.referral = "https://elfrique-proj.netlify.app/signup?referral=" + this.ref_Id;
+        console.log(this.referral);
+        
+      },
+      error => {
+        this.message =
+          (error.response && error.response.data && error.response.data.message) ||
+          error.message ||
+          error.toString();
+        
+      }
+    );
+
+    ReferralService.getReferral().then(
+      response => {
+        this.content = response.data.referrals;
+        console.log(this.content);
+        
+      },
+      error => {
+        this.message =
+          (error.response && error.response.data && error.response.data.message) ||
+          error.message ||
+          error.toString();
+        
+      }
+    );
+    
   },
      mounted() {
          if (!this.currentUser) {

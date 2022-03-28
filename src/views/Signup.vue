@@ -49,10 +49,11 @@
                                             <label for="email">Email</label>
                                             <input v-model="user.email" name="email" type="email" placeholder="Enter email address" required>
                                         </div>
-                                        <!--Referral Email-->
+                                        <!--Referral-->
                                         <div class="col-lg-6">
-                                            <label for="email">Referral<small>(Optional)</small></label>
-                                            <input v-model="user.referral_email" name="referral_email" type="text" placeholder="Referral ID">
+                                            <label for="email">Referral Code<small>(Optional)</small></label>
+                                            <input v-if="user.referral" v-model="user.referral" name="referral_email" type="text" placeholder="Referral ID" disabled>
+                                            <input v-else v-model="user.referral" name="referral_email" type="text" placeholder="Referral ID">
                                         </div>
                                         <!--Password-->
                                         <div class="col-lg-6">
@@ -103,7 +104,7 @@ export default {
         lastname: '',
         phonenumber: '',
         email: '',
-        referral_email: '',
+        referral: this.$route.query.referral,
         password: '',
         confirmpassword: ''
       },

@@ -12,19 +12,22 @@
                             </div>
                             <form name="form" @submit.prevent="handleLogin">
                                 <div class="row">
+                                    <div class="col-lg-12">
+                                            <div v-if="message" class="alert alert-danger" role="alert">{{message}}</div>
+                                    </div>
                                     <!--Email-->
                                     <div class="col-lg-12">
                                         <label for="email">Email</label>
-                                        <input v-model="email" type="email" placeholder="Enter email address" required>
+                                        <input v-model="user.email" type="email" placeholder="Enter email address" required>
                                     </div>
                                     <!--Password-->
                                     <div class="col-lg-12">
                                         <label for="password">Password</label>
-                                        <input v-model="password" type="password" placeholder="Enter password" required>
+                                        <input v-model="user.password" type="password" placeholder="Enter password" required>
                                     </div>
                                     <!--Submit Button-->
                                     <div class="col-lg-12 text-center">
-                                        <button type="submit">Login</button>
+                                        <button type="submit" :disabled="loading">Log In <span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
                                     </div>
                                 </div>
                             </form>

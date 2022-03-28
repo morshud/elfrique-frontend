@@ -66,6 +66,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="btn-div text-center">
+                <router-link to="/login" class="routers"><a>Get Started <i class="bi bi-box-arrow-in-right"></i></a></router-link>
+            </div>
         </div>
         <!--Event Tickets-->
         <div class="main">
@@ -115,6 +118,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="btn-div text-center">
+                <router-link to="/login" class="routers"><a>Get Started <i class="bi bi-box-arrow-in-right"></i></a></router-link>
+            </div>
         </div>
         <!--Vote-->
         <div class="main">
@@ -164,6 +170,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="btn-div text-center">
+                <router-link to="/login" class="routers"><a>Get Started <i class="bi bi-box-arrow-in-right"></i></a></router-link>
+            </div>
         </div>
         <!--Short Code-->
         <div class="main">
@@ -207,6 +216,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="btn-div text-center">
+                <router-link to="/login" class="routers"><a>Get Started <i class="bi bi-box-arrow-in-right"></i></a></router-link>
+            </div>
         </div>
         <!--Vendor-->
         <div class="main">
@@ -259,6 +271,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="btn-div text-center">
+                <router-link to="/login" class="routers"><a>Get Started <i class="bi bi-box-arrow-in-right"></i></a></router-link>
+            </div>
         </div>
     </section>
     

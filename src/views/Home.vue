@@ -54,12 +54,12 @@
   <!--Welcome Screen Ends-->
 
   <!--About Section-->
-  <section class="about-section">
+  <section class="about-section">    
     <div class="container">
       <div class="row">
         <div class="col-lg-5">
           <div class="img-area">
-            <img class="main-img" src="@/assets/images/about-section-img.jpg"  ondragstart="return false;">
+            <img class="main-img" ondragstart="return false;" src="@/assets/images/about-section-img.jpg">
           </div>
         </div>
         <div class="col-lg-1"></div>
@@ -78,19 +78,19 @@
                 <div class="line-rule"></div>
               </div>
               <div class="logo-box">
-                  <img src="@/assets/images/client-logo.png"  ondragstart="return false;">
+                  <img src="@/assets/images/client-logo.png">
               </div>
               <div class="logo-box">
-                  <img src="@/assets/images/client-logo1.png"  ondragstart="return false;">
+                  <img src="@/assets/images/client-logo1.png">
               </div>
               <div class="logo-box">
-                  <img src="@/assets/images/client-logo2.png" ondragstart="return false;">
+                  <img src="@/assets/images/client-logo2.png">
               </div>
               <div class="logo-box">
-                  <img src="@/assets/images/client-logo3.png" ondragstart="return false;">
+                  <img src="@/assets/images/client-logo3.png">
               </div>
               <div class="logo-box">
-                  <img src="@/assets/images/client-logo4.png" ondragstart="return false;">
+                  <img src="@/assets/images/client-logo4.png">
               </div>
             </div>
           </div>

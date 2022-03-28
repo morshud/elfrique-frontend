@@ -57,15 +57,15 @@
                                 <router-link to="/pricing" class="routers"><a class="nav-link">Pricing</a></router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link to="/blogs" class="routers"><a class="nav-link">Blogs</a></router-link>
+                                <router-link to="/blogs" class="routers"><a class="nav-link">Blog</a></router-link>
                             </li>
                             <li class="nav-item">
                                 <router-link to="/contact" class="routers"><a class="nav-link">Contact</a></router-link>
                             </li>
                         </ul>
                         <div class="login-div">
-                            <a href="https://elfrique-proj.netlify.app/login" class="btn-login">Login</a>
-                            <a href="https://elfrique-proj.netlify.app/signup" class="btn-signup">Sign Up <i class="bi bi-arrow-right"></i></a>
+                            <a href="/login" class="btn-login">Login</a>
+                            <a href="/signup" class="btn-signup">Sign Up <i class="bi bi-arrow-right"></i></a>
                         </div>
                         <div class="icon-hambuger">
                             <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fas fa-bars"></i></a>
