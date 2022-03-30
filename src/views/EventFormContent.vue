@@ -7,19 +7,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="img-area">
-                        <img src="@/assets/images/event-form-img.jpg">
+                        <img :src="eventContent.image">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="text-title-area">
-                        <h1>The Contest TV Reality Show</h1>
-                        <small>Organised by : <span>Organiser Name Here</span></small>
+                        <h1>{{eventContent.title}}</h1>
+                        <small>Organised by : <span>{{eventContent.adminuser.profile.firstname}} {{eventContent.adminuser.profile.lastname}}</span></small>
                         <div class="details-header">
                             <h5>Start</h5>
-                            <p><i class="bi bi-calendar3"></i> : Thursday 27 Jan, 2022</p>
+                            <p><i class="bi bi-calendar3"></i> : {{ format_date(eventContent.startdate) }}</p>
                             <p><i class="bi bi-alarm"></i> : 00:01</p>
                             <h5>End</h5>
-                            <p><i class="bi bi-calendar3"></i> : Sunday 27 Feb, 2022</p>
+                            <p><i class="bi bi-calendar3"></i> : {{ format_date(eventContent.startdate) }}</p>
                             <p><i class="bi bi-alarm"></i> : 23:99</p>
                         </div>
                         <div class="details-social">
@@ -78,12 +78,12 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <h1>Event Details</h1>
-                                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum repudiandae ipsam incidunt suscipit itaque saepe delectus tempora tenetur esse animi voluptas at debitis, aperiam placeat excepturi voluptate maxime ullam eos quas molestiae. Omnis dolorem nihil error molestiae beatae, consectetur ab eum nostrum autem, voluptas provident velit ea recusandae odit eveniet.</h6>
-                                        <form>
+                                        <h6>{{eventContent.description}}</h6>
+                                        <!-- <form>
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <h1>Register</h1>
-                                                    <p class="amount"><i class="bi bi-credit-card-fill"></i> : Free</p>
+                                                    <p class="amount"><i class="bi bi-credit-card-fill"></i> : {{eventContent.type}}</p>
                                                     <h6>Enter the following details to continue</h6>
                                                 </div>
                                                 <div class="col-lg-6 mb-3">
@@ -130,7 +130,10 @@
                                                     <button type="submit">Proceed</button>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </form> -->
+                                        
+                                        <router-link :to="'/fill-form/' + eventContent.id" class="routers"><a class="btn-view">Apply</a></router-link>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -142,13 +145,13 @@
                                     <div class="col-lg-12">
                                         <h1>Oragniser Details</h1>
                                         <h4>Name</h4>
-                                        <p>Organiser Name Here</p>
+                                        <p>{{eventContent.adminuser.profile.firstname}} {{eventContent.adminuser.profile.lastname}}</p>
                                         <h4>Email</h4>
-                                        <p>organiseremailhere@email.com</p>
+                                        <p>{{eventContent.adminuser.email}}</p>
                                         <h4>Phone Number</h4>
-                                        <p>08062632031</p>
+                                        <p>{{eventContent.adminuser.phonenumber}}</p>
                                         <h4>About</h4>
-                                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id alias modi suscipit doloribus cum debitis in explicabo, ex impedit sit quia, nisi, enim assumenda accusamus? Assumenda maxime suscipit fuga facere cum ut sunt porro optio ipsum iure sint, eveniet nesciunt accusantium necessitatibus ratione soluta quia molestiae. Esse itaque ex doloremque.</h6>
+                                        <h6>{{eventContent.adminuser.about}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -164,12 +167,38 @@
 <script>
     import Header from './elfrique-header.vue'
     import Footer from './elfrique-footer.vue'
+    import EventService from '../service/form.service'
+    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'elfrique-header':Header,
       'elfrique-footer':Footer,
       },
+      data() {
+        return {
+            eventContent: ''  
+        }
+     },
+      computed: {
+         formId() {
+             return this.$route.params.id 
+            }
+     },
+     async created() {
+        EventService.getSingleForm(this.$route.params.id).then(response => {
+                this.eventContent = response.data.form;
+                console.log(this.eventContent);
+            })
+     },
+
+     methods: { 
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+          }
+        }
+        },
       mounted(){
         window.scrollTo(0,0)
       }

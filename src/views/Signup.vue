@@ -52,7 +52,7 @@
                                         <!--Referral-->
                                         <div class="col-lg-6">
                                             <label for="email">Referral Code<small>(Optional)</small></label>
-                                            <input v-if="user.referral" v-model="user.referral" name="referral_email" type="text" placeholder="Referral ID" disabled>
+                                            <input v-if="$route.query.referral" v-model="user.referral" name="referral_email" type="text" placeholder="Referral ID" disabled>
                                             <input v-else v-model="user.referral" name="referral_email" type="text" placeholder="Referral ID">
                                         </div>
                                         <!--Password-->
@@ -129,6 +129,7 @@ export default {
         this.message = '';
         this.loading = true;
         this.submitted = true;
+        console.log(this.user);
       
         this.$store.dispatch('auth/register', this.user).then(
 

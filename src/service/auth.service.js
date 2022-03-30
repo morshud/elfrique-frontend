@@ -53,8 +53,8 @@ class AuthService {
       email: user.email,
       password: user.password,
       phonenumber: user.phonenumber,
-      referral_email: user.referral_email,
       confirmpassword: user.confirmpassword,
+      referral: user.referral,
     });
   }
 

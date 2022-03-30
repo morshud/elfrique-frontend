@@ -48,6 +48,7 @@
                 </div>
             </div>
         </div>
+        
     </section>
     <!--Service Content Event Form Ends-->
 
@@ -74,6 +75,7 @@
             
         }
      },
+    
         created() {
             EventService.allEvents().then(response => {
                 this.eventContent = response.data.events;

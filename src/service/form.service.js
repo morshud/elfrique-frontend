@@ -71,8 +71,12 @@ class EventForm {
     );
   }
 
-  allEvents() {
-    return axios.get(API_URL + "allEvents", { headers: authHeader() });
+  allForms() {
+    return axios.get(API_URL + "allForms", { headers: authHeader() });
+  }
+
+  getSingleForm(formId) {
+    return axios.get(API_URL + "getForm/" + formId, { headers: authHeader() });
   }
 }
 

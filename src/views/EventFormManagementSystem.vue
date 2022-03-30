@@ -33,25 +33,14 @@
     <section class="event-form-content">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 py-2">
+                <div class="col-md-3 py-2" v-for="con in eventContent" :key="con.id">
                     <div class="card">
-                        <img src="@/assets/images/event-form-img.jpg" class="card-img-top">
+                        <img :src="con.image" class="card-img-top">
                         <div class="card-body">
-                            <p class="card-text main-text"><i class="bi bi-award-fill"></i> : The Contest TV Reality Show</p>
-                            <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Free</p>
-                            <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - 10-01-2022)<br> End(23:59 - 27-02-2022)</p>
-                            <router-link to="/event-form-content" class="routers"><a class="btn-view">Apply</a></router-link>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 py-2">
-                    <div class="card">
-                        <img src="@/assets/images/event-form-img2.jpg" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text main-text"><i class="bi bi-award-fill"></i> : IRU MGBEDE REALITY </p>
-                            <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : NGN 3000</p>
-                            <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - 10-02-2022)<br> End(23:59 - 19-03-2022)</p>
-                            <router-link to="#" class="routers"><a class="btn-view">Apply</a></router-link>
+                            <p class="card-text main-text"><i class="bi bi-award-fill"></i> : {{con.title}}</p>
+                            <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : {{con.type}}</p>
+                            <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start({{format_date(con.startdate)}})<br> End({{format_date(con.startdate)}})</p>
+                            <router-link :to="'/event-form-content/' + con.id" class="routers"><a class="btn-view">Apply</a></router-link>
                         </div>
                     </div>
                 </div>
@@ -67,6 +56,8 @@
     import Header from './elfrique-header.vue'
     import Newsletter from './elfrique-newsletter.vue'
     import Footer from './elfrique-footer.vue'
+    import EventService from '../service/form.service'
+     import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
@@ -74,6 +65,29 @@
       'elfrique-newsletter':Newsletter,
       'elfrique-footer':Footer,
       },
+      data() {
+        return {
+            eventContent: ''
+
+            
+        }
+     },
+    
+        created() {
+            EventService.allForms().then(response => {
+                this.eventContent = response.data.form;
+                console.log(this.eventContent);
+            })
+
+        },
+
+        methods: { 
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+          }
+        },
+        },
       mounted(){
         window.scrollTo(0,0)
       }

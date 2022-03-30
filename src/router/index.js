@@ -12,6 +12,13 @@ import Forgot from "../views/Forgot.vue";
 import VerifyEmail from "../views/VerifyEmail.vue";
 ///////////////////E-visa
 import eVisaUnitedArabEmirates from "../views/evisa/UnitedArabEmirates.vue";
+import eVisaTurkey from "../views/evisa/Turkey.vue";
+import eVisaTanzania from "../views/evisa/Tanzania.vue";
+import eVisaEastAfricaTourist from "../views/evisa/EastAfricaTourist.vue";
+import eVisaEthiopia from "../views/evisa/Ethiopia.vue";
+import eVisaMalawi from "../views/evisa/Malawi.vue";
+import eVisaZimbabwe from "../views/evisa/Zimbabwe.vue";
+import eVisaZambia from "../views/evisa/Zambia.vue";
 ///////////////////SERVICES
 ///////////////////SERVICES
 //Voting System
@@ -21,6 +28,7 @@ import VotContestantProfile from "../views/ContestantProfile.vue";
 //Event Form
 import ServiceEventFormManagementSystem from "../views/EventFormManagementSystem.vue";
 import EvtForEventFormContent from "../views/EventFormContent.vue";
+import EvtForEventFormFill from "../views/EventFormFill.vue";
 //Trivia System
 import ServiceTriviaManagementSystem from "../views/TriviaManagementSystem.vue";
 import TriTriviaContent from "../views/TriviaContent.vue";
@@ -213,6 +221,17 @@ const routes = [
     name: "eVisaUnitedArabEmirates",
     component: eVisaUnitedArabEmirates,
   },
+  { path: "/evisa/turkey", name: "eVisaTurkey", component: eVisaTurkey },
+  { path: "/evisa/tanzania", name: "eVisaTanzania", component: eVisaTanzania },
+  {
+    path: "/evisa/east-africa-tourist",
+    name: "eVisaEastAfricaTourist",
+    component: eVisaEastAfricaTourist,
+  },
+  { path: "/evisa/ethiopia", name: "eVisaEthiopia", component: eVisaEthiopia },
+  { path: "/evisa/malawi", name: "eVisaMalawi", component: eVisaMalawi },
+  { path: "/evisa/zimbabwe", name: "eVisaZimbabwe", component: eVisaZimbabwe },
+  { path: "/evisa/zambia", name: "eVisaZambia", component: eVisaZambia },
   ///////////////Services
   //voting system
   {
@@ -237,9 +256,14 @@ const routes = [
     component: ServiceEventFormManagementSystem,
   },
   {
-    path: "/event-form-content",
+    path: "/event-form-content/:id",
     name: "EvtForEventFormContent",
     component: EvtForEventFormContent,
+  },
+  {
+    path: "/fill-form/:id",
+    name: "EvtForEventFormFill",
+    component: EvtForEventFormFill,
   },
   //Trivia System
   {

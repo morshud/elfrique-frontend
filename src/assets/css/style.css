@@ -3318,3 +3318,51 @@ footer .copyright p{
     color: #fff;
     padding: 20px 10px 5px 10px;
 }
+
+
+.fillFormSection h5{
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+}
+.fillFormSection .inputDiv{
+    background-color: #fff;
+    border-left: 5px solid #356825;
+    border-radius: 10px;
+    padding: 40px 30px !important;
+    box-shadow: 0px 0px 10px #c4c4c4;
+    margin-top: 20px;
+}
+.fillFormSection .inputDiv label{
+    display: block;
+    padding-bottom: 6px;
+    color: #000;
+    font-size: 17px;
+    font-weight: 400;
+}
+.fillFormSection .inputDiv .input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #000;
+    padding: 8px 5px;
+    color: #000;
+    font-size: 16px;
+}
+.fillFormSection .inputDiv .input:focus{
+    outline: none;
+    border-bottom: 2px solid #356825;
+}
+.fillFormSection .boxDiv{
+    width: 100%;
+    display: block;
+    margin-top: 5px;
+}
+.fillFormSection .inputDiv button{
+    width: 200px;
+    padding: 8px 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 15px;
+}
