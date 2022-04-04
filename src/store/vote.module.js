@@ -4,6 +4,7 @@ const initialState = {
   contestant: {},
   event: {},
   trivia: {},
+  player: {},
 };
 
 export const vote = {
@@ -31,6 +32,9 @@ export const vote = {
     getSingleTrivia({ commit }, event) {
       commit("setSingleTrivia", event);
     },
+    getTriviaPlayer({ commit }, player) {
+      commit("setTriviaPlayer", player);
+    },
   },
   mutations: {
     setVoteContent(state, voteContent) {
@@ -50,6 +54,9 @@ export const vote = {
     },
     setSingleTrivia(state, trivia) {
       state.trivia = trivia;
+    },
+    setTriviaPlayer(state, player) {
+      state.player = player;
     },
   },
 };

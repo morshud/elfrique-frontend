@@ -14,7 +14,7 @@
                 <div class="col-md-6">
                     <div class="text-title-area">
                         <h1>{{trivia.title}}</h1>
-                        <small>Organised by : <span>Organiser Name Here</span></small>
+                        <small>Organised by : <span>{{trivia.adminuser.profile.firstname}} {{trivia.adminuser.profile.lastname}}</span></small>
                         <div class="details-header">
                             <h5>Price</h5>
                             <p><i class="bi bi-credit-card-fill"></i> : {{trivia.type}}</p>
@@ -57,7 +57,7 @@
                                         <h1 class="mt-5">Instructions</h1>
                                         <h6>{{trivia.instruction}}</h6>
                                     </div>
-                                    <form>
+                                    <form @submit.prevent="submitPlayer">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <h1>Get Trivia</h1>
@@ -65,23 +65,23 @@
                                             </div>
                                             <div class="col-lg-6 mb-3">
                                                 <label>Email address</label>
-                                                <input class="input" type="email" placeholder="Enter email address">
+                                                <input v-model="triviaPlayer.email" class="input" type="email" placeholder="Enter email address">
                                             </div>
                                             <div class="col-lg-6 mb-3">
                                                 <label>Phone number</label>
-                                                <input class="input" type="tel" placeholder="Enter phone number">
+                                                <input v-model="triviaPlayer.phonenumber" class="input" type="tel" placeholder="Enter phone number">
                                             </div>
                                             <div class="col-lg-6 mb-3">
                                                 <label>Name</label>
-                                                <input class="input" type="text" placeholder="Enter your name">
+                                                <input v-model="triviaPlayer.name" class="input" type="text" placeholder="Enter your name">
                                             </div>
                                             <div class="col-lg-6 mb-3">
                                                 <label>City</label>
-                                                <input class="input" type="text" placeholder="Enter your city">
+                                                <input v-model="triviaPlayer.city" class="input" type="text" placeholder="Enter your city">
                                             </div>
                                             <div class="col-lg-12 text-center">
-                                                    <button type="submit">Continue</button>
-                                                </div>
+                                                    <button type="submit" class="btn btn-success" :disabled="loading" >Continue<span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -117,17 +117,51 @@
 <script>
     import Header from './elfrique-header.vue'
     import Footer from './elfrique-footer.vue'
+    import TriviaService from '../service/trivia.service'
     export default {
       name: "Elfrique",
       components:{
       'elfrique-header':Header,
       'elfrique-footer':Footer,
       },
-       computed: {
-         trivia() {
-             return this.$store.state.vote.trivia
-            }
+       data() {
+        return {
+            trivia: '',
+            loading: false,
+            triviaPlayer: {
+                name: '',
+                email: '',
+                phonenumber: '',
+                city: '',
+            },
+
+            
+        }
+    },
+
+     async created() {
+        TriviaService.getSingleTrivia(this.$route.params.id).then(response => {
+                this.trivia = response.data.trivia;
+                console.log(this.trivia);
+            })
      },
+
+     methods: {
+        submitPlayer() {
+             this.loading = true;
+             console.log(this.triviaPlayer);
+            TriviaService.createPlayer(this.triviaPlayer, this.trivia.id).then(response => {
+                 this.$store.dispatch('vote/getTriviaPlayer',response.data.player).then(
+            () => {
+            
+              this.$router.push('/trivia-content-instruction/' + this.trivia.id); 
+          }
+            )
+            })
+            
+        }
+    },
+
       mounted(){
         window.scrollTo(0,0)
       }

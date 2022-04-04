@@ -101,7 +101,7 @@
                                                             <a class="addOption">Add Options</a>
                                                             <div class="mt-2" v-for="(n,idx) in numberOfOption" :key="idx">
                                                                 
-                                                                <input v-model="con.options[n]" type="text" placeholder="type in option">
+                                                                <input v-model="con.options[idx]" type="text" placeholder="type in option">
                                                             </div>
                                                             <div class="mt-2">
                                                                 <a type="button" class="btn-success btn-sm"  v-on:click="addOption">Add Option</a>
@@ -111,7 +111,7 @@
                                                         <div v-else-if="con.type=='Check Boxes'"  class="col-lg-12 mt-3">
                                                             <h6>Check Boxes</h6>
                                                             <div v-for="(n,idx) in numberOfOption" :key="idx" class="mb-1">
-                                                                <input  type="checkbox" name="checbox" id="checkbox1"> <input type="text" placeholder="type in your option">
+                                                                <input  type="checkbox" name="checbox" id="checkbox1"> <input v-model="con.options[idx]" type="text" placeholder="type in your option">
                                                             </div>
                                                             
                                                             <div class="mt-2">
@@ -122,7 +122,7 @@
                                                         <div v-else-if="con.type=='Radio Button'" class="col-lg-12 mt-3">
                                                             <h6>Radio Button</h6>
                                                             <div v-for="(n,idx) in numberOfOption" :key="idx" class="mb-1">
-                                                                <input v-model="con.options[n]" type="radio" name="radio" id="radio1"> <input type="text" value="Radio name">
+                                                                <input  type="radio" name="radio" id="radio1"> <input v-model="con.options[idx]" type="text" >
                                                             </div>
                             
                                                             <div class="mt-2">
@@ -203,7 +203,7 @@
                 formId: '',  
                 message: '',
                 selectedContent: '',
-                numberOfOption: 4,
+                numberOfOption: 2,
                 QuestionForm: [
                     {
                         question: '',

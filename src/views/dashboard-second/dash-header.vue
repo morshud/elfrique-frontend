@@ -21,7 +21,7 @@
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
                 <li>
-                    <a href="/organiser/dashboard" class="switch-link-header">Switch To Seller Dashboard <i class="bi bi-record2-fill"></i></a>
+                    <a href="#" class="switch-link-header" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Become A Seller<i class="bi bi-record2-fill"></i></a>
                 </li>
                 <!--Notification Nav-->
                 <li class="nav-item dropdown">
@@ -144,12 +144,9 @@
     <!--------Sidebar--------->
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
-            <li class="nav-item sider-switch-link">
-                <a href="/organiser/dashboard" class="nav-link collapsed">
-                    <i class="bi bi-record2-fill"></i>
-                    <span>Switch To Seller Dashboard</span>
-                </a>
-            </li>
+            <li>
+                    <a href="#" class="switch-link-header" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Become A Seller<i class="bi bi-record2-fill"></i></a>
+                </li>
             <li class="nav-item">
                 <router-link to="/user/dashboard" class="routers"><a class="nav-link collapsed">
                     <img src="@/assets/images/menu-dashboard.png">
@@ -178,7 +175,7 @@
                    
                     <li><router-link to="/user/result-setting" class="routers"><a><i class="bi bi-circle"></i><span>Result Setting</span></a></router-link></li>
                     <li><router-link to="/user/add-info" class="routers"><a><i class="bi bi-circle"></i><span>Add Info</span></a></router-link></li> -->
-                     <li><router-link to="/user/view-vote-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Sales Analytics</span></a></router-link></li>
+                     <li><router-link to="/user/view-vote-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Voting Transaction History</span></a></router-link></li>
                     <li><router-link to="/user/view-contestants" class="routers"><a><i class="bi bi-circle"></i><span>View Contestants</span></a></router-link></li>
                     <li><router-link to="/user/search-vote" class="routers"><a><i class="bi bi-circle"></i><span>Search For Vote</span></a></router-link></li>
                 </ul>
@@ -193,7 +190,7 @@
                     <li><router-link to="/user/add-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Add Ticket</span></a></router-link></li> -->
                     <li><router-link to="/user/view-event" class="routers"><a><i class="bi bi-circle"></i><span>View Event</span></a></router-link></li>
                     <li><router-link to="/user/personal-ticket" class="routers"><a><i class="bi bi-circle"></i><span>View Personal Ticket</span></a></router-link></li>
-                    <li><router-link to="/user/event-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Sales Analytics</span></a></router-link></li>
+                    <li><router-link to="/user/event-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Transaction History</span></a></router-link></li>
                     <li><router-link to="/user/search-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Search For Tickets</span></a></router-link></li>
                 </ul>
             </li>
@@ -206,7 +203,7 @@
                    <!--  <li><router-link to="/user/create-form" class="routers"><a><i class="bi bi-circle"></i><span>Create Form</span></a></router-link></li> -->
                     <li><router-link to="/user/view-form" class="routers"><a><i class="bi bi-circle"></i><span>View Forms</span></a></router-link></li>
                    <!--  <li><router-link to="/user/personal-form" class="routers"><a><i class="bi bi-circle"></i><span>Personal Forms</span></a></router-link></li> -->
-                    <li><router-link to="/user/form-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Sales Analytics</span></a></router-link></li>
+                    <li><router-link to="/user/form-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Forms Transaction History</span></a></router-link></li>
                     <li><router-link to="/user/search-form" class="routers"><a><i class="bi bi-circle"></i><span>Search For Forms</span></a></router-link></li>
                 </ul>
             </li>
@@ -220,7 +217,7 @@
                     <li><router-link to="/user/view-trivia" class="routers"><a><i class="bi bi-circle"></i><span>View Trivia</span></a></router-link></li>
                     <!-- <li><router-link to="/user/update-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Update Trivia</span></a></router-link></li> -->
                     <li><router-link to="/user/view-result" class="routers"><a><i class="bi bi-circle"></i><span>View Results</span></a></router-link></li>
-                    <li><router-link to="/user/trivia-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Sales Analytics</span></a></router-link></li>
+                    <li><router-link to="/user/trivia-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Trivvia Transaction Hitpry</span></a></router-link></li>
                     <li><router-link to="/user/search-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Search For Trivia</span></a></router-link></li>
                 </ul>
             </li>
@@ -263,6 +260,162 @@
             </li>
         </ul>
     </aside>
+
+    <!-- Modal -->
+            <div class="modal fade sellerModal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Become a Seller</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p>Fill up your info below</p>
+                            </div>
+                            <div class="col-lg-6 mb-2">
+                                <label>Account Name</label>
+                                <input type="text" class="input">
+                            </div>
+                            <div class="col-lg-6 mb-2">
+                                <label>Account Number</label>
+                                <input type="number" class="input">
+                            </div>
+                            <div class="col-lg-12 mb-2">
+                                <label>Bank Name</label>
+                                <select class="input">
+                                    <option value="Choose Bank Name" hidden>Choose Bank Name</option>
+                                    <option value="AB Microfinance Bank">AB Microfinance Bank</option>
+                                    <option value="ASOSavings & Loan">ASOSavings & Loan</option>
+                                    <option value="Access Bank Plc">Access Bank Plc</option>
+                                    <option value="Access Money">Access Money</option>
+                                    <option value="Access Y'ello & Beta">Access Y'ello & Beta</option>
+                                    <option value="ACCIONO MFB">ACCIONO MFB</option>
+                                    <option value="Addosser Microfinance Bank">Addosser Microfinance Bank</option>
+                                    <option value="Advans La Fayette">Advans La Fayette</option>
+                                    <option value="Alat By Wema">Alat By Wema</option>
+                                    <option value="AssetMatrix MFB">AssetMatrix MFB</option>
+                                    <option value="Bowen MFB">Bowen MFB</option>
+                                    <option value="Carbon">Carbon</option>
+                                    <option value="Cellulant">Cellulant</option>
+                                    <option value="CIti Bank">CIti Bank</option>
+                                    <option value="Contec Global">Contec Global</option>
+                                    <option value="CoreStep Microfinance Bank">CoreStep Microfinance Bank</option>
+                                    <option value="Coronation">Coronation</option>
+                                    <option value="Diamond Bank">Diamond Bank</option>
+                                    <option value="Eartholeum">Eartholeum</option>
+                                    <option value="e-BARCs MFB">e-BARCs MFB</option>
+                                    <option value="Ecobank Mobile">Ecobank Mobile</option>
+                                    <option value="Ecobank Nigeria Plc">Ecobank Nigeria Plc</option>
+                                    <option value="Ecobank Xpress Account">Ecobank Xpress Account</option>
+                                    <option value="Ekondo MFB">Ekondo MFB</option>
+                                    <option value="Enterprise Bank">Enterprise Bank</option>
+                                    <option value="Eyowo">Eyowo</option>
+                                    <option value="eTranzact">eTranzact</option>
+                                    <option value="FBN Mobile">FBN Mobile</option>
+                                    <option value="FCMB Easy Account">FCMB Easy Account</option>
+                                    <option value="FET">FET</option>
+                                    <option value="FFS MFB">FFS MFB</option>
+                                    <option value="FINCA MFB">FINCA MFB</option>
+                                    <option value="FirstMonie Wallet">FirstMonie Wallet</option>
+                                    <option value="Fidelity Bank">Fidelity Bank</option>
+                                    <option value="Fidelity Mobile">Fidelity Mobile</option>
+                                    <option value="FinaTrust MFB">FinaTrust MFB</option>
+                                    <option value="First Bank Of Nigeria">First Bank Of Nigeria</option>
+                                    <option value="First City Monument Bank FCMB">First City Monument Bank FCMB</option>
+                                    <option value="FortisMobile">FortisMobile</option>
+                                    <option value="GTMobile">GTMobile</option>
+                                    <option value="Globus Bank">Globus Bank</option>
+                                    <option value="GoMoney">GoMoney</option>
+                                    <option value="Guaranty Trust Bank GTB">Guaranty Trust Bank GTB</option>
+                                    <option value="Hedonmark">Hedonmark</option>
+                                    <option value="Heritage Banking">Heritage Banking</option>
+                                    <option value="Hope PSB">Hope PSB</option>
+                                    <option value="Innovectives Kesh">Innovectives Kesh</option>
+                                    <option value="Intellifin">Intellifin</option>
+                                    <option value="Jaiz Bank Plc">Jaiz Bank Plc</option>
+                                    <option value="Kegow">Kegow</option>
+                                    <option value="Keystone Bank">Keystone Bank</option>
+                                    <option value="Kredi Money Microfinance Bank">Kredi Money Microfinance Bank</option>
+                                    <option value="Kuda MFB">Kuda MFB</option>
+                                    <option value="Letshego Microfinance Bank">Letshego Microfinance Bank</option>
+                                    <option value="Lotus Bank">Lotus Bank</option>
+                                    <option value="Mint - Finex MFB">Mint - Finex MFB</option>
+                                    <option value="Monie Point">Monie Point</option>
+                                    <option value="Mkudi">Mkudi</option>
+                                    <option value="MoneyBox">MoneyBox</option>
+                                    <option value="Nigeria Int'l Bank (CITIGROUP)">Nigeria Int'l Bank (CITIGROUP)</option>
+                                    <option value="One Finance">One Finance</option>
+                                    <option value="Paga">Paga</option>
+                                    <option value="Palmpay">Palmpay</option>
+                                    <option value="Parkway">Parkway</option>
+                                    <option value="Parkway-ReadyCash">Parkway-ReadyCash</option>
+                                    <option value="Polaris Bank Plc">Polaris Bank Plc</option>
+                                    <option value="Providus Bank Plc">Providus Bank Plc</option>
+                                    <option value="Rubies MFB">Rubies MFB</option>
+                                    <option value="Stanbic IBTC @ease Wallet">Stanbic IBTC @ease Wallet</option>
+                                    <option value="Stanbic Mobile">Stanbic Mobile</option>
+                                    <option value="Standard Chartered Bank">Standard Chartered Bank</option>
+                                    <option value="Sterling Bank">Sterling Bank</option>
+                                    <option value="TRJBank">TRJBank</option>
+                                    <option value="TagPay">TagPay</option>
+                                    <option value="TessyMobile">TessyMobile</option>
+                                    <option value="Titan Trust Bank">Titan Trust Bank"</option>
+                                    <option value="Union Bank Of Nigeria">Union Bank Of Nigeria</option>
+                                    <option value="United Bank For Africa">United Bank For Africa</option>
+                                    <option value="Unity Bank Plc">Unity Bank Plc</option>
+                                    <option value="VFB MFB">VFB MFB</option>
+                                    <option value="VNetworks">VNetworks</option>
+                                    <option value="Wema Bank">Wema Bank</option>
+                                    <option value="Wetland MFB">Wetland MFB</option>
+                                    <option value="Zenith Bank">Zenith Bank</option>
+                                    <option value="Zenith Mobile">Zenith Mobile</option>
+                                    <option value="Zinternet - KongaPay">Zinternet - KongaPay</option>
+                                    <option value="9PSB">9PSB</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6 mb-2">
+                                <label>About You</label>
+                                <div class='textarea' contenteditable></div>
+                            </div>
+                            <div class="col-lg-6 mb-2">
+                                <label>Address</label>
+                                <div class='textarea' contenteditable></div>
+                            </div>
+                            <div class="col-lg-6 mb-2">
+                                <label>Gender</label>
+                                <select class="input">
+                                    <option hidden>Select Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6 mb-2">
+                                <label>Your Twitter Account URL</label>
+                                <input type="url" class="input">
+                            </div>
+                            <div class="col-lg-6 mb-2">
+                                <label>Your Facebook Account URL</label>
+                                <input type="url" class="input">
+                            </div>
+                            <div class="col-lg-6 mb-2">
+                                <label>Your Instagram Account URL</label>
+                                <input type="url" class="input">
+                            </div>
+                            <div class="col-lg-12 mt-2">
+                                <button v-on:click="seller" type="submit">Submit Details</button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Skip Form</button>
+                </div>
+                </div>
+            </div>
+            </div>
 </template>
 <style scoped src="@/assets/css/dashStyle.css"></style>
 <script>
@@ -289,8 +442,13 @@ export default {
     logOut() {
       this.$store.dispatch('auth/logout');
       this.$router.push('/login');
-    }
-  },
+    },
+
+    seller() {
+        this.$router.push('/organiser/dashboard');
+    }   
+    },
+  
 
   mounted(){
     window.scrollTo(0,0)

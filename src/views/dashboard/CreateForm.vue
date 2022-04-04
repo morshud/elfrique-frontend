@@ -43,8 +43,8 @@
                                 <!--Form Type-->
                                 <div class="col-lg-12 mt-4">
                                     <label for="form type">Form Type</label>
-                                    <input v-model="Content.type"  class="radio" type="radio" name="form" id="paid"> <span>Paid</span>
-                                    <input v-model="Content.type" class="radio" type="radio" name="form" id="free"> <span>Free</span>
+                                    <input v-model="Content.type"  class="radio" type="radio" name="form" id="paid"  value="paid"> <span>Paid</span>
+                                    <input v-model="Content.type" class="radio" type="radio" name="form" id="free" value="free"> <span>Free</span>
                                 </div>
                                 <!--Start Date-->
                                 <div class="col-lg-6 mt-4">

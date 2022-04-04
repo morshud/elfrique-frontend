@@ -272,17 +272,17 @@ const routes = [
     component: ServiceTriviaManagementSystem,
   },
   {
-    path: "/trivia-content",
+    path: "/trivia-content/:id",
     name: "TriTriviaContent",
     component: TriTriviaContent,
   },
   {
-    path: "/trivia-content-instruction",
+    path: "/trivia-content-instruction/:id",
     name: "TriTriviaContentInstruction",
     component: TriTriviaContentInstruction,
   },
   {
-    path: "/trivia-content-quiz",
+    path: "/trivia-content-quiz/:id",
     name: "TriTriviaContentQuiz",
     component: TriTriviaContentQuiz,
   },

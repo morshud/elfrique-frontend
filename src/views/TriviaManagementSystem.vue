@@ -38,7 +38,7 @@
                         <div class="card-body">
                             <p class="card-text main-text"><i class="bi bi-patch-question-fill"></i> : {{con.title}}</p>
                             <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : {{con.type}}</p>
-                            <router-link to="/trivia-content" class="routers"><a class="btn-view" v-on:click="getTrivia(con)">Play Quiz</a></router-link>
+                            <router-link :to="'/trivia-content/' + con.id" class="routers"><a class="btn-view" >Play Quiz</a></router-link>
                         </div>
                     </div>
                 </div>
