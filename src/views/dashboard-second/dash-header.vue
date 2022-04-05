@@ -217,7 +217,7 @@
                     <li><router-link to="/user/view-trivia" class="routers"><a><i class="bi bi-circle"></i><span>View Trivia</span></a></router-link></li>
                     <!-- <li><router-link to="/user/update-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Update Trivia</span></a></router-link></li> -->
                     <li><router-link to="/user/view-result" class="routers"><a><i class="bi bi-circle"></i><span>View Results</span></a></router-link></li>
-                    <li><router-link to="/user/trivia-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Trivvia Transaction Hitpry</span></a></router-link></li>
+                    <li><router-link to="/user/trivia-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Trivia Transaction History</span></a></router-link></li>
                     <li><router-link to="/user/search-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Search For Trivia</span></a></router-link></li>
                 </ul>
             </li>
@@ -228,27 +228,17 @@
                 </a>
                 <ul id="vendor-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <!-- <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Create Vendor</span></a></router-link></li> -->
-                    <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>View Vendor</span></a></router-link></li>
-                    <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Search For Vendor</span></a></router-link></li>
+                    <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>View Available Jobs</span></a></router-link></li>
+                    <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Search For Job</span></a></router-link></li>
                 </ul>
             </li>
              <!-- Travel -->
-            <!-- <li class="nav-item">
+             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#travel-nav" data-bs-toggle="collapse" href="#">
                     <img src="@/assets/images/menu-travel.png"><span></span>Travel & Tour<i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="travel-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Travel Plan</span></a></router-link></li>
-                </ul>
-            </li> -->
-            <!-- Short URL -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#url-nav" data-bs-toggle="collapse" href="#">
-                    <img src="@/assets/images/menu-url.png"><span></span>Short URLs<i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="url-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li><router-link to="/user/create-url" class="routers"><a><i class="bi bi-circle"></i><span>Create URL</span></a></router-link></li>
-                    <li><router-link to="/user/view-url" class="routers"><a><i class="bi bi-circle"></i><span>View URL</span></a></router-link></li>
                 </ul>
             </li> 
             <!--Log Out-->

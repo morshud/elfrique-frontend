@@ -464,6 +464,8 @@
           error.message ||
           error.toString();
         this.successful = false;
+        this.$store.dispatch('auth/logout');
+        this.$router.push('/login');
       }
     );
   },
