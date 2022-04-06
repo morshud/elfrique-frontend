@@ -78,19 +78,30 @@ export default {
         password: ''
       },
       loading: false,
-      message: ''
+      message: '',
+      /* userData: this.$store.state.auth.user */
     };
   },
   computed: {
     loggedIn() {
       return this.$store.state.auth.status.loggedIn;
+    },
+    userData() {
+      return this.$store.state.auth.user;
     }
+    
   },
   created() {
-    if (this.loggedIn) {
+   /*  console.log(this.userData);
+    if (this.loggedIn && this.userData.user.role == 'seller') {
+      this.$router.push('/organiser/dashboard');
+    }else if(this.loggedIn && this.userData.user.role == 'normalUser'){
       this.$router.push('/user/dashboard');
     }
+      */
   },
+
+
   methods: {
     handleLogin() {
       this.loading = true;
@@ -98,7 +109,14 @@ export default {
         if (this.user.email && this.user.password) {
           this.$store.dispatch('auth/login', this.user).then(
             () => {
-              this.$router.push('/user/dashboard');
+              console.log(this.$store.state.auth.user);
+              let data = this.$store.state.auth.user;
+              if (data.user.role == "seller") {
+                this.$router.push('/organiser/dashboard');
+              } else {
+                this.$router.push('/user/dashboard');
+              }
+              //this.$router.push('/user/dashboard');
             },
             error => {
               this.loading = false;
