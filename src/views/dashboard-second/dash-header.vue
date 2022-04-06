@@ -259,22 +259,22 @@
                     <h5 class="modal-title" id="staticBackdropLabel">Become a Seller</h5>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form @submit.prevent="seller">
                         <div class="row">
                             <div class="col-lg-12">
-                                <p>Fill up your info below</p>
+                                <p>Fill up your info below to continue</p>
                             </div>
                             <div class="col-lg-6 mb-2">
                                 <label>Account Name</label>
-                                <input type="text" class="input">
+                                <input v-model="profile.accountname" type="text" class="input" required>
                             </div>
                             <div class="col-lg-6 mb-2">
                                 <label>Account Number</label>
-                                <input type="number" class="input">
+                                <input v-model="profile.accountnumber" type="number" class="input" required>
                             </div>
                             <div class="col-lg-12 mb-2">
                                 <label>Bank Name</label>
-                                <select class="input">
+                                <select v-model="profile.bankname" class="input" required>
                                     <option value="Choose Bank Name" hidden>Choose Bank Name</option>
                                     <option value="AB Microfinance Bank">AB Microfinance Bank</option>
                                     <option value="ASOSavings & Loan">ASOSavings & Loan</option>
@@ -367,15 +367,17 @@
                             </div>
                             <div class="col-lg-6 mb-2">
                                 <label>About You</label>
-                                <div class='textarea' contenteditable></div>
+                                <textarea v-model="profile.about" class='textarea'  name="about" id="about" cols="30" rows="4" placeholder="Tell us about yourself"></textarea>    
+        
                             </div>
                             <div class="col-lg-6 mb-2">
                                 <label>Address</label>
-                                <div class='textarea' contenteditable></div>
+                                <textarea v-model="profile.address" class='textarea' name="address" id="address" cols="30" rows="15" placeholder="Enter your address"></textarea> 
+                                
                             </div>
-                            <div class="col-lg-6 mb-2">
+                            <div class="col-lg-12 mb-2">
                                 <label>Gender</label>
-                                <select class="input">
+                                <select v-model="profile.gender"  class="input" required>
                                     <option hidden>Select Gender</option>
                                     <option>Male</option>
                                     <option>Female</option>
@@ -383,25 +385,25 @@
                             </div>
                             <div class="col-lg-6 mb-2">
                                 <label>Your Twitter Account URL</label>
-                                <input type="url" class="input">
+                                <input v-model="profile.twitterURL" type="url" class="input" required>
                             </div>
                             <div class="col-lg-6 mb-2">
                                 <label>Your Facebook Account URL</label>
-                                <input type="url" class="input">
+                                <input v-model="profile.facebookURL" type="url" class="input" required>
                             </div>
                             <div class="col-lg-6 mb-2">
                                 <label>Your Instagram Account URL</label>
-                                <input type="url" class="input">
+                                <input v-model="profile.instagramURL" type="url" class="input" required>
                             </div>
                             <div class="col-lg-12 mt-2">
-                                <button v-on:click="seller" type="submit">Submit Details</button>
+                                <button  type="submit" class="btn btn-success" :disabled="loading" >Submit Details<span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
                             </div>
                         </div>
                     </form>
                     
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Skip Form</button>
+                    <button type="button" class="btn btn-secondary" :data-bs-dismiss="modal">Skip Form</button>
                 </div>
                 </div>
             </div>
@@ -409,9 +411,55 @@
 </template>
 <style scoped src="@/assets/css/dashStyle.css"></style>
 <script>
+import ProfileService from '../../service/profile.service'
+import moment from 'moment'
 export default {
+    name: 'dashboard',
+    data() {
+    return {
+      content: '',
+      message: '',
+      successful: false,
+      loading: false,
+      modal: "modal",
+       profile: {
+        firstname: '',
+        lastname: '',
+        phone: '',
+        email: '',
+        accountname: '',
+        accountnumber: '',
+        bankname: '',
+        about: '',
+        address: '',
+        twitterURL: '',
+        facebookURL: '',
+        instagramURL: '',
 
-  name: 'dashboard',
+
+      },
+      
+    };
+  },
+
+  created() {
+
+
+    ProfileService.getProfile().then(
+      response => {
+        this.content = response.data.profile;
+        this.profile = this.content;
+      },
+      error => {
+        this.message =
+          (error.response && error.response.data && error.response.data.message) ||
+          error.message ||
+          error.toString();
+        this.successful = false;
+
+      }
+    );
+  },
   computed: {
     currentUser() {
       const user = JSON.parse(localStorage.getItem("user"));
@@ -435,9 +483,32 @@ export default {
     },
 
     seller() {
-        this.$router.push('/organiser/dashboard');
-    }   
+        
+        this.loading = true;
+        ProfileService.becomeSeller(this.profile).then(
+          response => {
+            this.message = response.data.message;
+            this.successful = true;
+            this.loading = false;
+            this.modal = "modal";
+            this.$router.push("/organiser/dashboard");
+            
+            
+
+            },
+          error => {    
+            this.message =
+              (error.response && error.response.data && error.response.data.message) ||
+              /* error.messag */error.response.data.errors[0].message|| "something went wrong please try again";
+              error.toString();
+            this.successful = false;
+            this.loading = false;
+          }
+        );
+        }
     },
+       
+
   
 
   mounted(){

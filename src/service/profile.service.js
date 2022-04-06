@@ -19,6 +19,12 @@ class ProfileService {
       headers: authHeader(),
     });
   }
+
+  becomeSeller(profile) {
+    return axios.post(API_URL + "becomeSeller", profile, {
+      headers: authHeader(),
+    });
+  }
 }
 
 export default new ProfileService();
