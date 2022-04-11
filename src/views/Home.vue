@@ -26,23 +26,23 @@
                 <!--Option-->
                 <div class="col-lg-12">
                   <label for="option">Select Option</label>
-                  <select class="input" name="option" id="option" required>
+                  <select v-model="search.product" class="input" name="option" id="option" required>
                       <option value="" hidden>Choose Option</option>
-                      <option value="voting contest">Voting Contest</option>
-                      <option value="trivia system">Trivia System</option>
-                      <option value="event tickets">Event Tickets</option>
+                      <option value="voting">Voting Contest</option>
+                      <option value="trivia">Trivia System</option>
+                      <option value="event">Event Tickets</option>
                       <option value="event vendors">Event Vendors</option>
-                      <option value="event forms">Event Forms</option>
+                      <option value="form">Event Forms</option>
                   </select>
                 </div>
                 <!--Keyword-->
                 <div class="col-lg-12">
                   <label for="keyword">Keyword Search</label>
-                  <input class="input" type="text" placeholder="Enter Keyword" required>
+                  <input v-model="search.keyword" class="input" type="text" placeholder="Enter Keyword" required>
                 </div>
                 <!--Search Button-->
                 <div class="col-lg-12 text-center">
-                  <button>Search Now <i class="bi bi-search"></i></button>
+                  <button v-on:click="searchProduct"  >Search Now <i class="bi bi-search"></i></button>
                 </div>
               </div>
             </form>
@@ -270,6 +270,28 @@
       'elfrique-newsletter':Newsletter,
       'elfrique-footer':Footer,
       },
+      data(){
+        return{
+          search:{
+            product:'',
+            keyword:'',
+          }
+        }
+      },
+      methods:{
+        searchProduct(){
+          this.$router.push({
+            name:'SearchResult',
+            params:{
+              product:this.search.product,
+            },
+            query:{
+              keyword:this.search.keyword,
+            }
+          })
+        }
+      },
+         
       mounted(){
         window.scrollTo(0,0)
       }

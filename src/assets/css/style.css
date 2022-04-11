@@ -3366,3 +3366,50 @@ footer .copyright p{
     color: #fff;
     font-size: 15px;
 }
+
+
+.searchContent{
+    margin-top: 100px;
+}
+.searchContent h4{
+    font-size: 23px;
+    font-weight: 500;
+    color: #000000;
+}
+.searchContent a{
+    text-decoration: none;
+}
+.searchContent .imgHouse{
+    width: 100%;
+    height: 150px;
+}
+.searchContent .imgHouse img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.searchContent .card-title{
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 5px
+}
+.searchContent .card-text{
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    padding-bottom: 10px;
+}
+.searchContent .pagination .page-item .page-link{
+    color: #2a531d !important;
+}
+.searchContent .pagination .page-item .page-link:hover{
+    background-color: #2a531d !important;
+    color: #ffffff !important;
+}
+@media(max-width: 767px){
+    .searchContent .imgHouse{
+        width: 100%;
+        height: 170px;
+    }
+}

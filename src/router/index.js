@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Blogs from "../views/Blogs.vue";
+import SearchResult from "../views/SearchResult.vue";
 import BlogPost from "../views/BlogPost.vue";
 import Pricing from "../views/Pricing.vue";
 import Contact from "../views/Contact.vue";
@@ -202,6 +203,12 @@ import SuperAdminNotSMSLogs from "../views/superadmin/SMSLogs.vue";
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/blogs", name: "Blogs", component: Blogs },
+  {
+    path: "/search-result/:product",
+    name: "SearchResult",
+    component: SearchResult,
+    props: (route) => ({ referral: route.query.keyword }),
+  },
   { path: "/blogPost", name: "BlogPost", component: BlogPost },
   { path: "/pricing", name: "Pricing", component: Pricing },
   { path: "/contact", name: "Contact", component: Contact },
