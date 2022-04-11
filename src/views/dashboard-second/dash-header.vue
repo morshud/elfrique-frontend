@@ -367,12 +367,12 @@
                             </div>
                             <div class="col-lg-6 mb-2">
                                 <label>About You</label>
-                                <textarea v-model="profile.about" class='textarea'  name="about" id="about" cols="30" rows="4" placeholder="Tell us about yourself"></textarea>    
+                                <input v-model="profile.about" class='textarea'  name="about" id="about" cols="40" rows="4" placeholder="Tell us about yourself">    
         
                             </div>
                             <div class="col-lg-6 mb-2">
                                 <label>Address</label>
-                                <textarea v-model="profile.address" class='textarea' name="address" id="address" cols="30" rows="15" placeholder="Enter your address"></textarea> 
+                                <input v-model="profile.address" class='textarea' name="address" id="address" cols="40" rows="15" placeholder="Enter your address"> 
                                 
                             </div>
                             <div class="col-lg-12 mb-2">
