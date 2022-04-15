@@ -60,7 +60,7 @@
     import Newsletter from './elfrique-newsletter.vue'
     import Footer from './elfrique-footer.vue'
     import EventService from '../service/event.service'
-     import moment from 'moment'
+    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{

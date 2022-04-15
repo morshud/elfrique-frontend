@@ -901,6 +901,7 @@
 
 
                 this.loading = false;
+                 window.scrollTo(0,0)
             });
         },
 

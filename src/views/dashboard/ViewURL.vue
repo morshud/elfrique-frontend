@@ -45,14 +45,14 @@
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody  v-for="(con,idx) in content" :key="con.id">
                     <tr>
-                        <th scope="row">1</th>
-                        <td class="td-link"><a href="https://elfrique.com/myshorturl">https://elfrique.com/myshorturl</a></td>
-                        <td>myshorturl</td>
-                        <td class="td-link"><a href="https://elfrique.com/">https://elfrique.com/</a></td>
-                        <td>2022-02-02</td>
-                        <td class="td-link"><a href="https://elfrique.com/stats/myshorturl">https://elfrique.com/stats/myshorturl</a></td>
+                        <th scope="row">{{idx + 1}}</th>
+                        <td class="td-link"><a :href="con.shortUrl">{{con.shortUrl}}</a></td>
+                        <td>{{con.urlCode}}</td>
+                        <td class="td-link"><a :href="con.longUrl">{{con.longUrl}}</a></td>
+                        <td>{{format_date(con.createdAt)}}</td>
+                        <td class="td-link"><a href="#"></a></td>
                         <td><button type="button" class="table-delete-button">Delete</button></td>
                     </tr>
                     </tbody>
@@ -84,11 +84,51 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import VendorService from '../../service/vendor.service'
+    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
+      },
+      data(){
+        return{
+          title: 'View Event',
+          content: '',
+          }
+        },
+        computed: {
+        loggedIn() {
+            return this.$store.state.auth.status.loggedIn;
+            },
+        },
+        created(){
+          if (!this.loggedIn) {
+                this.$router.push('/login');
+    }
+
+            VendorService.getAllUrls().then(response => {
+                this.content = response.data.events;
+                console.log(this.content);
+            },
+            error => {
+            this.message =
+            (error.response && error.response.data && error.response.data.message) ||
+            error.message ||
+            error.toString();
+            thtis.successful = false;
+            this.$store.dispatch('auth/logout');
+            this.$router.push('/login');
+      }
+            )
+        },
+        methods: { 
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+          }
+    }
       },
       mounted(){
         window.scrollTo(0,0)

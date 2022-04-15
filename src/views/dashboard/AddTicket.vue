@@ -27,7 +27,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     <div  v-if="error" class=" alert-danger alert  alert-dismissible fade show" role="alert">
-                           {{error}}}} 
+                           {{error}}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         <div  v-if="message" class= 'alert-success alert  alert-dismissible fade show' role="alert">

@@ -2093,6 +2093,7 @@ header nav .offcanvas-header button i{
 /***********SERVICE HEADER VENDOR***********/
 /********************************/
 .service-header-vendor{
+    background-color: #238D00;
     background-image: url('../images/vendor-head.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -2222,7 +2223,7 @@ header nav .offcanvas-header button i{
 .event-vendor .vendorJob-box .img-area{
     width: 100%;
     height: 200px;
-    background-color: red;
+    background-color: #29501d;
     border-top: 1px solid #c8c8c8;
     border-bottom: 1px solid #c8c8c8;
 }
@@ -2270,7 +2271,7 @@ header nav .offcanvas-header button i{
     width: 100%;
 }
 .event-vendor .advert-area{
-    background-color: red;
+    background-color: #29501d;
     width: 307px;
     height: 450px;
     margin-bottom: 50px;
@@ -2280,6 +2281,41 @@ header nav .offcanvas-header button i{
     height: 100%;
     object-fit: cover;
 }
+/***************************/
+.vendorModalBox form label{
+    display: block;
+    font-size: 16px;
+    padding-bottom: 5px;
+    color: #000000;
+}
+.vendorModalBox form .input{
+    width: 100%;
+    padding: 10px 13px;
+    border: 1px solid #c9c9c9;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 400;
+}
+.vendorModalBox form .textarea{
+    width: 100%;
+    height: auto;
+    padding: 10px 13px;
+    border: 1px solid #c9c9c9;
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 10px;
+}
+.vendorModalBox form .button{
+    width: 100%;
+    padding: 10px 13px;
+    background-color: #386B28;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 10px;
+}
+/***************************/
 @media(max-width: 1399px){
     .event-vendor .vendorJob-box{
         width: 250px !important;
@@ -3412,4 +3448,13 @@ footer .copyright p{
         width: 100%;
         height: 170px;
     }
+}
+
+/*********View More Vendor*********/
+.paginationDivArea .pagination .page-item .page-link{
+    color: #2a531d !important;
+}
+.paginationDivArea .pagination .page-item .page-link:hover{
+    background-color: #2a531d !important;
+    color: #ffffff !important;
 }
