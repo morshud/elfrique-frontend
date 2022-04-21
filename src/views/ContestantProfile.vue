@@ -55,7 +55,18 @@
                             </div>
                             <div class="col-lg-12">
                                 <button type="submit">Vote</button>
+                                
                             </div>
+
+                            <!-- <paystack
+                                    :amount="100 * 100"
+                                    :email="user.email"
+                                    :paystackkey="PUBLIC_KEY"
+                                    :callback="processPayment"
+                                    :reference="genRef()"
+                                    :close="close"
+                                    :embed="false"
+                                    >PAY NGN</paystack> -->
                         </div>
                     </form>
                 </div>
@@ -75,7 +86,7 @@
                         </p>
                         <p class="card-text card-text-after"><i class="bi bi-circle-square"></i> : {{con.contestantnumber}} (contestant number)</p>
                         <p class="card-text card-text-after"><i class="bi bi-activity"></i>: 2 (votes)</p>
-                         <router-link to="/contestant-profile" class="routers" v-on:click="getContestant(con)"><a class="btn-view-contest">View Profile</a></router-link>
+                         <router-link :to="'/contestant-profile/' + con.id" class="routers"><a class="btn-view-contest">View Profile</a></router-link>
                     </div>
                 </div>
             </div>
@@ -97,27 +108,52 @@
     }
 </style>
 <script>
+    import paystack from 'vue-paystack'
+    import uniqid from 'uniqid'
     import Header from './elfrique-header.vue'
     import Footer from './elfrique-footer.vue'
+    import VoteService from '../service/vote.service'
+    
+   
     export default {
         name: "Elfrique",
         components:{
         'elfrique-header':Header,
         'elfrique-footer':Footer,
+        'paystack':paystack,
         },
         computed: {
-        contest() {
-             return this.$store.state.vote.contest
-            },
-        contestant(){
-            return this.$store.state.vote.contestant
-        },
-
         otherContestants(){
             const OC = this.contest.contestants.filter(contestant => contestant.id !== this.contestant.id)
             return OC
         },
      },
+
+     data() {
+        return {
+            contest: '',
+            contestant: '', 
+            user: {
+                name: "John Doe",
+                email: "customer@email.com"
+                },
+            PUBLIC_KEY: "pk_test_be803d46f5a6348c3643967d0e6b7b2303d42b4f",
+
+
+            
+        }
+     },
+
+        created() {
+            VoteService.getAContestant(this.$route.params.id).then(response => {
+                this.contestant = response.data.contestants;
+                VoteService.getSingleContest(response.data.contestants.votingContest.id).then(response => {
+                    this.contest = response.data.voteContest;
+                
+            })
+            })
+
+        },
 
      methods: { 
             format_date(value){
@@ -129,6 +165,15 @@
                 this.$store.dispatch('vote/getContestant', con)
                  window.scrollTo(0,0)
             },
+
+    close() {},
+    genRef() {
+      return uniqid();
+    },
+    processPayment() {
+      
+      console.log("Payment Successful! Your sneakers are on their way.")
+    },
 
         },
         mounted(){

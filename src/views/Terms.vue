@@ -21,7 +21,6 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-11">
-                    <p><strong>TERMS LAST UPDATED ON 1st January 2021</strong></p>
                     <p>Welcome to www.elfrique.com website (the "Site") of Elfrique Solutions Limited.</p>
                     <p>This Site has been created to provide complete management solutions to our esteemed customers. Please read our terms and conditions carefully. The use of our Site is subject to these terms and conditions.</p>
                     <p>We may change our terms from time to time and such changes will take effect as and when published on this Site. If you do not accept our terms of use, please do not make use of our Site.</p>

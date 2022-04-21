@@ -64,8 +64,8 @@
                             </li>
                         </ul>
                         <div class="login-div">
-                            <a href="/login" class="btn-login">Login</a>
-                            <a href="/signup" class="btn-signup">Sign Up <i class="bi bi-arrow-right"></i></a>
+                            <a href="https://elfrique-proj.netlify.app/login" class="btn-login">Login</a>
+                            <a href="https://elfrique-proj.netlify.app/signup" class="btn-signup">Sign Up <i class="bi bi-arrow-right"></i></a>
                         </div>
                         <div class="icon-hambuger">
                             <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fas fa-bars"></i></a>
@@ -83,7 +83,7 @@
         <div class="offcanvas-body text-center">
             <div class="logo-area">
             <img src="@/assets/images/logo.png">
-            <p>Elfrique is a innovative and complete goal-oriented company.</p>
+            <p>Elfrique is a creative and innovative complete management company. We use through our website and short codes to help customers achieve their goals.</p>
             </div>
             <div class="contact-area">
             <h4>Contact:</h4>

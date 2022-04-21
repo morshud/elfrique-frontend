@@ -1287,7 +1287,7 @@ header nav .offcanvas-header button i{
     margin-right: 8px;
 }
 .voting-content .text-title-area .details-social a img{
-    width: 35px;
+    width: 30px;
 }
 .voting-content .text-title-area .details-social a img:hover{
     opacity: 0.8;
@@ -2151,7 +2151,7 @@ header nav .offcanvas-header button i{
 /********************************/
 .event-vendor .vendorService-box{
     background-color: #ffffff;
-    width: 23%;
+    width: 23.2%;
     height: 200px;
     padding: 30px 10px !important;
     margin-right: 20px;
@@ -2264,19 +2264,23 @@ header nav .offcanvas-header button i{
     padding: 6px 25px;
     margin-top: 10px;
 }
+.event-vendor .vendorJob-box button .btnA{
+    color: #fff;
+    text-decoration: none;
+}
 .event-vendor .vendorJob-box button:hover{
     background-color: #e77b00;
 }
-.event-vendor .horizontal-advert img{
+.horizontal-advert img{
     width: 100%;
 }
-.event-vendor .advert-area{
+.advert-area{
     background-color: #29501d;
-    width: 307px;
+    width: 300px;
     height: 450px;
     margin-bottom: 50px;
 }
-.event-vendor .advert-area img{
+.advert-area img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -2315,6 +2319,25 @@ header nav .offcanvas-header button i{
     font-weight: 400;
     border-radius: 10px;
 }
+.event-vendor .mainService-box .vendorService-box{
+    display: none;
+}
+.event-vendor .mainService-box{
+    margin-left: 15px;
+}
+.event-vendor .mainService-box .loadMoreBtn{
+    padding: 10px 30px;
+    border-radius: 10px;
+    background-color: #386B28;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+}
+.event-vendor .mainService-box .noContent{
+    color: #fff !important;
+    background-color: #000000 !important;
+    pointer-events: none;
+}
 /***************************/
 @media(max-width: 1399px){
     .event-vendor .vendorJob-box{
@@ -2324,7 +2347,7 @@ header nav .offcanvas-header button i{
 }
 @media(max-width: 1199px){
     .event-vendor .vendorService-box{
-        width: 20%;
+        width: 22.5%;
         height: 200px;
     }
     .event-vendor .vendorService-box img{
@@ -2345,6 +2368,7 @@ header nav .offcanvas-header button i{
     }
     .event-vendor .vendorService-box{
         height: 250px;
+        width: 22%;
     }
 }
 @media(max-width: 767px){
@@ -2395,6 +2419,7 @@ header nav .offcanvas-header button i{
     }
     .event-vendor .mainService-box{
         margin-top: -10px;
+        margin-left: 1px;
     }
 }
 
@@ -2445,6 +2470,7 @@ header nav .offcanvas-header button i{
 /********************************/
 .pricing-section{
     padding: 20px 10px 50px 10px;
+    display: none;
 }
 .pricing-section .main {
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.15);
@@ -2522,6 +2548,90 @@ header nav .offcanvas-header button i{
     }
     .pricing-section .price-table td.price {
         font-size: 15px;
+    }
+}
+
+/*******************************/
+.mainPricing{
+    padding: 30px 5px 60px 5px;
+}
+.mainPricing form{
+    padding: 20px 40px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 20px #00000023;
+    border-radius: 10px;
+    transition: 0.4s;
+}
+.mainPricing form h1{
+    font-size: 25px;
+    font-weight: 700;
+    color: #000;
+    text-transform: capitalize;
+}
+.mainPricing form label{
+    display: block;
+    padding-bottom: 3px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.mainPricing form .input{
+    width: 100%;
+    padding: 10px 13px;
+    border-radius: 5px;
+    border: 1px solid #8b8b8b;
+}
+.mainPricing form .input:focus{
+    outline: none;
+    border: 2px solid #E94F69;
+}
+.mainPricing form .checkboxDiv{
+    display: block;
+    margin-bottom: 5px;
+}
+.mainPricing form .checkboxDiv span{
+    padding-left: 5px;
+}
+.mainPricing form .submit{
+    width: 150px;
+    padding: 10px 5px;
+    background-color: #386B28;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    transition: 0.6s;
+}
+.mainPricing form .submit:hover{
+    background-color: #000000;
+}
+@media(max-width: 1199px){
+    .mainPricing .boxDetails .box1 i{
+        font-size: 35px;
+        padding-top: 10px;
+    }
+    .mainPricing .boxDetails .addressBox{
+        margin-top: 12px;
+    }
+}
+@media(max-width: 991px){
+    .mainPricing .boxDetails{
+        margin-bottom: 10px;
+    }
+}
+@media(max-width: 767px){
+    .mainPricing form{
+        padding: 30px 20px;
+    }
+    .mainPricing form .input{
+        padding: 6px 13px;
+    }
+}
+@media(max-width: 430px){
+    .mainPricing .boxDetails{
+        padding: 20px 10px;
+    }
+    .mainPricing .boxDetails .box1 i{
+        font-size: 35px;
+        padding-top: 10px;
     }
 }
 
@@ -3457,4 +3567,483 @@ footer .copyright p{
 .paginationDivArea .pagination .page-item .page-link:hover{
     background-color: #2a531d !important;
     color: #ffffff !important;
+}
+
+.detailsVendorHeader{
+    padding: 90px 10px !important;
+    background-color: #238D00;
+    background-image: url('../images/vendor-head.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top top;
+}
+.detailsVendorHeader h1, .detailsVendorHeader p{
+    text-align: center !important;
+    color: #fff !important;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.712);
+}
+.detailsHead{
+    margin-top: -1px;
+}
+.detailsHead .img-area{
+    width: 100%;
+    height: 340px;
+}
+.detailsHead .img-area img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+.detailsHead .text-title-area h1{
+    text-transform:capitalize;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+.detailsHead .text-title-area p{
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+.detailsHead .text-title-area .bidPrice{
+    font-weight: 700;
+}
+.contentDetailsVendor{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.contentDetailsVendor .detailsVendor button.active{
+    color: #386B28 !important;
+    background-color: transparent !important;
+    padding: 10px 25px;
+    border-bottom: 2px solid #386B28;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 1px !important;
+}
+.contentDetailsVendor .detailsVendor  .tabs-button{
+    background-color: transparent !important;
+    color: #000 !important;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 25px;
+    border-bottom: 2px solid #757575;
+    border-radius: 1px !important;
+    margin-left: -2px;
+}
+.contentDetailsVendor .detailsVendor  .tabs-button:focus{
+    background-color: transparent !important;
+    border-bottom: 2px solid #386B28;
+    font-weight: 600;
+}
+.contentDetailsVendor .detailsVendor .tab-pane h3{
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+}
+.contentDetailsVendor .detailsVendor .tab-pane p{
+    font-size: 16px;
+    color: #000;
+    line-height: 28px;
+}
+#gallery{
+    margin-left: -40px !important;
+}
+.gallery-section ul {
+    list-style: none; 
+    margin-bottom: 20px;
+}
+.gallery-section .hidden {
+    display: none;
+}
+.gallery-section #projects > ul > li {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 31.2%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    box-sizing: border-box;
+    position: relative;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+.gallery-section #projects > ul > li:hover {
+    opacity: 0.5;
+}
+.gallery-section img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+.gallery-section .gallery {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    padding: 40px 10px;
+    display: none;
+    box-sizing: border-box;
+    z-index: 99999 !important;
+    text-align: center;
+}
+.gallery-section .gallery > img {
+    max-height: 100%;
+    width: auto;
+}
+.gallery-section .close i {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    height: 30px;
+    width: 30px;
+}
+.gallery-section .bar {
+    display: block;
+    position: absolute;
+    top: 13px;
+    float: left;
+    width: 30px;
+    border-bottom: 4px solid #fff;
+    transform: rotate(45deg);
+}
+.gallery-section .bar:first-child {
+    transform: rotate(-45deg);
+}
+@media (max-width: 555px){
+    .gallery-section #projects > ul > li {
+        width: 45%;
+    }
+    .gallery-section #projects ul{
+        padding: 1px;
+        margin-left: -10px !important;
+        margin-right: -40px;
+    }
+    .gallery-section #projects ul img{
+        width: 100%;
+    }
+    .gallery-section .gallery {
+        padding: 70px 10px 30px 10px;
+    }
+}
+.contentDetailsVendor .formVendor{
+    width: 90%;
+    border: 1px solid #a3a3a3;
+    padding: 30px;
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 0px 0px 20px #d8d8d8;
+}
+@media(max-width: 1199px){
+    .contentDetailsVendor .formVendor{
+        padding: 20px;
+    }
+}
+@media(max-width: 991px){
+    .contentDetailsVendor .formVendor{
+        margin-top: 20px;
+    }
+}
+@media(max-width: 480px){
+    .contentDetailsVendor .formVendor{
+        width: 100%;
+    }
+}
+.contentDetailsVendor .formVendor h1{
+    font-size: 22px;
+    font-weight: 600;
+    color: #000000;
+}
+.contentDetailsVendor .formVendor .lineHr{
+    width: 70px;
+    height: 2px;
+    background-color: #000;
+    margin-bottom: 20px;
+}
+.contentDetailsVendor .formVendor label{
+    display: block;
+    font-size: 15px;
+    padding-bottom: 5px;
+    color: #000000;
+    text-transform: capitalize;
+}
+.contentDetailsVendor .formVendor .input{
+    width: 100%;
+    padding: 6px 13px;
+    border: 1px solid #a3a3a3;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+@media(max-width: 991px){
+    .contentDetailsVendor .formVendor .input{
+        margin-bottom: 1px;
+    }
+}
+.contentDetailsVendor .formVendor .textarea{
+    width: 100%;
+    height: auto;
+    padding: 10px 13px;
+    border: 1px solid #a3a3a3;
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.contentDetailsVendor .formVendor .button{
+    width: 100%;
+    padding: 10px 13px;
+    background-color: #386B28;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 10px;
+    border: none;
+}
+
+/*******VIEW VENDOR*******/
+.viewVendor{
+    padding: 50px 5px;
+}
+.viewVendor .profileCard{
+    margin: 5px 1px 60px 1px;
+}
+.viewVendor .profileCard .imgArea{
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+}
+.viewVendor .profileCard .imgArea img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #b4b4b4;
+}
+@media(max-width: 991px){
+    .viewVendor .profileCard .imgArea img{
+        object-fit: contain;
+    }
+}
+@media(max-width: 565px){
+    .viewVendor .profileCard .imgArea img{
+        object-fit: cover;
+    }
+}
+.viewVendor .profileCard .detailsArea{
+    margin-top: 20px;
+}
+.viewVendor .profileCard .detailsArea p{
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.viewVendor .profileCard .detailsArea p .bi{
+    padding-right: 7px;
+    font-weight: 700;
+}
+.viewVendor .profileCard .detailsArea p .fa-star{
+    color: #FFCE31;
+}
+.viewVendor .profileCard a{
+    color: #29501d;
+    text-decoration: none;
+    padding-bottom: 3px;
+    border-bottom:  1px solid #29501d;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.8s;
+}
+.viewVendor .profileCard a:hover i{
+    padding-left: 4px;
+}
+.viewVendor .pagination .page-item .page-link{
+    color: #2a531d !important;
+}
+.viewVendor .pagination .page-item .page-link:hover{
+    background-color: #2a531d !important;
+    color: #ffffff !important;
+}
+
+
+.vendorProfile{
+    margin-top: 100px;
+}
+.vendorProfile .img-area img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #b4b4b4;
+}
+.vendorProfile .text-title-area{
+    padding-top: 60px;
+}
+@media(max-width: 767px){
+    .vendorProfile .text-title-area{
+        padding-top: 30px;
+    }
+}
+.vendorProfile .text-title-area h1{
+    font-size: 32px;
+    font-weight: 700;
+    color: #000000;
+}
+.vendorProfile .text-title-area .details-header p{
+    font-size: 22px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+@media(max-width: 767px){
+    .vendorProfile .text-title-area h1{
+        font-size: 25px;
+    }
+    .vendorProfile .text-title-area .details-header p{
+        font-size: 18px;
+        padding-bottom: 5px;
+    }
+}
+.vendorProfile .text-title-area .details-header p .fa-star{
+    color: #FFCE31;
+}
+
+.contentDetailsVendor .overallRated h1{
+    font-size: 65px;
+    color: #000000;
+    font-weight: 600;
+    margin-bottom: -3px;
+}
+.contentDetailsVendor .overallRated h1 span{
+    font-size: 20px;
+    font-weight: 500;
+}
+.contentDetailsVendor .overallRated .star{
+    font-size: 22px;
+}
+.contentDetailsVendor .overallRated .star span{
+    padding-left: 2px;
+    padding-right: 2px;
+    color: #646464;
+}
+.contentDetailsVendor .overallRated .rated{
+    color: #FCD703;
+}
+.contentDetailsVendor .overallRated .ratingText{
+    color: #7e7e7e;
+    font-size: 16px;
+    margin-top: -8px;
+}
+.contentDetailsVendor .starNumber{
+    width: 15%;
+}
+.contentDetailsVendor .starProgress{
+    width: 85%;
+}
+@media(max-width: 991px){
+    .contentDetailsVendor .starNumber{
+        width: 20%;
+    }
+    .contentDetailsVendor .starProgress{
+        width: 80%;
+    }
+}
+.contentDetailsVendor .starNumber p{
+    font-size: 15px;
+    font-weight: 500;
+}
+.contentDetailsVendor .starNumber, .contentDetailsVendor .starProgress{
+    float: left;
+}
+.contentDetailsVendor .starProgress .progress{
+    height: 1.5rem !important;
+}
+.contentDetailsVendor .starProgress .progress-bar{
+    font-size: 15px;
+    font-weight: 500;
+}
+.contentDetailsVendor .progressDiv .clear{
+    clear: both;
+}
+.contentDetailsVendor .reviews{
+    margin-top: 40px;
+    color: #000;
+}
+.contentDetailsVendor .reviews h1{
+    font-size: 25px;
+    font-weight: 700;
+    padding-bottom: 15px;
+}
+.contentDetailsVendor .reviews .box{
+    margin-left: 20px;
+    margin-bottom: 30px;
+    display: none;
+}
+.contentDetailsVendor .reviews .box h4{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: -1px;
+}
+.contentDetailsVendor .reviews .box .star span{
+    color: #FCD703;
+}
+.contentDetailsVendor .reviews .box .time{
+    float: right;
+    margin-top: -30px;
+    font-weight: 600;
+    font-size: 15px;
+}
+.contentDetailsVendor .reviews .box .comment{
+    margin-top: -5px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.contentDetailsVendor .reviews .loadMoreBtn{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #386B28;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+}
+.contentDetailsVendor .reviews .noContent{
+    color: #fff !important;
+    background-color: #000000 !important;
+    pointer-events: none;
+}
+.vendorProfileDetails .detailsVendor button.active{
+    color: #386B28 !important;
+    background-color: transparent !important;
+    padding: 10px 25px;
+    border-bottom: 2px solid #386B28;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 1px !important;
+}
+.vendorProfileDetails .detailsVendor  .tabs-button{
+    background-color: transparent !important;
+    color: #000 !important;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 25px;
+    border-bottom: 2px solid #757575;
+    border-radius: 1px !important;
+    margin-left: -2px;
+}
+.vendorProfileDetails .detailsVendor  .tabs-button:focus{
+    background-color: transparent !important;
+    border-bottom: 2px solid #386B28;
+    font-weight: 600;
+}
+@media(max-width: 369px){
+    .vendorProfileDetails .detailsVendor button.active, .vendorProfileDetails .detailsVendor  .tabs-button{
+        padding: 10px 15px;
+    }
+}
+.vendorProfileDetails{
+    margin-top: -10px;
+    margin-bottom: 40px;
 }

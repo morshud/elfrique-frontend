@@ -32,8 +32,8 @@
             </div>
             <div v-if="successful" class="created-url-here mt-5">
               <h3 class="mb-3 text-dark font-weight-bold">Your new created Short-URL:</h3>
-              <input class="input-url" type="url" placeholder="Your created short url will appear here" disabled value="https://elfrique.com/myshorturl">
-              <input class="input-url-button" type="button" :value="url.shortUrl">
+              <input class="input-url" type="url" placeholder="Your created short url will appear here" disabled :value="url.shortUrl">
+              <input class="input-url-button" type="button" value="copy">
             </div>
             <form name="form" @submit.prevent="createURL">
               <div class="row">
@@ -103,14 +103,18 @@
     methods:{
         createURL(){
             this.loading = true;
+            console.log(this.url)
 
-            let formData = new FormData();                                                                                                                                                                                                                                           
-            formData.append('alias', this.url.alias);
-            formData.append('longUrl', this.url.longUrl);
+            
+
+            let urlForm = {
+                alias: this.url.alias,
+                longUrl: this.url.longUrl,
+            }
             
             
 
-            VendorService.createUrl(formData, this.eventId).then(response => {
+            VendorService.createUrl(this.url).then(response => {
                     
                     this.message = `URL Shorten Successfully`;
                     this.loading = false;

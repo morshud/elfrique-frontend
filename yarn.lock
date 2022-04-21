@@ -8108,6 +8108,11 @@
   "resolved" "https://registry.npmjs.org/uniq/-/uniq-1.0.1.tgz"
   "version" "1.0.1"
 
+"uniqid@^5.4.0":
+  "integrity" "sha512-38JRbJ4Fj94VmnC7G/J/5n5SC7Ab46OM5iNtSstB/ko3l1b5g7ALt4qzHFgGciFkyiRNtDXtLNb+VsxtMSE77A=="
+  "resolved" "https://registry.npmjs.org/uniqid/-/uniqid-5.4.0.tgz"
+  "version" "5.4.0"
+
 "uniqs@^2.0.0":
   "integrity" "sha1-/+3ks2slKQaW5uFl1KWe25mOawI="
   "resolved" "https://registry.npmjs.org/uniqs/-/uniqs-2.0.0.tgz"
@@ -8311,6 +8316,13 @@
     "vue-hot-reload-api" "^2.3.0"
     "vue-style-loader" "^4.1.0"
 
+"vue-paystack@^2.0.4":
+  "integrity" "sha512-EwIvuWpQ5MuvKjqv3AZ0NqHdFHZrUGynUn6aCAi1pj62mazBCVUZk/I0ISnPKVIM39weUUUIDUEXIKhJcezT7w=="
+  "resolved" "https://registry.npmjs.org/vue-paystack/-/vue-paystack-2.0.4.tgz"
+  "version" "2.0.4"
+  dependencies:
+    "vue" "^2.6.7"
+
 "vue-plugin-load-script@^2.1.0":
   "integrity" "sha512-tFvedqtOiLI+jZ78dymg+f7bjiglCVC2lA0CXVIq7bXVqu1sssP40r6UNMpD9glGD+EhbGRdOa70Sb5ZuHjmTA=="
   "resolved" "https://registry.npmjs.org/vue-plugin-load-script/-/vue-plugin-load-script-2.1.0.tgz"
@@ -8346,6 +8358,11 @@
     "@vue/runtime-dom" "3.2.29"
     "@vue/server-renderer" "3.2.29"
     "@vue/shared" "3.2.29"
+
+"vue@^2.6.7":
+  "integrity" "sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ=="
+  "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
+  "version" "2.6.14"
 
 "vue2-editor@^2.10.3":
   "integrity" "sha512-99rWL93xfGeFRrq8NY5L7U+Cog/Uenx+UOOJragtxtbhBE9Rv5/C3P/YhJhjMECSbQyHFjUriqv1S3mghvU9Kg=="

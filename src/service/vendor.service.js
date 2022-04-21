@@ -17,6 +17,14 @@ class VendorService {
     return axios.get(API_URL + "url/getallUrl", { headers: authHeader() });
   }
 
+  getUserAds() {
+    return axios.get(API_URL + "getUserAds", { headers: authHeader() });
+  }
+
+  getAllAds() {
+    return axios.get(API_URL + "getAllAds", { headers: authHeader() });
+  }
+
   createUrl(urlForm) {
     return axios.post(
       "https://elfrique-proj.herokuapp.com/api/v1/url/shorten",
@@ -29,7 +37,13 @@ class VendorService {
 
   createJobs(jobForm, eventId) {
     return axios.post(API_URL + "createjob/" + eventId, jobForm, {
-      headers: authHeader2(),
+      headers: authHeader(),
+    });
+  }
+
+  createAdvert(advertForm) {
+    return axios.post(API_URL + "createAds", advertForm, {
+      headers: authHeader(),
     });
   }
 

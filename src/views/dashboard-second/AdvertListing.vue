@@ -1,16 +1,16 @@
 <template>
-    <title>View URL | Elfrique</title>
+    <title>Advert Listing| Elfrique</title>
     <dash-header/>
 
     <!--------Main Content--------->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Your Shortened Links</h1>
+            <h1>View Vendor</h1>
             <nav>
                 <ol class="breadcrumb">
-                <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
-                <li class="breadcrumb-item active">Short URLs</li>
-                <li class="breadcrumb-item active">View URL</li>
+                    <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
+                    <li class="breadcrumb-item active">Vendor</li>
+                    <li class="breadcrumb-item active">Advert Listing</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -37,23 +37,24 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Short URL</th>
-                        <th scope="col">Alias</th>
-                        <th scope="col">URL</th>
-                        <th scope="col">Date Created</th>
-                        <th scope="col">View Analytics</th>
+                        <th scope="col">Advert Title</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Advert Link</th>
+                        <th scope="col">Date Added</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
-                    <tbody  v-for="(con,idx) in content" :key="con.id">
+                    <tbody v-for="(con,idx) in content" :key="con.id">
                     <tr>
                         <th scope="row">{{idx + 1}}</th>
-                        <td class="td-link"><a :href="con.shortUrl">{{con.shortUrl}}</a></td>
-                        <td>{{con.urlCode}}</td>
-                        <td class="td-link"><a :href="con.longUrl">{{con.longUrl}}</a></td>
+                        <td>{{con.title}}</td>
+                        <td><img :src="con.img_url"></td>
+                        <td><a :href="con.ref_link" target="_blank">{{con.ref_link}}</a></td>
                         <td>{{format_date(con.createdAt)}}</td>
-                        <td class="td-link"><a href="#"></a></td>
-                        <td><button type="button" class="table-delete-button">Delete</button></td>
+                        <td>
+                            <button class="btn btn-primary btn-sm mx-1 text-dark m-1">Edit</button>
+                            <button class="btn btn-danger btn-sm mx-1 text-dark m-1">Delete</button>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -98,7 +99,7 @@
           content: '',
           }
         },
-        computed: {
+      computed: {
         loggedIn() {
             return this.$store.state.auth.status.loggedIn;
             },
@@ -108,7 +109,7 @@
                 this.$router.push('/login');
     }
 
-            VendorService.getAllUrls().then(response => {
+            VendorService.getUserAds().then(response => {
                 this.content = response.data.data;
                 console.log(this.content);
             },
@@ -117,9 +118,11 @@
             (error.response && error.response.data && error.response.data.message) ||
             error.message ||
             error.toString();
-            thtis.successful = false;
-            this.$store.dispatch('auth/logout');
-            this.$router.push('/login');
+            this.successful = false;
+            console.log(this.message);
+            
+           /*  this.$store.dispatch('auth/logout');
+            this.$router.push('/login'); */
       }
             )
         },

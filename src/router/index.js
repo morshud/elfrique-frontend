@@ -42,6 +42,10 @@ import TicTicketContent from "../views/TicketContent.vue";
 import ServiceTravelAndTourManagementSystem from "../views/TravelAndTourManagementSystem.vue";
 //Event Vendor
 import ServiceEventVendorManagementSystem from "../views/EventVendorManagementSystem.vue";
+import ServiceViewMoreVendor from "../views/ViewMoreVendor.vue";
+import ServiceVendorEventDecorator from "../views/VendorEventDecorator.vue";
+import ServiceDetailsVendor from "../views/DetailsVendor.vue";
+import ServiceVendorProfile from "../views/VendorProfile.vue";
 ///////////////////////////////////////////User Dashboard
 import Dashboard from "../views/dashboard/Dashboard.vue";
 import DashProfile from "../views/dashboard/Profile.vue";
@@ -78,6 +82,10 @@ import DashViewContestants from "../views/dashboard/ViewContestants.vue";
 import DashVoteSalesAnalytics from "../views/dashboard/VoteSalesAnalytics.vue";
 import DashResultSetting from "../views/dashboard/ResultSetting.vue";
 import DashTriviaSalesAnalytics from "../views/dashboard/TriviaSalesAnalytics.vue";
+import DashPlaceAdvert from "../views/dashboard/PlaceAdvert.vue";
+import DashAdvertListing from "../views/dashboard/AdvertListing.vue";
+import DashCreateVendorService from "../views/dashboard/CreateVendorService.vue";
+import DashViewVendor from "../views/dashboard/ViewVendor.vue";
 
 //seller dashboard
 
@@ -114,9 +122,9 @@ import SecondDashViewURL from "../views/dashboard-second/ViewURL.vue";
 import SecondDashVoteSalesAnalytics from "../views/dashboard-second/VoteSalesAnalytics.vue";
 import SecondDashResultSetting from "../views/dashboard-second/ResultSetting.vue";
 import SecondDashTriviaSalesAnalytics from "../views/dashboard-second/TriviaSalesAnalytics.vue";
-import DashCreateVendorService from "../views/dashboard/CreateVendorService.vue";
-import DashViewVendor from "../views/dashboard/ViewVendor.vue";
 import DashSearchVendor from "../views/dashboard/SearchVendor.vue";
+import SecondDashPlaceAdvert from "../views/dashboard-second/PlaceAdvert.vue";
+import SecondDashAdvertListing from "../views/dashboard-second/AdvertListing.vue";
 ///////////////////////////////////////////Super Admin
 import SuperAdminDashboard from "../views/superadmin/Dashboard.vue";
 import SuperAdminProfile from "../views/superadmin/Profile.vue";
@@ -247,12 +255,12 @@ const routes = [
     component: ServiceVoteManagementSystem,
   },
   {
-    path: "/voting-content",
+    path: "/voting-content/:id",
     name: "VotVotingContent",
     component: VotVotingContent,
   },
   {
-    path: "/contestant-profile",
+    path: "/contestant-profile/:id",
     name: "VotContestantProfile",
     component: VotContestantProfile,
   },
@@ -315,6 +323,26 @@ const routes = [
     path: "/event-vendor-management",
     name: "ServiceEventVendorManagementSystem",
     component: ServiceEventVendorManagementSystem,
+  },
+  {
+    path: "/view-more-vendor",
+    name: "ServiceViewMoreVendor",
+    component: ServiceViewMoreVendor,
+  },
+  {
+    path: "/event-decorator",
+    name: "ServiceVendorEventDecorator",
+    component: ServiceVendorEventDecorator,
+  },
+  {
+    path: "/details-vendor",
+    name: "ServiceDetailsVendor",
+    component: ServiceDetailsVendor,
+  },
+  {
+    path: "/vendor-profile",
+    name: "ServiceVendorProfile",
+    component: ServiceVendorProfile,
   },
   ///////////////////////////////////////////User Dashboard
   {
@@ -495,6 +523,16 @@ const routes = [
     component: DashViewVendor,
   },
   {
+    path: "/organiser/place-advert",
+    name: "DashPlaceAdvert",
+    component: DashPlaceAdvert,
+  },
+  {
+    path: "/organiser/advert-listing",
+    name: "DashAdvertListing",
+    component: DashAdvertListing,
+  },
+  {
     path: "/organiser/search-vendor",
     name: "DashSearchVendor",
     component: DashSearchVendor,
@@ -627,6 +665,16 @@ const routes = [
     path: "/user/create-url",
     name: "SecondDashCreateURL",
     component: SecondDashCreateURL,
+  },
+  {
+    path: "/user/place-advert",
+    name: "SecondDashPlaceAdvert",
+    component: SecondDashPlaceAdvert,
+  },
+  {
+    path: "/user/advert-listing",
+    name: "SecondDashAdvertListing",
+    component: SecondDashAdvertListing,
   },
   {
     path: "/user/view-url",

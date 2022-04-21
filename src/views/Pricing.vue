@@ -16,6 +16,59 @@
     </section>
     <!--Breadcrumb Ends-->
 
+    <section class="mainPricing">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10" id="contactForm">
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-12 mb-3">
+                                <h1>Contact us for product pricing.</h1>
+                            </div>
+                            <div class="col-lg-12 mb-4">
+                                <label>Name</label>
+                                <input type="text" placeholder="Enter your name" class="input">
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <label>Email Address</label>
+                                <input type="email" placeholder="Enter your email address" class="input">
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <label>Telephone Number</label>
+                                <input type="tel" placeholder="Enter your telephone no" class="input">
+                            </div>
+                            <div class="col-lg-12 mb-4">
+                                <label>Select product for pricing</label>
+                                <div class="checkboxDiv">
+                                    <input type="checkbox"> <span>Event Forms Management System</span>
+                                </div>
+                                <div class="checkboxDiv">
+                                    <input type="checkbox"> <span>Event Tickets Management System</span>
+                                </div>
+                                <div class="checkboxDiv">
+                                    <input type="checkbox"> <span>Vote Management System</span>
+                                </div>
+                                <div class="checkboxDiv">
+                                    <input type="checkbox"> <span>Short Codes & USSD</span>
+                                </div>
+                                <div class="checkboxDiv">
+                                    <input type="checkbox"> <span>Vendor Management System</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-4">
+                                <label>Additional Info</label>
+                                <textarea placeholder="Start typing..." cols="30" rows="4" class="input"></textarea>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="submit" class="submit" value="Request Pricing">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!--Pricing Section-->
     <section class="pricing-section">
         <!--Event Forms-->

@@ -230,6 +230,8 @@
                     <!-- <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Create Vendor</span></a></router-link></li> -->
                     <li><router-link to="/event-vendor-management" class="routers"><a><i class="bi bi-circle"></i><span>View Available Jobs</span></a></router-link></li>
                     <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Search For Job</span></a></router-link></li>
+                    <li><router-link to="/user/place-advert" class="routers"><a><i class="bi bi-circle"></i><span>Place Advert</span></a></router-link></li>
+                    <li><router-link to="/user/advert-listing" class="routers"><a><i class="bi bi-circle"></i><span>Advert Listing</span></a></router-link></li>
                 </ul>
             </li>
              <!-- Travel -->

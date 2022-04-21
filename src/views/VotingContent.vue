@@ -96,7 +96,7 @@
                                                 <p class="card-text main-text"><i class="bi bi-person-video"></i> : {{con.fullname}}</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-circle-square"></i> : {{con.contestantnumber}} (contestant number)</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-activity"></i>: 2 (votes)</p>
-                                                <router-link to="/contestant-profile" class="routers" v-on:click="getContestant(con)"><a class="btn-view-contest">View Profile</a></router-link>
+                                                <router-link :to="'/contestant-profile/' + con.id" class="routers"><a class="btn-view-contest">View Profile</a></router-link>
                                             </div>
                                         </div>
                                     </div>
@@ -169,17 +169,28 @@
     import Header from './elfrique-header.vue'
     import Footer from './elfrique-footer.vue'
     import moment from 'moment'
+    import VoteService from '../service/vote.service'
     export default {
       name: "Elfrique",
       components:{
       'elfrique-header':Header,
       'elfrique-footer':Footer,
       },
-      computed: {
-         contest() {
-             return this.$store.state.vote.contest
-            }
+     data() {
+        return {
+            contest: ''
+
+            
+        }
      },
+
+        created() {
+            VoteService.getSingleContest(this.$route.params.id).then(response => {
+                this.contest = response.data.voteContest;
+                console.log(this.contest);
+            })
+
+        },
      methods: { 
             format_date(value){
                 if (value) {

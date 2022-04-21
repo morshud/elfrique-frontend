@@ -61,7 +61,7 @@
                                                 <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : {{con.type}}</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> : {{con.contestants.length}} Contestant(s)</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - {{con.startdate}})<br> End(23:59 - {{con.closedate}})</p>
-                                                <router-link to="/voting-content" class="routers"  v-on:click="getContest(con)"><a class="btn-view-contest">View Contest</a></router-link>
+                                                <router-link :to="'/voting-content/' + con.id" class="routers" ><a class="btn-view-contest">View Contest</a></router-link>
                                             </div>
                                         </div>
                                     </div>
@@ -319,8 +319,6 @@
         }
      },
 
-     
-
         created() {
             VoteService. getAllContests().then(response => {
                 this.voteContent = response.data.voteContests;
@@ -345,4 +343,4 @@
         
       }
     }
-</script>
+</script> 

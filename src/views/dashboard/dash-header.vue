@@ -233,6 +233,8 @@
                     <li><a href="/organiser/create-vendor-service" class="routers"><a><i class="bi bi-circle"></i><span>Create Vendor Service</span></a></a></li>
                     <li><router-link to="/organiser/view-vendor" class="routers"><a><i class="bi bi-circle"></i><span>View Vendor</span></a></router-link></li>
                     <li><router-link to="/organiser/search-vendor" class="routers"><a><i class="bi bi-circle"></i><span>Search For Vendor</span></a></router-link></li>
+                    <li><router-link to="/organiser/place-advert" class="routers"><a><i class="bi bi-circle"></i><span>Place Advert</span></a></router-link></li>
+                    <li><router-link to="/organiser/advert-listing" class="routers"><a><i class="bi bi-circle"></i><span>Advert Listing</span></a></router-link></li>
                 </ul>
             </li>
             <!--Travel-->
