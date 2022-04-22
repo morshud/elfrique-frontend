@@ -163,7 +163,7 @@
                                     <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i> {{format_date(con.event.startdate)}}</span>
                                     <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> {{con.location}}</span>
                                     <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;{{con.budget}}</strong></span>
-                                    <button><a class="btnA" href="/details-vendor">View</a></button>
+                                    <button><a class="btnA" :href="'/details-vendor' + con.id">View</a></button>
                                 </div>
                             </div>
                         </div>
@@ -172,13 +172,13 @@
                     <div class="mainJob-box mt-5">
                         <div v-for="con in Content" :key="con.id" class="vendorJob-box">
                             <div class="card">
-                                <a href="/details-vendor">
+                                <a :href="'/details-vendor/' + con.id">
                                     <div class="img-area">
                                         <img :src="con.event.image">
                                     </div>
                                 </a>
                                 <div class="card-body">
-                                    <a href="/details-vendor" class="routers">
+                                    <a :href="'/details-vendor/' + con.id" class="routers">
                                         <h1 title="Needed Service">{{con.job_type}} Needed</h1>
                                     </a>
                                     <div class="line-rule"></div>
@@ -186,7 +186,7 @@
                                     <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i> {{format_date(con.event.startdate)}}</span>
                                     <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> {{con.location}}</span>
                                     <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;{{con.budget}}</strong></span>
-                                    <button><a class="btnA" href="/details-vendor">View</a></button>
+                                    <button><a class="btnA" :href="'/details-vendor/' + con.id">View</a></button>
                                 </div>
                             </div>
                         </div>

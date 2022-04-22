@@ -13,6 +13,10 @@ class VendorService {
     return axios.get(API_URL + "getAllJob", { headers: authHeader() });
   }
 
+  getSingleJob(jobId) {
+    return axios.get(API_URL + "getJob/" + jobId, { headers: authHeader() });
+  }
+
   getAllUrls() {
     return axios.get(API_URL + "url/getallUrl", { headers: authHeader() });
   }

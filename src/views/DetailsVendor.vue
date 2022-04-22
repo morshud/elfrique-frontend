@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-11 text-center">
-                    <h1>DJ Services Needed</h1>
+                    <h1>{{Content.job_type}} Needed</h1>
                 </div>
             </div>
         </div>
@@ -18,18 +18,18 @@
         <div class="row">
             <div class="col-md-5">
                 <div class="img-area">
-                    <img src="@/assets/images/vendor-dj.png" ondragstart="return false;">
+                    <img :src="Content.event.image" ondragstart="return false;">
                 </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-6">
                 <div class="text-title-area">
-                    <h1>DJ Services Needed</h1>
+                    <h1>{{Content.job_type}} Needed</h1>
                     <div class="details-header">
-                        <p><i class="bi bi-archive"></i> : Wedding Ceremony</p>
-                        <p><i class="bi bi-calendar3"></i> : Mar 4, 2022 | 9:00 AM</p>
-                        <p><i class="bi bi-geo-alt"></i> : The Charis Events Center | Ikeja, LA</p>
-                        <p class="bidPrice"><i class="bi bi-cash-coin"></i> : Starts at $30,000</p>
+                        <p><i class="bi bi-archive"></i> :{{Content.event.title}}</p>
+                        <p><i class="bi bi-calendar3"></i> : {{format_date(Content.event.startdate)}}</p>
+                        <p><i class="bi bi-geo-alt"></i> : {{Content.location}}</p>
+                        <p class="bidPrice"><i class="bi bi-cash-coin"></i> : Starts at N {{Content.budget}}</p>
                     </div>
                     <div class="details-social">
                         <h5>Share on:</h5>
@@ -61,13 +61,7 @@
                             <!--Job Description-->
                             <div class="tab-pane fade show active" id="pills-des" role="tabpanel" aria-labelledby="pills-des-tab">
                                 <h3>Description</h3>
-                                <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                                <ul>
-                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, ullam!</li>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse quod voluptatum id</li>
-                                </ul>
+                                <p>{{Content.job_description}}</p>
                             </div>
                             <!--Photos-->
                             <div class="tab-pane fade" id="pills-photo" role="tabpanel" aria-labelledby="pills-photo-tab">
@@ -127,19 +121,19 @@
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label>First name</label>
-                                <input type="text" class="input">
+                                <input v-model="profile.firstname" disabled type="text" class="input">
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label>Last name</label>
-                                <input type="text" class="input">
+                                <input v-model="profile.lastname" disabled type="text" class="input">
                             </div>
                             <div class="col-lg-12 mb-3">
                                 <label>Email address</label>
-                                <input type="email" class="input">
+                                <input v-model="profile.email" disabled type="email" class="input">
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label>Phone number</label>
-                                <input type="tel" class="input">
+                                <input v-model="profile.phonenumber"  type="tel" class="input">
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label>Bid amount (NGN)</label>
@@ -147,10 +141,13 @@
                             </div>
                             <div class="col-lg-12 mb-3">
                                 <label>Additional info</label>
-                                <div class='textarea' contenteditable></div>
+                                <div  class='textarea' contenteditable></div>
                             </div>
                             <div class="col-lg-12">
                                 <button type="submit" class="button">Submit Bid</button>
+                            </div>
+                            <div v-if="!loggedIn" class="col-lg-12">
+                                <button type="submit" class="button">You have to log in to continue</button>
                             </div>
                         </div>
                     </form>
@@ -165,6 +162,9 @@
     import Header from './elfrique-header.vue'
     import Newsletter from './elfrique-newsletter.vue'
     import Footer from './elfrique-footer.vue'
+    import VendorService from '../service/vendor.service'
+    import ProfileService from '../service/profile.service'
+    import moment from 'moment'
     import $ from "jquery"
     export default {
       name: "Elfrique",
@@ -173,7 +173,57 @@
       'elfrique-newsletter':Newsletter,
       'elfrique-footer':Footer,
       },
+
+       data() {
+        return {
+            Content: '',
+            profile: '',
+            eventId: '',
+            file: '',
+            message: "",
+            error: "",
+            loading: false,
+        }
+     },
+     computed: {
+        loggedIn() {
+            return this.$store.state.auth.status.loggedIn;
+            },
+
+        user() {
+            return this.$store.state.auth.user;
+            },
+     },
+      created() {
+            VendorService.getSingleJob(this.$route.params.id).then(response => {
+                this.Content = response.data;
+                console.log(this.Content);
+            })
+            if(this.loggedIn){
+                ProfileService.getProfile().then(
+                    response => {
+                        this.profile = response.data.profile;
+                        console.log(this.profile);
+                        
+                    },
+                    error => {
+                        this.error = error.response.data.message;
+                    }
+                    );
+            }
+           
+
+
+        },
+        methods: {
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+                }
+            },
+        },
       mounted(){
+
         window.scrollTo(0,0)
 
 

@@ -27,8 +27,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 horizontal-advert mt-3">
-                <a href="#">
-                    <img src="@/assets/images/advert-banner3.jpg" ondragstart="return false;" alt="advert">
+                <a :href="currentImg.ref_link" target="_blank">
+                    <img :src="currentImg2.img_url" ondragstart="return false;" alt="advert" width="1300" height="200">
                 </a>
             </div>
         </div>
@@ -42,252 +42,32 @@
                     <h1>Available Jobs</h1>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="mainJob-box">
-                        <div class="vendorJob-box">
+                    <div class="row">
+                        <div v-for="con in Content" :key="con.id" class="vendorJob-box col-lg-3">
                             <div class="card">
-                                <router-link to="#">
+                                <a :href="'/details-vendor/' + con.id">
                                     <div class="img-area">
-                                        <img src="@/assets/images/vendor-dj.png">
+                                        <img :src="con.event.image">
                                     </div>
-                                </router-link>
+                                </a>
                                 <div class="card-body">
-                                    <router-link to="#" class="routers">
-                                        <h1 title="Needed Service">DJ's Service Needed</h1>
-                                    </router-link>
+                                    <a :href="'/details-vendor/' + con.id" class="routers">
+                                        <h1 title="Needed Service">{{con.job_type}} Needed</h1>
+                                    </a>
                                     <div class="line-rule"></div>
-                                    <span class="eventname" title="Event Type"><i class="bi bi-stack"></i> Wedding Ceremony</span>
-                                    <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i> Mar 4, 2022 | 9:00 AM</span>
-                                    <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> The Charis Events Center | Ikeja, LA</span>
-                                    <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;30,000</strong></span>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Bid</button>
+                                    <span class="eventname" title="Event Type"><i class="bi bi-stack"></i> {{con.event.title}}</span>
+                                    <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i> {{format_date(con.event.startdate)}}</span>
+                                    <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> {{con.location}}</span>
+                                    <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;{{con.budget}}</strong></span>
+                                    <button><a class="btnA" :href="'/details-vendor/' + con.id">View</a></button>
                                 </div>
                             </div>
                         </div>
                         <!-- Modal -->
-                        <div class="modal fade vendorModalBox" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Bid For Job</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form>
-                                            <div class="row">
-                                                <div class="col-md-6 mb-3">
-                                                    <label>First Name</label>
-                                                    <input type="text" placeholder="Enter your name" class="input">
-                                                </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label>Surname</label>
-                                                    <input type="text" placeholder="Enter your surname" class="input">
-                                                </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label>Emaill Address</label>
-                                                    <input type="email" placeholder="Enter your email address" class="input">
-                                                </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label>Telephone Number</label>
-                                                    <input type="tel" placeholder="Enter your phone nyumber" class="input">
-                                                </div>
-                                                <div class="col-md-12 mb-3">
-                                                    <label>Place your bid (Naira &#8358;)</label>
-                                                    <input type="number" placeholder="Enter bid amount" class="input">
-                                                </div>
-                                                <div class="col-md-12 mb-3">
-                                                    <label>Add more info</label>
-                                                    <div class='textarea' contenteditable></div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="vendorJob-box">
-                            <div class="card">
-                                <div class="img-area">
-                                    <img src="@/assets/images/vendor-cakes.jpg">
-                                </div>
-                                <div class="card-body">
-                                    <h1 title="Needed Service">Birthday Cakes</h1>
-                                    <div class="line-rule"></div>
-                                    <span class="eventname" title="Bid Closing Type"><i class="bi bi-stack"></i> Shola's 50th Birthday</span>
-                                    <span class="date" title="Event Date"><i class="bi bi-calendar-week-fill"></i> Mar 30, 2022 | 3:00 PM</span>
-                                    <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> Muson Centre | Lagos, LA</span>
-                                    <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;10,000</strong></span>
-                                    <button>Bid</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vendorJob-box">
-                            <div class="card">
-                                <div class="img-area">
-                                    <img src="@/assets/images/vendor-photo.jpg">
-                                </div>
-                                <div class="card-body">
-                                    <h1 title="Needed Service">Photographer needed to capture the event</h1>
-                                    <div class="line-rule"></div>
-                                    <span class="eventname" title="Event Type"><i class="bi bi-stack"></i> Lagos Tech Fest 2022</span>
-                                    <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i> Apr 25, 2022 | 10:00 AM</span>
-                                    <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> Civic center | Lekki, LA</span>
-                                    <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;20,000</strong></span>
-                                    <button>Bid</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vendorJob-box">
-                            <div class="card">
-                                <div class="img-area">
-                                    <img src="@/assets/images/vendor-printer.jpg">
-                                </div>
-                                <div class="card-body">
-                                    <h1 title="Needed Service">Invitation Printing - 500pcs</h1>
-                                    <div class="line-rule"></div>
-                                    <span class="eventname" title="Event Type"><i class="bi bi-stack"></i> Wedding Invitation</span>
-                                    <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i> May 1, 2022 | 1:00 PM</span>
-                                    <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> Freedom Park Lagos | Lagos, Lagos</span>
-                                    <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;5,000</strong></span>
-                                    <button>Bid</button>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
-                    <div class="mainJob-box mt-5">
-                        <div class="vendorJob-box">
-                            <div class="card">
-                                <div class="img-area">
-                                    <img src="@/assets/images/vendor-dj.png">
-                                </div>
-                                <div class="card-body">
-                                    <h1 title="Needed Service">DJ's Service Needed</h1>
-                                    <div class="line-rule"></div>
-                                    <span class="eventname" title="Event Type"><i class="bi bi-stack"></i> Wedding Ceremony</span>
-                                    <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i> Mar 4, 2022 | 9:00 AM</span>
-                                    <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> The Charis Events Center | Ikeja, LA</span>
-                                    <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;30,000</strong></span>
-                                    <button>Bid</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vendorJob-box">
-                            <div class="card">
-                                <div class="img-area">
-                                    <img src="@/assets/images/vendor-cakes.jpg">
-                                </div>
-                                <div class="card-body">
-                                    <h1 title="Needed Service">Birthday Cakes</h1>
-                                    <div class="line-rule"></div>
-                                    <span class="eventname" title="Bid Closing Type"><i class="bi bi-stack"></i> Shola's 50th Birthday</span>
-                                    <span class="date" title="Event Date"><i class="bi bi-calendar-week-fill"></i> Mar 30, 2022 | 3:00 PM</span>
-                                    <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> Muson Centre | Lagos, LA</span>
-                                    <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;10,000</strong></span>
-                                    <button>Bid</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vendorJob-box">
-                            <div class="card">
-                                <div class="img-area">
-                                    <img src="@/assets/images/vendor-photo.jpg">
-                                </div>
-                                <div class="card-body">
-                                    <h1 title="Needed Service">Photographer needed to capture the event</h1>
-                                    <div class="line-rule"></div>
-                                    <span class="eventname" title="Event Type"><i class="bi bi-stack"></i> Lagos Tech Fest 2022</span>
-                                    <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i> Apr 25, 2022 | 10:00 AM</span>
-                                    <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> Civic center | Lekki, LA</span>
-                                    <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;20,000</strong></span>
-                                    <button>Bid</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vendorJob-box">
-                            <div class="card">
-                                <div class="img-area">
-                                    <img src="@/assets/images/vendor-printer.jpg">
-                                </div>
-                                <div class="card-body">
-                                    <h1 title="Needed Service">Invitation Printing - 500pcs</h1>
-                                    <div class="line-rule"></div>
-                                    <span class="eventname" title="Event Type"><i class="bi bi-stack"></i> Wedding Invitation</span>
-                                    <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i> May 1, 2022 | 1:00 PM</span>
-                                    <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> Freedom Park Lagos | Lagos, Lagos</span>
-                                    <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;5,000</strong></span>
-                                    <button>Bid</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mainJob-box mt-5">
-                        <div class="vendorJob-box">
-                            <div class="card">
-                                <div class="img-area">
-                                    <img src="@/assets/images/vendor-dj.png">
-                                </div>
-                                <div class="card-body">
-                                    <h1 title="Needed Service">DJ's Service Needed</h1>
-                                    <div class="line-rule"></div>
-                                    <span class="eventname" title="Event Type"><i class="bi bi-stack"></i> Wedding Ceremony</span>
-                                    <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i> Mar 4, 2022 | 9:00 AM</span>
-                                    <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> The Charis Events Center | Ikeja, LA</span>
-                                    <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;30,000</strong></span>
-                                    <button>Bid</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vendorJob-box">
-                            <div class="card">
-                                <div class="img-area">
-                                    <img src="@/assets/images/vendor-cakes.jpg">
-                                </div>
-                                <div class="card-body">
-                                    <h1 title="Needed Service">Birthday Cakes</h1>
-                                    <div class="line-rule"></div>
-                                    <span class="eventname" title="Bid Closing Type"><i class="bi bi-stack"></i> Shola's 50th Birthday</span>
-                                    <span class="date" title="Event Date"><i class="bi bi-calendar-week-fill"></i> Mar 30, 2022 | 3:00 PM</span>
-                                    <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> Muson Centre | Lagos, LA</span>
-                                    <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;10,000</strong></span>
-                                    <button>Bid</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vendorJob-box">
-                            <div class="card">
-                                <div class="img-area">
-                                    <img src="@/assets/images/vendor-photo.jpg">
-                                </div>
-                                <div class="card-body">
-                                    <h1 title="Needed Service">Photographer needed to capture the event</h1>
-                                    <div class="line-rule"></div>
-                                    <span class="eventname" title="Event Type"><i class="bi bi-stack"></i> Lagos Tech Fest 2022</span>
-                                    <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i> Apr 25, 2022 | 10:00 AM</span>
-                                    <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> Civic center | Lekki, LA</span>
-                                    <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;20,000</strong></span>
-                                    <button>Bid</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vendorJob-box">
-                            <div class="card">
-                                <div class="img-area">
-                                    <img src="@/assets/images/vendor-printer.jpg">
-                                </div>
-                                <div class="card-body">
-                                    <h1 title="Needed Service">Invitation Printing - 500pcs</h1>
-                                    <div class="line-rule"></div>
-                                    <span class="eventname" title="Event Type"><i class="bi bi-stack"></i> Wedding Invitation</span>
-                                    <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i> May 1, 2022 | 1:00 PM</span>
-                                    <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> Freedom Park Lagos | Lagos, Lagos</span>
-                                    <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;5,000</strong></span>
-                                    <button>Bid</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    
                     <div class="col-md-12 text-center mt-5 paginationDivArea">
                         <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
@@ -307,19 +87,19 @@
                         </ul>
                     </nav>
                     </div>
-                </div>
-            </div>
+               
         </div>
 
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 horizontal-advert mt-3">
-                    <a href="#">
-                        <img src="@/assets/images/advert-banner3.jpg" ondragstart="return false;" alt="advert">
+                    <a :href="currentImg.ref_link" target="_blank">
+                        <img :src="currentImg.img_url" ondragstart="return false;" alt="advert" width="1300" height="200">
                     </a>
                 </div>
             </div>
         </div>
+    
     </section>
     <!--Service Event-Vendor Ends-->
     
@@ -330,12 +110,112 @@
     import Header from './elfrique-header.vue'
     import Newsletter from './elfrique-newsletter.vue'
     import Footer from './elfrique-footer.vue'
+    import VendorService from '../service/vendor.service'
+    import moment from 'moment'
     export default {
-      name: "Elfrique",
-      components:{
-      'elfrique-header':Header,
-      'elfrique-newsletter':Newsletter,
-      'elfrique-footer':Footer,
+        name: "Elfrique",
+        components:{
+            'elfrique-header':Header,
+            'elfrique-newsletter':Newsletter,
+            'elfrique-footer':Footer,
+        },
+        data() {
+        return {
+            Content: '',
+            adsContent: '',
+            eventId: '',
+            file: '',
+            bid: {
+                description: '',
+                price: '',
+            },
+            message: "",
+            error: "",
+            loading: false,
+            currentImage: {
+                img_url: '' ,
+                link:'' ,
+            },
+            timer: null,
+            currentIndex: 0
+
+            
+        }
+     },
+     computed: {
+        loggedIn() {
+            return this.$store.state.auth.status.loggedIn;
+            },
+        currentImg: function() {
+            return this.adsContent[Math.abs(this.currentIndex) % this.adsContent.length];
+            },
+         currentImg2: function() {
+            return this.adsContent[Math.abs(this.currentIndex + Math.floor(Math.random() * this.adsContent.length )) % this.adsContent.length];
+            }
+        },
+        created() {
+            VendorService.getAllJobs().then(response => {
+                this.Content = response.data;
+                console.log(this.Content);
+            })
+
+            VendorService.getAllAds().then(response => {
+                this.adsContent = response.data.data;
+                console.log(this.adsContent);
+            })
+
+        },
+
+        methods: { 
+
+            startSlide: function() {
+                this.timer = setInterval(this.next, 6000);
+            },
+
+            next: function() {
+                this.currentIndex += 1;
+            },  
+
+            getEventId(id) {
+                this.eventId = id;
+            },
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+          }
+            },
+
+           SubmitBid(){
+            this.loading = true;
+
+            let formData = new FormData();
+            formData.append('image', this.file);                                                                                                                                                                                                                                           
+            formData.append('description', this.bid.description);
+            formData.append('price', this.bid.price);
+            
+
+            VendorService.createProposal(formData, this.eventId).then(response => {
+                    
+                    this.message = `Your  Bid Proposal Submitted Successfully`;
+                    this.loading = false;
+                    window.scrollTo(0,0)
+
+            },
+            error => {
+                console.log(error);
+                this.error = error.response.data.message;
+                console.log(error.response.data);
+
+
+                this.loading = false;
+                 window.scrollTo(0,0)
+            });
+        },
+
+            
+        handleFileUpload(){
+        this.file = this.$refs.file.files[0];
+      }
       },
       mounted(){
         window.scrollTo(0,0)

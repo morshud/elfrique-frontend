@@ -335,7 +335,7 @@ const routes = [
     component: ServiceVendorEventDecorator,
   },
   {
-    path: "/details-vendor",
+    path: "/details-vendor/:id",
     name: "ServiceDetailsVendor",
     component: ServiceDetailsVendor,
   },
