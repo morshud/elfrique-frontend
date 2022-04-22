@@ -2319,9 +2319,9 @@ header nav .offcanvas-header button i{
     font-weight: 400;
     border-radius: 10px;
 }
-.event-vendor .mainService-box .vendorService-box{
+/* .event-vendor .mainService-box .vendorService-box{
     display: none;
-}
+} */
 .event-vendor .mainService-box{
     margin-left: 15px;
 }
