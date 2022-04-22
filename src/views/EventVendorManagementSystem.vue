@@ -163,7 +163,7 @@
                                     <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i> {{format_date(con.event.startdate)}}</span>
                                     <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i> {{con.location}}</span>
                                     <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at <strong>&#8358;{{con.budget}}</strong></span>
-                                    <button><a class="btnA" :href="'/details-vendor' + con.id">View</a></button>
+                                    <button><a class="btnA" :href="'/details-vendor/' + con.id">View</a></button>
                                 </div>
                             </div>
                         </div>

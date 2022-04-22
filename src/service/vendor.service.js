@@ -51,8 +51,8 @@ class VendorService {
     });
   }
 
-  createProposal(jobForm, eventId) {
-    return axios.post(API_URL + "createProposal/" + eventId, jobForm, {
+  createProposal(bidForm, eventId) {
+    return axios.post(API_URL + "createProposal/" + eventId, bidForm, {
       headers: authHeader(),
     });
   }

@@ -113,7 +113,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <form class="formVendor">
+                    <form @submit.prevent="submitBid" class="formVendor">
                         <div class="row">
                             <div class="col-lg-12">
                                 <h1>Bid For Job</h1>
@@ -144,10 +144,18 @@
                                 <div  class='textarea' contenteditable></div>
                             </div>
                             <div class="col-lg-12">
-                                <button type="submit" class="button">Submit Bid</button>
+                                 <button class="button" type="submit" :disabled="loading" >Submit Bid<span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
                             </div>
                             <div v-if="!loggedIn" class="col-lg-12">
                                 <button type="submit" class="button">You have to log in to continue</button>
+                            </div>
+                            <div  v-if="error" class=" alert-danger alert  alert-dismissible fade show" role="alert">
+                                {{error}}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            <div  v-if="message" class= 'alert-success alert  alert-dismissible fade show' role="alert">
+                                {{message}} 
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         </div>
                     </form>
@@ -183,6 +191,10 @@
             message: "",
             error: "",
             loading: false,
+            bid: {
+                description: '',
+                price: '',
+            },
         }
      },
      computed: {
@@ -190,9 +202,6 @@
             return this.$store.state.auth.status.loggedIn;
             },
 
-        user() {
-            return this.$store.state.auth.user;
-            },
      },
       created() {
             VendorService.getSingleJob(this.$route.params.id).then(response => {
@@ -220,6 +229,20 @@
                 if (value) {
                      return moment(String(value)).format('MM/DD/YYYY hh:mm')
                 }
+            },
+
+            submitBid(){
+                this.loading = true;
+                VendorService.createProposal(this.bid, this.Content.id).then(
+                    response => {
+                        this.message = response.data.message;
+                        this.loading = false;
+                    },
+                    error => {
+                        this.error = error.response.data.message;
+                        this.loading = false;
+                    }
+                );
             },
         },
       mounted(){
