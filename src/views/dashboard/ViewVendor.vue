@@ -41,7 +41,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Telephone</th>
                         <th scope="col">Vendor Title</th>
-                        <th scope="col">Vendor Image</th>
+                        <th scope="col">Vendor Image</th> 
                         <th scope="col">Event Date</th>
                         <th scope="col">Date Added</th>
                         <th scope="col">Link</th>
@@ -55,7 +55,7 @@
                         <td>myemail@email.com</td>
                         <td>09012345678</td>
                         <td>Event Decorator</td>
-                        <td><img src="@/assets/images/event-vendor.jpg"></td>
+                        <td></td>
                         <td>2022-04-08 13:10:58</td>
                         <td>Feb 2nd, 2022</td>
                         <td><a href="#">View Vendor Service</a></td>

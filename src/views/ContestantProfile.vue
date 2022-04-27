@@ -12,7 +12,7 @@
             </div>
         </div>
         <!--Contestants Details and vote-->
-        <div class="container mt-5 details-contestant">
+        <div class="container mt-5 details-contestant ">
             <div class="row">
                 <div class="col-lg-7">
                     <div class="img-area">
@@ -24,7 +24,7 @@
                         <h4>Contestant Number</h4>
                         <p>{{contestant.contestantnumber}}</p>
                         <h4>Number of Votes</h4>
-                        <p>4</p>
+                        <p>{{contestant.voteCount}}</p>
                         <h4>About</h4>
                         <h6>{{contestant.about}}</h6>
                     </div>
@@ -32,43 +32,57 @@
                 <div class="col-lg-1"></div>
                 <div class="col-lg-4 form-area">
                     <h1>Input Details To Vote Now</h1>
-                    <form>
+                     <div v-if="loading" class="d-flex justify-content-center">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <form @submit.prevent="payWithPaystack" >
+                        <div  v-if="message" class= 'alert-success alert  alert-dismissible fade show' role="alert">
+                            {{message}} 
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                        </div>
                         <div class="row">
                             <div class="col-lg-12 mb-3">
                                 <label>Total number of votes you want</label>
-                                <input type="number" placeholder="Enter number of votes you want">
+                                <input v-model="numberOfVotes" type="number" placeholder="Enter number of votes you want">
                             </div>
                             <div class="col-lg-12 mb-3">
-                                <label>Name</label>
-                                <input type="text" placeholder="Enter your name">
+                                <label>First Name</label>
+                                <input v-model="firstname" type="text" placeholder="Enter your name">
+                            </div>
+                             <div class="col-lg-12 mb-3">
+                                <label>Last Name</label>
+                                <input v-model="lastname" type="text" placeholder="Enter your name">
                             </div>
                             <div class="col-lg-12 mb-3">
                                 <label>Email address</label>
-                                <input type="email" placeholder="Enter your email address">
+                                <input  v-model="email" type="email" placeholder="Enter your email address">
                             </div>
                             <div class="col-lg-12 mb-3">
                                 <label>Phone Number</label>
-                                <input type="tel" placeholder="Enter your phone number">
+                                <input v-model="phone" type="tel" placeholder="Enter your phone number">
+                            </div>
+                            <div class="col-lg-12 mb-3">
+                                <label>Transaction reference</label>
+                                <input v-model="reference" placeholder="Enter your phone number" disabled>
                             </div>
                             <div>
-                                <p><strong>Each vote cost NGN 100</strong></p>
+                                <p><strong>Each vote cost NGN {{contest.fee}}</strong></p>
                             </div>
-                            <div class="col-lg-12">
-                                <button type="submit">Vote</button>
-                                
+                            <div v-if="contest.type=='free'" class="col-lg-12 mb-3">
+                                <button type="submit" >Vote</button>   
                             </div>
 
-                            <!-- <paystack
-                                    :amount="100 * 100"
-                                    :email="user.email"
-                                    :paystackkey="PUBLIC_KEY"
-                                    :callback="processPayment"
-                                    :reference="genRef()"
-                                    :close="close"
-                                    :embed="false"
-                                    >PAY NGN</paystack> -->
                         </div>
                     </form>
+                    <div class="col-lg-12 mb-3">
+                        <button :disabled="loading" v-on:click="payWithPaystack">Pay with Paystack</button>
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                        <button :disabled="loading" @click="makePayment">Pay with Flutterwave</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,7 +99,7 @@
                         <p class="card-text main-text"><i class="bi bi-person-video"></i> : {{con.fullname}}
                         </p>
                         <p class="card-text card-text-after"><i class="bi bi-circle-square"></i> : {{con.contestantnumber}} (contestant number)</p>
-                        <p class="card-text card-text-after"><i class="bi bi-activity"></i>: 2 (votes)</p>
+                        <p class="card-text card-text-after"><i class="bi bi-activity"></i>: {{con.voteCount}} (votes)</p>
                          <router-link :to="'/contestant-profile/' + con.id" class="routers"><a class="btn-view-contest">View Profile</a></router-link>
                     </div>
                 </div>
@@ -113,6 +127,7 @@
     import Header from './elfrique-header.vue'
     import Footer from './elfrique-footer.vue'
     import VoteService from '../service/vote.service'
+    import TransactionService from '../service/transaction.service'
     
    
     export default {
@@ -127,58 +142,143 @@
             const OC = this.contest.contestants.filter(contestant => contestant.id !== this.contestant.id)
             return OC
         },
+
+        amount() {
+            return Number(this.numberOfVotes) * Number(this.contest.fee)
+         },
+         
+         voteForm(){
+             return{
+            reference: this.reference,
+            numberOfVote: this.numberOfVotes,
+            method: 'paystack',
+            type: 'paid',
+            amount: this.amount,
+            fullname: this.firstname + ' ' + this.lastname }
+         }
      },
 
      data() {
         return {
             contest: '',
             contestant: '', 
-            user: {
-                name: "John Doe",
-                email: "customer@email.com"
-                },
-            PUBLIC_KEY: "pk_test_be803d46f5a6348c3643967d0e6b7b2303d42b4f",
-
-
+            email: '',
+            loading: false,
+            reference: this.genRef(),
+            phone:'',
+            email: '',
+            numberOfVotes: '',
+            publicKey: "pk_test_be803d46f5a6348c3643967d0e6b7b2303d42b4f",
+            firstname: '',
+            lastname: '',
+            message: '',
             
         }
      },
 
-        created() {
-            VoteService.getAContestant(this.$route.params.id).then(response => {
-                this.contestant = response.data.contestants;
-                VoteService.getSingleContest(response.data.contestants.votingContest.id).then(response => {
-                    this.contest = response.data.voteContest;
-                
-            })
-            })
+    created() {
+        VoteService.getAContestant(this.$route.params.id).then(response => {
+            this.contestant = response.data.contestants;
+            VoteService.getSingleContest(response.data.contestants.votingContest.id).then(response => {
+                this.contest = response.data.voteContest;
+            
+        })
+        })
 
-        },
+    },
 
      methods: { 
-            format_date(value){
-                if (value) {
-                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
-          }
-        },
-            getContestant(con){
-                this.$store.dispatch('vote/getContestant', con)
-                 window.scrollTo(0,0)
-            },
+    format_date(value){
+        if (value) {
+                return moment(String(value)).format('MM/DD/YYYY hh:mm')
+    }
+},
+    getContestant(con){
+        this.$store.dispatch('vote/getContestant', con)
+            window.scrollTo(0,0)
+    },
 
-    close() {},
+    nairaToKobo (amount) {
+        return (amount * 100).toFixed(0)
+        },
+
+    close() {
+        console.log('close')
+    },
     genRef() {
       return uniqid();
+
     },
-    processPayment() {
-      
-      console.log("Payment Successful! Your sneakers are on their way.")
+     resetForm () {
+      this.email = ''
+      this.address = ''
+      this.firstname = ''
+      this.lastname = '',
+      this.numberOfVotes = ''
+      this.phone = ''
+
+
+    },
+
+    successPaymentPaystack(){
+        this.loading = true;
+        console.log(this.voteForm)
+        window.scrollTo(0,0)
+        TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
+            this.loading = false;
+            this.message = response.data.message;
+            this.resetForm();
+            this.$router.push('/contestant-profile/' + this.contestant.id)
+        })
+    },
+
+
+    payWithPaystack() {
+      //  options
+      const paymentOptions = {
+        // general options
+        key: this.publicKey, //required
+        email: this.email, //required
+        amount: this.nairaToKobo(this.amount), //required
+        reference: this.reference, //required       
+        firstname: this.firstname,
+        lastname: this.lastname, 
+        /* currency: this.currency,
+        channels: this.channels,
+        metadata: this.metadata,
+        label: this.label,  */
+        onSuccess: (response) => {
+            this.successPaymentPaystack()
+        },
+         
+       /*  onCancel: () => {
+          this.onCancel();
+        }, */ 
+        // onBankTransferConfirmationPending: function(response) {
+        //   this.onBankTransferConfirmationPending(response);
+        // },
+        // single split payments
+        //subaccount:this.subaccount,  //required for single split
+        //transaction_charge:this.transaction_charge,
+        //bearer:this.bearer,
+        // multi-split payments
+        //split_code:this.split_code, //required for multi-split
+        // subscriptionss
+        // plan: this.plan, //required for subscriptions
+        // quantity: this.quantity,
+      };
+      const paystack = new window.PaystackPop();
+      paystack.newTransaction(paymentOptions);
     },
 
         },
         mounted(){
             window.scrollTo(0,0)
             console.log(this.otherContestants)
+            const popup = document.createElement('script')
+            popup.setAttribute('src', 'https://js.paystack.co/v2/inline.js')
+            popup.async = true
+            document.head.appendChild(popup)
         }
     }
 </script>
