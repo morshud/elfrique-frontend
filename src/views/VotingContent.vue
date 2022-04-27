@@ -95,7 +95,7 @@
                                             <div class="card-body">
                                                 <p class="card-text main-text"><i class="bi bi-person-video"></i> : {{con.fullname}}</p>
                                                 <p class="card-text card-text-after"><i class="bi bi-circle-square"></i> : {{con.contestantnumber}} (contestant number)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-activity"></i>: 2 (votes)</p>
+                                                <p class="card-text card-text-after"><i class="bi bi-activity"></i>: {{con.voteCount}} (votes)</p>
                                                 <router-link :to="'/contestant-profile/' + con.id" class="routers"><a class="btn-view-contest">View Profile</a></router-link>
                                             </div>
                                         </div>
