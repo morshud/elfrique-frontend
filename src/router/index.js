@@ -91,6 +91,7 @@ import DashViewVendor from "../views/dashboard/ViewVendor.vue";
 
 import SecondDashboard from "../views/dashboard-second/Dashboard.vue";
 import SecondDashProfile from "../views/dashboard-second/Profile.vue";
+import SecondDashTransaction from "../views/dashboard-second/TransactionHistory.vue";
 import SecondDashStartVoting from "../views/dashboard-second/StartVoting.vue";
 import SecondDashCreateVoting from "../views/dashboard-second/CreateVote.vue";
 import SecondDashAddContestant from "../views/dashboard-second/AddContestant.vue";
@@ -548,6 +549,11 @@ const routes = [
     path: "/user/profile",
     name: "SecondDashProfile",
     component: SecondDashProfile,
+  },
+  {
+    path: "/user/transactionhistory",
+    name: "SecondDashTransaction",
+    component: SecondDashTransaction,
   },
 
   /* {

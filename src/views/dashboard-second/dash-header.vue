@@ -160,6 +160,13 @@
                     <span>Profile</span>
                 </a></router-link>
             </li>
+             <!--transaction history-->
+            <li class="nav-item">
+                <router-link to="/user/transactionhistory" class="routers"><a class="nav-link collapsed">
+                    <img src="@/assets/images/menu-form.png">
+                    <span>Transaction History</span>
+                </a></router-link>
+            </li>
             <!--Voting-->
              <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#voting-nav" data-bs-toggle="collapse" href="#">
@@ -175,22 +182,21 @@
                    
                     <li><router-link to="/user/result-setting" class="routers"><a><i class="bi bi-circle"></i><span>Result Setting</span></a></router-link></li>
                     <li><router-link to="/user/add-info" class="routers"><a><i class="bi bi-circle"></i><span>Add Info</span></a></router-link></li> -->
-                     <li><router-link to="/user/view-vote-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Voting Transaction History</span></a></router-link></li>
-                    <li><router-link to="/user/view-contestants" class="routers"><a><i class="bi bi-circle"></i><span>View Contestants</span></a></router-link></li>
+                    <!--  <li><router-link to="/user/view-vote-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Voting Transaction History</span></a></router-link></li> -->
+                    <li><router-link to="/vote-management" class="routers"><a><i class="bi bi-circle"></i><span>View Contest</span></a></router-link></li>
                     <li><router-link to="/user/search-vote" class="routers"><a><i class="bi bi-circle"></i><span>Search For Vote</span></a></router-link></li>
                 </ul>
             </li>
             <!-- Registration -->
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#reg-nav" data-bs-toggle="collapse" href="#">
-                    <img src="@/assets/images/menu-registration.png"><span></span>Registration<i class="bi bi-chevron-down ms-auto"></i>
+                    <img src="@/assets/images/menu-registration.png"><span></span>Events Tickets<i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="reg-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <!-- <li><router-link to="/user/create-event" class="routers"><a><i class="bi bi-circle"></i><span>Create Event</span></a></router-link></li>
                     <li><router-link to="/user/add-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Add Ticket</span></a></router-link></li> -->
-                    <li><router-link to="/user/view-event" class="routers"><a><i class="bi bi-circle"></i><span>View Event</span></a></router-link></li>
+                    <li><router-link to="/event-ticket-management" class="routers"><a><i class="bi bi-circle"></i><span>View Event</span></a></router-link></li>
                     <li><router-link to="/user/personal-ticket" class="routers"><a><i class="bi bi-circle"></i><span>View Personal Ticket</span></a></router-link></li>
-                    <li><router-link to="/user/event-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Transaction History</span></a></router-link></li>
                     <li><router-link to="/user/search-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Search For Tickets</span></a></router-link></li>
                 </ul>
             </li>
@@ -201,9 +207,9 @@
                 </a>
                 <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                    <!--  <li><router-link to="/user/create-form" class="routers"><a><i class="bi bi-circle"></i><span>Create Form</span></a></router-link></li> -->
-                    <li><router-link to="/user/view-form" class="routers"><a><i class="bi bi-circle"></i><span>View Forms</span></a></router-link></li>
+                    <li><router-link to="/event-form-management" class="routers"><a><i class="bi bi-circle"></i><span>View Forms</span></a></router-link></li>
                    <!--  <li><router-link to="/user/personal-form" class="routers"><a><i class="bi bi-circle"></i><span>Personal Forms</span></a></router-link></li> -->
-                    <li><router-link to="/user/form-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Forms Transaction History</span></a></router-link></li>
+                    <!-- <li><router-link to="/user/form-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Forms Transaction History</span></a></router-link></li> -->
                     <li><router-link to="/user/search-form" class="routers"><a><i class="bi bi-circle"></i><span>Search For Forms</span></a></router-link></li>
                 </ul>
             </li>
@@ -214,10 +220,9 @@
                 </a>
                 <ul id="trivia-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                    <!--  <li><router-link to="/user/create-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Create Trivia</span></a></router-link></li> -->
-                    <li><router-link to="/user/view-trivia" class="routers"><a><i class="bi bi-circle"></i><span>View Trivia</span></a></router-link></li>
+                    <li><router-link to="/trivia-management" class="routers"><a><i class="bi bi-circle"></i><span>View Trivia</span></a></router-link></li>
                     <!-- <li><router-link to="/user/update-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Update Trivia</span></a></router-link></li> -->
                     <li><router-link to="/user/view-result" class="routers"><a><i class="bi bi-circle"></i><span>View Results</span></a></router-link></li>
-                    <li><router-link to="/user/trivia-sales-analytics" class="routers"><a><i class="bi bi-circle"></i><span>Trivia Transaction History</span></a></router-link></li>
                     <li><router-link to="/user/search-trivia" class="routers"><a><i class="bi bi-circle"></i><span>Search For Trivia</span></a></router-link></li>
                 </ul>
             </li>

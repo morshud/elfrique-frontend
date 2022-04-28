@@ -57,7 +57,7 @@
                                 <!--Form Type-->
                                 <div class="col-lg-12 mt-4">
                                     <label for="trivia type">Trivia Type</label>
-                                    <input v-model="triviaContent.Type"  class="radio" type="radio" name="trivia" value="paid" id="paid"> <span>Paid</span>
+                                    <input v-model="triviaContent.type"  class="radio" type="radio" name="trivia" value="paid" id="paid"> <span>Paid</span>
                                     <input v-model="triviaContent.type"  class="radio" type="radio" name="trivia" value="free" id="free"> <span>Free</span>
                                 </div>
                                 <!--Trivia Details-->
