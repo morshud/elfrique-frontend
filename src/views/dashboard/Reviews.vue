@@ -1,15 +1,15 @@
 <template>
-    <title>Transaction History | Elfrique</title>
+    <title>Reviews | Elfrique</title>
     <dash-header/>
 
     <!--------Main Content--------->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Transaction History</h1>
+            <h1>Reviews</h1>
             <nav>
                 <ol class="breadcrumb">
                 <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
-                <li class="breadcrumb-item active">Transaction History</li>
+                <li class="breadcrumb-item active">Reviews</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -36,25 +36,17 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Reference</th>
-                        <th scope="col">Method</th>
-                        <th scope="col">Amount(N)</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Vendor Name</th>
+                        <th scope="col">Vendor <br> Profile Link</th>
+                        <th scope="col">Action</th>
                     </tr>
                     </thead>
-                    <tbody v-for="(con,idx) in content" :key="con.id">
+                    <tbody>
                     <tr>
-                        <th scope="row">{{idx + 1}}</th>
-                        <td>{{con.reference}}</td>
-                        <td>{{con.method}}</td>
-                        <td>{{con.amount}}</td>
-                        <td>{{con.category}}</td>
-                        <td>{{con.product_title}}</td>
-                        <td>Successful</td>
-                        <td></td>
-                       
+                        <th scope="row">1</th>
+                        <td>Chukka Uzo</td>
+                        <td><a href="https://elfrique.greenmouseproperties.com/vendor-profile" target="_blank">https://elfrique.greenmouseproperties.com/vendor-profile</a></td>
+                        <td><button type="button" class="table-review-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Review</button></td>
                     </tr>
                     </tbody>
                 </table>
@@ -75,6 +67,37 @@
           </div>
         </div>
       </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Drop Your Review</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="reviewForm">
+                    <div class="ratedDiv">
+                        <label class="label">Your Rate</label>
+                        <ul class="rate-area">
+                            <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing">5 stars</label>
+                            <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 stars</label>
+                            <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 stars</label>
+                            <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 stars</label>
+                            <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 star</label>
+                        </ul>
+                    </div>
+                    <div class="textAreaDiv">
+                        <label class="label">Your Comment</label>
+                        <div class='divTextArea' contenteditable></div>
+                    </div>
+                    <button class="submit">Submit Review</button>
+                </form>
+            </div>
+            </div>
+        </div>
+        </div>
     </section>
     
     </main>
@@ -82,54 +105,15 @@
     <dash-footer/>
 </template>
 <style scoped src="@/assets/css/dashStyle.css"></style>
+<style scoped src="@/assets/css/styleSupport.css"></style>
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
-    import TransactionService from '../../service/transaction.service'
-    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
-      },
-      data(){
-        return{
-          title: 'View Transaction History',
-          content: '',
-          }
-        },
-        computed: {
-        loggedIn() {
-            return this.$store.state.auth.status.loggedIn;
-            },
-        },
-        created(){
-          if (!this.loggedIn) {
-                this.$router.push('/login');
-    }
-
-            TransactionService.getTransactionHistory().then(response => {
-                this.content = response.data.transactions;
-                console.log(this.content);
-            },
-            error => {
-            this.message =
-            (error.response && error.response.data && error.response.data.message) ||
-            error.message ||
-            error.toString();
-            
-            /* this.$store.dispatch('auth/logout');
-            this.$router.push('/login'); */
-      }
-            )
-        },
-        methods: { 
-            format_date(value){
-                if (value) {
-                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
-          }
-    }
       },
       mounted(){
         window.scrollTo(0,0)

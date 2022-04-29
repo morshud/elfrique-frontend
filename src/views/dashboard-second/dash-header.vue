@@ -233,6 +233,7 @@
                 </a>
                 <ul id="vendor-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <!-- <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Create Vendor</span></a></router-link></li> -->
+                     <li><router-link to="/user/vendor-profile" class="routers"><a><i class="bi bi-circle"></i><span>Vendor Profile</span></a></router-link></li>
                     <li><router-link to="/event-vendor-management" class="routers"><a><i class="bi bi-circle"></i><span>View Available Jobs</span></a></router-link></li>
                     <li><router-link to="#" class="routers"><a><i class="bi bi-circle"></i><span>Search For Job</span></a></router-link></li>
                     <li><router-link to="/user/place-advert" class="routers"><a><i class="bi bi-circle"></i><span>Place Advert</span></a></router-link></li>

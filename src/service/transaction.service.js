@@ -15,6 +15,12 @@ class TransactionService {
   submitVote(contestantId, voteForm) {
     return axios.post(API_URL + "vote/" + contestantId, voteForm, {});
   }
+
+  getTransactionHistory() {
+    return axios.get(API_URL + "getAllTransactions", {
+      headers: authHeader(),
+    });
+  }
 }
 
 export default new TransactionService();

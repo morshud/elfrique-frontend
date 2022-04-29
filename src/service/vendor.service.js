@@ -39,6 +39,18 @@ class VendorService {
     );
   }
 
+  createVendor(vendorForm) {
+    return axios.post(API_URL + "createVendorProfile", vendorForm, {
+      headers: authHeader(),
+    });
+  }
+
+  getVendorProfile() {
+    return axios.get(API_URL + "getVendorProfileUser", {
+      headers: authHeader(),
+    });
+  }
+
   createJobs(jobForm, eventId) {
     return axios.post(API_URL + "createjob/" + eventId, jobForm, {
       headers: authHeader(),

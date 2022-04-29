@@ -1,15 +1,17 @@
 <template>
-    <title>Transaction History | Elfrique</title>
+    <title>Vendor Bidders | Elfrique</title>
     <dash-header/>
 
     <!--------Main Content--------->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Transaction History</h1>
+            <h1>Bidders (vendor)</h1>
             <nav>
                 <ol class="breadcrumb">
-                <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
-                <li class="breadcrumb-item active">Transaction History</li>
+                    <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
+                    <li class="breadcrumb-item active">Vendor</li>
+                    <li class="breadcrumb-item active"><router-link to="/organiser/view-vendor" class="routers">View Vendor</router-link></li>
+                    <li class="breadcrumb-item active">Bidders</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -36,25 +38,32 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Reference</th>
-                        <th scope="col">Method</th>
-                        <th scope="col">Amount(N)</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Surname</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telephone</th>
+                        <th scope="col">Vendor</th>
+                        <th scope="col">Bid Amount (&#8358;)</th>
+                        <th scope="col">More Info</th>
+                        <th scope="col">Date Submitted</th>
+                        <th scope="col">Action</th>
                     </tr>
                     </thead>
-                    <tbody v-for="(con,idx) in content" :key="con.id">
+                    <tbody>
                     <tr>
-                        <th scope="row">{{idx + 1}}</th>
-                        <td>{{con.reference}}</td>
-                        <td>{{con.method}}</td>
-                        <td>{{con.amount}}</td>
-                        <td>{{con.category}}</td>
-                        <td>{{con.product_title}}</td>
-                        <td>Successful</td>
-                        <td></td>
-                       
+                        <th scope="row">1</th>
+                        <td>Ayomide</td>
+                        <td>Hamzat</td>
+                        <td>myemail@email.com</td>
+                        <td>08012345678</td>
+                        <td><a href="#">DJ Service</a></td>
+                        <td>50,000</td>
+                        <td>I'm a professional DJ, with 5 years experience, and certified music expert</td>
+                        <td>2022-04-08 13:10:58</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm mx-1 text-dark m-1">Contact</button>
+                            <button class="btn btn-danger btn-sm mx-1 text-dark m-1">Delete</button>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -85,51 +94,11 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
-    import TransactionService from '../../service/transaction.service'
-    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
-      },
-      data(){
-        return{
-          title: 'View Transaction History',
-          content: '',
-          }
-        },
-        computed: {
-        loggedIn() {
-            return this.$store.state.auth.status.loggedIn;
-            },
-        },
-        created(){
-          if (!this.loggedIn) {
-                this.$router.push('/login');
-    }
-
-            TransactionService.getTransactionHistory().then(response => {
-                this.content = response.data.transactions;
-                console.log(this.content);
-            },
-            error => {
-            this.message =
-            (error.response && error.response.data && error.response.data.message) ||
-            error.message ||
-            error.toString();
-            
-            /* this.$store.dispatch('auth/logout');
-            this.$router.push('/login'); */
-      }
-            )
-        },
-        methods: { 
-            format_date(value){
-                if (value) {
-                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
-          }
-    }
       },
       mounted(){
         window.scrollTo(0,0)

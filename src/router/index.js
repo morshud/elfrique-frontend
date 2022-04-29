@@ -49,6 +49,7 @@ import ServiceVendorProfile from "../views/VendorProfile.vue";
 ///////////////////////////////////////////User Dashboard
 import Dashboard from "../views/dashboard/Dashboard.vue";
 import DashProfile from "../views/dashboard/Profile.vue";
+import DashTransaction from "../views/dashboard/TransactionHistory.vue";
 import DashStartVoting from "../views/dashboard/StartVoting.vue";
 import DashCreateVoting from "../views/dashboard/CreateVote.vue";
 import DashAddContestant from "../views/dashboard/AddContestant.vue";
@@ -86,6 +87,8 @@ import DashPlaceAdvert from "../views/dashboard/PlaceAdvert.vue";
 import DashAdvertListing from "../views/dashboard/AdvertListing.vue";
 import DashCreateVendorService from "../views/dashboard/CreateVendorService.vue";
 import DashViewVendor from "../views/dashboard/ViewVendor.vue";
+import DashBiddersLogVendor from "../views/dashboard/BiddersLogVendor.vue";
+import DashReviews from "../views/dashboard/Reviews.vue";
 
 //seller dashboard
 
@@ -124,6 +127,7 @@ import SecondDashVoteSalesAnalytics from "../views/dashboard-second/VoteSalesAna
 import SecondDashResultSetting from "../views/dashboard-second/ResultSetting.vue";
 import SecondDashTriviaSalesAnalytics from "../views/dashboard-second/TriviaSalesAnalytics.vue";
 import DashSearchVendor from "../views/dashboard/SearchVendor.vue";
+import SecondDashVendorProfile from "../views/dashboard-second/VendorProfile.vue";
 import SecondDashPlaceAdvert from "../views/dashboard-second/PlaceAdvert.vue";
 import SecondDashAdvertListing from "../views/dashboard-second/AdvertListing.vue";
 ///////////////////////////////////////////Super Admin
@@ -188,6 +192,7 @@ import SuperAdminTriSearchTrivia from "../views/superadmin/SearchTrivia.vue";
 import SuperAdminVenCreateVendorService from "../views/superadmin/CreateVendorService.vue";
 import SuperAdminVenViewVendor from "../views/superadmin/ViewVendor.vue";
 import SuperAdminVenSearchVendor from "../views/superadmin/SearchVendor.vue";
+
 ///////////////////////////////////////
 import SuperAdminTrlTravelBooking from "../views/superadmin/TravelBooking.vue";
 import SuperAdminTrlHotelBooking from "../views/superadmin/HotelBooking.vue";
@@ -354,6 +359,11 @@ const routes = [
   },
   { path: "/organiser/dashboard", name: "Dashboard", component: Dashboard },
   { path: "/organiser/profile", name: "DashProfile", component: DashProfile },
+  {
+    path: "/organiser/transactionhistory",
+    name: "DashTransaction",
+    component: DashTransaction,
+  },
   {
     path: "/organiser/start-voting",
     name: "DashStartVoting",
@@ -538,6 +548,12 @@ const routes = [
     name: "DashSearchVendor",
     component: DashSearchVendor,
   },
+  {
+    path: "/organiser/bidders-vendor",
+    name: "DashBiddersLogVendor",
+    component: DashBiddersLogVendor,
+  },
+  { path: "/organiser/reviews", name: "DashReviews", component: DashReviews },
 
   //seller dashboard
   {
@@ -671,6 +687,11 @@ const routes = [
     path: "/user/create-url",
     name: "SecondDashCreateURL",
     component: SecondDashCreateURL,
+  },
+  {
+    path: "/user/vendor-profile",
+    name: "DashVendorProfile",
+    component: SecondDashVendorProfile,
   },
   {
     path: "/user/place-advert",

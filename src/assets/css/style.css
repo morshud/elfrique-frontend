@@ -3729,7 +3729,7 @@ footer .copyright p{
     }
 }
 .contentDetailsVendor .formVendor{
-    width: 90%;
+    width: 100%;
     border: 1px solid #a3a3a3;
     padding: 30px;
     border-radius: 10px;
@@ -3785,7 +3785,7 @@ footer .copyright p{
 }
 .contentDetailsVendor .formVendor .textarea{
     width: 100%;
-    height: auto;
+    height: 130px;
     padding: 10px 13px;
     border: 1px solid #a3a3a3;
     color: #000;
@@ -3880,9 +3880,6 @@ footer .copyright p{
     border-radius: 10px;
     border: 1px solid #b4b4b4;
 }
-.vendorProfile .text-title-area{
-    padding-top: 60px;
-}
 @media(max-width: 767px){
     .vendorProfile .text-title-area{
         padding-top: 30px;
@@ -3894,9 +3891,9 @@ footer .copyright p{
     color: #000000;
 }
 .vendorProfile .text-title-area .details-header p{
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
 }
 @media(max-width: 767px){
     .vendorProfile .text-title-area h1{

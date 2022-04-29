@@ -17,6 +17,8 @@
                         <p><i class="bi bi-briefcase"></i> : 20 Jobs Completed</p>
                         <p><i class="bi bi-card-checklist"></i> : 7 Reviews</p>
                         <p><i class="bi bi-star"></i> : 5 <i class="fa fa-star"></i></p>
+                        <p><i class="bi bi-envelope-open"></i> : myemail@email.com</p>
+                        <p><i class="bi bi-telephone"></i> : 08012345678, 08112345678</p>
                     </div>
                 </div>
             </div>
@@ -25,7 +27,7 @@
 
     <div class="container contentDetailsVendor vendorProfileDetails">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-8">
                     <div class="detailsVendor">
                         <ul class="nav nav-pills mb-4 mt-2" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
@@ -269,6 +271,39 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-4 contentDetailsVendor">
+                    <form class="formVendor">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1>Message Vendor</h1>
+                                <div class="lineHr"></div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <label>Name</label>
+                                <input type="text" class="input">
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <label>Email address</label>
+                                <input type="email" class="input">
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <label>Phone number</label>
+                                <input type="tel" class="input">
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <label>Subject</label>
+                                <input type="text" class="input">
+                            </div>
+                            <div class="col-lg-12 mb-3">
+                                <label>Additional info</label>
+                                <div class='textarea' contenteditable></div>
+                            </div>
+                            <div class="col-lg-12">
+                                <button type="submit" class="button">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

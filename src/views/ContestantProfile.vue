@@ -81,7 +81,7 @@
                         <button :disabled="loading" v-on:click="payWithPaystack">Pay with Paystack</button>
                     </div>
                     <div class="col-lg-12 mb-3">
-                        <button :disabled="loading" @click="makePayment">Pay with Flutterwave</button>
+                        <button :disabled="loading" @click="showPaymentModal">Pay with Flutterwave</button>
                     </div>
                 </div>
             </div>
@@ -169,6 +169,7 @@
             email: '',
             numberOfVotes: '',
             publicKey: "pk_test_be803d46f5a6348c3643967d0e6b7b2303d42b4f",
+            flw_public_key:"FLWPUBK_TEST-0f353662b04aee976128e62946a59682-X",
             firstname: '',
             lastname: '',
             message: '',
@@ -239,7 +240,7 @@
         // general options
         key: this.publicKey, //required
         email: this.email, //required
-        amount: this.nairaToKobo(this.amount), //required
+        amount: this.amount, //required
         reference: this.reference, //required       
         firstname: this.firstname,
         lastname: this.lastname, 
@@ -271,6 +272,26 @@
       paystack.newTransaction(paymentOptions);
     },
 
+    showPaymentModal(){
+      let paymentParams = {
+        public_key: this.flw_public_key,
+        tx_ref: this.reference,
+        amount: this.nairaToKobo(this.amount),
+        currency: "NGN",
+        customer: {
+            email: this.email,
+            phone_number: this.phone,
+            
+        },
+        callback: (response) => {
+            console.log(response)
+        },
+        /* onclose: () => this.onclose(), */
+      }
+
+      window.FlutterwaveCheckout(paymentParams)
+    }
+
         },
         mounted(){
             window.scrollTo(0,0)
@@ -279,6 +300,12 @@
             popup.setAttribute('src', 'https://js.paystack.co/v2/inline.js')
             popup.async = true
             document.head.appendChild(popup)
+            const inlineSdk = "https://checkout.flutterwave.com/v3.js";
+            const script = document.createElement('script')
+            script.src = inlineSdk;
+            if (!document.querySelector(`[src="${inlineSdk}"]`)) {
+                document.body.appendChild(script)
+            }
         }
     }
 </script>
