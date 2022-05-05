@@ -152,6 +152,7 @@ import SuperAdminVotOverviewVoting from "../views/superadmin/OverviewVoting.vue"
 import SuperAdminVotViewContest from "../views/superadmin/ViewContest.vue";
 import SuperAdminVotVotePayoutSetting from "../views/superadmin/VotePayoutSetting.vue";
 import SuperAdminVotStartVoting from "../views/superadmin/StartVoting.vue";
+import SuperAdminVotCreateVote from "../views/superadmin/CreateVote.vue";
 import SuperAdminVotAddContestant from "../views/superadmin/AddContestant.vue";
 import SuperAdminVotAddSponsors from "../views/superadmin/AddSponsors.vue";
 import SuperAdminVotAddCategory from "../views/superadmin/AddCategory.vue";
@@ -821,6 +822,11 @@ const routes = [
     path: "/superadmin/start-voting",
     name: "SuperAdminVotStartVoting",
     component: SuperAdminVotStartVoting,
+  },
+  {
+    path: "/superadmin/createVote",
+    name: "SuperAdminVotCreateVote",
+    component: SuperAdminVotCreateVote,
   },
   {
     path: "/superadmin/add-contestant",

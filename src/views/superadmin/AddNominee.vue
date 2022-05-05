@@ -1,23 +1,22 @@
 <template>
-    <title>Add Info | Elfrique</title>
+    <title>Add Contestant | Elfrique</title>
     <dash-header/>
 
     <!--------Main Content--------->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Add Info</h1>
+            <h1>Add Nominee</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
                     <li class="breadcrumb-item active">Voting</li>
                     <li class="breadcrumb-item active"><router-link to="/organiser/start-voting" class="routers"><a>Start Voting</a></router-link></li>
-                    <li class="breadcrumb-item active"><router-link to="/organiser/add-contestant" class="routers"><a>Add Contestant</a></router-link></li>
-                    <li class="breadcrumb-item active"><router-link to="/organiser/add-sponsor" class="routers"><a>Add Sponsors</a></router-link></li>
-                    <li class="breadcrumb-item active"><router-link to="/organiser/add-category" class="routers"><a>Add Category</a></router-link></li>
-                    <li class="breadcrumb-item active">Add Info</li>
+                    <li class="breadcrumb-item active">Add Nominees</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
+        
+
 
         <div class="container start-voting-div">
             <div class="row justify-content-center">
@@ -25,19 +24,18 @@
                     <form>
                         <div class="row">
                             <div class="col-lg-12 mt-2">
-                                <label for="number of contestants">Number of info</label>
-                                <input v-model="NumberOfDetails" class="input" type="number" placeholder="Set number of contestants" required>
+                                <label for="number of contestants">Number of Nominees</label>
+                                <input v-model="NumberOfContestants" class="input" type="number" placeholder="Set number of contestants" required>
                             </div>
                             <div class="col-lg-12 mt-4">
                                 <label for="vote option">Vote Option</label>
-                                <select v-model="contestId" name="gateway" id="gateway" required>
+                                <select v-model="contest" name="gateway" id="gateway" required>
                                     <option value="select vote option" >Select Your Vote Option</option>
-                                    <option :value="con.id" v-for="con in content" :key="con.id" >{{con.title}}</option>
-                                    <option :value="con.id" v-for="con in content2" :key="con.id" >{{con.title}}</option>
+                                    <option :value="con" v-for="con in content" :key="con.id" >{{con.title}}</option>
                                 </select>
                             </div>
                             <div class="col-lg-12 mt-4">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Load</button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  v-on:click="getCategories()">Load</button>
                             </div>
                         </div>
                     </form>
@@ -55,7 +53,7 @@
             <div class="modal-body">
                 <div class="card">
                     <div  v-if="error" class=" alert-danger alert  alert-dismissible fade show" role="alert">
-                        {{error}}}} 
+                           {{error}}}} 
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     <div  v-if="message" class= 'alert-success alert  alert-dismissible fade show' role="alert">
@@ -63,28 +61,40 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     <div class="card-body card-table">
-                        <div v-if="NumberOfDetails && contestId" class="modal-table-form">
-                             <form name="form" @submit.prevent="addInfo">
+
+                        <div v-if="NumberOfContestants && contest" class="modal-table-form">
+                             <form name="form" @submit.prevent="addContestant">
                                 <!--Table-->
-                                <table v-for="(con, index) in detailForm" :key="index" class="table datatable card-table-table">
+                                <table v-for="(con, index) in contestForm" :key="index" class="table datatable card-table-table">
                                     <thead>
                                     <tr>
+                                        <th scope="col">Nominee Full Name</th>
 
-                                        <th scope="col">Information Details</th>
+                                        <th scope="col">Nominee Image</th>
+                                        <th scope="col">Nominee Number</th>
+                                        <th scope="col">About Nominee</th>
+                                        <th scope="col">Select Category</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
-                                         <td><textarea v-model="con.details" cols="30" rows="2"></textarea></td>
+                                        <td><input v-model="con.contestantFullName" type="text"></td>
+                                        <td><input ref="file" type="file" v-on:change="handleFileUpload(index)"></td>
+                                        <td><input v-model="con.contestantNumber" type="number"></td>
+                                        <td><textarea v-model="con.aboutContestant" cols="30" rows="2"></textarea></td>
+                                        <td><select v-model="con.cat" name="gateway" id="gateway" required>
+                                            <option disabled >Select Your category</option>
+                                            <option :value="con" v-for="(con, index) in category " :key="index">{{con.name}}</option></select>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
                                 <div class="col-lg-12 mt-4">
-                                     <button type="submit" class="btn btn-success" :disabled="loading" >Add Info<span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
+                                     <button type="submit" class="btn btn-success" :disabled="loading" >Add Nominees<span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
                                 </div>
                             </form>
                         </div>
-                        <div v-else class="modal-table-form">
+                        <div v-else class="modal-table-form"> 
                              <div   class=" alert-danger alert  alert-dismissible fade show" role="alert">
                                  form not filled. All fields are required
                             </div>
@@ -108,82 +118,98 @@
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
     import VoteService from '../../service/vote.service'
-
-
+import voteService from '../../service/vote.service'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
       },
-      data(){
+        data(){
             return{
             content: '',
-            content2: '',
-            contestId: '',
-            NumberOfDetails: '',
+            contest: '',
+            NumberOfContestants: '',
             message: '',
             error: '',
             loading: false,
+            content2: '',
+            category: '',
             
     
             }  
         },
         computed: {
         loggedIn() {
-            return this.$store.state.admin.status.loggedIn;
+            return this.$store.state.auth.status.loggedIn;
             },
-        detailForm: function () {
-            let detailForm = []
-            for(let i = 0; i < this.NumberOfDetails; i++){
-                detailForm.push({
-                    details: '',
-                
+        contestForm: function () {
+            let contestForm = []
+            for(let i = 0; i < this.NumberOfContestants; i++){
+                contestForm.push({
+                    contestantFullName: '',
+                    contestantNumber: '',
+                    aboutContestant: '',
+                    cat: '',
+                    file: '',
                 })
             }
-            return detailForm
+            return contestForm
         
         },
+        /* getCategories: function () {
+            let content = []
+            if(this.contest){
+                
+            
+                voteService.getCategories(this.contest.id).then(res => {
+
+            
+                content.push(res.data.Categories)
+            })
+                console.log(content)
+                this.category = content
+                
+            }
+            return content
+        } */
+
   },
 
   created() {
 
      if (!this.loggedIn) {
-      this.$router.push('/superadmin');
+      this.$router.push('/login');
     }
-
-    VoteService.getContests().then
-    (
-        response => {
-            this.content = response.data.voteContest;
-        }
-    )
 
     VoteService.getAwards().then
     (
         response => {
-            this.content2 = response.data.awards;
+            this.content = response.data.awards;
         }
     )
+
     },
 
     methods: {
-        addInfo(){
+        addContestant(){
 
             this.loading = true;
 
-            if (this.detailForm){
-                for (let i = 0; i < this.NumberOfDetails; i++) {
-                /* let formData = new FormData();
-                formData.append('details', this.detailForm[i].detail); */
-            
+            if (this.contestForm){
+                for (let i = 0; i < this.NumberOfContestants; i++) {
+                let formData = new FormData();
+                formData.append('fullname', this.contestForm[i].contestantFullName);
+                formData.append('contestantnumber', this.contestForm[i].contestantNumber);
+                formData.append('about', this.contestForm[i].aboutContestant);
+                formData.append('image', this.contestForm[i].file);
                
                 
-                VoteService.addInfo(this.detailForm[i], this.contestId).then
+                VoteService.addNominees(formData, this.contest.title, this.contestForm[i].cat.id ).then
                 (
                     response => {
                         console.log(response);
-                        this.message = "Info(s) added successfully";
+                        this.message = "Nominee(s) added successfully";
                         this.loading = false;
                          
                     },
@@ -198,10 +224,33 @@
             }
             
         },
+        handleFileUpload(n){
+        this.contestForm[parseInt(n)].file = this.$refs.file[n].files[0];
         
+        
+        },
+        getCategories(){
+             
+            if(this.contest){
+                
+            
+                voteService.getCategories(this.contest.id).then(res => {
+
+            
+                this.category = res.data.Categories
+            })
+                console.log(this.category)
+                console.log(this.contest)
+            }
+        }
+
     },
+
       mounted(){
         window.scrollTo(0,0)
-      }
+      }     
     }
+
+
+
 </script>

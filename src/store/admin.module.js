@@ -1,9 +1,10 @@
 import AuthService from "../service/auth.service";
 
-const SuperAdmin = JSON.parse(localStorage.getItem("SuperAdmin"));
-const initialState = SuperAdmin
-  ? { status: { loggedIn: true }, SuperAdmin }
-  : { status: { loggedIn: false }, SuperAdmin: null };
+const SuperAdmin = JSON.parse(localStorage.getItem("user"));
+const initialState =
+  SuperAdmin.role === "admin"
+    ? { status: { loggedIn: true }, SuperAdmin }
+    : { status: { loggedIn: false }, SuperAdmin: null };
 
 export const admin = {
   namespaced: true,

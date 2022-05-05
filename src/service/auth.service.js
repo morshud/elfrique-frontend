@@ -15,6 +15,7 @@ class AuthService {
         JSON.stringify({
           firstname: response.data.user.firstname,
           lastname: response.data.user.lastname,
+          role: response.data.user.role,
           token: response.data.token,
         })
       );
@@ -29,8 +30,11 @@ class AuthService {
     });
     if (response.data.token) {
       localStorage.setItem(
-        "SuperAdmin",
+        "user",
         JSON.stringify({
+          firstname: response.data.user.firstname,
+          lastname: response.data.user.lastname,
+          role: response.data.user.role,
           token: response.data.token,
         })
       );

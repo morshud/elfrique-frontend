@@ -240,7 +240,7 @@
         // general options
         key: this.publicKey, //required
         email: this.email, //required
-        amount: this.amount, //required
+        amount: this.nairaToKobo(this.amount), //required
         reference: this.reference, //required       
         firstname: this.firstname,
         lastname: this.lastname, 
