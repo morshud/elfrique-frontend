@@ -53,18 +53,11 @@
             Content: ''   
         }
         }, 
-
-        computed: {
-        loggedIn() {
-            return this.$store.state.admin.status.loggedIn;
-            },
-        },
+        
 
         created() {
 
-              if (!this.loggedIn) {
-                this.$router.push('/superadmin');
-              }
+             
             BlogService.getSingleBlog(this.$route.params.id).then(response => {
                 this.Content = response.data.blog;
                 console.log(this.Content);

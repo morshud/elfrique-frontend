@@ -82,17 +82,8 @@
         }
         }, 
 
-        computed: {
-        loggedIn() {
-            return this.$store.state.admin.status.loggedIn;
-            },
-        },
-
         created() {
 
-              if (!this.loggedIn) {
-                this.$router.push('/superadmin');
-              }
             BlogService.getBlogs().then(response => {
                 this.Content = response.data.blogs;
                 console.log(this.Content);
