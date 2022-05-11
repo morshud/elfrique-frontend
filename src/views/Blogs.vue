@@ -22,7 +22,7 @@
             <div class="row justify-content-center">
                  <div v-for="con in Content" :key="con.id" class="col-md-4 py-3">
                     <div class="card">
-                        <router-link to="/blogPost" class="routers"><img :src="con.img_url" ondragstart="return false;" class="card-img-top" alt="blog image"></router-link>
+                        <router-link :to="'/blogPost/' + con.id" class="routers"><img :src="con.img_url" ondragstart="return false;" class="card-img-top" alt="blog image"></router-link>
                         <div class="card-body">
                             <button>Blog Category</button>
                             <span>{{format_date(con.createdAt)}} | By {{con.author}}</span>
