@@ -90,7 +90,7 @@
                 blog: {
                     title: '',
                     details: '',
-                    author: '',
+                    author: 'Elfrique',
                 },
                 file: '',
                 error: '',
