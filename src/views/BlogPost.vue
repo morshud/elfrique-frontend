@@ -8,16 +8,15 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10 details">
                     <div class="blog-title text-center">
-                        <h1>Blog Title Goes Here</h1>
+                        <h1>{{Content.title}}</h1>
                         <div class="line-rule"></div>
-                        <p>June 27, 2021 | By Elfrique</p>
+                        <p>{{format_date(Content.createdAt)}} | By {{Content.author}}</p>
                     </div>
                     <div class="blog-image">
-                        <img src="@/assets/images/blog-img.jpg" ondragstart="return false;" alt="Blog image">
+                        <img :src="Content.img_url" ondragstart="return false;" alt="Blog image">
                     </div>
                     <div class="note">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, rem blanditiis? Doloremque, autem dolorem ratione fugiat optio magnam doloribus illo unde minus maiores temporibus repellat fugit, repudiandae natus, itaque nobis saepe voluptatibus reprehenderit libero provident laboriosam? Aperiam quaerat delectus saepe fugit? Repellat officiis quibusdam qui optio, hic, mollitia nesciunt quod vel rem consequatur magnam. Quo rerum eligendi expedita reprehenderit ullam facilis, non nulla iure commodi officia nisi vel, tempore, pariatur magni consequuntur incidunt culpa hic molestiae quasi laboriosam provident cumque maiores. Reiciendis, nihil tempore! Harum dolorem aliquam reprehenderit, culpa corrupti maxime, porro quo aliquid eum dolorum fugit laborum perspiciatis totam.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt inventore numquam, accusantium maxime optio quae aliquid laborum quod voluptas incidunt veritatis esse ullam, dolorum illum doloribus a provident velit minima delectus! Debitis alias placeat quidem voluptatum temporibus adipisci tempore sunt? Quasi quam, dolorem dolor, repudiandae possimus laboriosam accusamus repellat dolores natus placeat nihil officiis sequi quis quaerat voluptas ducimus ut, corporis molestias porro nulla est nam. Dolorum dicta delectus aliquid provident placeat fugit ea voluptatibus, blanditiis autem magnam ab illum.</p>
+                        <p>{{Content.details}}</p>
                     </div>
                     <div class="share-post text-center">
                         <h4>If you enjoyed this article, please share with your friends</h4>
@@ -37,13 +36,47 @@
 </template>
 
 <script>
-    import Header from './elfrique-header.vue'
+     import Header from './elfrique-header.vue'
+    import Newsletter from './elfrique-newsletter.vue'
     import Footer from './elfrique-footer.vue'
+    import BlogService from '../service/blog.service.js'
+    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'elfrique-header':Header,
+      'elfrique-newsletter':Newsletter,
       'elfrique-footer':Footer,
+      },
+      data() {
+        return {
+            Content: ''   
+        }
+        }, 
+
+        computed: {
+        loggedIn() {
+            return this.$store.state.admin.status.loggedIn;
+            },
+        },
+
+        created() {
+
+              if (!this.loggedIn) {
+                this.$router.push('/superadmin');
+              }
+            BlogService.getSingleBlog(this.$route.params.id).then(response => {
+                this.Content = response.data.blog;
+                console.log(this.Content);
+            })
+
+        },
+        methods: { 
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+          }
+    }
       },
       mounted(){
         window.scrollTo(0,0)

@@ -20,84 +20,21 @@
     <section class="blog-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-4 py-3">
+                 <div v-for="con in Content" :key="con.id" class="col-md-4 py-3">
                     <div class="card">
-                        <router-link to="/blogPost" class="routers"><img src="@/assets/images/blog-img.jpg" ondragstart="return false;" class="card-img-top" alt="blog image"></router-link>
+                        <router-link to="/blogPost" class="routers"><img :src="con.img_url" ondragstart="return false;" class="card-img-top" alt="blog image"></router-link>
                         <div class="card-body">
                             <button>Blog Category</button>
-                            <span>June 27, 2021 | By Elfrique</span>
-                            <router-link to="/blogPost" class="routers"><h5 class="card-title">Blog Post Title Goes Here</h5></router-link>
+                            <span>{{format_date(con.createdAt)}} | By {{con.author}}</span>
+                            <router-link to="/blogPost" class="routers"><h5 class="card-title">{{con.title}}</h5></router-link>
                             <!--NOTE: Max of only 35 char-->
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quae maiores provident aliquid odit ab quis doloribus, laudantium voluptate labore in beatae facilis rerum deleniti natus, voluptates, temporibus animi modi.</p>
-                            <router-link to="/blogPost" class="routers"><a class="btn-read">Read More <i class="bi bi-arrow-right"></i></a></router-link>
+                             <p class="card-text">{{con.detaills}}.</p>
+                            <router-link :to="'/blogPost/' + con.id" class="routers"><a class="btn-read">Read More <i class="bi bi-arrow-right"></i></a></router-link>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 py-3">
-                    <div class="card">
-                        <img src="@/assets/images/welcomebg.jpg" ondragstart="return false;" class="card-img-top" alt="blog image">
-                        <div class="card-body">
-                            <button>Blog Category</button>
-                            <span>June 27, 2021 | By Elfrique</span>
-                            <h5 class="card-title">Blog Post Title Goes Here</h5>
-                            <!--NOTE: Max of only 35 char-->
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quae maiores provident aliquid odit ab quis doloribus, laudantium voluptate labore in beatae facilis rerum deleniti natus, voluptates, temporibus animi modi.</p>
-                            <a href="#" class="btn-read">Read More <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 py-3">
-                    <div class="card">
-                        <img src="@/assets/images/travel-tours.jpg" ondragstart="return false;" class="card-img-top" alt="blog image">
-                        <div class="card-body">
-                            <button>Blog Category</button>
-                            <span>June 27, 2021 | By Elfrique</span>
-                            <h5 class="card-title">Blog Post Title Goes Here</h5>
-                            <!--NOTE: Max of only 35 char-->
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quae maiores provident aliquid odit ab quis doloribus, laudantium voluptate labore in beatae facilis rerum deleniti natus, voluptates, temporibus animi modi.</p>
-                            <a href="#" class="btn-read">Read More <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 py-3">
-                    <div class="card">
-                        <img src="@/assets/images/welcomebg.jpg" ondragstart="return false;" class="card-img-top" alt="blog image">
-                        <div class="card-body">
-                            <button>Blog Category</button>
-                            <span>June 27, 2021 | By Elfrique</span>
-                            <h5 class="card-title">Blog Post Title Goes Here</h5>
-                            <!--NOTE: Max of only 35 char-->
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quae maiores provident aliquid odit ab quis doloribus, laudantium voluptate labore in beatae facilis rerum deleniti natus, voluptates, temporibus animi modi.</p>
-                            <a href="#" class="btn-read">Read More <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 py-3">
-                    <div class="card">
-                        <img src="@/assets/images/travel-tours.jpg" ondragstart="return false;" class="card-img-top" alt="blog image">
-                        <div class="card-body">
-                            <button>Blog Category</button>
-                            <span>June 27, 2021 | By Elfrique</span>
-                            <h5 class="card-title">Blog Post Title Goes Here</h5>
-                            <!--NOTE: Max of only 35 char-->
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quae maiores provident aliquid odit ab quis doloribus, laudantium voluptate labore in beatae facilis rerum deleniti natus, voluptates, temporibus animi modi.</p>
-                            <a href="#" class="btn-read">Read More <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 py-3">
-                    <div class="card">
-                        <img src="@/assets/images/blog-img.jpg" ondragstart="return false;" class="card-img-top" alt="blog image">
-                        <div class="card-body">
-                            <button>Blog Category</button>
-                            <span>June 27, 2021 | By Elfrique</span>
-                            <h5 class="card-title">Blog Post Title Goes Here</h5>
-                            <!--NOTE: Max of only 35 char-->
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quae maiores provident aliquid odit ab quis doloribus, laudantium voluptate labore in beatae facilis rerum deleniti natus, voluptates, temporibus animi modi.</p>
-                            <a href="#" class="btn-read">Read More <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+            
+                
                 <div class="col-md-2 py-3 justify-content-center text-center">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
@@ -130,12 +67,44 @@
     import Header from './elfrique-header.vue'
     import Newsletter from './elfrique-newsletter.vue'
     import Footer from './elfrique-footer.vue'
+    import BlogService from '../service/blog.service.js'
+    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'elfrique-header':Header,
       'elfrique-newsletter':Newsletter,
       'elfrique-footer':Footer,
+      },
+      data() {
+        return {
+            Content: ''   
+        }
+        }, 
+
+        computed: {
+        loggedIn() {
+            return this.$store.state.admin.status.loggedIn;
+            },
+        },
+
+        created() {
+
+              if (!this.loggedIn) {
+                this.$router.push('/superadmin');
+              }
+            BlogService.getBlogs().then(response => {
+                this.Content = response.data.blogs;
+                console.log(this.Content);
+            })
+
+        },
+        methods: { 
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+          }
+    }
       },
       mounted(){
         window.scrollTo(0,0)

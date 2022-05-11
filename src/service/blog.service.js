@@ -4,30 +4,22 @@ import authHeader2 from "./auth-header";
 
 const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
 
-class EventForm {
-  createForm(eventForm) {
-    return axios.post(API_URL + "createForm", eventForm, {
+class EventService {
+  createBlog(blogForm) {
+    return axios.post(API_URL + "createBlog", blogForm, {
       headers: authHeader(),
     });
   }
 
-  buildForm(questionForm, formId) {
-    return axios.post(API_URL + "buildForm/" + formId, questionForm, {
-      headers: authHeader(),
-    });
+  getBlogs() {
+    return axios.get(API_URL + "getBlogs", { headers: authHeader() });
   }
 
-  /* createAward(awardForm) {
-    return axios.post(API_URL + "createAward", awardForm, {
-      headers: authHeader(),
-    });
-  } */
-
-  getForms() {
-    return axios.get(API_URL + "getAllForm", { headers: authHeader() });
+  getSingleBlog(blogId) {
+    return axios.get(API_URL + "getBlog/" + blogId, { headers: authHeader() });
   }
 
-  getContests() {
+  /*  getContests() {
     return axios.get(API_URL + "getallVote", { headers: authHeader() });
   }
 
@@ -71,17 +63,13 @@ class EventForm {
     );
   }
 
-  allForms() {
-    return axios.get(API_URL + "allForms", { headers: authHeader() });
+  allEvents() {
+    return axios.get(API_URL + "allEvents", { headers: authHeader() });
   }
 
-  getSingleForm(formId) {
-    return axios.get(API_URL + "getForm/" + formId, { headers: authHeader() });
-  }
-
-  allFormForAdmin() {
-    return axios.get(API_URL + "getForms", { headers: authHeader() });
-  }
+  allEventsforAdmin() {
+    return axios.get(API_URL + "getEvents", { headers: authHeader() });
+  } */
 }
 
-export default new EventForm();
+export default new EventService();

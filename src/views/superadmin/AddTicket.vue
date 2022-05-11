@@ -12,8 +12,9 @@
             <h1>Add Tickets</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
+                    <li class="breadcrumb-item"><router-link to="/superadmin/dashboard" class="routers"><a>Home</a></router-link></li>
                     <li class="breadcrumb-item active">Registration</li>
+                    <li class="breadcrumb-item"><router-link to="/superadmin/overview-registration" class="routers"><a>Overview</a></router-link></li>
                     <li class="breadcrumb-item active">Add Ticket</li>
                 </ol>
             </nav>
@@ -275,7 +276,7 @@
       this.$router.push('/login');
     }
 
-    EventService.getEvents().then
+    EventService.allEventsforAdmin().then
     (
         response => {
             this.content = response.data.events;

@@ -2,7 +2,7 @@ import AuthService from "../service/auth.service";
 
 const SuperAdmin = JSON.parse(localStorage.getItem("user"));
 const initialState =
-  SuperAdmin.role === "admin"
+  SuperAdmin && SuperAdmin.role === "admin"
     ? { status: { loggedIn: true }, SuperAdmin }
     : { status: { loggedIn: false }, SuperAdmin: null };
 

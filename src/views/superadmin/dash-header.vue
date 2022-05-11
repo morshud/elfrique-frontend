@@ -13,7 +13,7 @@
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
                 <!--Notification Nav-->
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
                         <i class="bi bi-bell"></i>
                         <span class="badge bg-success badge-number">4</span>
@@ -82,18 +82,18 @@
                             <a href="#">Show all notifications</a>
                         </li>
     
-                    </ul><!-- End Notification Dropdown Items -->
+                    </ul> End Notification Dropdown Items  -->
     
-                </li>
+                <!-- </li> -->
                 <!--Profile Image Icon-->
                 <li class="nav-item dropdown pe-3">
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                         <img src="@/assets/images/profile-img.jpg" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2">Elfrique</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
+                            <h6>Elfrique Solution</h6>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
@@ -197,6 +197,7 @@
                 <ul id="reg-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li><router-link to="/superadmin/overview-registration" class="routers"><a><i class="bi bi-circle"></i><span>Overview</span></a></router-link></li>
                     <li><router-link to="/superadmin/create-event" class="routers"><a><i class="bi bi-circle"></i><span>Create Event</span></a></router-link></li>
+                    <li><router-link to="/superadmin/add-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Add Ticket</span></a></router-link></li>
                     <li><router-link to="/superadmin/view-event" class="routers"><a><i class="bi bi-circle"></i><span>View Event</span></a></router-link></li>
                     <li><router-link to="/superadmin/event-setting" class="routers"><a><i class="bi bi-circle"></i><span>Event Setting</span></a></router-link></li>
                     <li><router-link to="/superadmin/personal-ticket" class="routers"><a><i class="bi bi-circle"></i><span>Personal Ticket</span></a></router-link></li>
@@ -214,6 +215,7 @@
                 <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li><router-link to="/superadmin/overview-forms" class="routers"><a><i class="bi bi-circle"></i><span>Overview</span></a></router-link></li>
                     <li><router-link to="/superadmin/create-form" class="routers"><a><i class="bi bi-circle"></i><span>Create Form</span></a></router-link></li>
+                    <li><router-link to="/superadmin/build-form" class="routers"><a><i class="bi bi-circle"></i><span>Build Form</span></a></router-link></li>
                     <li><router-link to="/superadmin/view-forms" class="routers"><a><i class="bi bi-circle"></i><span>View Forms</span></a></router-link></li>
                     <li><router-link to="/superadmin/personal-forms" class="routers"><a><i class="bi bi-circle"></i><span>Personal Forms</span></a></router-link></li>
                     <li><router-link to="/superadmin/form-cash-payment" class="routers"><a><i class="bi bi-circle"></i><span>Cash Payment</span></a></router-link></li>

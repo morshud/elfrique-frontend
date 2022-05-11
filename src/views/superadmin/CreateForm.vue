@@ -16,48 +16,57 @@
             </nav>
         </div><!-- End Page Title -->
 
+        <div  v-if="error" class=" alert-danger alert  alert-dismissible fade show" role="alert">
+                           {{error}} 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div  v-if="message" class= 'alert-success alert  alert-dismissible fade show' role="alert">
+                        {{message}} 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
         <div class="container start-voting-div create-event-div">
             <div class="row justify-content-center">
-                <form>
-                    <div class="row justify-content-center">
+                <form  @submit.prevent="createForm">
+                    <div v-if="formCreated==false" class="row justify-content-center">
                         <div class="col-lg-11 start-voting-inner-div">
                             <div class="row">
                                 <!--Form Title-->
                                 <div class="col-lg-12 mt-2">
                                     <label for="form title">Form Title</label>
-                                    <input class="input" type="text" placeholder="Enter form title">
+                                    <input v-model="Content.title" class="input" type="text" placeholder="Enter form title">
                                 </div>
                                 <!--Form Image-->
                                 <div class="col-lg-12 mt-4">
                                     <label for="form image">Form Image</label>
-                                    <input class="input" type="file" accept=".jpg, .jpeg, .png, .jfif">
+                                    <input class="input" type="file" ref="file" accept=".jpg, .jpeg, .png, .jfif"  v-on:change="handleFileUpload()" >
                                     <small class="text-danger font-weight-bold">(only .jpg, .jpeg, .png, .jfif or .webp format)</small>
                                 </div>
                                 <!--Form Type-->
                                 <div class="col-lg-12 mt-4">
                                     <label for="form type">Form Type</label>
-                                    <input class="radio" type="radio" name="form" id="paid"> <span>Paid</span>
-                                    <input class="radio" type="radio" name="form" id="free"> <span>Free</span>
+                                    <input v-model="Content.type"  class="radio" type="radio" name="form" id="paid"  value="paid"> <span>Paid</span>
+                                    <input v-model="Content.type" class="radio" type="radio" name="form" id="free" value="free"> <span>Free</span>
                                 </div>
                                 <!--Start Date-->
                                 <div class="col-lg-6 mt-4">
                                     <label for="start date">Start Date</label>
-                                    <input class="input" type="date">
+                                    <input v-model="Content.startdate" class="input" type="datetime-local">
                                 </div>
                                 <!--End Date-->
                                 <div class="col-lg-6 mt-4">
                                     <label for="end date">End Date</label>
-                                    <input class="input" type="date">
+                                    <input v-model="Content.closedate" class="input" type="datetime-local">
                                 </div>
                                 <!--Form Description-->
                                 <div class="col-lg-12 mt-4">
                                     <label for="event description">Form Description</label>
-                                    <textarea class="input" cols="30" rows="4" placeholder="Enter details here..."></textarea>
+                                    <textarea v-model="Content.description" class="input" cols="30" rows="4" placeholder="Enter details here..."></textarea>
                                 </div>
                                 <!--Timezone-->
                                 <div class="col-lg-12 mt-4">
                                     <label for="select timezone">Select Your Timezone</label>
-                                    <select name="timezone" id="timezone">
+                                    <select v-model="Content.timezone" name="timezone" id="timezone">
                                         <option value="Africa/Abidjan">Africa/Abidjan</option>
                                         <option value="Africa/Accra">Africa/Accra</option>
                                         <option value="Africa/Addis_Ababa">Africa/Addis_Ababa</option>
@@ -485,36 +494,170 @@
                                         <option value="UTC">UTC</option>
                                     </select>
                                 </div>
-                                <!--Create Your Form-->
-                                <div class="col-lg-12 mt-4">
-                                    <label for="select timezone">Build your form by draging a field from the right to the box below</label>
-                                    <small class="text-danger mb-1">Refresh your browser if the box dosen't display below</small>
-                                    <div id="fb-editor"></div>
-                                </div>
+
                                 <!--Create Form Button-->
                                 <div class="col-lg-12 mt-4">
-                                    <button type="submit">Create Form</button>
+                                     <button type="submit" class="btn btn-success" :disabled="loading" >Create Form Details<span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
                                 </div>
+                                
+                                <!-- <div id="fb-editor"></div> -->
+                                
+                              
                             </div>
                         </div>
                     </div>
                 </form>
+                <!--Build Form Section-->
+                
+                
             </div>
         </div>
     </main>
 
     <dash-footer/>
-</template>
+</template>+
 <style scoped src="@/assets/css/dashStyle.css"></style>
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import EventService from '../../service/form.service'   
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
       },
+      data(){
+          return{
+              Content:{
+                    title:'',
+                    description:'',
+                    startdate:'',
+                    closedate:'',
+                    timezone:'Africa/Lagos',
+                    type:'',
+                    fee:'',    
+                },
+                file: '',
+                error: '',
+                loading: false,
+                formCreated: false,
+                eventForm: '',  
+                message: '',
+                numberOfOption: 4,
+                QuestionForm: [
+                    {
+                        question: '',
+                        type: '',
+                        options: [],
+                    }
+                ],
+                
+
+            }
+        },
+
+    computed: {
+    loggedIn() {
+      return this.$store.state.admin.status.loggedIn;
+    },
+    
+  },
+
+  created() {
+
+    if (!this.loggedIn) {
+      this.$router.push('/superadmin');
+        }
+    },
+
+    methods:{
+        createForm(){
+            this.loading = true;
+
+            let formData = new FormData();
+            formData.append('image', this.file);                                                                                                                                                                                                                                           
+            formData.append('title', this.Content.title);
+            formData.append('startdate', this.Content.startdate);
+            formData.append('closedate', this.Content.closedate);
+            formData.append('timezone', this.Content.timezone);
+            formData.append('type', this.Content.type);
+            formData.append('fee', this.Content.fee);
+            formData.append('description', this.Content.description);
+           
+
+            EventService.createForm(formData).then(response => {
+                    
+                    this.message = "Form Details Added Successfully, Continue to build your form";
+                    this.eventForm = response.data.form;
+                    this.loading = false;
+                    this.formCreated = true;
+                    window.scrollTo(0,0);
+
+            },
+            error => {
+                console.log(error);
+                this.error = error.response.data.message;
+                console.log(error.response.data);
+                this.formCreated = false;
+
+
+                this.loading = false;
+            });
+        },
+        buildForm(){
+            this.loading = true;
+            console.log(this.QuestionForm)
+
+            if (this.QuestionForm){
+                for (let i = 0; i < this.QuestionForm.length; i++) {
+                let formData = new FormData();
+                formData.append('question', this.QuestionForm[i].question)
+                formData.append('type', this.QuestionForm[i].type)
+                for (let j = 0; j < this.QuestionForm[i].options.length; j++) {
+                    formData.append('options['+j+']', this.QuestionForm[i].options[j])
+                }
+                
+                EventService.buildForm(formData, this.eventForm.id).then
+                (
+                    response => {
+                        console.log(response);
+                        this.message = "Your form has been created successfully";
+                        this.loading = false;
+                        window.scrollTo(0,0)
+                         
+                    },
+
+                    error => {
+                        this.error = error.response.data.message;
+                        this.message = "";
+                        this.loading = false;
+                        console.log(error);
+                        window.scrollTo(0,0)
+                    }   
+                )
+            }
+            }
+            
+        },
+
+        addQuestion(){
+            this.QuestionForm.push({
+                question: '',
+                type: '',
+                options: [],
+            });
+        },
+
+        addOption(){
+            this.numberOfOption++;
+        },
+
+            
+        handleFileUpload(){
+        this.file = this.$refs.file.files[0];
+      }
+     },
       mounted(){
         window.scrollTo(0,0)
 

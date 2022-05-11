@@ -68,6 +68,10 @@ class EventService {
   allEvents() {
     return axios.get(API_URL + "allEvents", { headers: authHeader() });
   }
+
+  allEventsforAdmin() {
+    return axios.get(API_URL + "getEvents", { headers: authHeader() });
+  }
 }
 
 export default new EventService();

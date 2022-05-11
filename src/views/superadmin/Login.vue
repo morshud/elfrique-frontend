@@ -71,7 +71,7 @@ export default {
         if (this.user.email && this.user.password) {
           this.$store.dispatch('admin/login', this.user).then(
             () => {
-              this.$router.push('/superadmin/dashboard');
+              this.$router.push('/superadmin/overview-general');
             },
             error => {
               this.loading = false;

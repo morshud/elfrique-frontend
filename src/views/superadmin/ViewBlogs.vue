@@ -44,12 +44,12 @@
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody  v-for="(con,idx) in Content" :key="con.id" >
                     <tr>
-                        <th scope="row">1</th>
-                        <td>My First Blog Content</td>
-                        <td><img src="@/assets/images/blog-img.jpg"></td>
-                        <td>2019-09-08 13:10:58</td>
+                        <th scope="row">{{idx}}</th>
+                        <td>{{con.title}}</td>
+                        <td><img :src="con.img_url" ></td>
+                        <td>{{format_date(con.createdAt)}}</td>
                         <td><a href="#">View Blog</a></td>
                         <td>
                             <button class="btn btn-primary btn-sm mx-1 text-dark">Edit</button>
@@ -85,11 +85,45 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import BlogService from '../../service/blog.service.js'
+     import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
+      },
+      data() {
+        return {
+            Content: ''
+
+            
+        }
+        }, 
+
+        computed: {
+        loggedIn() {
+            return this.$store.state.admin.status.loggedIn;
+            },
+        },
+
+        created() {
+
+              if (!this.loggedIn) {
+                this.$router.push('/superadmin');
+              }
+            BlogService.getBlogs().then(response => {
+                this.Content = response.data.blogs;
+                console.log(this.Content);
+            })
+
+        },
+        methods: { 
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+          }
+    }
       },
       mounted(){
         window.scrollTo(0,0)

@@ -51,16 +51,17 @@
                         <th scope="col">Form Link</th>
                     </tr>
                     </thead>
-                    <tbody>
+                     <tbody v-for="(con,idx) in content" :key="con.id">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>myemail@email.com</td>
-                        <td>354</td>
-                        <td>Futuristic</td>
-                        <td><img src="@/assets/images/event-forms.jpg"></td>
-                        <td>2021-07-31 12:19:13</td>
-                        <td>2021-08-03</td>
-                        <td>2021-10-01</td>
+                        
+                        <td>{{idx + 1}}</td>
+                        <td>{{con.adminuser.email}}</td>
+                        <td>{{con.id}}</td>
+                        <td>{{con.title}}</td>
+                        <td><img :src="con.image" alt="event-pics" contain height="100" width="150" ></td>
+                        <td>{{format_date(con.createdAt)}}</td>
+                        <td>{{format_date(con.startdate)}}</td>
+                        <td>{{format_date(con.enddate)}}</td>
                         <td>On</td>
                         <td>
                             <div class="dropdown">
@@ -112,11 +113,42 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import EventService from '../../service/form.service'
+    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
+      },
+      data(){
+        return{
+          title: 'View Event',
+          content: '',
+          }
+        },
+        computed: {
+        loggedIn() {
+            return this.$store.state.admin.status.loggedIn;
+            },
+        },
+        created(){
+          if (!this.loggedIn) {
+                this.$router.push('/superadmin');
+    }
+
+            EventService.allFormForAdmin().then(response => {
+                this.content = response.data.form;
+                console.log(this.content);
+            }
+            )
+        },
+        methods: { 
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+          }
+    }
       },
       mounted(){
         window.scrollTo(0,0)

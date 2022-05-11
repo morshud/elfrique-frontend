@@ -14,49 +14,57 @@
                 </ol>
             </nav>
         </div><!-- End Page Title -->
+         <div  v-if="error" class=" alert-danger alert  alert-dismissible fade show" role="alert">
+            {{error}} 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div  v-if="message" class= 'alert-success alert  alert-dismissible fade show' role="alert">
+            {{message}} 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
 
         <div class="container start-voting-div create-event-div">
             <div class="row justify-content-center">
-                <form>
+                <form name="form" @submit.prevent="createBlog">
                     <div class="row justify-content-center">
                         <div class="col-lg-11 start-voting-inner-div">
                             <div class="row">
                                 <!--Blog Title-->
                                 <div class="col-lg-12 mt-2">
                                     <label>Blog Title</label>
-                                    <input class="input" type="text" placeholder="Enter blog title">
+                                    <input v-model="blog.title" class="input" type="text" placeholder="Enter blog title">
                                 </div>
                                 <!--Blog Image-->
                                 <div class="col-lg-12 mt-4">
                                     <label>Blog Image</label>
-                                    <input class="input" type="file" accept=".jpg, .jpeg, .png, .jfif">
+                                    <input  class="input" type="file" ref="file" accept=".jpg, .jpeg, .png, .jfif" v-on:change="handleFileUpload()">
                                     <small class="text-danger font-weight-bold">(only .jpg, .jpeg, .png, .jfif or .webp format)</small>
                                 </div>
                                 <!--Blog Details-->
                                 <div class="col-lg-12 mt-4">
                                     <label for="event description">Blog Details</label>
-                                    <textarea class="input" cols="30" rows="4" placeholder="Enter details here..."></textarea>
+                                    <textarea v-model="blog.details" class="input" cols="30" rows="4" placeholder="Enter details here..."></textarea>
                                 </div>
                                 <!--Blog Author-->
                                 <div class="col-lg-12 mt-4">
-                                    <label>Blog Author</label>
-                                    <input class="input" type="text" placeholder="Enter name">
+                                    <label>Blog Author(optional)</label>
+                                    <input v-model="blog.author" class="input" type="text" placeholder="Enter name">
                                 </div>
                                 <!--Blog Date-->
-                                <div class="col-lg-6 mt-4">
+                                <!-- <div class="col-lg-6 mt-4">
                                     <label>Date Posted</label>
                                     <input class="input" type="date">
-                                </div>
+                                </div> -->
                                 <!--Blog Time-->
-                                <div class="col-lg-6 mt-4">
+                                <!-- <div class="col-lg-6 mt-4">
                                     <label>Time Posted</label>
                                     <input class="input" type="time">
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
                         <div class="col-lg-11 mt-4">
-                            <button type="submit">Create Blog Post</button>
+                            <button type="submit" :disabled="loading">Create Blog Post<span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
                         </div>
                     </div>
                 </form>
@@ -70,12 +78,75 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import BlogService from '../../service/blog.service.js'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
       },
+       data(){
+          return{
+                blog: {
+                    title: '',
+                    details: '',
+                    author: '',
+                },
+                file: '',
+                error: '',
+                loading: false,
+                message: '',
+
+            }
+        },
+
+    computed: {
+    loggedIn() {
+      return this.$store.state.admin.status.loggedIn;
+    },
+    
+  },
+
+  created() {
+
+    if (!this.loggedIn) {
+      this.$router.push('/superadmin');
+        }
+    },
+
+    methods:{
+        createBlog(){
+            this.loading = true;
+
+            let formData = new FormData();
+            formData.append('image', this.file);                                                                                                                                                                                                                                           
+            formData.append('title', this.blog.title);
+            formData.append('author', this.blog.author);
+            formData.append('details', this.blog.details);
+
+            BlogService.createBlog(formData).then(response => {
+                    
+                    this.message = "Blog Post Created Successfully";
+                    this.loading = false;
+                     window.scrollTo(0,0)
+
+            },
+            error => {
+                console.log(error);
+                this.error = error.response.data.message;
+                console.log(error.response.data);
+
+
+                this.loading = false;
+                 window.scrollTo(0,0)
+            });
+        },
+
+            
+        handleFileUpload(){
+        this.file = this.$refs.file.files[0];
+      }
+     },
       mounted(){
         window.scrollTo(0,0)
 

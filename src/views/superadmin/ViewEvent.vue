@@ -37,7 +37,7 @@
                 <table class="table datatable card-table-table">
                     <thead> 
                     <tr>
-                        <th scope="col">#</th>
+
                         <th scope="col">Event ID</th>
                         <th scope="col">Organiser Email</th>
                         <th scope="col">Title</th>
@@ -51,14 +51,16 @@
                         <th scope="col">Event Link</th>
                     </tr>
                     </thead>
-                    <tbody>
+                   <tbody v-for="con in content" :key="con.id">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>552</td>
-                        <td>myemail@email.com</td>
-                        <td>Free Event</td>
-                        <td><img src="@/assets/images/event-vendor.jpg"></td>
-                        <td>2019-12-04 <br> 19:50:24</td>
+                        
+                        <td>{{con.id}}</td>
+                        <td>{{con.adminuser.email}}</td>
+                        <td>{{con.title}}</td>
+                        <td><img :src="con.image" alt="event-pics" contain height="100" width="150" ></td>
+                        <td>{{format_date(con.createdAt)}}</td>
+                        <td>{{format_date(con.startdate)}}</td>
+                        <td>{{format_date(con.enddate)}}</td>
                         <td>2020-1-01</td>
                         <td>2020-3-25</td>
                         <td>Regular: Free <br> VIP: NGN 3,000</td>
@@ -114,11 +116,42 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import EventService from '../../service/event.service'
+    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
+      },
+      data(){
+        return{
+          title: 'View Event',
+          content: '',
+          }
+        },
+        computed: {
+        loggedIn() {
+            return this.$store.state.admin.status.loggedIn;
+            },
+        },
+        created(){
+          if (!this.loggedIn) {
+                this.$router.push('/superadmin');
+    }
+
+            EventService.allEventsforAdmin().then(response => {
+                this.content = response.data.events;
+                console.log(this.content);
+            }
+            )
+        },
+        methods: { 
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+          }
+    }
       },
       mounted(){
         window.scrollTo(0,0)

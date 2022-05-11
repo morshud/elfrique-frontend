@@ -164,6 +164,7 @@ import SuperAdminVotSearchVote from "../views/superadmin/SearchVote.vue";
 ///////////////////////////////////////
 import SuperAdminRegOverviewRegistration from "../views/superadmin/OverviewRegistration.vue";
 import SuperAdminRegCreateEvent from "../views/superadmin/CreateEvent.vue";
+import SuperAdminRegAddTicket from "../views/superadmin/AddTicket.vue";
 import SuperAdminRegViewEvent from "../views/superadmin/ViewEvent.vue";
 import SuperAdminRegEventSetting from "../views/superadmin/EventSetting.vue";
 import SuperAdminRegPersonalTicket from "../views/superadmin/PersonalTicket.vue";
@@ -174,6 +175,7 @@ import SuperAdminRegSearchTicket from "../views/superadmin/SearchTicket.vue";
 ///////////////////////////////////////
 import SuperAdminFomOverviewForms from "../views/superadmin/OverviewForms.vue";
 import SuperAdminFomCreateForm from "../views/superadmin/CreateForm.vue";
+import SuperAdminFomBuildForm from "../views/superadmin/BuildForm.vue";
 import SuperAdminFomViewForm from "../views/superadmin/ViewForm.vue";
 import SuperAdminFomPersonalForm from "../views/superadmin/PersonalForm.vue";
 import SuperAdminFomFormCashPayment from "../views/superadmin/FormCashPayment.vue";
@@ -224,7 +226,7 @@ const routes = [
     component: SearchResult,
     props: (route) => ({ referral: route.query.keyword }),
   },
-  { path: "/blogPost", name: "BlogPost", component: BlogPost },
+  { path: "/blogPost/:id", name: "BlogPost", component: BlogPost },
   { path: "/pricing", name: "Pricing", component: Pricing },
   { path: "/contact", name: "Contact", component: Contact },
   { path: "/privacy", name: "Privacy", component: Privacy },
@@ -880,6 +882,11 @@ const routes = [
     component: SuperAdminRegCreateEvent,
   },
   {
+    path: "/superadmin/add-ticket",
+    name: "SuperAdminRegAddTicket",
+    component: SuperAdminRegAddTicket,
+  },
+  {
     path: "/superadmin/view-event",
     name: "SuperAdminRegViewEvent",
     component: SuperAdminRegViewEvent,
@@ -924,6 +931,11 @@ const routes = [
     path: "/superadmin/create-form",
     name: "SuperAdminFomCreateForm",
     component: SuperAdminFomCreateForm,
+  },
+  {
+    path: "/superadmin/build-form",
+    name: "SuperAdminFomBuildForm",
+    component: SuperAdminFomBuildForm,
   },
   {
     path: "/superadmin/view-forms",

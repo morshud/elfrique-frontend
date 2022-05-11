@@ -8,11 +8,11 @@
             <h1>Add Sponsors</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
+                    <li class="breadcrumb-item"><router-link to="/superadmin/dashboard" class="routers"><a>Home</a></router-link></li>
                     <li class="breadcrumb-item active">Voting</li>
-                    <li class="breadcrumb-item active"><router-link to="/organiser/start-voting" class="routers"><a>Start Voting</a></router-link></li>
-                    <li class="breadcrumb-item active"><router-link to="/organiser/add-contestant" class="routers"><a>Add Contestant</a></router-link></li>
-                    <li class="breadcrumb-item active">Add Sponsors</li>
+                    <li class="breadcrumb-item active"><router-link to="/superadmin/overview-voting" class="routers"><a>Overview</a></router-link></li>
+                    <li class="breadcrumb-item active"><router-link to="/superadmin/start-voting" class="routers"><a>Start Voting</a></router-link></li>
+                    <li class="breadcrumb-item active">Add Sponsor</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
