@@ -35,7 +35,7 @@
                 </div>
             
                 
-                <div class="col-md-2 py-3 justify-content-center text-center">
+                <!-- <div class="col-md-2 py-3 justify-content-center text-center"> -->
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
                             <li class="page-item">
@@ -53,7 +53,7 @@
                             </li>
                         </ul>
                     </nav>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </section>
