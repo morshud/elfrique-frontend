@@ -3,6 +3,14 @@
     <evisa-head/>
 
     <!---Onboard Screen--->
+     <div  v-if="error" class=" alert-danger alert  alert-dismissible fade show" role="alert">
+                {{error}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div  v-if="message" class= 'alert-success alert  alert-dismissible fade show' role="alert">
+                {{message}} 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
     <section class="onboard-screen">
         <div class="container">
             <div class="row">
@@ -82,46 +90,46 @@
                         <div class="line-rule"></div>
                         <p style="margin-top: -5px">Fill the form below to complete your travel info</p>
                     </div>
-                    <form class="mt-2">
+                    <form  name="form" @submit.prevent="submitEvisa" class="mt-2">
                         <div class="row">
                             <div class="col-lg-12 mb-3">
                                 <label>Full Name</label>
-                                <input type="text" placeholder="Enter fullname">
+                                <input v-model="evisaDetails.fullname" type="text" placeholder="Enter fullname">
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label>Depart Date</label>
-                                <input type="date">
+                                <input v-model="evisaDetails.depart_date" type="date">
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label>Return Date</label>
-                                <input type="date">
+                                <input v-model="evisaDetails.return_date" type="date">
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label>Visa Type</label>
-                                <select>
+                                <select v-model="evisaDetails.visa_type">
                                     <option hidden>Select Option</option>
-                                    <option>Temporary Worker</option>
-                                    <option>Tourism</option>
+                                    <option value="Temporary Worker">Temporary Worker</option>
+                                    <option value="Tourism">Tourism</option>
                                 </select>
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label>Number of Travelers</label>
-                                <input type="number" placeholder="Enter number">
+                                <input v-model="evisaDetails.numberOfTravelers" type="number" placeholder="Enter number">
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label>Email</label>
-                                <input type="email" placeholder="Enter email address">
+                                <input v-model="evisaDetails.email" type="email" placeholder="Enter email address">
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label>Phone Number</label>
-                                <input type="tel" placeholder="Enter phone number">
+                                <input v-model="evisaDetails.phone_number" type="tel" placeholder="Enter phone number">
                             </div>
                             <div class="col-lg-12 mb-3">
                                 <label> Any Additional Information You Will Like to Share</label>
-                                <textarea cols="30" rows="4" placeholder="Start typing..."></textarea>
+                                <textarea v-model="evisaDetails.additional_info"   cols="30" rows="4" placeholder="Start typing..."></textarea>
                             </div>
                             <div class="col-lg-12">
-                                <button type="submit">Submit Details</button>
+                                <button type="submit" :disabled="loading">Submit Details<span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
                             </div>
                         </div>
                     </form>
@@ -136,11 +144,68 @@
 <script>
     import Header from './evisa-head.vue'
     import Footer from './evisa-foot.vue'
+    import EvisaService from '../../service/evisa.service'
     export default {
         name: "Elfrique",
         components:{
             'evisa-head':Header,
             'evisa-foot':Footer,
+        },
+        data() {
+            return {
+                evisaDetails: {
+                    fullname: '',
+                    depart_date: '',
+                    return_date: '',
+                    visa_type: '',
+                    numberOfTravelers: '',
+                    email: '',
+                    phone_number: '',
+                    additional_info: '',
+                    destination: 'United Arab Emirates',
+                },
+                loading: false,
+                error: '',
+                methods: '',
+            }},
+
+            methods:{
+                 resetform(){
+                this.evisaDetails = {
+                    fullname: '',
+                    depart_date: '',
+                    return_date: '',
+                    visa_type: '',
+                    numberOfTravelers: '',
+                    email: '',
+                    phone_number: '',
+                    additional_info: '',
+                    destination: 'United Arab Emirates',
+                }
+            },
+        submitEvisa(){
+            this.loading = true;
+            EvisaService.submitEvisa(this.evisaDetails).then(response => {
+                    
+                    this.message = ` You are almost set! 
+One of our Visa Consultants will be in contact with you shortly!. The number should be clickable that takes them to call immidiately
+Meanwhile, you could as well call us on +234 906 141 2204 to hasten your request.`;
+                    this.loading = false;
+                    window.scrollTo(0,0)
+                    this.resetform();
+
+            },
+            error => {
+                console.log(error);
+                this.error = error.response.data.message;
+                console.log(error.response.data);
+
+
+                this.loading = false;
+                 window.scrollTo(0,0)
+            });
+        },
+
         },
         mounted(){
             window.scrollTo(0,0)
