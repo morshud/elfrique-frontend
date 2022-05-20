@@ -5,6 +5,7 @@ const initialState = {
   event: {},
   trivia: {},
   player: {},
+  country: "",
 };
 
 export const vote = {
@@ -35,6 +36,9 @@ export const vote = {
     getTriviaPlayer({ commit }, player) {
       commit("setTriviaPlayer", player);
     },
+    getEvisaCountry({ commit }, country) {
+      commit("setEvisaCountry", country);
+    },
   },
   mutations: {
     setVoteContent(state, voteContent) {
@@ -57,6 +61,9 @@ export const vote = {
     },
     setTriviaPlayer(state, player) {
       state.player = player;
+    },
+    setEvisaCountry(state, country) {
+      state.country = country;
     },
   },
 };

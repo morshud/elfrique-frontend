@@ -98,7 +98,7 @@
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label>Depart Date</label>
-                                <input v-model="evisaDetails.depart_date" type="date">
+                                <input v-model="evisaDetails.dapart_date" type="date">
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label>Return Date</label>
@@ -155,7 +155,7 @@
             return {
                 evisaDetails: {
                     fullname: '',
-                    depart_date: '',
+                    dapart_date: '',
                     return_date: '',
                     visa_type: '',
                     numberOfTravelers: '',
@@ -173,7 +173,7 @@
                  resetform(){
                 this.evisaDetails = {
                     fullname: '',
-                    depart_date: '',
+                    dapart_date: '',
                     return_date: '',
                     visa_type: '',
                     numberOfTravelers: '',
@@ -186,12 +186,16 @@
         submitEvisa(){
             this.loading = true;
             EvisaService.submitEvisa(this.evisaDetails).then(response => {
-                    
-                    this.message = ` You are almost set! 
+                    this.$store.dispatch('vote/getEvisaCountry',this.evisaDetails.destination).then(
+            () => {
+            //console.log(this.$store.state.vote.voteContent)
+              this.$router.push('/evisa/details-sent');
+            })
+                   /*  this.message = ` You are almost set! 
 One of our Visa Consultants will be in contact with you shortly!. The number should be clickable that takes them to call immidiately
 Meanwhile, you could as well call us on +234 906 141 2204 to hasten your request.`;
                     this.loading = false;
-                    window.scrollTo(0,0)
+                    window.scrollTo(0,0) */
                     this.resetform();
 
             },

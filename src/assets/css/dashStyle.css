@@ -1950,3 +1950,45 @@ header .logo img {
 .btn-elfriqueColor a:hover{
   color: #000 !important;
 }
+
+
+.analyticsNote{
+  background-color: #d6ebff;
+  color: #000;
+  padding: 40px 25px;
+}
+.analyticsNote p{
+  font-weight: 600;
+  color: #000;
+  font-size: 15px;
+}
+.analyticsLinkBelow{
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+.analyticsLinkBelow a{
+  padding: 5px 8px;
+  font-size: 14px;
+}
+
+.tableModal{
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #000;
+}
+.tableModal td{
+  border: 1px solid #000;
+  width: 50%;
+  padding: 8px 10px !important;
+  font-size: 15px;
+  color: #000;
+}
+.tableModal td:first-child{
+  font-weight: 700;
+}
+
+.deletemodalbox h4{
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+}

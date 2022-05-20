@@ -43,15 +43,15 @@
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
-                    <tbody>
+                   <tbody v-for="(con, idx ) in content" :key="con.id">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>myemail@email.com</td>
-                        <td>08112345678</td>
-                        <td>2022-07-31</td>
+                        <th scope="row">{{idx + 1}}</th>
+                        <td>{{con.email}}</td>
+                        <td>{{con.phone_number}}</td>
+                        <td>{{format_date(con.createdAt)}}</td>
                         <td>
-                            <button class="btn btn-success btn-sm mx-1 text-dark m-1">Approve</button>
-                            <button class="btn btn-warning btn-sm mx-1 text-dark m-1">Suspend</button>
+                            <button class="btn btn-primary btn-sm mx-1 text-dark m-1" data-bs-toggle="modal" data-bs-target="#viewDetailModal" @click="getdetail(con)">View Details</button>
+                            <!-- <button class="btn btn-warning btn-sm mx-1 text-dark m-1">Suspend</button> -->
                             <button class="btn btn-danger btn-sm mx-1 text-dark m-1">Delete</button>
                         </td>
                     </tr>
@@ -75,6 +75,57 @@
         </div>
       </div>
     </section>
+    <!-- Modal -->
+    <div class="modal fade" id="viewDetailModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="tableModal">
+                        <tr>
+                            <td>Full Name:</td>
+                            <td>{{detail.fullname}}</td>
+                        </tr>
+                        <tr>
+                            <td>Depart Date:</td>
+                            <td>{{format_date(detail.depart_date)}}</td>
+                        </tr>
+                        <tr>
+                            <td>Return Date:</td>
+                            <td>{{format_date(detail.return_date)}}</td>
+                        </tr>
+                        <tr>
+                            <td>Visa Type:</td>
+                            <td>{{detail.visa_type}}</td>
+                        </tr>
+                        <tr>
+                            <td>Number of Travelers:</td>
+                            <td>{{detail.numberOfTravelers}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>{{detail.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number:</td>
+                            <td>{{detail.phone_number}}</td>
+                        </tr>
+                        <tr>
+                            <td>Additional Info:</td>
+                            <td>{{detail.additional_info}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     
     </main>
 
@@ -84,11 +135,48 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import EvisaService from '../../service/evisa.service'
+    import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
+      },
+
+      data(){
+        return{
+          title: 'View Evisa',
+          content: '',
+          detail:{},
+          }
+        },
+        computed: {
+        loggedIn() {
+            return this.$store.state.admin.status.loggedIn;
+            },
+        },
+        created(){
+          if (!this.loggedIn) {
+                this.$router.push('/superadmin');
+    }
+
+            EvisaService.getEvisas().then(response => {
+                this.content = response.data.evisa;
+                console.log(this.content);
+            }
+            )
+        },
+        methods: { 
+            format_date(value){
+                if (value) {
+                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
+                    }
+            },
+
+            getdetail(con){
+                this.detail = con
+            }
       },
       mounted(){
         window.scrollTo(0,0)

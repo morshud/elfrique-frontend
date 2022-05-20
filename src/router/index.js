@@ -20,6 +20,8 @@ import eVisaEthiopia from "../views/evisa/Ethiopia.vue";
 import eVisaMalawi from "../views/evisa/Malawi.vue";
 import eVisaZimbabwe from "../views/evisa/Zimbabwe.vue";
 import eVisaZambia from "../views/evisa/Zambia.vue";
+import DetailsSent from "../views/evisa/DetailsSent.vue";
+
 ///////////////////SERVICES
 ///////////////////SERVICES
 //Voting System
@@ -256,6 +258,7 @@ const routes = [
   { path: "/evisa/malawi", name: "eVisaMalawi", component: eVisaMalawi },
   { path: "/evisa/zimbabwe", name: "eVisaZimbabwe", component: eVisaZimbabwe },
   { path: "/evisa/zambia", name: "eVisaZambia", component: eVisaZambia },
+  { path: "/evisa/details-sent", name: "DetailsSent", component: DetailsSent },
   ///////////////Services
   //voting system
   {

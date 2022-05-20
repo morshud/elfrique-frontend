@@ -4044,3 +4044,222 @@ footer .copyright p{
     margin-top: -10px;
     margin-bottom: 40px;
 }
+
+
+/**************************/
+/****Advertise With Us ***/
+/**************************/
+.advertBanner{
+    background-image: linear-gradient(90deg,  #000000c9, #000000c9), url('../images/imageadvert.jpg');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: 70px;
+    padding: 110px 10px 80px 10px !important;
+}
+.advertBanner h1{
+    font-size: 55px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+}
+.advertBanner p{
+    font-size: 35px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 30px;
+}
+.advertBanner .btnDiv a{
+    background-color: #356825;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    text-decoration: none;
+}
+@media(max-width: 767px){
+    .advertBanner h1{
+        font-size: 45px;
+    }
+    .advertBanner p{
+        font-size: 25px;
+    }
+}
+/********************/
+.advertContent .statsCount{
+    padding: 80px 5px !important;
+}
+.advertContent .statsCount h5{
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: underline;
+    text-decoration-color: #386b2880;
+    line-height: 43px;
+}
+.advertContent .statsCount .countDiv{
+    width: 95%;
+    margin: auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #356425;
+    margin-top: 20px;
+    color: #000;
+}
+.advertContent .statsCount .countDiv h1{
+    font-size: 45px;
+    font-weight: 600;
+}
+.advertContent .statsCount .countDiv p{
+    font-size: 20px;
+    font-weight: 600;
+}
+/********************/
+.advertContent .middleBg{
+    background-image: linear-gradient(90deg,  #000000c9, #000000c9), url('../images/imageadvert.jpg');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 70px 5px!important;
+    color: #fff;
+    overflow-x: hidden;
+}
+.advertContent .middleBg h1{
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 700;
+}
+/********************/
+.advertContent .adsDetails{
+    padding: 50px 5px;
+}
+.advertContent .adsDetails button.active{
+    color: #ffffff !important;
+    background-color: #3B702A !important;
+    box-shadow: 0px 0px 10px #cccccc;
+    border: 1px solid #3B702A;
+    border-radius: 10px;
+}
+.advertContent .adsDetails .tabs-button{
+    background-color: transparent !important;
+    color: #000000 !important;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border: 1px solid #3B702A;
+    border-radius: 10px;
+    margin: 6px;
+}
+.advertContent .adsDetails .tab-pane h5{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 32px;
+}
+.advertContent .adsDetails .tab-pane h5 a{
+    color: #356825;
+}
+.advertContent .adsDetails .tabs-button:focus{
+    background-color: #3B702A !important;
+    color: #ffffff !important;
+    border: 1px solid #3B702A;
+    border-radius: 10px;
+}
+/********************/
+.advertContent .contactSec{
+    padding: 50px 5px;
+}
+.advertContent .contactSec h1{
+    font-size: 35px;
+    font-weight: 700;
+    color: #000;
+    text-transform: capitalize;
+}
+.advertContent .contactSec p{
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+}
+.advertContent .contactSec p a{
+    color: #2a531d;
+}
+.advertContent .contactSec form{
+    padding: 40px 30px;
+    border: 1px solid #585858;
+    border-radius: 10px;
+}
+.advertContent .contactSec form label{
+    font-size: 15px;
+    padding-bottom: 3px;
+    color: #000;
+}
+.advertContent .contactSec form .input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #585858;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 15px;
+}
+.advertContent .contactSec form .textarea{
+    height: 130px;
+}
+.advertContent .contactSec form button{
+    background-color: #000;
+    color: #fff;
+    padding: 12px 5px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+}
+.advertContent .contactSec img{
+    width: 100%;
+    display: block;
+    margin: auto;
+    padding-top: 30px;
+}
+@media(max-width: 450px){
+    .advertContent .contactSec form{
+        padding: 20px 20px;
+    }
+}
+
+
+.detailsSent{
+    padding: 50px 10px !important;
+}
+.detailsSent img{
+    width: 90%;
+    margin: auto;
+    display: block;
+    margin-top: -20px;
+}
+.detailsSent h3{
+    color: #000;
+    font-weight: 600;
+    font-size: 28px;
+}
+.detailsSent p{
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #000;
+}
+.detailsSent p span{
+    font-weight: 600;
+}
+.detailsSent .backbtn{
+    background-color: #407c2c;
+    color: #fff;
+    border-radius: 10px;
+    padding: 8px 15px;
+    font-size: 15px;
+    text-decoration: none;
+    transition: 0.6s;
+}
+.detailsSent .backbtn:hover{
+    background-color: #000;
+}

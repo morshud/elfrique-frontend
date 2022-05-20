@@ -60,7 +60,18 @@
                         <td>{{format_date(con.enddate)}}</td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td><div class="dropdown">
+                                <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Options
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                                    <li><a class="dropdown-item" href="#">Enable</a></li>
+                                    <li><a class="dropdown-item" href="#">Disable</a></li>
+                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                    <li><a class="dropdown-item" href="#" @click="showModal = true">Request Payout</a></li>
+                                </ul>
+                            </div></td>
                         <td></td>
                     </tr>
                     </tbody>
@@ -83,6 +94,31 @@
         </div>
       </div>
     </section>
+    <div>
+        <vue-final-modal v-model="showModal" classes="modal-container" content-class="modal-content">
+            <button class="modal__close" @click="showModal = false">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </button>
+            
+            <div class="modal__content">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Request Payout?</h5>
+                        </div>
+                        <div>
+                            <h4>You are about to request payout for this event </h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </vue-final-modal>
+    
+  </div>
     
     </main>
 
@@ -92,18 +128,23 @@
 <script>
     import Header from './dash-header.vue'
     import Footer from './dash-footer.vue'
+    import { $vfm, VueFinalModal, ModalsContainer } from 'vue-final-modal';
     import EventService from '../../service/event.service'
+    import PayoutService from '../../service/payout.service'
     import moment from 'moment'
     export default {
       name: "Elfrique",
       components:{
       'dash-header': Header,
       'dash-footer': Footer,
+       VueFinalModal,
+       ModalsContainer
       },
       data(){
         return{
           title: 'View Event',
           content: '',
+          showModal: false,
           }
         },
         computed: {
@@ -134,3 +175,51 @@
       }
     }
 </script>
+<style scoped>
+::v-deep .modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+::v-deep .modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: 90%;
+  margin: 0 1rem;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.25rem;
+  background: #fff;
+  width: 500px;
+  height: 500px;
+}
+.modal__title {
+  margin: 0 2rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+/* .modal__content {
+  flex-grow: 1;
+  overflow-y: auto;
+} */
+.modal__action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 1rem 0 0;
+}
+.modal__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+</style>
+
+<style scoped>
+.dark-mode div::v-deep .modal-content {
+  border-color: #2d3748;
+  background-color: #1a202c;
+}
+</style>

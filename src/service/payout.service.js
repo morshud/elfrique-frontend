@@ -4,9 +4,9 @@ import authHeader2 from "./auth-header";
 
 const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
 
-class EvisaService {
-  submitEvisa(evisaForm) {
-    return axios.post(API_URL + "submitEvisa", evisaForm, {
+class PayoutService {
+  requestPayOut(PayoutForm) {
+    return axios.post(API_URL + "requestPayout", PayoutForm, {
       headers: authHeader2(),
     });
   }
@@ -72,4 +72,4 @@ class EvisaService {
   } */
 }
 
-export default new EvisaService();
+export default new PayoutService();
