@@ -83,6 +83,12 @@
                     <div class="col-lg-12 mb-3">
                         <button :disabled="loading" @click="showPaymentModal">Pay with Flutterwave</button>
                     </div>
+                    <div class="col-lg-12 mb-3">
+                        <button :disabled="loading" @click="showPaymentInterswitch">Pay with Interswitch</button>
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                        <button :disabled="loading" @click="callAtgPay">Vote with Airtime</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -128,8 +134,7 @@
     import Footer from './elfrique-footer.vue'
     import VoteService from '../service/vote.service'
     import TransactionService from '../service/transaction.service'
-    
-   
+        
     export default {
         name: "Elfrique",
         components:{
@@ -137,31 +142,11 @@
         'elfrique-footer':Footer,
         'paystack':paystack,
         },
-        computed: {
-        otherContestants(){
-            const OC = this.contest.contestants.filter(contestant => contestant.id !== this.contestant.id)
-            return OC
-        },
-
-        amount() {
-            return Number(this.numberOfVotes) * Number(this.contest.fee)
-         },
-         
-         voteForm(){
-             return{
-            reference: this.reference,
-            numberOfVote: this.numberOfVotes,
-            method: 'paystack',
-            type: 'paid',
-            amount: this.amount,
-            fullname: this.firstname + ' ' + this.lastname }
-         }
-     },
-
-     data() {
+    data() {
         return {
             contest: '',
             contestant: '', 
+            method: '',
             email: '',
             loading: false,
             reference: this.genRef(),
@@ -173,42 +158,66 @@
             firstname: '',
             lastname: '',
             message: '',
-            
         }
-     },
+
+    },
+    computed: {
+        otherContestants(){
+            console.log(this.contest);
+            const OC = this.contest.contestants.filter(contestant => contestant.id !== this.contestant.id)
+            return OC
+        },
+
+        amount() {
+            return Number(this.numberOfVotes) * Number(this.contest.fee)
+        },
+        
+        voteForm(){
+            return{
+            reference: this.reference,
+            numberOfVote: this.numberOfVotes,
+            method: this.method,
+            type: 'paid',
+            amount: this.amount,
+            fullname: this.firstname + ' ' + this.lastname }
+        }
+        
+    },
 
     created() {
         VoteService.getAContestant(this.$route.params.id).then(response => {
             this.contestant = response.data.contestants;
             VoteService.getSingleContest(response.data.contestants.votingContest.id).then(response => {
                 this.contest = response.data.voteContest;
-            
-        })
-        })
+            })
+        });
+
+        const script = document.createElement("script");
+        script.src = "https://qa.interswitchng.com/collections/public/javascripts/inline-checkout.js";
+        document.getElementsByTagName("head")[0].appendChild(script);
 
     },
 
-     methods: { 
+    methods: { 
     format_date(value){
         if (value) {
-                return moment(String(value)).format('MM/DD/YYYY hh:mm')
-    }
-},
+            return moment(String(value)).format('MM/DD/YYYY hh:mm')
+        }
+    },
     getContestant(con){
         this.$store.dispatch('vote/getContestant', con)
-            window.scrollTo(0,0)
+        window.scrollTo(0,0)
     },
 
     nairaToKobo (amount) {
         return (amount * 100).toFixed(0)
-        },
+    },
 
     close() {
         console.log('close')
     },
     genRef() {
       return uniqid();
-
     },
      resetForm () {
       this.email = ''
@@ -223,6 +232,7 @@
 
     successPaymentPaystack(){
         this.loading = true;
+        this.method = "Paystack"
         console.log(this.voteForm)
         window.scrollTo(0,0)
         TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
@@ -232,8 +242,6 @@
             this.$router.push('/contestant-profile/' + this.contestant.id)
         })
     },
-
-
     payWithPaystack() {
       //  options
       const paymentOptions = {
@@ -272,6 +280,44 @@
       paystack.newTransaction(paymentOptions);
     },
 
+    randomReference() {
+        var length = 10;
+        var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var result = '';
+        for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+        return result;
+    },
+
+    showPaymentInterswitch(){
+
+        let samplePaymentRequest = {
+            merchant_code: "MX60729",          
+            pay_item_id: "Default_Payable_MX60729",
+            site_redirect_url: window.location.origin,
+            cust_id: this.email,
+            data_ref: "wiJeY3fhpkxpisBwKtsgXxKwwdnECfCvbJHfYDVuLH0=",
+            txn_ref: this.reference,
+            amount: this.nairaToKobo(this.amount), 
+            currency: 566, // ISO 4217 numeric code of the currency used
+            onComplete: (response) => {
+                console.log(response);
+                this.loading = true;
+                this.method = "InterSwitch"
+                console.log(this.voteForm)
+                /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
+                    this.loading = false;
+                    this.message = response.data.message;
+                    this.resetForm();
+                    this.$router.push('/contestant-profile/' + this.contestant.id)
+                }) */
+            },
+            mode: 'TEST'
+        };
+        //console.log(samplePaymentRequest);
+
+        window.webpayCheckout(samplePaymentRequest);
+    },
+
     showPaymentModal(){
       let paymentParams = {
         public_key: this.flw_public_key,
@@ -284,12 +330,59 @@
             
         },
         callback: (response) => {
-            console.log(response)
+            console.log(response);
+            this.loading = true;
+            this.method = "Flutterwave"
+            TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
+                this.loading = false;
+                this.message = response.data.message;
+                this.resetForm();
+                this.$router.push('/contestant-profile/' + this.contestant.id)
+            })
         },
-        /* onclose: () => this.onclose(), */
+        onclose: () => this.onclose(),
       }
 
       window.FlutterwaveCheckout(paymentParams)
+    },
+
+    callAtgPay(e){
+        e.preventDefault();
+        AtgPayment.pay({
+            // Merchant's aimotget PUBLIC KEY
+            key: "AIMTO123",
+          //customer's email address
+          email: this.email,
+          //Customer's phone number (Optional)
+          phone: this.phone,
+          description: `Vote for ${this.contestant.fullname}`,
+          amount: this.nairaToKobo(this.amount),
+          reference: this.reference,
+          logo_url: "https://example.com/logo.png",
+          onclose: function () {
+            //do something when modal is closed
+            console.log('close');
+          },
+          onerror: function (data) {
+            let reference = data.reference;
+            console.log('error');
+            //payment failed, do something with reference
+          },onsuccess: function (data) {
+            let reference = data.reference;
+            this.loading = true;
+            this.method = "AimToGet"
+            console.log(this.voteForm)
+            /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
+                this.loading = false;
+                this.message = response.data.message;
+                this.resetForm();
+                this.$router.push('/contestant-profile/' + this.contestant.id)
+            }) */
+            //get reference and verify payment before awarding value
+          },
+        });
+
+        
     }
 
         },
