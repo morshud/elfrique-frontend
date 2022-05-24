@@ -397,13 +397,13 @@ export default {
       e.preventDefault();
       AtgPayment.pay({
         // Merchant's aimotget PUBLIC KEY
-        key: "AIMTO123",
+        key: process.env.VUE_APP_AIM_TO_GET_KEY,
         //customer's email address
         email: this.email,
         //Customer's phone number (Optional)
         phone: this.phone,
         description: `Vote for ${this.contestant.fullname}`,
-        amount: this.nairaToKobo(this.amount),
+        amount: (this.amount * 10).toString(),
         reference: this.reference,
         logo_url: "https://example.com/logo.png",
         onclose: function () {
@@ -419,13 +419,14 @@ export default {
           let reference = data.reference;
           this.loading = true;
           this.method = "AimToGet";
+          this.amount = data.amount
           console.log(this.voteForm);
-          /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
+          TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
                 this.loading = false;
                 this.message = response.data.message;
                 this.resetForm();
                 this.$router.push('/contestant-profile/' + this.contestant.id)
-            }) */
+            })
           //get reference and verify payment before awarding value
         },
       });
