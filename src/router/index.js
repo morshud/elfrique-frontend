@@ -83,6 +83,7 @@ import DashCreateURL from "../views/dashboard/CreateURL.vue";
 import DashViewURL from "../views/dashboard/ViewURL.vue";
 import DashViewContestants from "../views/dashboard/ViewContestants.vue";
 import DashVoteSalesAnalytics from "../views/dashboard/VoteSalesAnalytics.vue";
+import DashVoteSalesAnalyticsInner from "../views/dashboard/VoteSalesAnalyticsInner.vue";
 import DashResultSetting from "../views/dashboard/ResultSetting.vue";
 import DashTriviaSalesAnalytics from "../views/dashboard/TriviaSalesAnalytics.vue";
 import DashPlaceAdvert from "../views/dashboard/PlaceAdvert.vue";
@@ -411,6 +412,11 @@ const routes = [
     path: "/organiser/view-vote-analytics",
     name: "DashVoteSalesAnalytics",
     component: DashVoteSalesAnalytics,
+  },
+  {
+    path: "/organiser/view-vote-analytics/:id",
+    name: "DashVoteSalesAnalyticsInner",
+    component: DashVoteSalesAnalyticsInner,
   },
   {
     path: "/organiser/result-setting",
