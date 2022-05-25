@@ -188,6 +188,7 @@ import Header from "./elfrique-header.vue";
 import Footer from "./elfrique-footer.vue";
 import VoteService from "../service/vote.service";
 import TransactionService from "../service/transaction.service";
+import Notification from '../service/notitfication-service'
 
 export default {
   name: "Elfrique",
@@ -212,6 +213,7 @@ export default {
       firstname: "",
       lastname: "",
       message: "",
+      adminId: "",
     };
   },
   computed: {
@@ -245,7 +247,9 @@ export default {
       VoteService.getSingleContest(
         response.data.contestants.votingContest.id
       ).then((response) => {
+        this.adminId = response.data.voteContest.adminuserId;
         this.contest = response.data.voteContest;
+
       });
     });
 
@@ -289,6 +293,11 @@ export default {
       this.method = "Paystack";
       console.log(this.voteForm);
       window.scrollTo(0, 0);
+      Notification.addNotification({
+        receiverId: this.adminId,
+        type: "voting",
+        message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
+      })
       TransactionService.submitVote(this.contestant.id, this.voteForm).then(
         (response) => {
           this.loading = false;
@@ -350,18 +359,23 @@ export default {
           this.loading = true;
           this.method = "InterSwitch";
           console.log(this.voteForm);
+          Notification.addNotification({
+            receiverId: this.adminId,
+            type: "voting",
+            message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
+          })
           /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
-                    this.loading = false;
-                    this.message = response.data.message;
-                    this.resetForm();
-                    this.$router.push('/contestant-profile/' + this.contestant.id)
-                }) */
+            this.loading = false;
+            this.message = response.data.message;
+            this.resetForm();
+            this.$router.push('/contestant-profile/' + this.contestant.id)
+          }) */
         },
         mode: "TEST",
       };
-      //console.log(samplePaymentRequest);
+      console.log(samplePaymentRequest);
 
-      window.webpayCheckout(samplePaymentRequest);
+      //window.webpayCheckout(samplePaymentRequest);
     },
 
     showPaymentModal() {
@@ -378,6 +392,11 @@ export default {
           console.log(response);
           this.loading = true;
           this.method = "Flutterwave";
+          Notification.addNotification({
+            receiverId: this.adminId,
+            type: "voting",
+            message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
+          })
           TransactionService.submitVote(this.contestant.id, this.voteForm).then(
             (response) => {
               this.loading = false;
@@ -420,7 +439,11 @@ export default {
           this.loading = true;
           this.method = "AimToGet";
           this.amount = data.amount
-          console.log(this.voteForm);
+          Notification.addNotification({
+            receiverId: this.adminId,
+            type: "voting",
+            message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
+          })
           TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
                 this.loading = false;
                 this.message = response.data.message;
