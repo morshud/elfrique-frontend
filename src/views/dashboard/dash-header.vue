@@ -31,7 +31,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
                         <li class="dropdown-header">
-                            You have 4 new notifications
+                            You have {{notificationCount}} new notifications
                             <span class="badge rounded-pill bg-danger p-2 ms-2 text-light">Delete All</span>
                         </li>
                         <li>
@@ -279,6 +279,11 @@
 export default {
 
   name: 'dashboard',
+  data(){
+      return{
+          notificationCount: 0,
+      }
+  },
   computed: {
     currentUser() {
       const user = JSON.parse(localStorage.getItem("user"));
