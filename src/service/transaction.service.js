@@ -3,8 +3,8 @@ import authHeader from "./auth-header2";
 import authHeader2 from "./auth-header";
 import spHeader from "./super-authHeader";
 
-//const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
-const API_URL = "http://localhost:3000/api/v1/";
+const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
+//const API_URL = "http://localhost:3000/api/v1/";
 
 class TransactionService {
   createVote(voteForm) {
