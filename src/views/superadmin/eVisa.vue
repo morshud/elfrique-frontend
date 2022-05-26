@@ -52,7 +52,7 @@
                         <td>
                             <button class="btn btn-primary btn-sm mx-1 text-dark m-1" data-bs-toggle="modal" data-bs-target="#viewDetailModal" @click="getdetail(con)">View Details</button>
                             <!-- <button class="btn btn-warning btn-sm mx-1 text-dark m-1">Suspend</button> -->
-                            <button class="btn btn-danger btn-sm mx-1 text-dark m-1">Delete</button>
+                            <button type="button" class="btn btn-danger btn-sm mx-1 text-dark m-1" data-bs-toggle="modal" data-bs-target="#deleteModal"  @click="getdetail(con)">Delete</button>
                         </td>
                     </tr>
                     </tbody>
@@ -91,7 +91,7 @@
                         </tr>
                         <tr>
                             <td>Depart Date:</td>
-                            <td>{{format_date(detail.depart_date)}}</td>
+                            <td>{{format_date(detail.dapart_date)}}</td>
                         </tr>
                         <tr>
                             <td>Return Date:</td>
@@ -125,6 +125,28 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Delete User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div v-if="!deleted" class="modal-body deletemodalbox">
+                    <h4>Are you sure you want to delete?</h4>
+                </div>
+                <div v-if="deleted" class="modal-body deletemodalbox">
+                    <h4>Applicant has been deleted</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button v-if="!deleted" type="button" class="btn btn-danger" @click="deleteEvisa(detail.id)">Delete<span v-show="loading" class="spinner-border spinner-border-sm"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     
     
     </main>
@@ -149,6 +171,9 @@
           title: 'View Evisa',
           content: '',
           detail:{},
+          message: '',
+          deleted: false,
+          loading: false,
           }
         },
         computed: {
@@ -176,7 +201,20 @@
 
             getdetail(con){
                 this.detail = con
-            }
+                this.deleted = false
+            },
+
+            deleteEvisa(id){
+                this.loading = true
+                EvisaService.deleteEvisa(id).then(response => {
+                    console.log(response);
+                    this.deleted = true
+                    this.loading = false
+                    this.content = this.content.filter( con => con.id != id)
+                }
+                )
+            },
+            
       },
       mounted(){
         window.scrollTo(0,0)

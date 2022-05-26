@@ -15,6 +15,12 @@ class EvisaService {
     return axios.get(API_URL + "getAllEvisa", { headers: authHeader() });
   }
 
+  deleteEvisa(evisaId) {
+    return axios.delete(API_URL + "deleteEvisa/" + evisaId, {
+      headers: authHeader(),
+    });
+  }
+
   getSingleBlog(blogId) {
     return axios.get(API_URL + "getBlog/" + blogId, { headers: authHeader() });
   }

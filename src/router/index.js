@@ -34,6 +34,7 @@ import EvtForEventFormContent from "../views/EventFormContent.vue";
 import EvtForEventFormFill from "../views/EventFormFill.vue";
 //Trivia System
 import ServiceTriviaManagementSystem from "../views/TriviaManagementSystem.vue";
+import SearchEventVendor from "../views/SearchEventVendor.vue";
 import TriTriviaContent from "../views/TriviaContent.vue";
 import TriTriviaContentInstruction from "../views/TriviaContentInstruction.vue";
 import TriTriviaContentQuiz from "../views/TriviaContentQuiz.vue";
@@ -356,6 +357,11 @@ const routes = [
     path: "/vendor-profile",
     name: "ServiceVendorProfile",
     component: ServiceVendorProfile,
+  },
+  {
+    path: "/search-result-event-vendor",
+    name: "SearchEventVendor",
+    component: SearchEventVendor,
   },
   ///////////////////////////////////////////User Dashboard
   {

@@ -2106,6 +2106,11 @@ header nav .offcanvas-header button i{
     color: #fff !important;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.712);
 }
+.service-header-vendor h3{
+    color: #fff;
+    font-weight: 700;
+    font-size: 35px;
+}
 .service-header-vendor .search-section-vendor .input{
     padding: 12px;
     border: none;
@@ -2200,6 +2205,11 @@ header nav .offcanvas-header button i{
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
 }
+.event-vendor .mainJob-boxSearch{
+    width: 100%;
+    display: block !important;
+    overflow-x: none !important;
+}
 .event-vendor .mainJob-box::-webkit-scrollbar {
     height: 13px;
 }
@@ -2216,6 +2226,14 @@ header nav .offcanvas-header button i{
     border-radius: 10px;
     scroll-snap-align: start;
     margin-right: 25px;
+}
+.event-vendor .vendorJob-boxSearch{
+    width: 320px !important;
+    overflow: hidden;
+    position: none !important;
+    border-radius: 10px;
+    margin-right: 1px !important;
+    float: left !important;
 }
 .event-vendor .vendorJob-box .card{
     border: 1px solid #e9e9e9;

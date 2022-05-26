@@ -262,6 +262,17 @@
                     <li><router-link to="/superadmin/e-visa" class="routers"><a><i class="bi bi-circle"></i><span>e-Visa</span></a></router-link></li>
                 </ul>
             </li>
+            <!--evisa-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#travel-nav" data-bs-toggle="collapse" href="#">
+                    <img src="@/assets/images/menu-travel.png"><span></span>E-Visa<i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="travel-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li><router-link to="/superadmin/e-visa" class="routers"><a><i class="bi bi-circle"></i><span>E-visa Applicants</span></a></router-link></li>
+                    <li><router-link to="/superadmin/e-visa" class="routers"><a><i class="bi bi-circle"></i><span>Approved Applicants </span></a></router-link></li>
+                    <li><router-link to="/superadmin/e-visa" class="routers"><a><i class="bi bi-circle"></i><span>Pending Applicants</span></a></router-link></li>
+                </ul>
+            </li>
             <!--Short URL-->
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#url-nav" data-bs-toggle="collapse" href="#">
