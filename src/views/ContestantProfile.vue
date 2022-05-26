@@ -397,14 +397,14 @@ export default {
             type: "voting",
             message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
           })
-          TransactionService.submitVote(this.contestant.id, this.voteForm).then(
+          /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(
             (response) => {
               this.loading = false;
               this.message = response.data.message;
               this.resetForm();
               this.$router.push("/contestant-profile/" + this.contestant.id);
             }
-          );
+          ); */
         },
         onclose: () => this.onclose(),
       };
@@ -444,12 +444,12 @@ export default {
             type: "voting",
             message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
           })
-          TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
+          /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
                 this.loading = false;
                 this.message = response.data.message;
                 this.resetForm();
                 this.$router.push('/contestant-profile/' + this.contestant.id)
-            })
+            }) */
           //get reference and verify payment before awarding value
         },
       });
@@ -457,7 +457,6 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0);
-    console.log(this.otherContestants);
     const popup = document.createElement("script");
     popup.setAttribute("src", "https://js.paystack.co/v2/inline.js");
     popup.async = true;

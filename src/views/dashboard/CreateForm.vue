@@ -46,6 +46,11 @@
                                     <input v-model="Content.type"  class="radio" type="radio" name="form" id="paid"  value="paid"> <span>Paid</span>
                                     <input v-model="Content.type" class="radio" type="radio" name="form" id="free" value="free"> <span>Free</span>
                                 </div>
+                                <!--Form Fee-->
+                                <div class="col-lg-12 mt-2" v-if="paid">
+                                    <label for="form title">Fee</label>
+                                    <input v-model="Content.fee" class="input" type="number" placeholder="Enter Price">
+                                </div>
                                 <!--Start Date-->
                                 <div class="col-lg-6 mt-4">
                                     <label for="start date">Start Date</label>
@@ -559,6 +564,14 @@
     loggedIn() {
       return this.$store.state.auth.status.loggedIn;
     },
+    paid(){
+        if(this.Content.type == "paid"){
+            return true
+        }
+        else{
+            return false
+        }
+    }
     
   },
 
@@ -582,8 +595,8 @@
             formData.append('type', this.Content.type);
             formData.append('fee', this.Content.fee);
             formData.append('description', this.Content.description);
-           
-
+            
+            console.log(this.Content.description);
             EventService.createForm(formData).then(response => {
                     
                     this.message = "Form Details Added Successfully, Continue to build your form";
@@ -598,8 +611,6 @@
                 this.error = error.response.data.message;
                 console.log(error.response.data);
                 this.formCreated = false;
-
-
                 this.loading = false;
             });
         },
