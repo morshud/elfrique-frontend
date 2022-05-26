@@ -195,7 +195,7 @@
                                         </form> -->
 
                     <button
-                      @click="modal.show()"
+                      @click="showModal"
                       class="btn-view"
                       style="
                         text-decoration: none;
@@ -451,6 +451,10 @@ export default {
         return moment(String(value)).format("MM/DD/YYYY hh:mm");
       }
     },
+    showModal(){
+      this.modal = new Modal(this.$refs.exampleModal);
+      this.modal.show();
+    },
     genRef() {
       return uniqid();
     },
@@ -580,7 +584,6 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0);
-    //this.modal = new Modal(this.$refs.exampleModal);
     const popup = document.createElement("script");
     popup.setAttribute("src", "https://js.paystack.co/v2/inline.js");
     popup.async = true;
