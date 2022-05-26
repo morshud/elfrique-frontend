@@ -359,9 +359,10 @@ const routes = [
     component: ServiceVendorProfile,
   },
   {
-    path: "/search-result-event-vendor",
+    path: "/search-result-event-vendor/:location",
     name: "SearchEventVendor",
     component: SearchEventVendor,
+    props: (route) => ({ referral: route.query.keyword })
   },
   ///////////////////////////////////////////User Dashboard
   {
