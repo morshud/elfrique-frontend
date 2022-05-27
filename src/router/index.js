@@ -204,6 +204,8 @@ import SuperAdminVenSearchVendor from "../views/superadmin/SearchVendor.vue";
 import SuperAdminTrlTravelBooking from "../views/superadmin/TravelBooking.vue";
 import SuperAdminTrlHotelBooking from "../views/superadmin/HotelBooking.vue";
 import SuperAdminTrleVisa from "../views/superadmin/eVisa.vue";
+import SuperAdminTrleVisaPending from "../views/superadmin/eVisaPending.vue";
+import SuperAdminTrleVisaApproved from "../views/superadmin/eVisaApproved.vue";
 ///////////////////////////////////////
 import SuperAdminBlgCreateBlogPost from "../views/superadmin/CreateBlogPost.vue";
 import SuperAdminBlgViewBlogs from "../views/superadmin/ViewBlogs.vue";
@@ -1054,6 +1056,17 @@ const routes = [
     path: "/superadmin/e-visa",
     name: "SuperAdminTrleVisa",
     component: SuperAdminTrleVisa,
+  },
+
+  {
+    path: "/superadmin/e-visaPending",
+    name: "SuperAdminTrleVisaPending",
+    component: SuperAdminTrleVisaPending,
+  },
+  {
+    path: "/superadmin/e-visaApproved",
+    name: "SuperAdminTrleVisaApproved",
+    component: SuperAdminTrleVisaApproved,
   },
   ///////////////////////////////////////
   {

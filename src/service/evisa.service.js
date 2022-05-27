@@ -21,6 +21,22 @@ class EvisaService {
     });
   }
 
+  approveEvisa(evisaId) {
+    return axios.patch(
+      API_URL + "approveEvisa/" + evisaId,
+      {},
+      {
+        headers: authHeader(),
+      }
+    );
+  }
+
+  sendMessage(evisaId, messageForm) {
+    return axios.post(API_URL + "sendMessage/" + evisaId, messageForm, {
+      headers: authHeader(),
+    });
+  }
+
   getSingleBlog(blogId) {
     return axios.get(API_URL + "getBlog/" + blogId, { headers: authHeader() });
   }
