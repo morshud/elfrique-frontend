@@ -646,7 +646,7 @@
       response => {
         this.ref_Id = response.data.profile.adminuser.reference;
         this.referral = "https://elfrique-proj.netlify.app/signup?referral=" + this.ref_Id;
-        console.log(this.referral);
+        console.log(response.data.profile.adminuser);
         
       },
       error => {
