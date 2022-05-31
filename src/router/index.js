@@ -27,6 +27,8 @@ import DetailsSent from "../views/evisa/DetailsSent.vue";
 //Voting System
 import ServiceVoteManagementSystem from "../views/VoteManagementSystem.vue";
 import VotVotingContent from "../views/VotingContent.vue";
+import VotAwardContent from "../views/AwardContent.vue";
+import VotNomineeContent from "../views/NomineeContent.vue";
 import VotContestantProfile from "../views/ContestantProfile.vue";
 //Event Form
 import ServiceEventFormManagementSystem from "../views/EventFormManagementSystem.vue";
@@ -276,6 +278,16 @@ const routes = [
     component: VotVotingContent,
   },
   {
+    path: "/award-content/:id",
+    name: "VotAwardContent",
+    component: VotAwardContent,
+  },
+  {
+    path: "/nominee-content/:id",
+    name: "VotNomineeContent",
+    component: VotNomineeContent,
+  },
+  {
     path: "/contestant-profile/:id",
     name: "VotContestantProfile",
     component: VotContestantProfile,
@@ -364,7 +376,7 @@ const routes = [
     path: "/search-result-event-vendor/:location",
     name: "SearchEventVendor",
     component: SearchEventVendor,
-    props: (route) => ({ referral: route.query.keyword })
+    props: (route) => ({ referral: route.query.keyword }),
   },
   ///////////////////////////////////////////User Dashboard
   {

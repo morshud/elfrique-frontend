@@ -74,8 +74,24 @@ class VoteService {
     return axios.get(API_URL + "allVoteContest", { headers: authHeader() });
   }
 
+  getAllAwards() {
+    return axios.get(API_URL + "allAwards", { headers: authHeader() });
+  }
+
   getSingleContest(contestId) {
     return axios.get(API_URL + "getVote/" + contestId, {
+      headers: authHeader(),
+    });
+  }
+
+  getSingleAward(contestId) {
+    return axios.get(API_URL + "getAward/" + contestId, {
+      headers: authHeader(),
+    });
+  }
+
+  getSingleCategory(contestId) {
+    return axios.get(API_URL + "getSingleCategory/" + contestId, {
       headers: authHeader(),
     });
   }

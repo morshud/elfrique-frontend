@@ -230,6 +230,7 @@
                     message: this.msg,
                     receiver_email: this.detail.email
                 }
+                console.log(data)
                 EvisaService.sendMessage(id, data).then(response => {
                     console.log(response);
                     this.messagesent = true

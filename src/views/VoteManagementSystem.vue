@@ -65,109 +65,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                   <!--  <div class="col-md-3 py-2">
-                                        <div class="card">
-                                            <img src="@/assets/images/voting-img.jpg" class="card-img-top">
-                                            <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Miss West African Beauty Pageant</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> : 4 Contestant(s)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - 27-01-2022)<br> End(23:59 - 27-02-2022)</p>
-                                                <a href="#" class="btn-view-contest">View Contest</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 py-2">
-                                        <div class="card">
-                                            <img src="@/assets/images/voting-img.jpg" class="card-img-top">
-                                            <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Miss West African Beauty Pageant</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> : 4 Contestant(s)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - 27-01-2022)<br> End(23:59 - 27-02-2022)</p>
-                                                <a href="#" class="btn-view-contest">View Contest</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 py-2">
-                                        <div class="card">
-                                            <img src="@/assets/images/voting-img.jpg" class="card-img-top">
-                                            <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Miss West African Beauty Pageant</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> : 4 Contestant(s)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - 27-01-2022)<br> End(23:59 - 27-02-2022)</p>
-                                                <a href="#" class="btn-view-contest">View Contest</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 py-2">
-                                        <div class="card">
-                                            <img src="@/assets/images/voting-img.jpg" class="card-img-top">
-                                            <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Miss West African Beauty Pageant</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> : 4 Contestant(s)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - 27-01-2022)<br> End(23:59 - 27-02-2022)</p>
-                                                <a href="#" class="btn-view-contest">View Contest</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 py-2">
-                                        <div class="card">
-                                            <img src="@/assets/images/voting-img.jpg" class="card-img-top">
-                                            <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Miss West African Beauty Pageant</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> : 4 Contestant(s)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - 27-01-2022)<br> End(23:59 - 27-02-2022)</p>
-                                                <a href="#" class="btn-view-contest">View Contest</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 py-2">
-                                        <div class="card">
-                                            <img src="@/assets/images/voting-img.jpg" class="card-img-top">
-                                            <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Miss West African Beauty Pageant</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> : 4 Contestant(s)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - 27-01-2022)<br> End(23:59 - 27-02-2022)</p>
-                                                <a href="#" class="btn-view-contest">View Contest</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 py-2">
-                                        <div class="card">
-                                            <img src="@/assets/images/voting-img.jpg" class="card-img-top">
-                                            <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Miss West African Beauty Pageant</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> : 4 Contestant(s)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - 27-01-2022)<br> End(23:59 - 27-02-2022)</p>
-                                                <a href="#" class="btn-view-contest">View Contest</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 text-center mt-3">
-                                        <div class="pagination-div">
-                                            <ul class="pagination text-center">
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#" aria-label="Previous">
-                                                        <span aria-hidden="true">&laquo;</span>
-                                                    </a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#" aria-label="Next">
-                                                        <span aria-hidden="true">&raquo;</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div> -->
+            
                                 </div>
                             </div>
                         </div>
@@ -175,51 +73,15 @@
                         <div class="tab-pane fade" id="pills-award" role="tabpanel" aria-labelledby="pills-award-tab">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-3 py-2">
+                                    <div class="col-md-3 py-2" v-for="con in awardContent" :key="con.id">
                                         <div class="card">
-                                            <img src="@/assets/images/voting-img1.jpg" ondragstart="return false;" class="card-img-top">
+                                            <img :src="con.image" ondragstart="return false;" class="card-img-top">
                                             <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Nigeria governor score card award 2022</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> : 4 Nominee(s)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - 27-01-2022)<br> End(23:59 - 27-02-2022)</p>
-                                                <a href="#" class="btn-view-contest">View Nominees</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 py-2">
-                                        <div class="card">
-                                            <img src="@/assets/images/voting-img1.jpg" ondragstart="return false;" class="card-img-top">
-                                            <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Nigeria governor score card award 2022</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> : 4 Nominee(s)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - 27-01-2022)<br> End(23:59 - 27-02-2022)</p>
-                                                <a href="#" class="btn-view-contest">View Nominees</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 py-2">
-                                        <div class="card">
-                                            <img src="@/assets/images/voting-img1.jpg" ondragstart="return false;" class="card-img-top">
-                                            <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Nigeria governor score card award 2022</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> : 4 Nominee(s)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - 27-01-2022)<br> End(23:59 - 27-02-2022)</p>
-                                                <a href="#" class="btn-view-contest">View Nominees</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 py-2">
-                                        <div class="card">
-                                            <img src="@/assets/images/voting-img1.jpg" ondragstart="return false;" class="card-img-top">
-                                            <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : Nigeria governor score card award 2022</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : Paid</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> : 4 Nominee(s)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - 27-01-2022)<br> End(23:59 - 27-02-2022)</p>
-                                                <a href="#" class="btn-view-contest">View Nominees</a>
+                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : {{con.title}}</p>
+                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : {{con.type}}</p>
+                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> :{{con.awardCategories.length}}  Categories(s)</p>
+                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - {{con.startdate}})<br> End(23:59 - {{con.closedate}})</p>
+                                                <router-link :to="'/award-content/' + con.id" class="routers" ><a class="btn-view-contest">View Categories</a></router-link>
                                             </div>
                                         </div>
                                     </div>
@@ -313,7 +175,8 @@
       },
       data() {
         return {
-            voteContent: ''
+            voteContent: '',
+            awardContent: ''
 
             
         }
@@ -323,6 +186,10 @@
             VoteService. getAllContests().then(response => {
                 this.voteContent = response.data.voteContests;
                 console.log(this.voteContent);
+            }),
+            VoteService.getAllAwards().then(response => {
+                this.awardContent = response.data.awards;
+                console.log(this.awardContent);
             })
 
         },

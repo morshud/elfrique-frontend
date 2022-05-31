@@ -152,7 +152,9 @@
       this.$router.push('/login');
     }
 
+
     VoteService.getContests().then
+
     (
         response => {
             this.content = response.data.voteContest;
@@ -167,13 +169,16 @@
     )
     },
 
+
     methods: {
         addInfo(){
 
-            this.loading = true;
+            this.loading = true;  
 
             if (this.detailForm){
                 for (let i = 0; i < this.NumberOfDetails; i++) {
+
+
                 /* let formData = new FormData();
                 formData.append('details', this.detailForm[i].detail); */
             
