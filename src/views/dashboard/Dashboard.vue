@@ -894,6 +894,8 @@ export default {
       }
     );
   },
+
+   
   methods: {
     exportCSV(array) {
       let csvContent = "data:text/csv;charset=utf-8,";
@@ -902,6 +904,7 @@ export default {
         ...array.map((item) => Object.values(item).join(";")),
       ]
         .join("\n")
+        
         .replace(/(^\[)|(\]$)/gm, "");
 
       const data = encodeURI(csvContent);

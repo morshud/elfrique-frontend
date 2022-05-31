@@ -99,13 +99,6 @@
                 />
               </div>
               <div>
-              
-              
-              
-              
-              
-              
-              
               <p>
                   <strong>Each vote cost NGN {{ contest.fee }}</strong>
                 </p>
