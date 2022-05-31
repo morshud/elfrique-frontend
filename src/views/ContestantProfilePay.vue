@@ -16,7 +16,7 @@
     <!--Contestants Details and vote-->
     <div class="container mt-5 details-contestant">
       <div class="row">
-        <div class="col-lg-7">
+        <div class="col-lg-6">
           <div class="img-area">
             <img :src="contestant.image" />
           </div>
@@ -32,86 +32,41 @@
           </div>
         </div>
         <div class="col-lg-1"></div>
-        <div class="col-lg-4 form-area">
-          <h1>Input Details To Vote Now</h1>
+        <div class="col-lg-5 form-area">
           <div v-if="loading" class="d-flex justify-content-center">
             <div class="spinner-border" role="status">
               <span class="sr-only">Loading...</span>
             </div>
           </div>
 
-          <form @submit.prevent="payWithPaystack">
-            <div
-              v-if="message"
-              class="alert-success alert alert-dismissible fade show"
-              role="alert"
-            >
-              {{ message }}
-              <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
-            </div>
-            <div class="row">
-              <div class="col-lg-12 mb-3">
-                <label>Total number of votes you want</label>
-                <input
-                  v-model="numberOfVotes"
-                  type="number"
-                  placeholder="Enter number of votes you want"
-                />
-              </div>
-              <div class="col-lg-12 mb-3">
-                <label>First Name</label>
-                <input
-                  v-model="firstname"
-                  type="text"
-                  placeholder="Enter your name"
-                />
-              </div>
-              <div class="col-lg-12 mb-3">
-                <label>Last Name</label>
-                <input
-                  v-model="lastname"
-                  type="text"
-                  placeholder="Enter your name"
-                />
-              </div>
-              <div class="col-lg-12 mb-3">
-                <label>Email address</label>
-                <input
-                  v-model="email"
-                  type="email"
-                  placeholder="Enter your email address"
-                />
-              </div>
-              <div class="col-lg-12 mb-3">
-                <label>Phone Number</label>
-                <input
-                  v-model="phone"
-                  type="tel"
-                  placeholder="Enter your phone number"
-                />
-              </div>
-              <div class="col-lg-12 mb-3">
-                <label>Transaction reference</label>
-                <input
-                  v-model="reference"
-                  placeholder="Enter your phone number"
-                  disabled
-                />
+          <div class="contestantPaySection">
+              <h4>Ensure the contestant is who you actually want to vote. There would be no refund or reversal of vote if you choose a wrong contestant.</h4>
+              <hr>
+              <h5>Summary of your order</h5>
+              <div>
+                <h6>Votes</h6>
+                <p>6</p>
               </div>
               <div>
-                <p>
-                  <strong>Each vote cost NGN {{ contest.fee }}</strong>
-                </p>
+                <h6>amount</h6>
+                <p>150NGN</p>
               </div>
-              <div v-if="contest.type == 'free'" class="col-lg-12 mb-3">
-                <button type="submit">Vote</button>
+              <h5>Voter's Details</h5>
+              <div>
+                <h6>Email</h6>
+                <p>me@me.me</p>
               </div>
-              <div class="col-lg-12 mb-3">
-                <button type="submit">Proceed</button>
+              <div>
+                <h6>Phone number</h6>
+                <p>1234567890</p>
               </div>
-            </div>
-          </form>
-          <!-- <div class="col-lg-12 mb-3">
+              <div>
+                <h6>Reference number</h6>
+                <p>13PPV3</p>
+              </div>
+              <h5>Choose Gateway Payment</h5>
+          </div>
+          <div class="col-lg-12 mb-3">
             <button :disabled="loading" v-on:click="payWithPaystack">
               Pay with Paystack
             </button>
@@ -130,7 +85,7 @@
             <button :disabled="loading" @click="callAtgPay">
               Vote with Airtime
             </button>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>

@@ -28,6 +28,7 @@ import DetailsSent from "../views/evisa/DetailsSent.vue";
 import ServiceVoteManagementSystem from "../views/VoteManagementSystem.vue";
 import VotVotingContent from "../views/VotingContent.vue";
 import VotContestantProfile from "../views/ContestantProfile.vue";
+import VotContestantProfilePay from "../views/ContestantProfilePay.vue";
 //Event Form
 import ServiceEventFormManagementSystem from "../views/EventFormManagementSystem.vue";
 import EvtForEventFormContent from "../views/EventFormContent.vue";
@@ -279,6 +280,11 @@ const routes = [
     path: "/contestant-profile/:id",
     name: "VotContestantProfile",
     component: VotContestantProfile,
+  },
+  {
+    path: "/contestant-profile-pay/:id",
+    name: "VotContestantProfilePay",
+    component: VotContestantProfilePay,
   },
   //Event Form
   {

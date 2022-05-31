@@ -43,13 +43,8 @@ html, body{
     background-position: center center;
     background-repeat: no-repeat;
 }
-@media(max-width: 1560px){
-    .bodySignup, .bodyLogin{
-        height: auto;
-    }
-}
 @media(max-width: 991px){
-    .bodyForgot{
+    .bodyForgot, .bodyLogin, .bodySignup{
         height: auto;
     }
 }

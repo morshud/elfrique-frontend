@@ -1176,6 +1176,11 @@ header nav .offcanvas-header button i{
 }
 .service-content-vote .tab-content .card .main-text{
     font-weight: 700 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 17px !important;
+    text-transform: capitalize !important;
 }
 .service-content-vote .tab-content .card .card-text{
     text-transform: uppercase;
@@ -1471,7 +1476,7 @@ header nav .offcanvas-header button i{
 }
 .contestant-profile .details-contestant .form-area label{
     display: block;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 700;
     padding-bottom: 5px;
 }
@@ -1488,7 +1493,7 @@ header nav .offcanvas-header button i{
     padding: 10px 5px;
     text-align: center;
     width: 100%;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
     border: none;
 }
@@ -3285,7 +3290,18 @@ footer .copyright p{
     font-size: 18px;
     font-weight: 500;
     padding-top: 20px;
+    padding-bottom: 20px;
     color: #000;
+}
+.onboard-screen .btnApply{
+    background-color: #2B571E;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+}
+.onboard-screen .btnApply:hover{
+    background-color: #000;
 }
 .onboard-screen .img-area{
     position: relative;
@@ -3303,12 +3319,9 @@ footer .copyright p{
     width: 100%;
     filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.24));
 }
-.onboard-screen .first-img{
-    margin-top: -40px;
-}
 .onboard-screen .call-to-action{
     background-color: #2b571e;
-    padding: 10px 10px 15px 10px;
+    padding: 5px 10px 1px 10px;
     margin-top: 90px;
     overflow-x: hidden !important;
 }
@@ -3379,7 +3392,7 @@ footer .copyright p{
         width: 80%;
         display: block;
         margin: auto;
-        margin-top: 50px;
+        margin-top: 100px;
     }
 }
 
@@ -3424,7 +3437,8 @@ footer .copyright p{
     margin-bottom: 10px;
 }
 .descriptionNote .box-feat h4{
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 25px;
 }
 .descriptionNote .box-feat p{
     font-size: 17px;
@@ -4280,4 +4294,29 @@ footer .copyright p{
 }
 .detailsSent .backbtn:hover{
     background-color: #000;
+}
+
+
+.contestantPaySection h4{
+    font-size: 18px;
+    font-weight: 500;
+}
+.contestantPaySection h5{
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: underline;
+    padding-bottom: 10px;
+}
+.contestantPaySection div{
+    margin-bottom: 23px;
+}
+.contestantPaySection h6{
+    text-transform: capitalize;
+    font-size: 17px;
+    font-weight: 600;
+}
+.contestantPaySection p{
+    font-size: 20px;
 }
