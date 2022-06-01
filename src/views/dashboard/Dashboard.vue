@@ -269,10 +269,10 @@
                       </button>
                       <!-- <button type="button">Excel</button> -->
                       <button @click="tableToExcel('vote', 'Vote')">
-                        Excel
+                        Export Excel
                       </button>
-                      <button type="button">PDF</button>
-                      <button type="button">Print</button>
+                      <!-- <button type="button">PDF</button>
+                      <button type="button">Print</button> -->
                     </div>
                     <div class="search-table">
                       <form>
@@ -280,7 +280,7 @@
                       </form>
                     </div>
                     <!--Table-->
-                    <table ref="vote" class="table datatable card-table-table">
+                    <table id="vote" ref="vote" class="table datatable card-table-table">
                       <thead>
                         <tr>
                           <th scope="col">#</th>
@@ -349,12 +349,12 @@
                   </div>
                   <div class="card-body card-table">
                     <div class="buttons-table">
-                      <button type="button">CSV</button>
+                      <button type="button">Export CSV</button>
                       <button @click="tableToExcel('event', 'Event')">
-                        Excel
+                        Export Excel
                       </button>
-                      <button type="button">PDF</button>
-                      <button type="button">Print</button>
+                      <!-- <button type="button">PDF</button>
+                      <button type="button">Print</button> -->
                     </div>
                     <div class="search-table">
                       <form>
@@ -430,12 +430,12 @@
                   <div class="card-body card-table">
                     <div class="buttons-table">
                       <!-- <button type="button">Copy</button> -->
-                      <button type="button">CSV</button>
+                      <button type="button">Export CSV</button>
                       <button @click="tableToExcel('form', 'Form')">
-                        Excel
+                        Export Excel
                       </button>
-                      <button type="button">PDF</button>
-                      <button type="button">Print</button>
+                      <!-- <button type="button">PDF</button>
+                      <button type="button">Print</button> -->
                     </div>
                     <div class="search-table">
                       <form>
@@ -511,12 +511,12 @@
                   <div class="card-body card-table">
                     <div class="buttons-table">
                       <!-- <button type="button">Copy</button> -->
-                      <button type="button">CSV</button>
+                      <button type="button">Export CSV</button>
                       <button @click="tableToExcel('trivia', 'Trivia')">
-                        Excel
+                        Export Excel
                       </button>
-                      <button type="button">PDF</button>
-                      <button type="button">Print</button>
+                      <!-- <button type="button">PDF</button>
+                      <button type="button">Print</button> -->
                     </div>
                     <div class="search-table">
                       <form>
@@ -598,13 +598,13 @@
                   <div class="card-body card-table">
                     <div class="buttons-table">
                       <!-- <button type="button">Copy</button> -->
-                      <button type="button">CSV</button>
+                      <button type="button">Export CSV</button>
                       <!-- <button type="button">Excel</button> -->
                       <button @click="tableToExcel('referral', 'Refer')">
-                        Excel
+                        Export Excel
                       </button>
-                      <button type="button">PDF</button>
-                      <button type="button">Print</button>
+                      <!-- <button type="button">PDF</button>
+                      <button type="button">Print</button> -->
                     </div>
                     <div class="search-table">
                       <form>
@@ -654,10 +654,10 @@
                   <div class="card-body card-table">
                     <div class="buttons-table">
                       <!-- <button type="button">Copy</button> -->
-                      <button type="button">CSV</button>
+                      <button type="button">Export CSV</button>
                       <!-- <button type="button">Excel</button> -->
-                      <button type="button">PDF</button>
-                      <button type="button">Print</button>
+                      <!-- <button type="button">PDF</button>
+                      <button type="button">Print</button> -->
                     </div>
                     <div class="search-table">
                       <form>
@@ -725,10 +725,10 @@
                   <div class="card-body card-table">
                     <div class="buttons-table">
                       <!-- <button type="button">Copy</button> -->
-                      <button type="button">CSV</button>
+                      <button type="button">Export CSV</button>
                       <!-- <button type="button">Excel</button> -->
-                      <button type="button">PDF</button>
-                      <button type="button">Print</button>
+                      <!-- <button type="button">PDF</button>
+                      <button type="button">Print</button> -->
                     </div>
                     <div class="search-table">
                       <form>
