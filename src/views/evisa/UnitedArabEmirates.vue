@@ -17,8 +17,9 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="first-text">
-                        <h1>United Arab Emirates - Dubai</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quos autem repudiandae quo impedit deleniti facere sint a nostrum odit iusto tempora saepe ullam, consequuntur reiciendis culpa nisi rem praesentium!</p>
+                        <h1>Explore Dubai with eVisa</h1>
+                        <p>Dubai is one of the fastest-growing visitor destination with loads of adventures & tourism.</p>
+                        <a href="#evisa_form" class="btnApply">Apply Now!</a>
                     </div>
                 </div>
                 <div class="col-md-1"></div>
@@ -49,8 +50,21 @@
                 <div class="col-lg-10 text-center text-area">
                     <h1>Description of UAE (Dubai) E-Visa</h1>
                     <div class="line-rule"></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias hic similique illo, accusantium natus provident laboriosam neque reiciendis et modi amet nam voluptatum dignissimos minus officiis debitis laudantium, dolore sint exercitationem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quod ipsam ipsum qui odio beatae delectus officiis non, maxime vel natus officia eos! Numquam, hic ipsum nesciunt aliquid alias vel!</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor cumque et laboriosam magni quo minus, explicabo iusto nulla suscipit nemo. Lorem ipsum dolor, sit amet consectetur adipisicing elit. In, eligendi.</p>
+                    <p>Dubai is one of the seven emirates in
+the United Arab Emirates (UAE) that
+is known for exceptional hospitality,
+state-of-the-art infrastructures and
+calm atmosphere. Dubai is the
+fastest-growing visitor destinations
+and commercial hub.</p>
+                    <p>Dubai e-Visa was established to
+provide online visa services to over
+143 countries in the world to visit,
+tour and explore Dubai.</p>
+<p>Elfrique provides exceptional Dubai evisa processing services. Our
+experience, blended with expertise
+will help you access Dubai
+effortlessly.</p>
                 </div>
             </div>
         </div>
@@ -62,23 +76,20 @@
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="box-feat">
-                        <img src="@/assets/images/default-icon.png" ondragstart="return false;">
-                        <h4>Education Visa</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis veritatis mollitia.</p>
+                        <img src="@/assets/images/iconVisa1.png" ondragstart="return false;">
+                        <h4>Business</h4>
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="box-feat">
-                        <img src="@/assets/images/default-icon.png" ondragstart="return false;">
-                        <h4>Business Immigration</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis veritatis mollitia.</p>
+                        <img src="@/assets/images/iconVisa2.png" ondragstart="return false;">
+                        <h4>Tourist</h4>
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="box-feat">
-                        <img src="@/assets/images/default-icon.png" ondragstart="return false;">
-                        <h4>Spouse/Family Visa</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis veritatis mollitia.</p>
+                        <img src="@/assets/images/iconVisa3.png" ondragstart="return false;">
+                        <h4>Transit Visa</h4>
                     </div>
                 </div>
             </div>

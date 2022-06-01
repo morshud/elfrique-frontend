@@ -16,8 +16,11 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="first-text">
-                        <h1>Turkey</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quos autem repudiandae quo impedit deleniti facere sint a nostrum odit iusto tempora saepe ullam, consequuntur reiciendis culpa nisi rem praesentium!</p>
+                        <h1>Turkey e-Visa</h1>
+                        <p>Get your Turkish e-Visa
+with Elfrique and enter Turkey
+legally.</p>
+<a href="#evisa_form" class="btnApply">Apply Now!</a>
                     </div>
                 </div>
                 <div class="col-md-1"></div>
@@ -48,8 +51,21 @@
                 <div class="col-lg-10 text-center text-area">
                     <h1>Description of Turkey E-Visa</h1>
                     <div class="line-rule"></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias hic similique illo, accusantium natus provident laboriosam neque reiciendis et modi amet nam voluptatum dignissimos minus officiis debitis laudantium, dolore sint exercitationem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quod ipsam ipsum qui odio beatae delectus officiis non, maxime vel natus officia eos! Numquam, hic ipsum nesciunt aliquid alias vel!</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor cumque et laboriosam magni quo minus, explicabo iusto nulla suscipit nemo. Lorem ipsum dolor, sit amet consectetur adipisicing elit. In, eligendi.</p>
+                    <p>Turkey is a land of remains of ancient
+civilisations and modern metropolises.
+It’s a land full of kind people who
+gladly invite you for a cup of tea</p>
+                    <p>Travel to a big country on the edge of
+Europe and Asia where you can
+explore ancient civilization or explore
+one of the huge metropolis. You can
+also climb high mountains or swim in
+the warm seas.</p>
+<p>Elfrique provides exceptional Turkey
+e-visa processing services. Our
+experience, blended with expertise
+will help you access Turkey
+effortlessly.</p>
                 </div>
             </div>
         </div>
@@ -61,23 +77,20 @@
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="box-feat">
-                        <img src="@/assets/images/default-icon.png" ondragstart="return false;">
-                        <h4>Education Visa</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis veritatis mollitia.</p>
+                        <img src="@/assets/images/iconVisa1.png" ondragstart="return false;">
+                        <h4>Business</h4>
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="box-feat">
-                        <img src="@/assets/images/default-icon.png" ondragstart="return false;">
-                        <h4>Business Immigration</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis veritatis mollitia.</p>
+                        <img src="@/assets/images/iconVisa2.png" ondragstart="return false;">
+                        <h4>Tourist</h4>
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="box-feat">
-                        <img src="@/assets/images/default-icon.png" ondragstart="return false;">
-                        <h4>Spouse/Family Visa</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis veritatis mollitia.</p>
+                        <img src="@/assets/images/iconVisa3.png" ondragstart="return false;">
+                        <h4>Transit Visa</h4>
                     </div>
                 </div>
             </div>
