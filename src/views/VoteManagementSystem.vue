@@ -53,18 +53,33 @@
                         <div class="tab-pane fade show active" id="pills-pageantry" role="tabpanel" aria-labelledby="pills-pageantry-tab">
                             <div class="container">
                                 <div class="row" >
-                                    <div class="col-md-3 py-2" v-for="con in voteContent" :key="con.id" >
-                                        <div class="card">
-                                            <img :src="con.image" ondragstart="return false;" class="card-img-top">
-                                            <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : {{con.title}}</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : {{con.type}}</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> : {{con.contestants.length}} Contestant(s)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - {{con.startdate}})<br> End(23:59 - {{con.closedate}})</p>
-                                                <router-link :to="'/voting-content/' + con.id" class="routers" ><a class="btn-view-contest">View Contest</a></router-link>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="my-4 col-md-6 col-lg-4" v-for="con in voteContent" :key="con.id">
+<div class="card">
+<div class="card-img-top">
+<img :src="con.image" alt="card-img" class="w-100">
+<div class="px-2 badge">VOTE</div>
+</div>
+<div class="card-body">
+<div class="card-title">{{con.title}}</div>
+<div class="card-text">
+    <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i>: {{con.contestants.length}} Contestant(s)</p>
+<p></p>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36" class="mr-2 iconify" data-icon="clarity:date-solid" data-inline="false" style="transform: rotate(360deg);"><path fill="currentColor" d="M32.25 6h-4v3a2.2 2.2 0 1 1-4.4 0V6H12.2v3a2.2 2.2 0 0 1-4.4 0V6h-4A1.78 1.78 0 0 0 2 7.81v22.38A1.78 1.78 0 0 0 3.75 32h28.5A1.78 1.78 0 0 0 34 30.19V7.81A1.78 1.78 0 0 0 32.25 6ZM10 26H8v-2h2Zm0-5H8v-2h2Zm0-5H8v-2h2Zm6 10h-2v-2h2Zm0-5h-2v-2h2Zm0-5h-2v-2h2Zm6 10h-2v-2h2Zm0-5h-2v-2h2Zm0-5h-2v-2h2Zm6 10h-2v-2h2Zm0-5h-2v-2h2Zm0-5h-2v-2h2Z" class="clr-i-solid clr-i-solid-path-1"></path><path fill="currentColor" d="M10 10a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z" class="clr-i-solid clr-i-solid-path-2"></path><path fill="currentColor" d="M26 10a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z" class="clr-i-solid clr-i-solid-path-3"></path><path fill="none" d="M0 0h36v36H0z"></path></svg>: STARTS: 00:00 - {{con.startdate}} <p></p>
+<p class="pl-4">&nbsp;&nbsp;&nbsp;&nbsp;ENDS: 23:59 - {{con.closedate}}</p>
+
+
+</div>
+<div class="mt-3 link-container">
+<div class="d-flex justify-content-between align-items-center">
+<router-link :to="'/voting-content/' + con.id" class="px-3 py-2">VIEW CONTEST</router-link>
+<p>PAID</p>
+</div>
+</div>
+ </div>
+</div>
+</div>
+                                   
+                                    
             
                                 </div>
                             </div>
@@ -73,18 +88,32 @@
                         <div class="tab-pane fade" id="pills-award" role="tabpanel" aria-labelledby="pills-award-tab">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-3 py-2" v-for="con in awardContent" :key="con.id">
-                                        <div class="card">
-                                            <img :src="con.image" ondragstart="return false;" class="card-img-top">
-                                            <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-award-fill"></i> : {{con.title}}</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-credit-card-fill"></i> : {{con.type}}</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i> :{{con.awardCategories.length}}  Categories(s)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-calendar3"></i> : Start(00:00 - {{con.startdate}})<br> End(23:59 - {{con.closedate}})</p>
-                                                <router-link :to="'/award-content/' + con.id" class="routers" ><a class="btn-view-contest">View Categories</a></router-link>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="my-4 col-md-6 col-lg-4" v-for="con in awardContent" :key="con.id">
+<div class="card">
+<div class="card-img-top">
+<img :src="con.image" alt="card-img" class="w-100">
+<div class="px-2 badge">VOTE</div>
+</div>
+<div class="card-body">
+<div class="card-title">{{con.title}}</div>
+<div class="card-text">
+    <p class="card-text card-text-after"><i class="bi bi-person-plus-fill"></i>: {{con.awardCategories.length}} Categories(s)</p>
+<p></p>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36" class="mr-2 iconify" data-icon="clarity:date-solid" data-inline="false" style="transform: rotate(360deg);"><path fill="currentColor" d="M32.25 6h-4v3a2.2 2.2 0 1 1-4.4 0V6H12.2v3a2.2 2.2 0 0 1-4.4 0V6h-4A1.78 1.78 0 0 0 2 7.81v22.38A1.78 1.78 0 0 0 3.75 32h28.5A1.78 1.78 0 0 0 34 30.19V7.81A1.78 1.78 0 0 0 32.25 6ZM10 26H8v-2h2Zm0-5H8v-2h2Zm0-5H8v-2h2Zm6 10h-2v-2h2Zm0-5h-2v-2h2Zm0-5h-2v-2h2Zm6 10h-2v-2h2Zm0-5h-2v-2h2Zm0-5h-2v-2h2Zm6 10h-2v-2h2Zm0-5h-2v-2h2Zm0-5h-2v-2h2Z" class="clr-i-solid clr-i-solid-path-1"></path><path fill="currentColor" d="M10 10a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z" class="clr-i-solid clr-i-solid-path-2"></path><path fill="currentColor" d="M26 10a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z" class="clr-i-solid clr-i-solid-path-3"></path><path fill="none" d="M0 0h36v36H0z"></path></svg>: STARTS: 00:00 - {{con.startdate}} <p></p>
+<p class="pl-4">&nbsp;&nbsp;&nbsp;&nbsp;ENDS: 23:59 - {{con.closedate}}</p>
+
+
+</div>
+<div class="mt-3 link-container">
+<div class="d-flex justify-content-between align-items-center">
+<router-link :to="'/award-content/' + con.id" class="px-3 py-2">VIEW CATEGORY</router-link>
+<p>PAID</p>
+</div>
+</div>
+ </div>
+</div>
+</div>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -92,7 +121,7 @@
                         <div class="tab-pane fade" id="pills-reality" role="tabpanel" aria-labelledby="pills-reality-tab">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-3 py-2">
+                                    <div class="col-md-4 py-2">
                                         <div class="card">
                                             <img src="@/assets/images/voting-img2.jpg" ondragstart="return false;"  class="card-img-top">
                                             <div class="card-body">
@@ -104,7 +133,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 py-2">
+                                    <div class="col-md-4 py-2">
                                         <div class="card">
                                             <img src="@/assets/images/voting-img2.jpg" ondragstart="return false;"  class="card-img-top">
                                             <div class="card-body">
@@ -116,7 +145,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 py-2">
+                                    <div class="col-md-4 py-2">
                                         <div class="card">
                                             <img src="@/assets/images/voting-img2.jpg" ondragstart="return false;" class="card-img-top">
                                             <div class="card-body">
@@ -135,7 +164,7 @@
                         <div class="tab-pane fade" id="pills-photo" role="tabpanel" aria-labelledby="pills-photo-tab">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-3 py-2">
+                                    <div class="col-md-4 py-2">
                                         <div class="card">
                                             <img src="@/assets/images/voting-img3.jpg" ondragstart="return false;" class="card-img-top">
                                             <div class="card-body">

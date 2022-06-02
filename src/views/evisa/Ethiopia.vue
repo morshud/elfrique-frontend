@@ -16,8 +16,12 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="first-text">
-                        <h1>Ethiopia</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quos autem repudiandae quo impedit deleniti facere sint a nostrum odit iusto.</p>
+                        <h1>Ethiopia e-Visa </h1>
+                        <p>Get your Ethiopia e-Visa
+with Elfrique and enter Ethiopia
+legally.
+</p>
+<a href="#evisa_form" class="btnApply">Apply Now!</a>
                     </div>
                 </div>
                 <div class="col-md-1"></div>
@@ -48,8 +52,22 @@
                 <div class="col-lg-10 text-center text-area">
                     <h1>Description of Ethiopia E-Visa</h1>
                     <div class="line-rule"></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias hic similique illo, accusantium natus provident laboriosam neque reiciendis et modi amet nam voluptatum dignissimos minus officiis debitis laudantium, dolore sint exercitationem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quod ipsam ipsum qui odio beatae delectus officiis non, maxime vel natus officia eos! Numquam, hic ipsum nesciunt aliquid alias vel!</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor cumque et laboriosam magni quo minus, explicabo iusto nulla suscipit nemo. Lorem ipsum dolor, sit amet consectetur adipisicing elit. In, eligendi.</p>
+                    <p>More than a typical African country,
+Ethiopia is known for its long historical
+culture, magnificent nature, and
+diverse wild world and warmly
+welcomes thousands of visitors every
+year. This country also is one of the
+cradles of humanity. It owns the most
+UNESCO World Heritage Sites than any
+other countries in the area with 8
+cultural heritages and 1 nature
+heritage.</p>
+                    <p>Elfrique provides exceptional Ethiopia
+e-visa processing services. Our
+experience, blended with expertise
+will help you access Ethiopia
+effortlessly.</p>
                 </div>
             </div>
         </div>
@@ -61,23 +79,20 @@
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="box-feat">
-                        <img src="@/assets/images/default-icon.png" ondragstart="return false;">
-                        <h4>Education Visa</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis veritatis mollitia.</p>
+                        <img src="@/assets/images/iconVisa1.png" ondragstart="return false;">
+                        <h4>Business</h4>
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="box-feat">
-                        <img src="@/assets/images/default-icon.png" ondragstart="return false;">
-                        <h4>Business Immigration</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis veritatis mollitia.</p>
+                        <img src="@/assets/images/iconVisa2.png" ondragstart="return false;">
+                        <h4>Tourist</h4>
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="box-feat">
-                        <img src="@/assets/images/default-icon.png" ondragstart="return false;">
-                        <h4>Spouse/Family Visa</h4>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis veritatis mollitia.</p>
+                        <img src="@/assets/images/iconVisa3.png" ondragstart="return false;">
+                        <h4>Transit Visa</h4>
                     </div>
                 </div>
             </div>

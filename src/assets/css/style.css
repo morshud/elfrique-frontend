@@ -15,6 +15,270 @@ body{
     text-decoration: none;
 }
 
+.card .card-img-top {
+ position:relative;
+ height:200px;
+ overflow:hidden;
+ background-repeat:no-repeat;
+ backdrop-filter:blur(8px)
+}
+.card .card-img-top img {
+ object-fit:contain;
+ height:100%;
+ width:100%;
+ backdrop-filter:blur(8px)
+}
+.card .card-img-top .badge {
+ position:absolute;
+ top:5px;
+ right:10px;
+ background:#c2803a;
+ border-radius:5px;
+ color:#fff;
+ font-weight:700;
+ font-size:.7rem;
+ z-index:1000
+}
+.card .card-img-top .dropdown-menu {
+ left:-160px!important;
+ min-width:150px
+}
+.card .card-img-top .dropdown-menu img {
+ height:20px;
+ width:20px
+}
+.card .card-body {
+ box-shadow:0 2px 10px 1px rgba(0,0,0,.1)
+}
+.card .card-body .link-container a {
+ color:rgba(102,181,76,.8);
+ border:1px solid #66b54c;
+ border-radius:5px;
+ font-weight:600
+}
+.card .card-body .link-container a:hover {
+ text-decoration:none;
+ color:#fff;
+ background-color:#66b54c
+}
+.card .card-body .link-container p {
+ font-size:2rem;
+ font-weight:600;
+ display:inline-block
+}
+.card .card-body .card-title {
+ font-weight:600;
+ color:rgba(0,0,0,.8);
+ line-height:30px;
+ white-space:nowrap;
+ overflow:hidden;
+ text-overflow:ellipsis
+}
+.card .card-body .card-text {
+ font-size:1rem;
+ color:rgba(0,0,0,.7)
+}
+.card .card-body .card-text p {
+ margin:0
+}
+.card .card-body .card-text .iconify {
+ color:#66b54c
+}
+.contestants-tagline {
+ background:rgba(194,128,58,.1);
+ padding:5em .5em 0 0;
+ color:rgba(0,0,0,.8)
+}
+.contestants-tagline .iconify {
+ color:#66b54c
+}
+.contestants-tagline .info p {
+ font-size:clamp(1rem,2.5vw,1.4rem)
+}
+.contestants-tagline .start {
+ font-weight:600
+}
+.contestants-tagline .contest-name h4 {
+ font-weight:600;
+ font-size:2rem
+}
+.contestants-tagline .countdown p {
+ color:#66b54c;
+ font-size:1.1rem;
+ font-weight:600;
+ text-align:center
+}
+.contestants-tagline .timer .num {
+ background-color:#000;
+ color:#66b54c;
+ margin:0 .1em;
+ padding:.3em;
+ font-weight:600;
+ font-size:1.5rem;
+ border-radius:3px
+}
+.contestants-tagline .timer .day {
+ margin-top:.4em;
+ font-size:.8rem;
+ color:#000
+}
+.contestants-tagline .lower .share-text {
+ color:rgba(0,0,0,.8);
+ font-size:1.8rem
+}
+.contestants-tagline .lower .price h4 {
+ font-weight:600
+}
+.contestants-tagline .contest-socials a {
+ margin-right:.3em
+}
+.contestants-tagline .contest-socials a img {
+ margin-top:.7em!important
+}
+.contestants-tagline .contest-socials a:hover {
+ opacity:.9
+}
+.contestants-tagline .bs-stepper-header .step .bs-stepper-label {
+ font-weight:400!important
+}
+.contestants-tagline .image-cont {
+ position:relative
+}
+.contestants-tagline .image-cont img {
+ width:85%;
+ height:100%;
+ position:absolute;
+ bottom:-15px;
+ right:20px;
+ object-fit:cover
+}
+@media(max-width:768.98px) {
+ .contestants-tagline .image-cont {
+  position:relative
+ }
+ .contestants-tagline .image-cont img {
+  width:100%;
+  height:50%;
+  object-fit:contain;
+  position:static
+ }
+}
+@media(max-width:576.98px) {
+ .contestants-tagline {
+  padding:3em .5em 0 0
+ }
+ .contestants-tagline .image-cont img {
+  width:100%;
+  height:100%
+ }
+ .contestants-tagline .info p {
+  text-align:center
+ }
+ .contestants-tagline .timer {
+  justify-content:center
+ }
+ .contestants-tagline .price h4,
+ .contestants-tagline .share-text {
+  font-size:.9rem!important
+ }
+ .contestants-tagline .lower .share-text {
+  margin-bottom:.2em
+ }
+ .contestants-tagline .lower a img {
+  width:30px
+ }
+ .contestants-tagline .contest-name {
+  text-align:center;
+  margin-top:.5em
+ }
+ .contestants-tagline .bs-stepper-header .step .bs-stepper-label {
+  font-size:.3rem!important
+ }
+}
+.contestants-container .card {
+ position:relative
+}
+.contestants-container .card .badge {
+ background-color:#000!important;
+ cursor:pointer
+}
+.contestants-container .card-body .card-title {
+ font-weight:600;
+ font-size:1.4rem;
+ text-transform:uppercase
+}
+.paidVote form label {
+ font-size:1rem
+}
+.paidVote .voters-details {
+ margin-top:2em;
+ margin-bottom:1.5em
+}
+.paidVote .voters-details .summary-info {
+ margin-bottom:1em
+}
+.paidVote .voters-details .summary-info .head {
+ margin-bottom:0;
+ font-weight:600
+}
+.paidVote .voters-details .detail-head {
+ border-bottom:1px solid rgba(0,0,0,.7)
+}
+.paidVote .summary-body {
+ margin-top:2em;
+ margin-bottom:1.5em
+}
+.paidVote .summary-body .summary-info {
+ margin-bottom:1em
+}
+.paidVote .summary-body .summary-info .head {
+ margin-bottom:0;
+ font-weight:600
+}
+.paidVote .candidate-info {
+ margin-bottom:1em
+}
+.paidVote .candidate-info .head {
+ font-weight:600;
+ font-size:clamp(1.2rem,2.5vw,1.8rem);
+ margin-bottom:0
+}
+.organizer-container h5,
+.organizer-container h4,
+.verify-container h5,
+.verify-container h4,
+.graphs-container h5,
+.graphs-container h4,
+.event-description-container h5,
+.event-description-container h4,
+.category h5,
+.category h4 {
+ font-weight:600;
+ font-size:clamp(1.2rem,2.5vw,1.8rem)
+}
+.organizer-container p,
+.verify-container p,
+.graphs-container p,
+.event-description-container p,
+.category p {
+ margin-bottom:0
+}
+.organizer-container .organizer-details,
+.verify-container .organizer-details,
+.graphs-container .organizer-details,
+.event-description-container .organizer-details,
+.category .organizer-details {
+ margin:2em 0
+}
+.verify-container {
+ width:75%
+}
+@media(max-width:576.98px) {
+ .verify-container {
+  width:100%
+ }
+}
+
 /*********Header Nav*********/
 header nav{
     background-color: #ffffff;
@@ -1176,6 +1440,11 @@ header nav .offcanvas-header button i{
 }
 .service-content-vote .tab-content .card .main-text{
     font-weight: 700 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 17px !important;
+    text-transform: capitalize !important;
 }
 .service-content-vote .tab-content .card .card-text{
     text-transform: uppercase;
@@ -1471,7 +1740,7 @@ header nav .offcanvas-header button i{
 }
 .contestant-profile .details-contestant .form-area label{
     display: block;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 700;
     padding-bottom: 5px;
 }
@@ -1488,7 +1757,7 @@ header nav .offcanvas-header button i{
     padding: 10px 5px;
     text-align: center;
     width: 100%;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
     border: none;
 }
@@ -3285,7 +3554,18 @@ footer .copyright p{
     font-size: 18px;
     font-weight: 500;
     padding-top: 20px;
+    padding-bottom: 20px;
     color: #000;
+}
+.onboard-screen .btnApply{
+    background-color: #2B571E;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+}
+.onboard-screen .btnApply:hover{
+    background-color: #000;
 }
 .onboard-screen .img-area{
     position: relative;
@@ -3303,12 +3583,9 @@ footer .copyright p{
     width: 100%;
     filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.24));
 }
-.onboard-screen .first-img{
-    margin-top: -40px;
-}
 .onboard-screen .call-to-action{
     background-color: #2b571e;
-    padding: 10px 10px 15px 10px;
+    padding: 5px 10px 1px 10px;
     margin-top: 90px;
     overflow-x: hidden !important;
 }
@@ -3379,7 +3656,7 @@ footer .copyright p{
         width: 80%;
         display: block;
         margin: auto;
-        margin-top: 50px;
+        margin-top: 100px;
     }
 }
 
@@ -3424,7 +3701,8 @@ footer .copyright p{
     margin-bottom: 10px;
 }
 .descriptionNote .box-feat h4{
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 25px;
 }
 .descriptionNote .box-feat p{
     font-size: 17px;
@@ -4280,4 +4558,29 @@ footer .copyright p{
 }
 .detailsSent .backbtn:hover{
     background-color: #000;
+}
+
+
+.contestantPaySection h4{
+    font-size: 18px;
+    font-weight: 500;
+}
+.contestantPaySection h5{
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: underline;
+    padding-bottom: 10px;
+}
+.contestantPaySection div{
+    margin-bottom: 23px;
+}
+.contestantPaySection h6{
+    text-transform: capitalize;
+    font-size: 17px;
+    font-weight: 600;
+}
+.contestantPaySection p{
+    font-size: 20px;
 }
