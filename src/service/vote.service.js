@@ -96,6 +96,12 @@ class VoteService {
     });
   }
 
+  getSingleNominee(contestId) {
+    return axios.get(API_URL + "getSingleNominee/" + contestId, {
+      headers: authHeader(),
+    });
+  }
+
   getAContestant(contestantId) {
     return axios.get(API_URL + "getContestant/" + contestantId, {
       headers: authHeader(),

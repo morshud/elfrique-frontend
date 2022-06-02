@@ -15,6 +15,8 @@
     </div>
     <!--Contestants Details and vote-->
     <div class="container mt-5 details-contestant">
+
+      
       <div class="row">
         <div class="col-lg-7">
           <div class="img-area">
@@ -123,7 +125,8 @@
               Pay with Interswitch
             </button>
           </div>
-          <div class="col-lg-12 mb-3">
+          <div c
+          lass="col-lg-12 mb-3">
             <button :disabled="loading" @click="callAtgPay">
               Vote with Airtime
             </button>
@@ -132,7 +135,7 @@
       </div>
     </div>
     <!--Other Contestants-->
-    <div class="container service-content-vote mt-5">
+    <!-- <div class="container service-content-vote mt-5">
       <div class="row tab-content">
         <div class="col-lg-12">
           <h1 style="font-size: 25px; font-weight: 700; padding-bottom: 10px">
@@ -164,7 +167,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </section>
 
   <elfrique-footer />
@@ -217,13 +220,13 @@ export default {
     };
   },
   computed: {
-    otherContestants() {
+    /* otherContestants() {
       console.log(this.contest);
       const OC = this.contest.contestants.filter(
         (contestant) => contestant.id !== this.contestant.id
       );
       return OC;
-    },
+    }, */
 
     amount() {
       return Number(this.numberOfVotes) * Number(this.contest.fee);
@@ -242,13 +245,13 @@ export default {
   },
 
   created() {
-    VoteService.getAContestant(this.$route.params.id).then((response) => {
-      this.contestant = response.data.contestants;
-      VoteService.getSingleContest(
-        response.data.contestants.votingContest.id
+    VoteService.getSingleNominee(this.$route.params.id).then((response) => {
+      this.contestant = response.data.Nominees;
+      VoteService.getSingleAward(
+        response.data.Nominees.awardContestId
       ).then((response) => {
-        this.adminId = response.data.voteContest.adminuserId;
-        this.contest = response.data.voteContest;
+        this.adminId = response.data.awards.adminuserId;
+        this.contest = response.data.awards;
 
       });
     });
