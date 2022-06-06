@@ -162,9 +162,8 @@ export default {
       method: "",
       email: "",
       loading: false,
-      reference: this.genRef(),
+      reference: "",
       phone: "",
-      email: "",
       numberOfVotes: "",
       publicKey: "pk_test_be803d46f5a6348c3643967d0e6b7b2303d42b4f",
       flw_public_key: "FLWPUBK_TEST-0f353662b04aee976128e62946a59682-X",
@@ -188,7 +187,7 @@ export default {
     },
 
     amount() {
-      return Number(this.numberOfVotes) * Number(this.contest.fee);
+      return Number(this.payContent.numberOfVotes) * Number(this.contest.fee);
     },
 
     voteForm() {
@@ -201,6 +200,8 @@ export default {
         fullname: this.firstname + " " + this.lastname,
       };
     },
+
+  
   },
 
   created() {
@@ -429,6 +430,13 @@ export default {
     if (!document.querySelector(`[src="${inlineSdk}"]`)) {
       document.body.appendChild(script);
     }
+
+    this.email = this.payContent.email;
+    this.phone = this.payContent.phone;
+    this.amount = this.payContent.amount;
+    this.reference = this.payContent.reference;
+    this.firstname = this.payContent.firstname;
+    this.lastname = this.payContent.lastname;
   },
 };
 </script>

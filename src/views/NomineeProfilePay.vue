@@ -429,6 +429,13 @@ export default {
     if (!document.querySelector(`[src="${inlineSdk}"]`)) {
       document.body.appendChild(script);
     }
+
+    this.email = this.payContent.email;
+    this.phone = this.payContent.phone;
+    this.amount = this.payContent.amount;
+    this.reference = this.payContent.reference;
+    this.firstname = this.payContent.firstname;
+    this.lastname = this.payContent.lastname;
   },
 };
 </script>

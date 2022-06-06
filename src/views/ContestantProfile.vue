@@ -232,6 +232,8 @@ export default {
       return {
         email: this.email,
         amount: this.amount,
+        firstname: this.firstname,
+        lastname: this.lastname,
         fullname: this.firstname + " " + this.lastname,
         phone: this.phone,  
         reference: this.reference,
