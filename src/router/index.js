@@ -32,6 +32,7 @@ import VotNomineeContent from "../views/NomineeContent.vue";
 import VotContestantProfile from "../views/ContestantProfile.vue";
 import VotNomineeProfile from "../views/NomineeProfile.vue";
 import VotContestantProfilePay from "../views/ContestantProfilePay.vue";
+import VotNomineeProfilePay from "../views/NomineeProfilePay.vue";
 //Event Form
 import ServiceEventFormManagementSystem from "../views/EventFormManagementSystem.vue";
 import EvtForEventFormContent from "../views/EventFormContent.vue";
@@ -303,6 +304,11 @@ const routes = [
     path: "/contestant-profile-pay/:id",
     name: "VotContestantProfilePay",
     component: VotContestantProfilePay,
+  },
+  {
+    path: "/nominee-profile-pay/:id",
+    name: "VotNomineeProfilePay",
+    component: VotNomineeProfilePay,
   },
   //Event Form
   {

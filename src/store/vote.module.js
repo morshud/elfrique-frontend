@@ -6,6 +6,7 @@ const initialState = {
   trivia: {},
   player: {},
   country: "",
+  paymentForm: {},
 };
 
 export const vote = {
@@ -39,6 +40,9 @@ export const vote = {
     getEvisaCountry({ commit }, country) {
       commit("setEvisaCountry", country);
     },
+    getPaymentForm({ commit }, paymentForm) {
+      commit("setPaymentForm", paymentForm);
+    },
   },
   mutations: {
     setVoteContent(state, voteContent) {
@@ -64,6 +68,9 @@ export const vote = {
     },
     setEvisaCountry(state, country) {
       state.country = country;
+    },
+    setPaymentForm(state, paymentForm) {
+      state.paymentForm = paymentForm;
     },
   },
 };

@@ -45,26 +45,26 @@
               <h5>Summary of your order</h5>
               <div>
                 <h6>Votes</h6>
-                <p>6</p>
+                <p>{{payContent.numberOfVotes}}</p>
               </div>
               <div>
                 <h6>amount</h6>
-                <p>150NGN</p>
+                <p>{{payContent.amount}} NGN</p>
               </div>
               <h5>Voter's Details</h5>
               <div>
                 <h6>Email</h6>
-                <p>me@me.me</p>
+                <p>{{payContent.email}}</p>
               </div>
               <div>
                 <h6>Phone number</h6>
-                <p>1234567890</p>
+                <p>{{payContent.phone}}</p>
               </div>
               <div>
                 <h6>Reference number</h6>
-                <p>13PPV3</p>
+                <p>{{payContent.reference}}</p>
               </div>
-              <h5>Choose Gateway Payment</h5>
+              <h5>Choose Payment Gateway</h5>
           </div>
           <div class="col-lg-12 mb-3">
             <button :disabled="loading" v-on:click="payWithPaystack">
@@ -181,6 +181,10 @@ export default {
         (contestant) => contestant.id !== this.contestant.id
       );
       return OC;
+    },
+
+    payContent(){
+        return this.$store.state.vote.paymentForm;
     },
 
     amount() {

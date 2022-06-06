@@ -36,17 +36,17 @@
                 <div class="col-lg-12">
                     <ul class="nav nav-pills nav-fill mb-4 mt-2 justify-content-center" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active tabs-button" id="pills-pageantry-tab" data-bs-toggle="pill" data-bs-target="#pills-pageantry" type="button" role="tab" aria-controls="pills-pageantry" aria-selected="true"><i class="fas fa-crown"></i> Pageantry</button>
+                            <button class="nav-link active tabs-button" id="pills-pageantry-tab" data-bs-toggle="pill" data-bs-target="#pills-pageantry" type="button" role="tab" aria-controls="pills-pageantry" aria-selected="true"><i class="fas fa-crown"></i> Pageantry/Contest</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link tabs-button" id="pills-award-tab" data-bs-toggle="pill" data-bs-target="#pills-award" type="button" role="tab" aria-controls="pills-award" aria-selected="false"><i class="fas fa-trophy"></i> Awards</button>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <!-- <li class="nav-item" role="presentation">
                             <button class="nav-link tabs-button" id="pills-reality-tab" data-bs-toggle="pill" data-bs-target="#pills-reality" type="button" role="tab" aria-controls="pills-reality" aria-selected="false"><i class="fas fa-tv"></i> Reality TV</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link tabs-button" id="pills-photo-tab" data-bs-toggle="pill" data-bs-target="#pills-photo" type="button" role="tab" aria-controls="pills-photo" aria-selected="false"><i class="fas fa-images"></i> Photo Contest</button>
-                        </li>
+                        </li> -->
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
                         <!--Pageantry-->
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                         <!--Reality TV-->
-                        <div class="tab-pane fade" id="pills-reality" role="tabpanel" aria-labelledby="pills-reality-tab">
+                       <!--  <div class="tab-pane fade" id="pills-reality" role="tabpanel" aria-labelledby="pills-reality-tab">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-4 py-2">
@@ -159,9 +159,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!--Photo Contest-->
-                        <div class="tab-pane fade" id="pills-photo" role="tabpanel" aria-labelledby="pills-photo-tab">
+                        <!-- <div class="tab-pane fade" id="pills-photo" role="tabpanel" aria-labelledby="pills-photo-tab">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-4 py-2">
@@ -178,7 +178,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

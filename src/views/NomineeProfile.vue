@@ -42,7 +42,7 @@
             </div>
           </div>
 
-          <form @submit.prevent="payWithPaystack">
+          <form @submit.prevent="proceedtopay">
             <div
               v-if="message"
               class="alert-success alert alert-dismissible fade show"
@@ -105,12 +105,15 @@
                   <strong>Each vote cost NGN {{ contest.fee }}</strong>
                 </p>
               </div>
+              <div class="col-lg-12 mb-3">
+                <button type="submit">Proceed</button>
+              </div>
               <div v-if="contest.type == 'free'" class="col-lg-12 mb-3">
                 <button type="submit">Vote</button>
               </div>
             </div>
           </form>
-          <div class="col-lg-12 mb-3">
+          <!-- <div class="col-lg-12 mb-3">
             <button :disabled="loading" v-on:click="payWithPaystack">
               Pay with Paystack
             </button>
@@ -125,12 +128,12 @@
               Pay with Interswitch
             </button>
           </div>
-          <div c
-          lass="col-lg-12 mb-3">
+          <div 
+          class="col-lg-12 mb-3">
             <button :disabled="loading" @click="callAtgPay">
               Vote with Airtime
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -228,6 +231,18 @@ export default {
       return OC;
     }, */
 
+    paymentForm () {
+      return {
+        email: this.email,
+        amount: this.amount,
+        fullname: this.firstname + " " + this.lastname,
+        phone: this.phone,  
+        reference: this.reference,
+        numberOfVotes: this.numberOfVotes,
+
+      };
+    },
+
     amount() {
       return Number(this.numberOfVotes) * Number(this.contest.fee);
     },
@@ -284,6 +299,15 @@ export default {
     },
     genRef() {
       return uniqid();
+    },
+
+     proceedtopay(){
+      this.$store.dispatch('vote/getPaymentForm',this.paymentForm).then(
+            () => {
+            //console.log(this.$store.state.vote.voteContent)
+              this.$router.push('/nominee-profile-pay/' + this.contestant.id);
+          }
+            )
     },
     resetForm() {
       this.email = "";
