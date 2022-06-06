@@ -193,12 +193,12 @@ export default {
 
     voteForm() {
       return {
-        reference: this.reference,
-        numberOfVote: this.numberOfVotes,
+        reference: this.payContent.reference,
+        numberOfVote: this.payContent.numberOfVotes,
         method: this.method,
         type: "paid",
-        amount: this.amount,
-        fullname: this.firstname + " " + this.lastname,
+        amount: this.payContent.amount,
+        fullname: this.payContent.firstname + " " + this.payContent.lastname,
       };
     },
   },
@@ -228,8 +228,9 @@ export default {
       }
     },
     getContestant(con) {
-      this.$store.dispatch("vote/getContestant", con);
+      this.$store.dispatch("getContestant", con);
       window.scrollTo(0, 0);
+
     },
 
     nairaToKobo(amount) {
@@ -258,7 +259,7 @@ export default {
       Notification.addNotification({
         receiverId: this.adminId,
         type: "voting",
-        message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
+        message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
       })
       TransactionService.submitVote(this.contestant.id, this.voteForm).then(
         (response) => {
@@ -274,11 +275,11 @@ export default {
       const paymentOptions = {
         // general options
         key: this.publicKey, //required
-        email: this.email, //required
-        amount: this.nairaToKobo(this.amount), //required
-        reference: this.reference, //required
-        firstname: this.firstname,
-        lastname: this.lastname,
+        email: this.payContent.email, //required
+        amount: this.nairaToKobo(this.payContent.amount), //required
+        reference: this.payContent.reference, //required
+        firstname: this.payContent.firstname,
+        lastname: this.payContent.lastname,
         /* currency: this.currency,
         channels: this.channels,
         metadata: this.metadata,
@@ -311,10 +312,10 @@ export default {
         merchant_code: "MX60729",
         pay_item_id: "Default_Payable_MX60729",
         site_redirect_url: window.location.origin,
-        cust_id: this.email,
+        cust_id: this.payContent.email,
         data_ref: "wiJeY3fhpkxpisBwKtsgXxKwwdnECfCvbJHfYDVuLH0=",
-        txn_ref: this.reference,
-        amount: this.nairaToKobo(this.amount),
+        txn_ref: this.payContent.reference,
+        amount: this.nairaToKobo(this.payContent.amount),
         currency: 566, // ISO 4217 numeric code of the currency used
         onComplete: (response) => {
           console.log(response);
@@ -324,7 +325,7 @@ export default {
           Notification.addNotification({
             receiverId: this.adminId,
             type: "voting",
-            message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
+            message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
           })
           /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
             this.loading = false;
@@ -343,12 +344,12 @@ export default {
     showPaymentModal() {
       let paymentParams = {
         public_key: this.flw_public_key,
-        tx_ref: this.reference,
-        amount: this.nairaToKobo(this.amount),
+        tx_ref: this.payContent.reference,
+        amount: this.nairaToKobo(this.payContent.amount),
         currency: "NGN",
         customer: {
-          email: this.email,
-          phone_number: this.phone,
+          email: this.payContent.email,
+          phone_number: this.payContent.phone,
         },
         callback: (response) => {
           console.log(response);
@@ -357,7 +358,7 @@ export default {
           Notification.addNotification({
             receiverId: this.adminId,
             type: "voting",
-            message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
+            message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
           })
           /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(
             (response) => {
@@ -380,12 +381,12 @@ export default {
         // Merchant's aimotget PUBLIC KEY
         key: process.env.VUE_APP_AIM_TO_GET_KEY,
         //customer's email address
-        email: this.email,
+        email: this.payContent.email,
         //Customer's phone number (Optional)
-        phone: this.phone,
-        description: `Vote for ${this.contestant.fullname}`,
-        amount: (this.amount * 10).toString(),
-        reference: this.reference,
+        phone: this.payContent.phone,
+        description: `Vote for ${this.payContent.fullname}`,
+        amount: (this.payContent.amount).toString(),
+        reference: this.payContent.reference,
         logo_url: "https://example.com/logo.png",
         onclose: function () {
           //do something when modal is closed
@@ -404,7 +405,7 @@ export default {
           Notification.addNotification({
             receiverId: this.adminId,
             type: "voting",
-            message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
+            message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
           })
           /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
                 this.loading = false;
