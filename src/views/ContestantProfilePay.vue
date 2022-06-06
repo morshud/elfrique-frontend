@@ -380,7 +380,7 @@ export default {
       console.log(this.payContent);
       AtgPayment.pay({
         // Merchant's aimotget PUBLIC KEY
-        key: process.env.VUE_APP_AIM_TO_GET_KEY,
+        key: "c51c8c8417c03ce2a4bc6d5b3ceea0e84f4c88dc9a595da3",
         //customer's email address
         email: this.payContent.email,
         //Customer's phone number (Optional)
