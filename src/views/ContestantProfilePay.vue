@@ -377,6 +377,7 @@ export default {
 
     callAtgPay(e) {
       e.preventDefault();
+      console.log(this.payContent);
       AtgPayment.pay({
         // Merchant's aimotget PUBLIC KEY
         key: process.env.VUE_APP_AIM_TO_GET_KEY,
