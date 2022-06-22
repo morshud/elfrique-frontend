@@ -56,18 +56,28 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 mt-3 quiz-box">
+        <div  class="col-lg-12 mt-3 quiz-box">
           <form @submit.prevent="submitAnswer">
-            <div v-for="con in questions" :key="con.id" class="question mb-4">
-              <h1>{{ con.question }}</h1>
-              <div v-for="opt in con.questionOptions" :key="opt.id">
-                <input type="radio" :name="con.id" :value="opt.option" />
-                <span>{{ opt.option }}</span>
+            <div  class="question mb-4">
+              <div v-for="(question, index) in questions" :key="question.id">
+              <div v-show="index === questionIndex">
+                <h1>{{ question.question }}</h1>
+                <div v-for="opt in question.questionOptions" :key="opt.id">
+                  <input @change="selectOption(opt)" type="radio" v-bind:name="index" :value="opt"/>
+                  <span>{{ opt.option }}</span>
+                </div>
+              </div>
               </div>
             </div>
-
+            {{answer}}
             <div>
-              <button type="submit">Submit Quiz</button>
+              <button v-if="questionIndex > 0" @click="prev">
+                  Previous
+                </button>
+                <button v-else @click="next">
+                  Next
+                </button>
+              <button style="margin-left: 30px" v-if="questionIndex > 0" type="submit">Submit Quiz</button>
             </div>
           </form>
         </div>
@@ -93,6 +103,11 @@ export default {
       trivia: "",
       loading: false,
       questions: "",
+      answer: {
+        "playerEmail": this.$store.state.vote.player.email,
+        "trivia_answer": []
+      },
+      questionIndex: 0,
     };
   },
   computed: {
@@ -118,6 +133,28 @@ export default {
     startQuiz() {
       this.$router.push("/trivia-content-quiz/" + this.trivia.id);
     },
+    next() {
+      this.questionIndex++;
+    },
+    // Go to previous question
+    prev() {
+      this.questionIndex--;
+    },
+    selectOption(index){
+      
+      const elementIndex = this.answer.trivia_answer.findIndex((obj => obj.questionId === index.questionId));
+      if(elementIndex == -1){
+        this.answer.trivia_answer.push({
+          questionId: index.questionId, 
+          answer: index.option
+        })
+      }else{
+        this.answer.trivia_answer[elementIndex].answer = index.option;
+      }
+      
+      console.log(elementIndex);
+      
+    }
   },
   mounted() {
     window.scrollTo(0, 0);
