@@ -57,7 +57,7 @@
     <div class="container">
       <div class="row">
         <div  class="col-lg-12 mt-3 quiz-box">
-          <form @submit.prevent="submitAnswer">
+          <form @submit.prevent="submitQuiz">
             <div  class="question mb-4">
               <div v-for="(question, index) in questions" :key="question.id">
               <div v-show="index === questionIndex">
@@ -74,10 +74,10 @@
               <button v-if="questionIndex > 0" @click="prev">
                   Previous
                 </button>
-                <button v-else @click="next">
+                <button @click="next">
                   Next
                 </button>
-              <button style="margin-left: 30px" v-if="questionIndex > 0" type="submit">Submit Quiz</button>
+              <button style="margin-left: 30px" type="submit">Submit Quiz</button>
             </div>
           </form>
         </div>
@@ -121,7 +121,6 @@ export default {
       .then((response) => {
         this.trivia = response.data.trivia;
         this.questions = response.data.trivia.questions;
-        console.log(this.trivia);
       })
       .then(() => {
         if (this.player.id == null) {
@@ -152,8 +151,13 @@ export default {
         this.answer.trivia_answer[elementIndex].answer = index.option;
       }
       
-      console.log(elementIndex);
-      
+    },
+    submitQuiz(){
+      this.loading = true
+      TriviaService.answerTrivia( this.trivia.id, this.answer).then(res => {
+        this.loading = false
+        console.log(res)
+      })
     }
   },
   mounted() {

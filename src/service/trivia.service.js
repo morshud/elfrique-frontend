@@ -40,8 +40,8 @@ class TriviaService {
     });
   }
 
-  answerTrivia(id) {
-    return axios.get(API_URL + "trivia-answer/" + id);
+  answerTrivia(id, data) {
+    return axios.post(API_URL + "trivia-answer/" + id, data);
   }
 
 }
