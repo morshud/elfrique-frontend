@@ -280,14 +280,43 @@ body{
 }
 
 /*********Header Nav*********/
+header{
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    z-index: 9999 !important;
+}
+.headerContact{
+    background-color: #000 !important;
+    padding: 10px;
+}
+.headerContact span{
+    color: #fff;
+    float: right;
+    padding-right: 15px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.headerContact span a{
+    color: #daffce;
+    text-decoration: none;
+    padding-left: 5px;
+}
+@media(max-width: 486px){
+    .headerContact span{
+        float: none;
+        padding-right: 10px;
+        font-size: 13px;
+    }
+}
 header nav{
-    background-color: #ffffff;
-    padding: 15px 10px !important;
-    margin-top: -10px;
+    padding: 5px 5px 10px 5px !important;
+    margin-bottom: -10px;
+    background-color: #fff;
 }
 .navbar-onscroll{
-    transition: 0.8s;
-    padding: 10px !important;
+    transition: 0.7s;
+    
     box-shadow: 0px 5px 20px #a1a1a11c, 0px 0px 20px #00000015;
 }
 header nav .navbar-brand img{
@@ -428,7 +457,7 @@ header nav .login-div .btn-signup i{
     padding-left: 5px;
 } 
 /********Nav Hamburger********/
-header nav .icon-hambuger{
+/* header nav .icon-hambuger{
     margin-top: 22px;
 }
 header nav .icon-hambuger a{
@@ -498,7 +527,7 @@ header .offcanvas-contact-hambuger .offcanvas-body .social-icons a{
 header .offcanvas-contact-hambuger .offcanvas-body .social-icons a:hover{
     color: #356425;
     font-size: 23px;
-}
+} */
 /********Nav Toggler********/
 header nav .navbar-toggler{
     border: 1px solid #000!important; 
@@ -591,7 +620,25 @@ header nav .offcanvas-header button i{
     background-size: cover;
     padding: 150px 10px 150px 10px;
     color: #ffffff;
+    animation-name: change;
+  animation-duration: 7s;
+  animation-iteration-count:infinite;
+  animation-direction: alternate;
 }
+@keyframes change {
+    0%{
+        background-image: linear-gradient(90deg,  #000000bb, #000000bb), url('../images/welcomebg.jpg');
+  }
+  35%{
+    background-image: linear-gradient(90deg,  #000000bb, #000000bb), url('../images/welcomebg.jpg');
+  }
+  70%{
+    background-image: linear-gradient(90deg,  #000000bb, #000000bb), url('../images/bread-pricing.jpg');
+  }
+  100%{
+    background-image: linear-gradient(90deg,  #000000bb, #000000bb), url('../images/bread-pricing.jpg');
+  }
+  }
 .welcome-screen .tag-text{
     font-size: 17px;
     letter-spacing: 0.3px;
@@ -2198,7 +2245,7 @@ header nav .offcanvas-header button i{
     border-top: 2px solid #2a531d;
 }
 .travel-tour .evisa-box{
-    width: 330px;
+    width: 310px;
     margin-bottom: 30px;
 }
 .travel-tour .evisa-box a{
@@ -2270,7 +2317,7 @@ header nav .offcanvas-header button i{
 }
 @media(max-width: 1399px){
     .travel-tour .evisa-box{
-        width: 280px;
+        width: 250px !important;
     }
     .travel-tour .evisaProcess-box p{
         font-size: 17px;
@@ -2284,7 +2331,7 @@ header nav .offcanvas-header button i{
 }
 @media(max-width: 1199px){
     .travel-tour .evisa-box{
-        width: 230px;
+        width: 200px !important;
     }
     .travel-tour .evisa-box .img-area{
         height: 130px;
@@ -2334,7 +2381,7 @@ header nav .offcanvas-header button i{
 }
 @media(max-width: 459px){
     .travel-tour .evisa-box{
-        width: 50%;
+        width: 50% !important;
     }
     .travel-tour .header h1{
         font-size: 28px;
@@ -2348,7 +2395,7 @@ header nav .offcanvas-header button i{
         height: 100px;
     }
     .travel-tour .evisa-box{
-        width: 50%;
+        width: 50% !important;
         margin-bottom: 20px !important;
     }
 }
@@ -2488,13 +2535,8 @@ header nav .offcanvas-header button i{
     border: solid 3px #fff;
 }
 .event-vendor .vendorJob-box{
-    flex-shrink: 0;
-    width: 320px !important;
-    overflow: hidden;
-    position: relative;
     border-radius: 10px;
-    scroll-snap-align: start;
-    margin-right: 25px;
+    margin-bottom: 20px;
 }
 .event-vendor .vendorJob-boxSearch{
     width: 320px !important;
@@ -2626,12 +2668,6 @@ header nav .offcanvas-header button i{
     pointer-events: none;
 }
 /***************************/
-@media(max-width: 1399px){
-    .event-vendor .vendorJob-box{
-        width: 250px !important;
-        margin-right: 15px;
-    }
-}
 @media(max-width: 1199px){
     .event-vendor .vendorService-box{
         width: 22.5%;
@@ -3351,6 +3387,7 @@ footer{
     background-color: #000000;
     padding: 90px 10px 30px 10px;
     color: #cecece;
+    margin-top: 50px;
 }
 footer .main-ft{
     margin-top: -20px;
@@ -4583,4 +4620,45 @@ footer .copyright p{
 }
 .contestantPaySection p{
     font-size: 20px;
+}
+
+.divGetStarted{
+    margin-top: 30px;
+}
+.btn-getStarted{
+    background-color: #2a531d;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+}
+.btn-getStarted:hover{
+    background-color: #224217;
+    color: #fff;
+}
+.btnLoadMore{
+    background-color: #2a531d;
+    color: #fff;
+    width: 130px;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    padding: 12px 5px;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.alertSubscribe{
+    font-size: 20px;
+    color: green;
+    font-weight: 700;
+}
+
+#timeUpText{
+    font-size: 25px;
+    font-weight: 700;
+    color: #1f3d15;
 }

@@ -25,7 +25,7 @@
             <input
               v-model="search.location"
               class="location-input input"
-              type="text"
+              type="text" 
               placeholder="Enter location"
             />
             <input
@@ -215,47 +215,8 @@
       </div>
       <div class="row">
         <div class="col-lg-9">
-          <div class="mainJob-box">
-            <div v-for="con in Content" :key="con.id" class="vendorJob-box">
-              <div class="card">
-                <router-link :to="'/details-vendor/' + con.id">
-                  <div class="img-area">
-                    <img :src="con.event.image" />
-                  </div>
-                </router-link>
-                <div class="card-body">
-                  <router-link
-                    :to="'/details-vendor/' + con.id"
-                    class="routers"
-                  >
-                    <h1 title="Needed Service">{{ con.job_type }} Needed</h1>
-                  </router-link>
-                  <div class="line-rule"></div>
-                  <span class="eventname" title="Event Type"
-                    ><i class="bi bi-stack"></i> {{ con.event.title }}</span
-                  >
-                  <span class="date" title="Bid Closing Date"
-                    ><i class="bi bi-calendar-week-fill"></i>
-                    {{ format_date(con.event.startdate) }}</span
-                  >
-                  <span class="location" title="Event Location"
-                    ><i class="bi bi-geo-alt-fill"></i> {{ con.location }}</span
-                  >
-                  <span class="price" title="Starting Price"
-                    ><i class="bi bi-cash"></i> Starts at
-                    <strong>&#8358;{{ con.budget }}</strong></span
-                  >
-                  <button>
-                    <router-link class="btnA" :to="'/details-vendor/' + con.id"
-                      >View</router-link
-                    >
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mainJob-box mt-5">
-            <div v-for="con in Content" :key="con.id" class="vendorJob-box">
+          <div class="row">
+            <div v-for="con in Content" :key="con.id" class="col-lg-4 vendorJob-box">
               <div class="card">
                 <router-link :href="'/details-vendor/' + con.id">
                   <div class="img-area">
@@ -294,9 +255,9 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-12 text-center mt-5">
-            <a href="/view-more-vendor" class="btn-all-service">View More</a>
+            <div class="col-md-12 text-center mt-5">
+              <a href="/view-more-vendor" class="btn-all-service">View More</a>
+            </div>
           </div>
         </div>
         <!--Advert Here-->

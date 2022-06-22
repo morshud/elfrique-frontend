@@ -8,7 +8,14 @@
             <div class="row">
                 <div class="col-md-7">
                     <h1>Voting Management System</h1>
-                    <p>We manage an efficient voting system that allows event organizers to set-up their contests or award contests for FREE and achieve the goal of their event. Our product gives a wide range of local and global users the opportunity to participate and cast their votes effortlessly from any part of the world.</p>
+                    <p>Do you have a Voting, Reality TV Shows or Award contest
+coming up?? We can help you manage your voting system
+and set up your award contest for FREE from any part of the
+world using a world class, digitalized voting system that is
+easy to navigate.</p>
+                    <div class="divGetStarted">
+                        <router-link to="/signup" class="btn-getStarted">Get Started!</router-link>
+                    </div>
                 </div>
                 <div class="col-md-5 text-center">
                     <div class="img-area">
@@ -41,9 +48,10 @@
                         <li class="nav-item" role="presentation">
                             <button class="nav-link tabs-button" id="pills-award-tab" data-bs-toggle="pill" data-bs-target="#pills-award" type="button" role="tab" aria-controls="pills-award" aria-selected="false"><i class="fas fa-trophy"></i> Awards</button>
                         </li>
-                        <!-- <li class="nav-item" role="presentation">
+                        <li class="nav-item" role="presentation">
                             <button class="nav-link tabs-button" id="pills-reality-tab" data-bs-toggle="pill" data-bs-target="#pills-reality" type="button" role="tab" aria-controls="pills-reality" aria-selected="false"><i class="fas fa-tv"></i> Reality TV</button>
                         </li>
+                        <!-- 
                         <li class="nav-item" role="presentation">
                             <button class="nav-link tabs-button" id="pills-photo-tab" data-bs-toggle="pill" data-bs-target="#pills-photo" type="button" role="tab" aria-controls="pills-photo" aria-selected="false"><i class="fas fa-images"></i> Photo Contest</button>
                         </li> -->
@@ -77,6 +85,10 @@
 </div>
  </div>
 </div>
+</div>
+
+<div class="col-lg-12 text-center">
+    <button class="btnLoadMore" type="button">Load More</button>
 </div>
                                    
                                     
@@ -113,12 +125,16 @@
  </div>
 </div>
 </div>
+
+<div class="col-lg-12 text-center">
+    <button class="btnLoadMore" type="button">Load More</button>
+</div>
                                    
                                 </div>
                             </div>
                         </div>
                         <!--Reality TV-->
-                       <!--  <div class="tab-pane fade" id="pills-reality" role="tabpanel" aria-labelledby="pills-reality-tab">
+                       <div class="tab-pane fade" id="pills-reality" role="tabpanel" aria-labelledby="pills-reality-tab">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-4 py-2">
@@ -157,9 +173,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-12 text-center">
+                                        <button class="btnLoadMore" type="button">Load More</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                         <!--Photo Contest-->
                         <!-- <div class="tab-pane fade" id="pills-photo" role="tabpanel" aria-labelledby="pills-photo-tab">
                             <div class="container">
@@ -185,21 +204,17 @@
         </div>
     </section>
     <!--Service Content Vote Ends-->
-
-    <elfrique-newsletter/>
     <elfrique-footer/>
 </template>
 
 <script>
     import Header from './elfrique-header.vue'
-    import Newsletter from './elfrique-newsletter.vue'
     import Footer from './elfrique-footer.vue'
     import VoteService from '../service/vote.service'
     export default {
       name: "Elfrique",
       components:{
       'elfrique-header':Header,
-      'elfrique-newsletter':Newsletter,
       'elfrique-footer':Footer,
       },
       data() {

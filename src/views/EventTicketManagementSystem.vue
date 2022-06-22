@@ -56,9 +56,6 @@
                 <i class="bi bi-ticket-detailed-fill"></i> : {{ con.title }}
               </p>
               <p class="card-text card-text-after">
-                <i class="bi bi-credit-card-fill"></i> : {{ con.type }}
-              </p>
-              <p class="card-text card-text-after">
                 <i class="bi bi-geo-alt-fill"></i> : {{ con.venue }}
               </p>
               <p class="card-text card-text-after">

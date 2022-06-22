@@ -9,7 +9,13 @@
         <div class="col-lg-7">
           <span class="tag-text">Your Management System Just Got Serious</span>
           <h1>We Create Indelible Experiences</h1>
-          <p>Elfrique is a creative and innovative complete management company. We use through our website and short codes to help customers achieve their goals.</p>
+          <p>Elfrique is a creative and
+innovative management
+company. “We constantly
+strive to help our
+customers achieve their
+goals by using our website
+resources and shortcodes.”</p>
           <div class="btn-div">
             <router-link to="/signup" class="routers"><a class="btn-first">Get An Account! <i class="bi bi-box-arrow-in-right"></i></a></router-link>
             <a href="#services" class="btn-second">Explore Our Services <i class="bi bi-chevron-expand"></i></a>
@@ -33,6 +39,7 @@
                       <option value="event">Event Tickets</option>
                       <option value="event vendors">Event Vendors</option>
                       <option value="form">Event Forms</option>
+                      <option value="form">Travels & Tours</option>
                   </select>
                 </div>
                 <!--Keyword-->

@@ -94,7 +94,7 @@
                 <label>Transaction reference</label>
                 <input
                   v-model="reference"
-                  placeholder="Enter your phone number"
+                  style="text-transform: uppercase"
                   disabled
                 />
               </div>

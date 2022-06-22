@@ -1,6 +1,20 @@
 <template>
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top" id="header-scroll">
+        <section class="headerContact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <span>
+                            <i class="bi bi-envelope-open-fill"></i> <a href="mailto:info@elfrique.com">info@elfrique.com</a>
+                        </span>
+                        <span>
+                            <i class="bi bi-phone-fill"></i> <a href="tel:234 907 113 0455">+2349071130455</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <nav class="navbar navbar-expand-lg" id="header-scroll">
             <div class="container">
                 <a class="navbar-brand">
                 <router-link to="/" class="routers"><img src="@/assets/images/logo.png" alt="Elfrique logo"></router-link>
@@ -67,14 +81,14 @@
                             <a href="https://elfrique-proj.netlify.app/login" class="btn-login">Login</a>
                             <a href="https://elfrique-proj.netlify.app/signup" class="btn-signup">Sign Up <i class="bi bi-arrow-right"></i></a>
                         </div>
-                        <div class="icon-hambuger">
+                        <!-- <div class="icon-hambuger">
                             <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fas fa-bars"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </nav>
-        <div class="offcanvas offcanvas-end offcanvas-contact-hambuger" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <!-- <div class="offcanvas offcanvas-end offcanvas-contact-hambuger" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header">
             <button data-bs-dismiss="offcanvas" aria-label="Close">
             <i class="bi bi-x-square"></i>
@@ -98,7 +112,7 @@
             <a href="https://www.instagram.com/elfrique/" target="_blank" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
-        </div>
+        </div> -->
     </header>
 </template>
 
@@ -111,7 +125,7 @@ export default {
     //On Scroll Navabr
     $(window).scroll(function () {
       var sc = $(window).scrollTop()
-      if (sc > 300) {
+      if (sc > 1) {
           $("#header-scroll").addClass("navbar-onscroll")
       } else {
           $("#header-scroll").removeClass("navbar-onscroll")

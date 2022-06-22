@@ -9,6 +9,7 @@
               <p><span><i class="bi bi-telephone-fill"></i></span> <a href="tel:+2349071130455">+234 907 113 0455</a></p>
               <p><span><i class="bi bi-whatsapp"></i></span> <a href="tel:+2349013209138">+234 901 320 9138</a></p>
               <p><span><i class="bi bi-envelope-fill"></i></span> <a href="mailto:info@elfrique.com">info@elfrique.com</a></p>
+              <p><span><i class="bi bi-geo-alt-fill"></i></span> <a>77, Ojuelegba road, Old Yaba Rd, Lagos State, Nigeria.</a></p>
               <div class="social">
                 <h5>Connect With Us:</h5>
                 <a href="https://web.facebook.com/elfrique/?_rdc=1&_rdr" target="_blank" title="Like us on Facebook"><i class="fab fa-facebook"></i></a>
