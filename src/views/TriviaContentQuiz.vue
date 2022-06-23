@@ -69,7 +69,7 @@
               </div>
               </div>
             </div>
-            {{answer}}
+            
             <div>
               <button v-if="questionIndex > 0" @click="prev">
                   Previous
