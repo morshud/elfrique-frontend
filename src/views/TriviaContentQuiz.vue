@@ -82,29 +82,31 @@
     <div class="container">
       <div class="row">
         <div  class="col-lg-12 mt-3 quiz-box">
-          <form @submit.prevent="submitQuiz">
+          <span style="color: red;text-align:center">{{errMessage}}</span>
+          <form>
             <div  class="question mb-4">
               <div v-for="(question, index) in questions" :key="question.id">
               <div v-show="index === questionIndex">
                 <h1>{{ question.question }}</h1>
                 <div v-for="opt in question.questionOptions" :key="opt.id">
-                  <input @change="selectOption(opt)" type="radio" v-bind:name="index" :value="opt"/>
+                  <input v-model="check" @change="selectOption(opt)" type="radio" v-bind:name="index" :value="opt"/>
                   <span>{{ opt.option }}</span>
                 </div>
               </div>
               </div>
             </div>
-            
+          </form>
             <div>
               <button v-if="questionIndex > 0" @click="prev">
                   Previous
                 </button>
-                <button @click="next">
+                
+                <button style="margin-left: 20px" v-if="questionIndex < (questions.length - 1)" @click="next">
                   Next
                 </button>
-              <button style="margin-left: 30px" type="submit">Submit Quiz</button>
+              <button v-if="questionIndex == (questions.length - 1)" style="margin-left: 30px" @click="submitQuiz" type="submit">Submit Quiz</button>
             </div>
-          </form>
+          
         </div>
       </div>
     </div>
@@ -133,6 +135,8 @@ export default {
         "trivia_answer": []
       },
       questionIndex: 0,
+      check: '',
+      errMessage: ''
     };
   },
   computed: {
@@ -179,17 +183,26 @@ export default {
     },
     submitQuiz(){
       this.loading = true
-      TriviaService.answerTrivia( this.trivia.id, this.answer).then(res => {
-        this.loading = false
-        console.log(res)
-      })
+      if (this.check == "") {
+        this.errMessage = "Please answer the questions before submitting quiz"
+        setTimeout(() => {
+          this.errMessage = ""
+        }, 4000);
+      } else {
+        TriviaService.answerTrivia( this.trivia.id, this.answer).then(res => {
+          this.loading = false
+          let data = res.data.data
+          this.$router.push({ name: 'TriviaResult', params:{ data: JSON.stringify(data) } })
+        })
+      }
+      
     }
   },
   mounted() {
     window.scrollTo(0, 0);
 
     // Set the date we're counting down to
-        var countDownDate = new Date("Jun 30, 2023  24:59:00").getTime();
+        /* var countDownDate = new Date("Jun 30, 2023  24:59:00").getTime();
 
         // Update the count down every 1 second
         var x = setInterval(function() {
@@ -224,7 +237,7 @@ export default {
             document.getElementById("minutes").innerHTML = "0";
             document.getElementById("seconds").innerHTML = "0";
         }
-        }, 1000);
+        }, 1000); */
   },
 };
 </script>
