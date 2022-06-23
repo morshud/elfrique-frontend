@@ -51,6 +51,31 @@
             </div>
           </div>
         </div>
+        <div class="col-md-2 justify-content-center text-center">
+          <div class="counter-div">
+              <div class="icon">
+                  <i class="bi bi-alarm-fill"></i>
+              </div>
+              <div class="boxes days">
+                  <span class="title">Days</span> <br>
+                  <span id="days"></span>
+              </div>
+              <div class="boxes hours">
+                  <span class="title">Hours</span> <br>
+                  <span id="hours"></span>
+              </div>
+              <div class="boxes minutes">
+                  <span class="title">Min</span> <br>
+                  <span id="minutes"></span>
+              </div>
+              <div class="boxes seconds">
+                  <span class="title">Sec</span> <br>
+                  <span id="seconds"></span>
+              </div>
+              <div class="clear"></div>
+              <p id="timeUpText"></p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -162,6 +187,44 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0);
+
+    // Set the date we're counting down to
+        var countDownDate = new Date("Jun 30, 2023  24:59:00").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+        // Get todays date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        document.getElementById("timeUpText").style.display = "none";
+        
+
+        // If the count down is finished, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("timeUpText").innerHTML = "Time Up!";
+            document.getElementById("timeUpText").style.display = "block";
+            document.getElementById("days").innerHTML = "0";
+            document.getElementById("hours").innerHTML = "0";
+            document.getElementById("minutes").innerHTML = "0";
+            document.getElementById("seconds").innerHTML = "0";
+        }
+        }, 1000);
   },
 };
 </script>
