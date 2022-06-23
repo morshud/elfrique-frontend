@@ -68,22 +68,22 @@
           </div>
           <div class="col-lg-12 mb-3">
             <button :disabled="loading" v-on:click="payWithPaystack">
-              Pay with Paystack
+              Paystack – Pay Now – Nigeria Only
             </button>
           </div>
           <div class="col-lg-12 mb-3">
             <button :disabled="loading" @click="showPaymentModal">
-              Pay with Flutterwave
+              Flutterwave – Pay Now – Local & International
             </button>
           </div>
           <div class="col-lg-12 mb-3">
             <button :disabled="loading" @click="showPaymentInterswitch">
-              Pay with Interswitch
+              PInterswitch – Pay Now – Nigeria, Local & International
             </button>
           </div>
           <div class="col-lg-12 mb-3">
             <button :disabled="loading" @click="callAtgPay">
-              Vote with Airtime
+              AimToGet – Pay Now – Airtime – Nigeria Only 
             </button>
           </div>
         </div>

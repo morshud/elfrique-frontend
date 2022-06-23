@@ -1928,7 +1928,7 @@ header .logo img {
 }
 .sellerModal form .textarea{
   width:100%;
-  height: auto;
+  height: 60px;
   display: block;
   padding: 8px 10px;
   border: 1px solid #c5c5c5;

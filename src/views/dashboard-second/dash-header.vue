@@ -461,7 +461,7 @@
                 <p>Fill up your info below to continue</p>
               </div>
               <div class="col-lg-6 mb-2">
-                <label>Account Name</label>
+                <label>Bank Account Name</label>
                 <input
                   v-model="profile.accountname"
                   type="text"
@@ -470,7 +470,7 @@
                 />
               </div>
               <div class="col-lg-6 mb-2">
-                <label>Account Number</label>
+                <label>BankAccount Number</label>
                 <input
                   v-model="profile.accountnumber"
                   type="number"

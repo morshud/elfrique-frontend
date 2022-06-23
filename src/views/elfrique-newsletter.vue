@@ -8,6 +8,8 @@
           <div class="col-md-7">
             <div class="newsletter-div">
               <div class="header">
+                <!-- Show this alert below when a user subscribe for newsletter -->
+                <!-- <h6 class="alertSubscribe">Thanks For Subscribing To Our Newsletter!</h6> -->
                 <span class="tag-text">Newsletter</span>
                 <h1>Subscribe To Our Newsletter</h1>
                 <p>Be the first to get our latest news and updates.</p>
