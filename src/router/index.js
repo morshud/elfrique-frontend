@@ -356,7 +356,7 @@ const routes = [
   },
   {
     path: "/trivia-result",
-    name: "TriTriviaResult",
+    name: "TriviaResult",
     component: TriTriviaResult,
   },
   //Event Ticket
