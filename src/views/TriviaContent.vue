@@ -86,6 +86,20 @@
                 <i class="fas fa-tv"></i> Organisers
               </button>
             </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link tabs-button"
+                id="pills-det-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-det"
+                type="button"
+                role="tab"
+                aria-controls="pills-det"
+                aria-selected="false"
+              >
+                <i class="fas fa-info"></i> Event Details
+              </button>
+            </li>
           </ul>
           <div class="tab-content" id="pills-tabContent">
             <!--Trivia-->
@@ -98,12 +112,9 @@
               <div class="event-details">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h1>Event Details</h1>
-                    <h6>{{ trivia.details }}</h6>
-                    <h1 class="mt-5">Instructions</h1>
+                    <h1 style="margin-top: -20px;">Instructions</h1>
                     <h6>{{ trivia.instruction }}</h6>
                   </div>
-                  
                   <form @submit.prevent="submitPlayer">
                     <div class="row">
                         
@@ -178,7 +189,7 @@
               <div class="container organiser-area">
                 <div class="row justify-content-center px-2">
                   <div class="col-lg-12">
-                    <h1>Oragniser Details</h1>
+                    <h1 style="margin-top: -20px;">Oragniser Details</h1>
                     <h4>Name</h4>
                     <p>
                       {{ trivia.adminuser.profile.firstname }}
@@ -190,6 +201,22 @@
                     <p>{{ trivia.adminuser.profile.phonenumber }}</p>
                     <h4>About</h4>
                     <h6>{{ trivia.adminuser.profile.about }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--Event Details-->
+            <div
+              class="tab-pane fade"
+              id="pills-det"
+              role="tabpanel"
+              aria-labelledby="pills-det-tab"
+            >
+              <div class="container organiser-area">
+                <div class="row justify-content-center px-2">
+                  <div class="col-lg-12">
+                    <h1 style="margin-top: -20px;">Event Details</h1>
+                    <h6>{{ trivia.details }}</h6>
                   </div>
                 </div>
               </div>

@@ -37,12 +37,14 @@ import VotNomineeProfilePay from "../views/NomineeProfilePay.vue";
 import ServiceEventFormManagementSystem from "../views/EventFormManagementSystem.vue";
 import EvtForEventFormContent from "../views/EventFormContent.vue";
 import EvtForEventFormFill from "../views/EventFormFill.vue";
+import EvtForEventFormPay from "../views/EventFormPay.vue";
 //Trivia System
 import ServiceTriviaManagementSystem from "../views/TriviaManagementSystem.vue";
 import SearchEventVendor from "../views/SearchEventVendor.vue";
 import TriTriviaContent from "../views/TriviaContent.vue";
 import TriTriviaContentInstruction from "../views/TriviaContentInstruction.vue";
 import TriTriviaContentQuiz from "../views/TriviaContentQuiz.vue";
+import TriTriviaResult from "../views/TriviaResult.vue";
 //Event Ticket
 import ServiceEventTicketManagementSystem from "../views/EventTicketManagementSystem.vue";
 import TicTicketContent from "../views/TicketContent.vue";
@@ -326,6 +328,11 @@ const routes = [
     name: "EvtForEventFormFill",
     component: EvtForEventFormFill,
   },
+  {
+    path: "/event-form-pay",
+    name: "EvtForEventFormPay",
+    component: EvtForEventFormPay,
+  },
   //Trivia System
   {
     path: "/trivia-management",
@@ -346,6 +353,11 @@ const routes = [
     path: "/trivia-content-quiz/:id",
     name: "TriTriviaContentQuiz",
     component: TriTriviaContentQuiz,
+  },
+  {
+    path: "/trivia-result",
+    name: "TriTriviaResult",
+    component: TriTriviaResult,
   },
   //Event Ticket
   {

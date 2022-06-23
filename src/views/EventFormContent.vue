@@ -61,26 +61,27 @@
         </div>
         <div class="col-md-2 justify-content-center text-center">
           <div class="counter-div">
-            <div class="icon">
-              <i class="bi bi-alarm-fill"></i>
-            </div>
-            <div class="boxes days">
-              <span class="title">Days</span> <br />
-              <span>20</span>
-            </div>
-            <div class="boxes hours">
-              <span class="title">Hours</span> <br />
-              <span>2</span>
-            </div>
-            <div class="boxes minutes">
-              <span class="title">Min</span> <br />
-              <span>50</span>
-            </div>
-            <div class="boxes seconds">
-              <span class="title">Sec</span> <br />
-              <span>45</span>
-            </div>
-            <div class="clear"></div>
+              <div class="icon">
+                  <i class="bi bi-alarm-fill"></i>
+              </div>
+              <div class="boxes days">
+                  <span class="title">Days</span> <br>
+                  <span id="days"></span>
+              </div>
+              <div class="boxes hours">
+                  <span class="title">Hours</span> <br>
+                  <span id="hours"></span>
+              </div>
+              <div class="boxes minutes">
+                  <span class="title">Min</span> <br>
+                  <span id="minutes"></span>
+              </div>
+              <div class="boxes seconds">
+                  <span class="title">Sec</span> <br>
+                  <span id="seconds"></span>
+              </div>
+              <div class="clear"></div>
+              <p id="timeUpText"></p>
           </div>
         </div>
       </div>
@@ -118,6 +119,20 @@
                 <i class="fas fa-tv"></i> Organisers
               </button>
             </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link tabs-button"
+                id="pills-det-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-det"
+                type="button"
+                role="tab"
+                aria-controls="pills-det"
+                aria-selected="false"
+              >
+                <i class="fas fa-info"></i> Event Details
+              </button>
+            </li>
           </ul>
           <div class="tab-content" id="pills-tabContent">
             <!--Forms-->
@@ -130,71 +145,33 @@
               <div class="event-details">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h1>Event Details</h1>
-                    <h6
-                      style="
-                        margin-bottom: 45px;
-                        max-width: 524px;
-                        font-weight: 400;
-                        font-size: 16px;
-                      "
-                    >
-                      {{ eventContent.description }}
-                    </h6>
-                    <!-- <form>
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <h1>Register</h1>
-                                                    <p class="amount"><i class="bi bi-credit-card-fill"></i> : {{eventContent.type}}</p>
-                                                    <h6>Enter the following details to continue</h6>
-                                                </div>
-                                                <div class="col-lg-6 mb-3">
-                                                    <label>Email address</label>
-                                                    <input class="input" type="email" placeholder="Enter email address">
-                                                </div>
-                                                <div class="col-lg-6 mb-3">
-                                                    <label>Phone number</label>
-                                                    <input class="input" type="tel" placeholder="Enter phone number">
-                                                </div>
-                                                <div class="col-lg-6 mb-3">
-                                                    <label>First name</label>
-                                                    <input class="input" type="text" placeholder="Enter first name">
-                                                </div>
-                                                <div class="col-lg-6 mb-3">
-                                                    <label>Last name</label>
-                                                    <input class="input" type="text" placeholder="Enter last name">
-                                                </div>
-                                                <div class="col-lg-6 mb-3">
-                                                    <label>date of Birth</label>
-                                                    <input class="input" type="date">
-                                                </div>
-                                                <div class="col-lg-6 mb-3">
-                                                    <label>Gender</label>
-                                                    <select class="input">
-                                                        <option value="choose" hidden>Choose Gender</option>
-                                                        <option value="male">Male</option>
-                                                        <option value="female">Female</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-lg-6 mb-3">
-                                                    <label>Upload Your Photo</label>
-                                                    <input class="input" type="file" accept=".jpg, .jpeg, .png, .jfif">
-                                                </div>
-                                                <div class="col-lg-6 mb-3">
-                                                    <label>State of Origin</label>
-                                                    <input class="input" type="text" placeholder="Enter state">
-                                                </div>
-                                                <div class="col-lg-12 mb-3">
-                                                    <label>Residential Address</label>
-                                                    <textarea class="input" cols="30" rows="4" placeholder="Enter residential address"></textarea>
-                                                </div>
-                                                <div class="col-lg-12 text-center">
-                                                    <button type="submit">Proceed</button>
-                                                </div>
-                                            </div>
-                                        </form> -->
+                    <form>
+                      <div class="row">
+                          <div class="col-lg-12">
+                              <h1 style="margin-top: -60px;">Register</h1>
+                              <p class="amount"><i class="bi bi-credit-card-fill"></i> : {{eventContent.type}}</p>
+                              <h6>Enter the following details to continue</h6>
+                          </div>
+                          <div class="col-lg-6 mb-3">
+                              <label>First name</label>
+                              <input class="input" type="text" placeholder="Enter first name">
+                          </div>
+                          <div class="col-lg-6 mb-3">
+                              <label>Last name</label>
+                              <input class="input" type="text" placeholder="Enter last name">
+                          </div>
+                          <div class="col-lg-12 mb-3">
+                              <label>Email address</label>
+                              <input class="input" type="email" placeholder="Enter email address">
+                          </div>
+                          <div class="col-lg-12 text-center">
+                              <button type="submit">Proceed</button>
+                              <!--Note This proceed button will direct them to EventFormPay.vue page for the summary-->
+                          </div>
+                      </div>
+                  </form>
 
-                    <button
+                    <!-- <button
                       @click="showModal"
                       class="btn-view"
                       style="
@@ -209,12 +186,12 @@
                       "
                     >
                       Apply Now
-                    </button>
+                    </button> -->
                   </div>
                 </div>
               </div>
             </div>
-            <div
+            <!-- <div
               class="modal fade"
               ref="exampleModal"
               data-backdrop="static"
@@ -334,7 +311,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!--Organiser-->
             <div
               class="tab-pane fade"
@@ -345,7 +322,7 @@
               <div class="container organiser-area">
                 <div class="row justify-content-center px-2">
                   <div class="col-lg-12">
-                    <h1>Oragniser Details</h1>
+                    <h1 style="margin-top: -30px;">Oragniser Details</h1>
                     <h4>Name</h4>
                     <p>
                       {{ eventContent.adminuser.profile.firstname }}
@@ -357,6 +334,30 @@
                     <p>{{ eventContent.adminuser.phonenumber }}</p>
                     <h4>About</h4>
                     <h6>{{ eventContent.adminuser.about }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--Event Details-->
+            <div
+              class="tab-pane fade"
+              id="pills-det"
+              role="tabpanel"
+              aria-labelledby="pills-det-tab"
+            >
+              <div class="container organiser-area">
+                <div class="row justify-content-center px-2">
+                  <div class="col-lg-12">
+                    <h1 style="margin-top: -30px;">Event Details</h1>
+                    <h6
+                      style="
+                        max-width: 524px;
+                        font-weight: 400;
+                        font-size: 16px;
+                      "
+                    >
+                      {{ eventContent.description }}
+                    </h6>
                   </div>
                 </div>
               </div>
@@ -594,6 +595,44 @@ export default {
     if (!document.querySelector(`[src="${inlineSdk}"]`)) {
       document.body.appendChild(script);
     }
+
+    // Set the date we're counting down to
+        var countDownDate = new Date("Jun 30, 2023  24:59:00").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+        // Get todays date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        document.getElementById("timeUpText").style.display = "none";
+        
+
+        // If the count down is finished, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("timeUpText").innerHTML = "Time Up!";
+            document.getElementById("timeUpText").style.display = "block";
+            document.getElementById("days").innerHTML = "0";
+            document.getElementById("hours").innerHTML = "0";
+            document.getElementById("minutes").innerHTML = "0";
+            document.getElementById("seconds").innerHTML = "0";
+        }
+        }, 1000);
   },
 };
 </script>
