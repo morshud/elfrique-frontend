@@ -64,8 +64,8 @@
                             </li>
                         </ul>
                         <div class="login-div">
-                            <a href="https://elfrique-proj.netlify.app/login" class="btn-login">Login</a>
-                            <a href="https://elfrique-proj.netlify.app/signup" class="btn-signup">Sign Up <i class="bi bi-arrow-right"></i></a>
+                            <router-link to="/login" class="btn-login">Login</router-link>
+                            <router-link to="/signup" class="btn-signup">Sign Up <i class="bi bi-arrow-right"></i></router-link>
                         </div>
                         <div class="icon-hambuger">
                             <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fas fa-bars"></i></a>

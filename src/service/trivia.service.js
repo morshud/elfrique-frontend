@@ -4,7 +4,7 @@ import authHeader2 from "./auth-header";
 
 const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
 
-class VoteService {
+class TriviaService {
   createTrivia(TriviaForm) {
     return axios.post(API_URL + "createTrivia", TriviaForm, {
       headers: authHeader(),
@@ -39,6 +39,11 @@ class VoteService {
       city: playerForm.city,
     });
   }
+
+  answerTrivia(id, data) {
+    return axios.post(API_URL + "trivia-answer/" + id, data);
+  }
+
 }
 
-export default new VoteService();
+export default new TriviaService();
