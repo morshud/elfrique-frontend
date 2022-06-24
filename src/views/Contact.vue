@@ -59,31 +59,38 @@
                     <div class="line-rule"></div>
                 </div>
                 <div class="col-lg-10">
-                    <form>
+                    <span style="color:green; margin-bottom: 10; font-size: 16px; text-align:center">{{alertMessage}}</span>
+                    <form @submit.prevent="submitContact">
                         <div class="row">
                             <!--Name-->
                             <div class="col-md-6 py-3">
-                                <input class="input" type="text" placeholder="Your name" required>
+                                <input v-model="name" class="input" type="text" placeholder="Your name" required>
                             </div>
                             <!--Email-->
                             <div class="col-md-6 py-3">
-                                <input class="input" type="email" placeholder="Email address" required>
+                                <input v-model="email" class="input" type="email" placeholder="Email address" required>
                             </div>
                             <!--Phone-->
                             <div class="col-md-6 py-3">
-                                <input class="input" type="tel" placeholder="Phone number" required>
+                                <input v-model="phone" class="input" type="tel" placeholder="Phone number" required>
                             </div>
                             <!--Subject-->
                             <div class="col-md-6 py-3">
-                                <input class="input" type="text" placeholder="Subject" required>
+                                <input v-model="subject" class="input" type="text" placeholder="Subject" required>
                             </div>
                             <!--Message-->
                             <div class="col-md-12 py-3">
-                                <textarea class="input" cols="30" rows="5" placeholder="Type message here..." required></textarea>
+                                <textarea v-model="message" class="input" cols="30" rows="5" placeholder="Type message here..." required></textarea>
                             </div>
                             <!--Submit-->
                             <div class="col-md-12 py-3 text-center">
-                                <input class="submit" type="submit" value="Send Message">
+                                <button class="submit" :disabled="loading" type="submit">
+                                    Send Message
+                                    <span
+                                        v-show="loading"
+                                        class="spinner-border spinner-border-sm"
+                                    ></span>
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -118,11 +125,50 @@
 <script>
     import Header from './elfrique-header.vue'
     import Footer from './elfrique-footer.vue'
+    import TriviaService from '../service/trivia.service'
     export default {
       name: "Elfrique",
       components:{
       'elfrique-header':Header,
       'elfrique-footer':Footer,
+      },
+      data() {
+          return {
+              name: '',
+              email: '',
+              phone: '',
+              subject: '',
+              message: '',
+              loading: false,
+              alertMessage: "",
+          }
+      },
+      methods: {
+          submitContact(){
+              this.loading = true
+              TriviaService.contactUs({
+                    "fullname": this.name,
+                    "email": this.email,
+                    "message": this.message
+              }).then(res => {
+                  this.alertMessage = "Your message has been sucessfully sent, we will get back to you shortly after we receive your email..."
+                  this.loading = false
+                  setTimeout(() => {
+                      this.alertMessage = ""
+                  }, 5000);
+                  this.clearForm()
+              }).catch(err => {
+                  this.loading = false
+                  console.log(err)
+              })
+          },
+          clearForm(){
+              this.name = ''
+              this.email = ''
+              this.phone = ''
+              this.subject = ''
+              this.message = ''
+          }
       },
       mounted(){
         window.scrollTo(0,0)

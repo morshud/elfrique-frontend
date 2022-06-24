@@ -145,7 +145,7 @@
               <div class="event-details">
                 <div class="row">
                   <div class="col-lg-12">
-                    <form>
+                    <form @submit.prevent="proceedPay">
                       <div class="row">
                           <div class="col-lg-12">
                               <h1 style="margin-top: -60px;">Register</h1>
@@ -154,15 +154,15 @@
                           </div>
                           <div class="col-lg-6 mb-3">
                               <label>First name</label>
-                              <input class="input" type="text" placeholder="Enter first name">
+                              <input v-model="firstname" class="input" type="text" placeholder="Enter first name">
                           </div>
                           <div class="col-lg-6 mb-3">
                               <label>Last name</label>
-                              <input class="input" type="text" placeholder="Enter last name">
+                              <input v-model="lastname" class="input" type="text" placeholder="Enter last name">
                           </div>
                           <div class="col-lg-12 mb-3">
                               <label>Email address</label>
-                              <input class="input" type="email" placeholder="Enter email address">
+                              <input v-model="email" class="input" type="email" placeholder="Enter email address">
                           </div>
                           <div class="col-lg-12 text-center">
                               <button type="submit">Proceed</button>
@@ -438,7 +438,7 @@ export default {
       this.eventContent = response.data.form;
 
       this.admin_id = response.data.form.adminuserId;
-      console.log(response.data.form);
+      //console.log(response.data.form);
     });
     const script = document.createElement("script");
     script.src =
@@ -451,6 +451,9 @@ export default {
       if (value) {
         return moment(String(value)).format("MM/DD/YYYY hh:mm");
       }
+    },
+    proceedPay(){
+      this.$router.push({name: "EvtForEventFormPay", params: {data: JSON.stringify(this.transactForm)}})
     },
     showModal(){
       this.modal = new Modal(this.$refs.exampleModal);
