@@ -78,15 +78,20 @@ export default {
     "elfrique-header": Header,
     "elfrique-footer": Footer,
   },
+  computed: {
+    transData() {
+      return JSON.parse(this.$route.params.data);
+    },
+  },
   data() {
     return {
-      data: JSON.parse(this.$route.params.data),
-      reference: JSON.parse(this.$route.params.data.reference),
-      admin_id: JSON.parse(this.$route.params.data.admin_id),
-      email: JSON.parse(this.$route.params.data.email),
-      name: JSON.parse(this.$route.params.data.payer_name),
-      amount: JSON.parse(this.$route.params.data.amount),
-      product_title: JSON.parse(this.$route.params.data.product_title)
+      data: '',
+      reference: '',
+      admin_id: '',
+      email: '',
+      name: '',
+      amount: '',
+      product_title: ''
     }
   },
   created() {
@@ -94,8 +99,20 @@ export default {
     script.src =
       "https://qa.interswitchng.com/collections/public/javascripts/inline-checkout.js";
     document.getElementsByTagName("head")[0].appendChild(script);
+    this.getData()
   },
   methods: {
+    getData(){
+      let data = this.transData
+      this.reference = data.reference
+      this.admin_id = data.admin_id
+      this.email = data.email
+      this.name = data.payer_name
+      this.amount = data.amount
+      this.data = data
+      this.product_title = data.product_title
+      console.log(data);
+    },
     payStack(id) {
       //  options
       const paymentOptions = {
