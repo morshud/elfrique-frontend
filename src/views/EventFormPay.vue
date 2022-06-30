@@ -15,7 +15,7 @@
             <h4>Form Name</h4>
             <p>{{product_title}}</p>
             <h4>Event Details</h4>
-            <h6></h6>
+            <h6>{{description}}</h6>
           </div>
         </div>
         <div class="col-lg-1"></div>
@@ -38,26 +38,26 @@
               </div>
               <h5>Choose Payment Gateway</h5>
           </div>
-          <div class="col-lg-12 mb-3">
+          <div class="col-lg-12 mb-3" v-if="method == 'paystack'">
             <button>
-              Paystack – Pay Now – Nigeria Only
+              Pay Now – Local
             </button>
           </div>
-          <div class="col-lg-12 mb-3">
+          <div class="col-lg-12 mb-3" v-if="method == 'flutterwave'">
             <button>
-              Flutterwave – Pay Now – Local & International
+              Pay Now – Local & International
             </button>
           </div>
-          <div class="col-lg-12 mb-3">
+          <div class="col-lg-12 mb-3" v-if="method == 'interswitch'">
             <button>
-              PInterswitch – Pay Now – Nigeria, Local & International
+              Pay Now – Local & International
             </button>
           </div>
-          <div class="col-lg-12 mb-3">
+          <!-- <div class="col-lg-12 mb-3">
             <button>
               AimToGet – Pay Now – Airtime – Nigeria Only 
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -71,22 +71,30 @@ import Footer from "./elfrique-footer.vue";
 import EventService from "../service/form.service";
 import TransactionService from "../service/transaction.service";
 import Notification from "../service/notitfication-service";
-
 export default {
   name: "Elfrique",
   components: {
     "elfrique-header": Header,
     "elfrique-footer": Footer,
   },
+  computed: {
+    transData() {
+      return JSON.parse(this.$route.params.data);
+    },
+  },
   data() {
     return {
-      data: JSON.parse(this.$route.params.data),
-      reference: JSON.parse(this.$route.params.data.reference),
-      admin_id: JSON.parse(this.$route.params.data.admin_id),
-      email: JSON.parse(this.$route.params.data.email),
-      name: JSON.parse(this.$route.params.data.payer_name),
-      amount: JSON.parse(this.$route.params.data.amount),
-      product_title: JSON.parse(this.$route.params.data.product_title)
+      data: '',
+      reference: '',
+      description: this.$route.params.description,
+      admin_id: '',
+      email: '',
+      name: '',
+      amount: '',
+      method: '',
+      product_title: '',
+      
+
     }
   },
   created() {
@@ -94,8 +102,21 @@ export default {
     script.src =
       "https://qa.interswitchng.com/collections/public/javascripts/inline-checkout.js";
     document.getElementsByTagName("head")[0].appendChild(script);
+    this.getData()
   },
   methods: {
+    getData(){
+      let data = this.transData
+      this.reference = data.reference
+      this.admin_id = data.admin_id
+      this.email = data.email
+      this.name = data.payer_name
+      this.amount = data.amount
+      this.data = data
+      this.method = data.method
+      this.product_title = data.product_title
+      console.log(data);
+    },
     payStack(id) {
       //  options
       const paymentOptions = {
@@ -127,7 +148,6 @@ export default {
           );
           /* this.$router.push("/fill-form/" + id); */
         },
-
         /*  onCancel: () => {
                 this.onCancel();
                 }, */
@@ -176,7 +196,6 @@ export default {
         },
         onclose: () => this.onclose(),
       };
-
       window.FlutterwaveCheckout(paymentParams);
       this.modal.hide();
     },
@@ -211,7 +230,6 @@ export default {
         mode: "TEST",
       };
       console.log(samplePaymentRequest);
-
       window.webpayCheckout(samplePaymentRequest);
       //this.modal.hide();
     },

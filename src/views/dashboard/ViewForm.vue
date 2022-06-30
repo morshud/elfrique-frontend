@@ -21,17 +21,17 @@
           <div class="card">
             <div class="card-body card-table">
                 <div class="buttons-table">
-                    <button type="button">Copy</button>
+                    <!-- <button type="button">Copy</button>
                     <button type="button">CSV</button>
                     <button type="button">Excel</button>
                     <button type="button">PDF</button>
-                    <button type="button">Print</button>
+                    <button type="button">Print</button> -->
                 </div>
-                <div class="search-table">
+                <!-- <div class="search-table">
                     <form>
                         <input type="text" placeholder="Search...">
                     </form>
-                </div>
+                </div> -->
                 <!--Table-->
                 <table class="table datatable card-table-table">
                     <thead>
@@ -39,12 +39,12 @@
                         <th scope="col">Form ID</th>
                         <th scope="col">Title</th>
                         <th scope="col">Image</th>
-                        <th scope="col">Date Added</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Starting Date</th>
                         <th scope="col">Closing Date</th>
-                        <th scope="col">Status</th>
+                        <!-- <th scope="col">Status</th>
                         <th scope="col">Options</th>
-                        <th scope="col">Form Link</th>
+                        <th scope="col">Form Link</th> -->
                     </tr>
                     </thead>
                      <tbody v-for="con in content" :key="con.id">
@@ -53,16 +53,16 @@
                         <td>{{con.id}}</td>
                         <td>{{con.title}}</td>
                         <td><img :src="con.image" alt="event-pics" contain height="100" width="150" ></td>
-                        <td>{{format_date(con.createdAt)}}</td>
+                        <td style="text-transform:capitalize">{{con.type}}</td>
                         <td>{{format_date(con.startdate)}}</td>
-                        <td>{{format_date(con.enddate)}}</td>
+                        <td>{{format_date(con.closedate)}}</td>
+                        <!-- <td></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
+                        <td></td> -->
                     </tr>
                     </tbody>
                 </table>
-                <nav>
+                <!-- <nav>
                     <ul class="pagination pagination-md">
                         <li class="page-item disabled">
                             <a class="page-link"><span aria-hidden="true">&laquo;</span></a>
@@ -74,7 +74,7 @@
                             <a class="page-link"><span aria-hidden="true">&raquo;</span></a>
                         </li>
                     </ul>
-                </nav>
+                </nav> -->
             </div>  
           </div>
         </div>

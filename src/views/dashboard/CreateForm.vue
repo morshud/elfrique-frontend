@@ -51,6 +51,15 @@
                                     <label for="form title">Fee</label>
                                     <input v-model="Content.fee" class="input" type="number" placeholder="Enter Price">
                                 </div>
+                                <div class="col-lg-12 mt-4"  v-if="paid">
+                                    <label for="payment gateway">Select Payment Gateway</label>
+                                    <select  v-model="Content.paymentgateway" name="gateway" id="gateway" required>
+                                        <option>Select</option>
+                                        <option value="paystack">Paystack</option>
+                                        <option value="flutterwave">Flutterwave</option>
+                                        <option value="interswitch">Interswitch</option>
+                                    </select>
+                                </div>
                                 <!--Start Date-->
                                 <div class="col-lg-6 mt-4">
                                     <label for="start date">Start Date</label>
@@ -539,7 +548,8 @@
                     closedate:'',
                     timezone:'Africa/Lagos',
                     type:'',
-                    fee:'',    
+                    fee:'',
+                    paymentgateway: ''    
                 },
                 file: '',
                 error: '',
@@ -595,6 +605,7 @@
             formData.append('type', this.Content.type);
             formData.append('fee', this.Content.fee);
             formData.append('description', this.Content.description);
+            formData.append('paymentgateway', this.Content.paymentgateway);
             
             console.log(this.Content.description);
             EventService.createForm(formData).then(response => {

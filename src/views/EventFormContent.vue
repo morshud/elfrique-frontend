@@ -32,7 +32,7 @@
               <h5>End</h5>
               <p>
                 <i class="bi bi-calendar3"></i> :
-                {{ format_date(eventContent.startdate) }}
+                {{ format_date(eventContent.closedate) }}
               </p>
               <p><i class="bi bi-alarm"></i> : 23:99</p>
             </div>
@@ -66,22 +66,22 @@
               </div>
               <div class="boxes days">
                   <span class="title">Days</span> <br>
-                  <span id="days"></span>
+                  <span>{{countdown.days}}</span>
               </div>
               <div class="boxes hours">
                   <span class="title">Hours</span> <br>
-                  <span id="hours"></span>
+                  <span>{{countdown.hours}}</span>
               </div>
               <div class="boxes minutes">
                   <span class="title">Min</span> <br>
-                  <span id="minutes"></span>
+                  <span>{{countdown.minutes}}</span>
               </div>
               <div class="boxes seconds">
                   <span class="title">Sec</span> <br>
-                  <span id="seconds"></span>
+                  <span>{{countdown.seconds}}</span>
               </div>
               <div class="clear"></div>
-              <p id="timeUpText"></p>
+              <p v-if="ended == false" class="timeUpText" style="color: red">Time is up</p>
           </div>
         </div>
       </div>
@@ -144,12 +144,12 @@
             >
               <div class="event-details">
                 <div class="row">
-                  <div class="col-lg-12">
-                    <form @submit.prevent="proceedPay">
+                  <div class="col-lg-12" v-if="ended == true">
+                    <form>
                       <div class="row">
                           <div class="col-lg-12">
                               <h1 style="margin-top: -60px;">Register</h1>
-                              <p class="amount"><i class="bi bi-credit-card-fill"></i> : {{eventContent.type}}</p>
+                              <p class="amount" style="text-transform: capitalize;"><i class="bi bi-credit-card-fill"></i> : {{eventContent.type}}</p>
                               <h6>Enter the following details to continue</h6>
                           </div>
                           <div class="col-lg-6 mb-3">
@@ -165,8 +165,9 @@
                               <input v-model="email" class="input" type="email" placeholder="Enter email address">
                           </div>
                           <div class="col-lg-12 text-center">
-                              <button type="submit">Proceed</button>
+                              <button v-if="eventContent.type == 'paid'"  @click="proceedPay">Proceed</button>
                               <!--Note This proceed button will direct them to EventFormPay.vue page for the summary-->
+                              <button v-else @click="continueForm">Proceed</button>
                           </div>
                       </div>
                   </form>
@@ -187,6 +188,9 @@
                     >
                       Apply Now
                     </button> -->
+                  </div>
+                  <div class="col-lg-12" v-else>
+                    <h6 style="color:red">Event has expired, goto event form to apply another one</h6>
                   </div>
                 </div>
               </div>
@@ -388,6 +392,7 @@ export default {
   },
   data() {
     return {
+      ended: true,
       eventContent: {
         adminuser: {
           profile: {},
@@ -401,10 +406,19 @@ export default {
       admin_id: "",
       firstname: "",
       lastname: "",
+      description: "",
       method: "",
       reference: this.genRef(),
       publicKey: "pk_test_be803d46f5a6348c3643967d0e6b7b2303d42b4f",
       flw_public_key: "FLWPUBK_TEST-0f353662b04aee976128e62946a59682-X",
+      endDate: '',
+      countdown: {
+        months: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      }
     };
   },
   computed: {
@@ -438,6 +452,10 @@ export default {
       this.eventContent = response.data.form;
 
       this.admin_id = response.data.form.adminuserId;
+      this.method = response.data.form.paymentgateway;
+      this.description = response.data.form.description;
+      this.endDate = response.data.form.closedate;
+      this.getCountdown();
       //console.log(response.data.form);
     });
     const script = document.createElement("script");
@@ -447,13 +465,66 @@ export default {
   },
 
   methods: {
+    getCountdown(){
+      var endCount = moment(this.endDate).format(
+        "YYYY-MM-DDT11:00:00Z"
+      );
+
+      // make it a moment object End
+      var event = moment(endCount);
+
+      // get current time/date
+      var current = moment().format();
+      /* console.log(current);
+      console.log(endCount); */
+       if (current >= endCount) {
+        this.ended = false
+        this.countdown.days = 0;
+        this.countdown.hours = 0;
+        this.countdown.minutes = 0;
+        this.countdown.seconds = 0;
+      }else{
+        this.ended = true
+        // get difference between event and current
+        var diffTime = event.diff(current);
+
+        // let moment.js make the duration out of the timestamp
+        var duration = moment.duration(diffTime, "milliseconds", true);
+
+        // Interval
+        var interval = 1000;
+        setInterval(() => {
+            duration = moment.duration(duration - interval, "milliseconds");
+            this.countdown.days = parseInt(duration.asDays());
+            this.countdown.hours = duration.hours();
+            this.countdown.minutes = duration.minutes();
+            this.countdown.seconds = duration.seconds();
+        }, interval);
+      }
+    },
     format_date(value) {
       if (value) {
         return moment(String(value)).format("MM/DD/YYYY hh:mm");
       }
     },
+    continueForm(){
+      let data = {
+        "name": this.firstname + " " + this.lastname,
+        "email": this.email
+      }
+      Notification.addNotification({
+        receiverId: this.admin_id,
+        type: "Event Form",
+        message: `Someone just Successfully Applied for Event Form`,
+      });
+      this.$router.push("/fill-form/" + id, {
+        params: {data: {data}}
+      });
+    },
     proceedPay(){
-      this.$router.push({name: "EvtForEventFormPay", params: {data: JSON.stringify(this.transactForm)}})
+      this.$router.push({name: "EvtForEventFormPay", params: {
+        data: JSON.stringify(this.transactForm),
+         description: this.description}})
     },
     showModal(){
       this.modal = new Modal(this.$refs.exampleModal);
@@ -598,44 +669,6 @@ export default {
     if (!document.querySelector(`[src="${inlineSdk}"]`)) {
       document.body.appendChild(script);
     }
-
-    // Set the date we're counting down to
-        var countDownDate = new Date("Jun 30, 2023  24:59:00").getTime();
-
-        // Update the count down every 1 second
-        var x = setInterval(function() {
-
-        // Get todays date and time
-        var now = new Date().getTime();
-
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
-
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        document.getElementById("days").innerHTML = days;
-        document.getElementById("hours").innerHTML = hours;
-        document.getElementById("minutes").innerHTML = minutes;
-        document.getElementById("seconds").innerHTML = seconds;
-
-        document.getElementById("timeUpText").style.display = "none";
-        
-
-        // If the count down is finished, write some text 
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("timeUpText").innerHTML = "Time Up!";
-            document.getElementById("timeUpText").style.display = "block";
-            document.getElementById("days").innerHTML = "0";
-            document.getElementById("hours").innerHTML = "0";
-            document.getElementById("minutes").innerHTML = "0";
-            document.getElementById("seconds").innerHTML = "0";
-        }
-        }, 1000);
   },
 };
 </script>

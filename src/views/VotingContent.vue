@@ -1,107 +1,218 @@
 <template>
-    <title>Vote Management System | Elfrique – Complete Event Management System</title>
-    <elfrique-header/>
+  <title>
+    Vote Management System | Elfrique – Complete Event Management System
+  </title>
+  <elfrique-header />
 
-    <section class="voting-content">
-        <div class="container header-cont">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="img-area">
-                        <img :src="contest.image" ondragstart="return false;">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-title-area">
-                        <h1>{{contest.title}}</h1>
-                        <small>Organised by : <span>{{contest.adminuser.firstname}} {{contest.adminuser.lastname}}</span></small>
-                        <div class="details-header">
-                            <h5>Start</h5>
-                            <p><i class="bi bi-calendar3"></i> : {{ format_date(contest.startdate) }}</p>
-                            
-                            <p><i class="bi bi-alarm"></i> : 00:01</p>
-                            <h5>End</h5>
-                            <p><i class="bi bi-calendar3"></i> : {{ format_date(contest.closedate)}}</p>
-                            <p><i class="bi bi-alarm"></i> : 23:99</p>
-                        </div>
-                        <div class="details-social">
-                            <h5>Share on:</h5>
-                            <a href="#" title="Share on facebook"><img src="@/assets/images/share-facebook.png"></a>
-                            <a href="#" title="Share on whatsapp"><img src="@/assets/images/share-whatsapp.png"></a>
-                            <a href="#" title="Share on telegram"><img src="@/assets/images/share-telegram.png"></a>
-                            <a href="#" title="Share on instagram"><img src="@/assets/images/share-instagram.png"></a>
-                            <a href="#" title="Share on twitter"><img src="@/assets/images/share-twitter.png"></a>
-                            <a href="#" title="Share through email"><img src="@/assets/images/share-email.png"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 justify-content-center text-center">
-                    <div class="counter-div">
-                        <div class="icon">
-                            <i class="bi bi-alarm-fill"></i>
-                        </div>
-                        <div class="boxes days">
-                            <span class="title">Days</span> <br>
-                            <span id="days"></span>
-                        </div>
-                        <div class="boxes hours">
-                            <span class="title">Hours</span> <br>
-                            <span id="hours"></span>
-                        </div>
-                        <div class="boxes minutes">
-                            <span class="title">Min</span> <br>
-                            <span id="minutes"></span>
-                        </div>
-                        <div class="boxes seconds">
-                            <span class="title">Sec</span> <br>
-                            <span id="seconds"></span>
-                        </div>
-                        <div class="clear"></div>
-                        <p id="timeUpText"></p>
-                    </div>
-                </div>
-            </div>
+  <section class="voting-content">
+    <div class="container header-cont">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="img-area">
+            <img :src="contest.image" ondragstart="return false;" />
+          </div>
         </div>
+        <div class="col-md-6">
+          <div class="text-title-area">
+            <h1>{{ contest.title }}</h1>
+            <small
+              >Organised by :
+              <span
+                >{{ contest.adminuser.firstname }}
+                {{ contest.adminuser.lastname }}</span
+              ></small
+            >
+            <div class="details-header">
+              <h5>Start</h5>
+              <p>
+                <i class="bi bi-calendar3"></i> :
+                {{ format_date(contest.startdate) }}
+              </p>
 
-        <div class="container service-content-vote mt-4">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="nav nav-pills nav-fill mb-4 mt-2 justify-content-center" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active tabs-button" id="pills-cont-tab" data-bs-toggle="pill" data-bs-target="#pills-cont" type="button" role="tab" aria-controls="pills-cont" aria-selected="true"><i class="bi bi-people-fill"></i> Contestants</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link tabs-button" id="pills-graph-tab" data-bs-toggle="pill" data-bs-target="#pills-graph" type="button" role="tab" aria-controls="pills-graph" aria-selected="false"><i class="bi bi-graph-up-arrow"></i> Result Graph</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link tabs-button" id="pills-organ-tab" data-bs-toggle="pill" data-bs-target="#pills-organ" type="button" role="tab" aria-controls="pills-organ" aria-selected="false"><i class="fas fa-tv"></i> Organisers</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link tabs-button" id="pills-trans-tab" data-bs-toggle="pill" data-bs-target="#pills-trans" type="button" role="tab" aria-controls="pills-trans" aria-selected="false"><i class="fas fa-images"></i> Verify Transaction</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="pills-tabContent">
-                        <!--Contestants-->
-                        <div class="tab-pane fade show active" id="pills-cont" role="tabpanel" aria-labelledby="pills-cont-tab">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-10 mb-5 mt-4 header-search-form">
-                                        <form>
-                                            <input class="input" type="text" placeholder="Search for contestants" required>
-                                            <input class="submit-btn" type="submit" value="Search &#128269;">
-                                        </form>
-                                    </div>
-                                    <div class="col-md-3 py-2" v-for="con in contest.contestants" :key="con.id">
-                                        <div class="card">
-                                            <img :src="con.image" ondragstart="return false;" class="card-img-top">
-                                            <div class="card-body">
-                                                <p class="card-text main-text"><i class="bi bi-person-video"></i> : {{con.fullname}}</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-circle-square"></i> : {{con.contestantnumber}} (contestant number)</p>
-                                                <p class="card-text card-text-after"><i class="bi bi-activity"></i>: {{con.voteCount}} (votes)</p>
-                                                <router-link :to="'/contestant-profile/' + con.id" class="routers"><a class="btn-view-contest">Vote</a></router-link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="col-md-3 py-2">
+              <p><i class="bi bi-alarm"></i> : 00:01</p>
+              <h5>End</h5>
+              <p>
+                <i class="bi bi-calendar3"></i> :
+                {{ format_date(contest.closedate) }}
+              </p>
+              <p><i class="bi bi-alarm"></i> : 23:99</p>
+            </div>
+            <div class="details-social">
+              <h5>Share on:</h5>
+              <a href="#" title="Share on facebook"
+                ><img src="@/assets/images/share-facebook.png"
+              /></a>
+              <a href="#" title="Share on whatsapp"
+                ><img src="@/assets/images/share-whatsapp.png"
+              /></a>
+              <a href="#" title="Share on telegram"
+                ><img src="@/assets/images/share-telegram.png"
+              /></a>
+              <a href="#" title="Share on instagram"
+                ><img src="@/assets/images/share-instagram.png"
+              /></a>
+              <a href="#" title="Share on twitter"
+                ><img src="@/assets/images/share-twitter.png"
+              /></a>
+              <a href="#" title="Share through email"
+                ><img src="@/assets/images/share-email.png"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 justify-content-center text-center">
+          <div class="counter-div">
+            <div class="icon">
+              <i class="bi bi-alarm-fill"></i>
+            </div>
+            <div class="boxes days">
+              <span class="title">Days</span> <br />
+              <span>{{ countdown.days }}</span>
+            </div>
+            <div class="boxes hours">
+              <span class="title">Hours</span> <br />
+              <span>{{ countdown.hours }}</span>
+            </div>
+            <div class="boxes minutes">
+              <span class="title">Min</span> <br />
+              <span>{{ countdown.minutes }}</span>
+            </div>
+            <div class="boxes seconds">
+              <span class="title">Sec</span> <br />
+              <span>{{ countdown.seconds }}</span>
+            </div>
+            <div class="clear"></div>
+            <p v-if="ended == false" class="timeUpText" style="color: red">
+              Time is up
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container service-content-vote mt-4">
+      <div class="row">
+        <div class="col-lg-12">
+          <ul
+            class="nav nav-pills nav-fill mb-4 mt-2 justify-content-center"
+            id="pills-tab"
+            role="tablist"
+          >
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active tabs-button"
+                id="pills-cont-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-cont"
+                type="button"
+                role="tab"
+                aria-controls="pills-cont"
+                aria-selected="true"
+              >
+                <i class="bi bi-people-fill"></i> Contestants
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link tabs-button"
+                id="pills-graph-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-graph"
+                type="button"
+                role="tab"
+                aria-controls="pills-graph"
+                aria-selected="false"
+              >
+                <i class="bi bi-graph-up-arrow"></i> Result Graph
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link tabs-button"
+                id="pills-organ-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-organ"
+                type="button"
+                role="tab"
+                aria-controls="pills-organ"
+                aria-selected="false"
+              >
+                <i class="fas fa-tv"></i> Organisers
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link tabs-button"
+                id="pills-trans-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-trans"
+                type="button"
+                role="tab"
+                aria-controls="pills-trans"
+                aria-selected="false"
+              >
+                <i class="fas fa-images"></i> Verify Transaction
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <!--Contestants-->
+            <div
+              class="tab-pane fade show active"
+              id="pills-cont"
+              role="tabpanel"
+              aria-labelledby="pills-cont-tab"
+            >
+              <div class="container" v-if="ended == false">
+                <div class="row">
+                  <div class="col-md-10 mb-5 mt-4 header-search-form">
+                    <form>
+                      <input
+                        class="input"
+                        type="text"
+                        placeholder="Search for contestants"
+                        required
+                      />
+                      <input
+                        class="submit-btn"
+                        type="submit"
+                        value="Search &#128269;"
+                      />
+                    </form>
+                  </div>
+                  <div
+                    class="col-md-3 py-2"
+                    v-for="con in contest.contestants"
+                    :key="con.id"
+                  >
+                    <div class="card">
+                      <img
+                        :src="con.image"
+                        ondragstart="return false;"
+                        class="card-img-top"
+                      />
+                      <div class="card-body">
+                        <p class="card-text main-text">
+                          <i class="bi bi-person-video"></i> :
+                          {{ con.fullname }}
+                        </p>
+                        <p class="card-text card-text-after">
+                          <i class="bi bi-circle-square"></i> :
+                          {{ con.contestantnumber }} (contestant number)
+                        </p>
+                        <p class="card-text card-text-after">
+                          <i class="bi bi-activity"></i>:
+                          {{ con.voteCount }} (votes)
+                        </p>
+                        <router-link
+                          :to="'/contestant-profile/' + con.id"
+                          class="routers"
+                          ><a class="btn-view-contest">Vote</a></router-link
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-3 py-2">
                                         <div class="card">
                                             <img src="@/assets/images/voting-contimg.jpg" class="card-img-top">
                                             <div class="card-body">
@@ -112,138 +223,171 @@
                                             </div>
                                         </div>
                                     </div> -->
-                                </div>
-                            </div>
-                        </div>
-                        <!--Result Graph-->
-                        <div class="tab-pane fade" id="pills-graph" role="tabpanel" aria-labelledby="pills-graph-tab">
-                            Result Graph
-                        </div>
-                        <!--Organiser-->
-                        <div class="tab-pane fade" id="pills-organ" role="tabpanel" aria-labelledby="pills-organ-tab">
-                            <div class="container organiser-area">
-                                <div class="row justify-content-center px-2">
-                                    <div class="col-lg-10">
-                                        <h1>Oragniser Details</h1>
-                                        <h4>Name</h4>
-                                        <p>{{contest.adminuser.profile.firstname}} {{contest.adminuser.profile.lastname}}</p>
-                                        <h4>Email</h4>
-                                        <p>{{contest.adminuser.profile.email}}</p>
-                                        <h4>Phone Number</h4>
-                                        <p>{{contest.adminuser.profile.phonenumber}}</p>
-                                        <h4>About</h4>
-                                        <h6>{{contest.adminuser.profile.about}}</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Verify Transaction-->
-                        <div class="tab-pane fade" id="pills-trans" role="tabpanel" aria-labelledby="pills-trans-tab">
-                            <div class="container organiser-area">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-10">
-                                        <h1>Verify Transaction</h1>
-                                        <h5>Enter your reference number below to verify your transaction status</h5>
-                                        <form>
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <label>Reference Number</label>
-                                                    <input type="text" placeholder="Enter Reference Number">
-                                                    <button type="submit" class="mt-2">Verify</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+              </div>
+              <div class="container">
+                <h6 style="color:red">oOps! This contest has ended, goto contest page to view another one</h6>
+              </div>
             </div>
+            <!--Result Graph-->
+            <div
+              class="tab-pane fade"
+              id="pills-graph"
+              role="tabpanel"
+              aria-labelledby="pills-graph-tab"
+            >
+              Result Graph
+            </div>
+            <!--Organiser-->
+            <div
+              class="tab-pane fade"
+              id="pills-organ"
+              role="tabpanel"
+              aria-labelledby="pills-organ-tab"
+            >
+              <div class="container organiser-area">
+                <div class="row justify-content-center px-2">
+                  <div class="col-lg-10">
+                    <h1>Oragniser Details</h1>
+                    <h4>Name</h4>
+                    <p>
+                      {{ contest.adminuser.profile.firstname }}
+                      {{ contest.adminuser.profile.lastname }}
+                    </p>
+                    <h4>Email</h4>
+                    <p>{{ contest.adminuser.profile.email }}</p>
+                    <h4>Phone Number</h4>
+                    <p>{{ contest.adminuser.profile.phonenumber }}</p>
+                    <h4>About</h4>
+                    <h6>{{ contest.adminuser.profile.about }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--Verify Transaction-->
+            <div
+              class="tab-pane fade"
+              id="pills-trans"
+              role="tabpanel"
+              aria-labelledby="pills-trans-tab"
+            >
+              <div class="container organiser-area">
+                <div class="row justify-content-center">
+                  <div class="col-lg-10">
+                    <h1>Verify Transaction</h1>
+                    <h5>
+                      Enter your reference number below to verify your
+                      transaction status
+                    </h5>
+                    <form>
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <label>Reference Number</label>
+                          <input
+                            type="text"
+                            placeholder="Enter Reference Number"
+                          />
+                          <button type="submit" class="mt-2">Verify</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <elfrique-footer/>
+  <elfrique-footer />
 </template>
 
 <script>
-    import Header from './elfrique-header.vue'
-    import Footer from './elfrique-footer.vue'
-    import moment from 'moment'
-    import VoteService from '../service/vote.service'
-    export default {
-      name: "Elfrique",
-      components:{
-      'elfrique-header':Header,
-      'elfrique-footer':Footer,
+import Header from "./elfrique-header.vue";
+import Footer from "./elfrique-footer.vue";
+import moment from "moment";
+import VoteService from "../service/vote.service";
+export default {
+  name: "Elfrique",
+  components: {
+    "elfrique-header": Header,
+    "elfrique-footer": Footer,
+  },
+  data() {
+    return {
+      contest: "",
+      ended:false,
+      endDate: "",
+      countdown: {
+        months: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
       },
-     data() {
-        return {
-            contest: ''
+    };
+  },
 
-            
-        }
-     },
+  created() {
+    VoteService.getSingleContest(this.$route.params.id).then((response) => {
+      this.contest = response.data.voteContest;
+      this.endDate = response.data.voteContest.closedate;
+        this.getCountdown();   
+    });
 
-        created() {
-            VoteService.getSingleContest(this.$route.params.id).then(response => {
-                this.contest = response.data.voteContest;
-                console.log(this.contest);
-            })
+  },
+  methods: {
+    getCountdown(){
+        var endCount = moment(this.endDate).format(
+        "YYYY-MM-DDT11:00:00Z"
+      );
 
-        },
-     methods: { 
-            format_date(value){
-                if (value) {
-                     return moment(String(value)).format('MM/DD/YYYY hh:mm')
-          }
-        },
-            getContestant(con){
-                this.$store.dispatch('vote/getContestant', con)
-            },
+      // make it a moment object End
+      var event = moment(endCount);
 
-        },
-      mounted(){
-        window.scrollTo(0,0)
-        console.log(this.contest)
+      // get current time/date
+      var current = moment().format();
+      /* console.log(current);
+      console.log(endCount); */
+      if (current >= endCount) {
+        this.ended = true
+        this.countdown.days = 0;
+        this.countdown.hours = 0;
+        this.countdown.minutes = 0;
+        this.countdown.seconds = 0;
+      }else{
+        this.ended = false
+        // get difference between event and current
+        var diffTime = event.diff(current);
 
-        // Set the date we're counting down to
-        var countDownDate = new Date("Jun 30, 2023  24:59:00").getTime();
+        // let moment.js make the duration out of the timestamp
+        var duration = moment.duration(diffTime, "milliseconds", true);
 
-        // Update the count down every 1 second
-        var x = setInterval(function() {
-
-        // Get todays date and time
-        var now = new Date().getTime();
-
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
-
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        document.getElementById("days").innerHTML = days;
-        document.getElementById("hours").innerHTML = hours;
-        document.getElementById("minutes").innerHTML = minutes;
-        document.getElementById("seconds").innerHTML = seconds;
-
-        document.getElementById("timeUpText").style.display = "none";
-        
-
-        // If the count down is finished, write some text 
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("timeUpText").innerHTML = "Time Up!";
-            document.getElementById("timeUpText").style.display = "block";
-            document.getElementById("days").innerHTML = "0";
-            document.getElementById("hours").innerHTML = "0";
-            document.getElementById("minutes").innerHTML = "0";
-            document.getElementById("seconds").innerHTML = "0";
-        }
-        }, 1000);
+        // Interval
+        var interval = 1000;
+        setInterval(() => {
+            duration = moment.duration(duration - interval, "milliseconds");
+            this.countdown.days = parseInt(duration.asDays());
+            this.countdown.hours = duration.hours();
+            this.countdown.minutes = duration.minutes();
+            this.countdown.seconds = duration.seconds();
+        }, interval);
       }
-    }
+      
+    },
+    format_date(value) {
+      if (value) {
+        return moment(String(value)).format("MM/DD/YYYY hh:mm");
+      }
+    },
+    getContestant(con) {
+      this.$store.dispatch("vote/getContestant", con);
+    },
+  },
+  mounted() {
+    window.scrollTo(0, 0);
+  },
+};
 </script>

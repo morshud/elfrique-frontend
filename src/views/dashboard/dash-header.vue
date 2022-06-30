@@ -237,13 +237,13 @@
               ></router-link
             >
           </li>
-          <li>
+         <!--  <li>
             <router-link to="/organiser/view-vote-analytics" class="routers"
               ><a
                 ><i class="bi bi-circle"></i><span>Sales Analytics</span></a
               ></router-link
             >
-          </li>
+          </li> -->
           <li>
             <router-link to="/organiser/result-setting" class="routers"
               ><a
@@ -296,7 +296,7 @@
               ><i class="bi bi-circle"></i><span>View Event</span></router-link
             >
           </li>
-          <li>
+          <!-- <li>
             <router-link to="/organiser/personal-ticket" class="routers"
               ><i class="bi bi-circle"></i><span>Personal Ticket</span></router-link
             >
@@ -314,7 +314,7 @@
                 ><i class="bi bi-circle"></i><span>Search For Tickets</span></a
               ></router-link
             >
-          </li>
+          </li> -->
         </ul>
       </li>
       <!--Forms-->
@@ -351,7 +351,7 @@
               ></router-link
             >
           </li>
-          <li>
+          <!-- <li>
             <router-link to="/organiser/personal-form" class="routers"
               ><a
                 ><i class="bi bi-circle"></i><span>Personal Forms</span></a
@@ -371,7 +371,7 @@
                 ><i class="bi bi-circle"></i><span>Search For Forms</span></a
               ></router-link
             >
-          </li>
+          </li> -->
         </ul>
       </li>
       <!--Trivia-->
@@ -424,7 +424,7 @@
               ></router-link
             >
           </li>
-          <li>
+          <!-- <li>
             <router-link to="/organiser/trivia-sales-analytics" class="routers"
               ><a
                 ><i class="bi bi-circle"></i><span>Sales Analytics</span></a
@@ -437,7 +437,7 @@
                 ><i class="bi bi-circle"></i><span>Search For Trivia</span></a
               ></router-link
             >
-          </li>
+          </li> -->
         </ul>
       </li>
       <!--Vendor-->

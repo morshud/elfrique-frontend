@@ -62,7 +62,7 @@
                 <i class="bi bi-calendar3"></i> : Start({{
                   format_date(con.startdate)
                 }})<br />
-                End({{ format_date(con.startdate) }})
+                End({{ format_date(con.closedate) }})
               </p>
               <router-link :to="'/event-form-content/' + con.id" class="routers"
                 ><a class="btn-view">Apply</a></router-link
