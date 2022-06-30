@@ -20,7 +20,7 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body card-table">
-                <div class="buttons-table">
+                <!-- <div class="buttons-table">
                     <button type="button">Copy</button>
                     <button type="button">CSV</button>
                     <button type="button">Excel</button>
@@ -31,7 +31,7 @@
                     <form>
                         <input type="text" placeholder="Search...">
                     </form>
-                </div>
+                </div> -->
                 <!--Table-->
                 <table class="table datatable card-table-table">
                     <thead>
