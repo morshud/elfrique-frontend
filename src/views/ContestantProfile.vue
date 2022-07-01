@@ -204,7 +204,7 @@ export default {
     return {
       contest: "",
       contestant: "",
-      method: "",
+      method: '',
       email: "",
       loading: false,
       reference: this.genRef(),
@@ -232,6 +232,7 @@ export default {
       return {
         email: this.email,
         amount: this.amount,
+        method: this.method,
         firstname: this.firstname,
         lastname: this.lastname,
         fullname: this.firstname + " " + this.lastname,
@@ -261,16 +262,15 @@ export default {
   created() {
     VoteService.getAContestant(this.$route.params.id).then((response) => {
       this.contestant = response.data.contestants;
+      
       VoteService.getSingleContest(
         response.data.contestants.votingContest.id
       ).then((response) => {
         this.adminId = response.data.voteContest.adminuserId;
         this.contest = response.data.voteContest;
-
+        this.method = response.data.voteContest.paymentgateway
       });
     });
-
-    
 
     const script = document.createElement("script");
     script.src =

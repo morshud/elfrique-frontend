@@ -82,7 +82,7 @@
               <span>{{ countdown.seconds }}</span>
             </div>
             <div class="clear"></div>
-            <p v-if="ended == false" class="timeUpText" style="color: red">
+            <p v-if="ended == true" class="timeUpText" style="color: red">
               Time is up
             </p>
           </div>
@@ -204,11 +204,7 @@
                           <i class="bi bi-activity"></i>:
                           {{ con.voteCount }} (votes)
                         </p>
-                        <router-link
-                          :to="'/contestant-profile/' + con.id"
-                          class="routers"
-                          ><a class="btn-view-contest">Vote</a></router-link
-                        >
+                      <a class="btn-view-contest" @click="goto(con.id, con.paymentgateway)">Vote</a>
                       </div>
                     </div>
                   </div>
@@ -225,7 +221,7 @@
                                     </div> -->
                 </div>
               </div>
-              <div class="container">
+              <div class="container" v-if="ended == true">
                 <h6 style="color:red">oOps! This contest has ended, goto contest page to view another one</h6>
               </div>
             </div>
@@ -236,7 +232,21 @@
               role="tabpanel"
               aria-labelledby="pills-graph-tab"
             >
-              Result Graph
+              <div class="float-right">
+                <div class="form-group">
+                  <label for="chart">Select Graph</label>
+                   <select class="form-control" v-model="chartType">
+                    <option>Select Chart</option>
+                    <option value="polar">Polar Area Chart</option>
+                    <option value="bar">Bar Chart</option>
+                    <option value="pie">Pie Chart</option>
+                  </select>
+                </div>
+               
+              </div>
+             <PieChart v-if="chartType == 'pie'" />
+             <BarChart  v-if="chartType == 'bar'" />
+             <PolarChart  v-if="chartType == 'polar'" />
             </div>
             <!--Organiser-->
             <div
@@ -300,13 +310,15 @@
       </div>
     </div>
   </section>
-
   <elfrique-footer />
 </template>
 
 <script>
 import Header from "./elfrique-header.vue";
 import Footer from "./elfrique-footer.vue";
+import BarChart from '../Chart/BarChart.vue'
+import PieChart from '../Chart/PieChart.vue'
+import PolarChart from '../Chart/PolarChart.vue'
 import moment from "moment";
 import VoteService from "../service/vote.service";
 export default {
@@ -314,6 +326,9 @@ export default {
   components: {
     "elfrique-header": Header,
     "elfrique-footer": Footer,
+    BarChart,
+    PieChart,
+    PolarChart,
   },
   data() {
     return {
@@ -327,6 +342,8 @@ export default {
         minutes: 0,
         seconds: 0,
       },
+      chartType: '',
+      label: 0,
     };
   },
 
@@ -334,11 +351,18 @@ export default {
     VoteService.getSingleContest(this.$route.params.id).then((response) => {
       this.contest = response.data.voteContest;
       this.endDate = response.data.voteContest.closedate;
+      let contestant = response.data.voteContest.contestants.map(a => a.fullname);
+      this.label = contestant
         this.getCountdown();   
     });
 
   },
   methods: {
+    goto(id, item){
+      this.$router.push('/contestant-profile/' + id, {query: {
+        payment: item
+      }})
+    },
     getCountdown(){
         var endCount = moment(this.endDate).format(
         "YYYY-MM-DDT11:00:00Z"
@@ -391,3 +415,16 @@ export default {
   },
 };
 </script>
+
+<style>
+  .form-control{
+    height: 50px;
+  }
+  .form-control:focus {
+      color: #212529;
+      background-color: #fff;
+      border-color: #68f874 !important;
+      outline: 0;
+      box-shadow: none !important;
+    }
+</style>

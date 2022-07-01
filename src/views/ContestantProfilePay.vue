@@ -66,24 +66,24 @@
               </div>
               <h5>Choose Payment Gateway</h5>
           </div>
-          <div class="col-lg-12 mb-3">
-            <button :disabled="loading" v-on:click="payWithPaystack">
-              Paystack – Pay Now – Nigeria Only
+          <div class="col-lg-12 mb-3" v-if="method == 'paystack'">
+            <button @click="payWithPaystack">
+              Pay Now – Local
             </button>
           </div>
-          <div class="col-lg-12 mb-3">
-            <button :disabled="loading" @click="showPaymentModal">
-              Flutterwave – Pay Now – Local & International
+          <div class="col-lg-12 mb-3" v-if="method == 'flutterwave'">
+            <button @click="payWithFlutter">
+              Pay Now – Local & International
             </button>
           </div>
-          <div class="col-lg-12 mb-3">
-            <button :disabled="loading" @click="showPaymentInterswitch">
-              PInterswitch – Pay Now – Nigeria, Local & International
+          <div class="col-lg-12 mb-3" v-if="method == 'interswitch'">
+            <button @click="payWithInterswitch">
+              Pay Now – Local & International
             </button>
           </div>
-          <div class="col-lg-12 mb-3">
+          <div class="col-lg-12 mb-3" v-if="method == 'aimstoget'">
             <button :disabled="loading" @click="callAtgPay">
-              AimToGet – Pay Now – Airtime – Nigeria Only 
+              Pay Now – Airtime – Nigeria Only 
             </button>
           </div>
         </div>
@@ -186,6 +186,10 @@ export default {
         return this.$store.state.vote.paymentForm;
     },
 
+    method(){
+      return this.payContent.method
+    },
+
     amount() {
       return Number(this.payContent.numberOfVotes) * Number(this.contest.fee);
     },
@@ -194,7 +198,7 @@ export default {
       return {
         reference: this.payContent.reference,
         numberOfVote: this.payContent.numberOfVotes,
-        method: this.method,
+        method: this.payContent.method,
         type: "paid",
         amount: this.payContent.amount,
         fullname: this.payContent.firstname + " " + this.payContent.lastname,
@@ -253,7 +257,7 @@ export default {
     },
 
     successPaymentPaystack() {
-      this.loading = true;
+      this.loading = false;
       this.method = "Paystack";
       console.log(this.voteForm);
       window.scrollTo(0, 0);
@@ -308,7 +312,7 @@ export default {
       const paystack = new window.PaystackPop();
       paystack.newTransaction(paymentOptions);
     },
-    showPaymentInterswitch() {
+    payWithInterswitch() {
       let samplePaymentRequest = {
         merchant_code: "MX60729",
         pay_item_id: "Default_Payable_MX60729",
@@ -328,12 +332,12 @@ export default {
             type: "voting",
             message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
           })
-          /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
+          TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
             this.loading = false;
             this.message = response.data.message;
             this.resetForm();
             this.$router.push('/contestant-profile/' + this.contestant.id)
-          }) */
+          })
         },
         mode: "TEST",
       };
@@ -342,11 +346,11 @@ export default {
       //window.webpayCheckout(samplePaymentRequest);
     },
 
-    showPaymentModal() {
+    payWithFlutter() {
       let paymentParams = {
         public_key: this.flw_public_key,
         tx_ref: this.payContent.reference,
-        amount: this.nairaToKobo(this.payContent.amount),
+        amount: this.payContent.amount,
         currency: "NGN",
         customer: {
           email: this.payContent.email,
@@ -361,14 +365,14 @@ export default {
             type: "voting",
             message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
           })
-          /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(
+          TransactionService.submitVote(this.contestant.id, this.voteForm).then(
             (response) => {
               this.loading = false;
               this.message = response.data.message;
               this.resetForm();
               this.$router.push("/contestant-profile/" + this.contestant.id);
             }
-          ); */
+          );
         },
         onclose: () => this.onclose(),
       };
@@ -409,12 +413,12 @@ export default {
             type: "voting",
             message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
           })
-          /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
+          TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
                 this.loading = false;
                 this.message = response.data.message;
                 this.resetForm();
                 this.$router.push('/contestant-profile/' + this.contestant.id)
-            }) */
+            })
           //get reference and verify payment before awarding value
         },
       });
