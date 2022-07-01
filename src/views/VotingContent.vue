@@ -204,7 +204,11 @@
                           <i class="bi bi-activity"></i>:
                           {{ con.voteCount }} (votes)
                         </p>
-                      <a class="btn-view-contest" @click="goto(con.id, con.paymentgateway)">Vote</a>
+                        <router-link
+                          :to="'/contestant-profile/' + con.id"
+                          class="routers"
+                          ><a class="btn-view-contest">Vote</a></router-link
+                        >
                       </div>
                     </div>
                   </div>
@@ -351,18 +355,11 @@ export default {
     VoteService.getSingleContest(this.$route.params.id).then((response) => {
       this.contest = response.data.voteContest;
       this.endDate = response.data.voteContest.closedate;
-      let contestant = response.data.voteContest.contestants.map(a => a.fullname);
-      this.label = contestant
         this.getCountdown();   
     });
 
   },
   methods: {
-    goto(id, item){
-      this.$router.push('/contestant-profile/' + id, {query: {
-        payment: item
-      }})
-    },
     getCountdown(){
         var endCount = moment(this.endDate).format(
         "YYYY-MM-DDT11:00:00Z"

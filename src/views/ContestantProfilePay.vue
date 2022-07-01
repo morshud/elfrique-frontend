@@ -147,6 +147,7 @@ import Footer from "./elfrique-footer.vue";
 import VoteService from "../service/vote.service";
 import TransactionService from "../service/transaction.service";
 import Notification from '../service/notitfication-service'
+import { throwStatement } from "@babel/types";
 
 export default {
   name: "Elfrique",
@@ -347,7 +348,7 @@ export default {
     },
 
     payWithFlutter() {
-      let paymentParams = {
+      let paymentParams = FlutterwaveCheckout({
         public_key: this.flw_public_key,
         tx_ref: this.payContent.reference,
         amount: this.payContent.amount,
@@ -358,7 +359,7 @@ export default {
         },
         callback: (response) => {
           console.log(response);
-          this.loading = true;
+          this.loading = false;
           this.method = "Flutterwave";
           Notification.addNotification({
             receiverId: this.adminId,
@@ -370,14 +371,22 @@ export default {
               this.loading = false;
               this.message = response.data.message;
               this.resetForm();
-              this.$router.push("/contestant-profile/" + this.contestant.id);
+              
             }
           );
+          paymentParams.close()
+          this.$router.push("/contestant-profile/" + this.contestant.id);
+          window.close()
         },
-        onclose: () => this.onclose(),
-      };
+        onclose: () => paymentParams.close()
+      });
 
-      window.FlutterwaveCheckout(paymentParams);
+      //window.FlutterwaveCheckout(paymentParams);
+    },
+
+    onclose(){
+      this.$router.push("/contestant-profile/" + this.contestant.id);
+      console.log('go');
     },
 
     callAtgPay(e) {

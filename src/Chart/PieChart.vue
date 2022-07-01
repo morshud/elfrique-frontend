@@ -17,8 +17,6 @@ export default {
       this.contest = response.data.voteContest;
       this.endDate = response.data.voteContest.closedate;
       let contestant = response.data.voteContest.contestants.map(a => a.fullname);
-      let vote = response.data.voteContest.contestants.map(a => a.voteCount);
-      this.series = vote
       this.chartOptions = {
         chart: {
           width: 200,
