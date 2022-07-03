@@ -22,13 +22,15 @@
             <div class="details-header">
               <h5>Location</h5>
               <p><i class="bi bi-geo-alt-fill"></i> : {{ event.venue }}</p>
-              <h5>Date</h5>
+              <h5>Start Date</h5>
               <p>
                 <i class="bi bi-calendar3"></i> :
                 {{ format_date(event.startdate) }}
               </p>
-              <h5>Time</h5>
-              <p><i class="bi bi-alarm-fill"></i> : 13:50</p>
+              <h5>End Date</h5>
+              <p><i class="bi bi-calendar3"></i> :
+                {{ format_date(event.enddate) }}
+              </p>
             </div>
             <div class="details-social">
               <h5>Share on:</h5>
@@ -51,6 +53,33 @@
                 ><img src="@/assets/images/share-email.png"
               /></a>
             </div>
+          </div>
+        </div>
+        <div class="col-md-2 justify-content-center text-center">
+          <div class="counter-div">
+            <div class="icon">
+              <i class="bi bi-alarm-fill"></i>
+            </div>
+            <div class="boxes days">
+              <span class="title">Days</span> <br />
+              <span>{{ countdown.days }}</span>
+            </div>
+            <div class="boxes hours">
+              <span class="title">Hours</span> <br />
+              <span>{{ countdown.hours }}</span>
+            </div>
+            <div class="boxes minutes">
+              <span class="title">Min</span> <br />
+              <span>{{ countdown.minutes }}</span>
+            </div>
+            <div class="boxes seconds">
+              <span class="title">Sec</span> <br />
+              <span>{{ countdown.seconds }}</span>
+            </div>
+            <div class="clear"></div>
+            <p v-if="ended == true" class="timeUpText" style="color: red">
+              Time is up
+            </p>
           </div>
         </div>
       </div>
@@ -97,7 +126,7 @@
               role="tabpanel"
               aria-labelledby="pills-ticket-tab"
             >
-              <div class="event-details">
+              <div class="event-details" v-if="ended == false">
                 <div class="row">
                   <div class="col-lg-6">
                     <h1>Ticket Details</h1>
@@ -187,6 +216,9 @@
                   </div>
                 </div>
               </div>
+              <div class="container" v-if="ended == true">
+                <h6 style="color:red">oOps! This event has ended, goto event page to view another one</h6>
+              </div>
             </div>
             <!--Organiser-->
             <div
@@ -247,6 +279,15 @@ export default {
       reference: this.genRef(),
       publicKey: "pk_test_be803d46f5a6348c3643967d0e6b7b2303d42b4f",
       flw_public_key: "FLWPUBK_TEST-0f353662b04aee976128e62946a59682-X",
+      ended:false,
+      endDate: "",
+      countdown: {
+        months: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      },
     };
   },
   created() {
@@ -254,6 +295,8 @@ export default {
     script.src =
       "https://qa.interswitchng.com/collections/public/javascripts/inline-checkout.js";
     document.getElementsByTagName("head")[0].appendChild(script);
+    this.endDate = this.$store.state.vote.event.enddate;
+    this.getCountdown(); 
   },
   computed: {
     event() {
@@ -276,6 +319,44 @@ export default {
     },
   },
   methods: {
+    getCountdown(){
+        var endCount = moment(this.endDate).format(
+        "YYYY-MM-DDT11:00:00Z"
+      );
+
+      // make it a moment object End
+      var event = moment(endCount);
+
+      // get current time/date
+      var current = moment().format();
+      /* console.log(current);
+      console.log(endCount); */
+      if (current >= endCount) {
+        this.ended = true
+        this.countdown.days = 0;
+        this.countdown.hours = 0;
+        this.countdown.minutes = 0;
+        this.countdown.seconds = 0;
+      }else{
+        this.ended = false
+        // get difference between event and current
+        var diffTime = event.diff(current);
+
+        // let moment.js make the duration out of the timestamp
+        var duration = moment.duration(diffTime, "milliseconds", true);
+
+        // Interval
+        var interval = 1000;
+        setInterval(() => {
+            duration = moment.duration(duration - interval, "milliseconds");
+            this.countdown.days = parseInt(duration.asDays());
+            this.countdown.hours = duration.hours();
+            this.countdown.minutes = duration.minutes();
+            this.countdown.seconds = duration.seconds();
+        }, interval);
+      }
+      
+    },
     format_date(value) {
       if (value) {
         return moment(String(value)).format("MM/DD/YYYY hh:mm");
