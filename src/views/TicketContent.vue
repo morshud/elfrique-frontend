@@ -249,11 +249,17 @@
               data-keyboard="false" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
               <div class="modal-dialog" style="top: 180px; max-width: 60%">
                 <div class="modal-content">
-                  <div class="modal-header">
+                  <div class="modal-header" style="display: block">
+                  <button type="button" class="btn-close" style="float:right" @click="modal.hide()" aria-label="Close"></button>
                     <h5 class="modal-title" id="exampleModalLabel">
-                      Choose Payment Option
+                      {{event.title}}
                     </h5>
-                    <button type="button" class="btn-close" @click="modal.hide()" aria-label="Close"></button>
+                    <h6>
+                      {{event.venue}}
+                    </h6>
+                    <h6>
+                      {{ format_date(event.startdate) }}
+                    </h6>
                   </div>
                   <div class="modal-body">
                     <div class="row">
@@ -281,6 +287,7 @@
                           </div>
                         </div>
 
+                        
                         <!-- <div class="px-5" v-if="inPutFilled">
                           <button
                             class="btn"
@@ -540,15 +547,13 @@ export default {
       }
     },
     convert_price() {
-      axios.get("http://ip-api.com/json/?fields=currency").then((res) => {
-        let currency = res.data.currency;
+      axios.get("https://ipapi.co/currency").then((res) => {
+        let currency = res.data;
         axios
           .get(`https://api.exchangerate-api.com/v4/latest/${currency}`)
           .then((res) => {
             this.currency_symbol = res.data.base;
             this.toRate = res.data.rates["NGN"];
-            /* let result = (value / toRate).toFixed(2)
-          let price = result */
           });
       });
     },
