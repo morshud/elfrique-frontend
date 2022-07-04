@@ -540,8 +540,8 @@ export default {
       }
     },
     convert_price() {
-      axios.get("https://ip-api.com/json/?fields=currency").then((res) => {
-        let currency = res.data.currency;
+      axios.get("https://ipapi.co/currency").then((res) => {
+        let currency = res.data;
         axios
           .get(`https://api.exchangerate-api.com/v4/latest/${currency}`)
           .then((res) => {
