@@ -2,7 +2,8 @@ import axios from "axios";
 import authHeader from "./auth-header2";
 import authHeader2 from "./auth-header";
 
-const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
+//const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
+const API_URL = "http://localhost:3000/api/v1/";
 
 class EventService {
   createEvent(eventForm) {
@@ -23,6 +24,10 @@ class EventService {
 
   getContests() {
     return axios.get(API_URL + "getallVote", { headers: authHeader() });
+  }
+
+  getSingleEvent(id) {
+    return axios.get(API_URL + "getSingleEvent/" + id, { headers: authHeader() });
   }
 
   createTickets(ticketForm, eventId) {

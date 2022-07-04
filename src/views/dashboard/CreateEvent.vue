@@ -336,7 +336,7 @@
                                     <select  v-model="eventContent.paymentgateway" name="gateway" id="gateway" required>
                                         <option value="paystack">Paystack</option>
                                         <option value="flutterwave">Flutterwave</option>
-                                        <option value="payu">Payu</option>
+                                        <option value="aimstoget">Aimstoget</option>
                                         <option value="interswitch">Interswitch</option>
                                     </select>
                                 </div>

@@ -141,27 +141,40 @@
                         :key="con.id"
                         class="col-lg-5"
                       >
+                      {{sales_time(con.salesstart) +' ' + momentT}}
+                      <!-- <div v-if="momentT < sales_time(con.salesstart)">
+                        <span>{{ con.name.toUpperCase() }} on Sale</span>
+                      </div> -->
+                      <div>
                         <button
-                          style="
-                            background: #038803;
-                            border: 0;
-                            color: #fff;
-                            border-radius: 5px;
-                            padding: 5px;
-                          "
-                          @click="selectTicket(con)"
-                        >
-                          {{ con.name.toUpperCase() }} (NGN {{ con.price }})
-                        </button>
+                            style="
+                              background: #038803;
+                              border: 0;
+                              color: #fff;
+                              border-radius: 5px;
+                              padding: 5px;
+                            "
+                            @click="selectTicket(con)"
+                          >
+                            {{ con.name.toUpperCase() }} ({{currency_symbol}} {{ convert_price(1000) }})
+                          </button>
+                      </div>
+                      <!-- <div v-else>
+                        <span>{{ con.name.toUpperCase() }} Sales Ended</span>
+                      </div> -->
                       </div>
                     </div>
 
-                    <form v-if="ticketSelected" @submit.prevent="buyTicket(event.paymentgateway, formDatas.price)">
+                    <form v-if="ticketSelected" @submit.prevent="buyTicket(event.paymentgateway, convert_price(1000))">
                       <div class="row">
+                        <div  v-if="message" class= 'alert-success alert  alert-dismissible fade show' role="alert">
+                          {{message}} 
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                         <div class="col-lg-12 mb-3">
                           <label
-                            >{{ formDatas.name.toUpperCase() }} (NGN
-                            {{ formDatas.price }})</label
+                            >{{ formDatas.name.toUpperCase() }} ({{currency_symbol}}
+                            {{ convert_price(1000) }}) Availability ({{formDatas.quantity}})</label
                           >
                           <input
                             class="input mb-3"
@@ -205,7 +218,12 @@
                           />
                         </div>
                         <div class="col-lg-12 text-center">
-                          <button
+                          <button v-if="formDatas.quantity == 0"
+                            disabled
+                          >
+                            Purchase Completed
+                          </button>
+                          <button v-else
                             type="submit"
                           >
                             Buy Ticket
@@ -249,7 +267,7 @@
     </div>
   </section>
 
-  <elfrique-footer />
+  <elfrique-footer></elfrique-footer>
 </template>
 
 <script>
@@ -257,8 +275,12 @@ import Header from "./elfrique-header.vue";
 import Footer from "./elfrique-footer.vue";
 import TransactionService from "../service/transaction.service";
 import Notification from "../service/notitfication-service";
+import EventService from "../service/event.service";
 import uniqid from "uniqid";
 import moment from "moment";
+import IPGeolocationAPI from "ip-geolocation-api-javascript-sdk";
+import axios from "axios";
+import { Store } from "vuex";
 export default {
   name: "Elfrique",
   components: {
@@ -267,14 +289,16 @@ export default {
   },
   data() {
     return {
-      ticketSelected: false,
+      momentT: moment().format(),
+      currency_symbol: '',
+      salesEnd: false,
       formDatas: "",
       ticketQuantity: 1,
       email: "",
       admin_id: "",
       firstname: "",
       lastname: "",
-      method: "",
+      method: this.$store.state.vote.event.paymentgateway,
       phone: "",
       reference: this.genRef(),
       publicKey: "pk_test_be803d46f5a6348c3643967d0e6b7b2303d42b4f",
@@ -288,6 +312,9 @@ export default {
         minutes: 0,
         seconds: 0,
       },
+      message: '',
+      event: '',
+      eventId: this.$route.params.id
     };
   },
   created() {
@@ -295,18 +322,17 @@ export default {
     script.src =
       "https://qa.interswitchng.com/collections/public/javascripts/inline-checkout.js";
     document.getElementsByTagName("head")[0].appendChild(script);
-    this.endDate = this.$store.state.vote.event.enddate;
-    this.getCountdown(); 
+    
+    this.getEvent()
+    
   },
   computed: {
-    event() {
-      return this.$store.state.vote.event;
-    },
     transactForm() {
       return {
         admin_id: this.$store.state.vote.event.adminuserId,
         reference: this.reference,
         category: "Event Ticket",
+        ticketQuantity: this.ticketQuantity,
         email: this.email,
         method: this.method,
         product_title: this.$store.state.vote.event.title,
@@ -319,6 +345,34 @@ export default {
     },
   },
   methods: {
+    convert_price(value){
+      //var ipgeolocationApi = new IPGeolocationAPI("9e4427eae36a4472878f334fe8370cc8", false);
+        let results = async () => {
+          let currency = await axios.get('http://ip-api.com/json/?fields=currency').then(res => {
+            return res.data.currency
+          });
+          let toRate = await axios.get(`https://api.exchangerate-api.com/v4/latest/${currency}`).then(res => {
+            this.currency_symbol = res.data.base
+            return res.data.rates['NGN']
+          })
+          let result = (value / toRate).toFixed(2)
+          let price = result
+          this.$store.dispatch('vote/Price', price)
+          
+        }
+      results()
+      return this.$store.state.vote.price
+    },
+    sales_time(value){
+      return moment(value).format()
+    },
+    getEvent(){
+      EventService.getSingleEvent(this.$route.params.id).then(res => {
+        this.event = res.data.events
+        this.endDate = res.data.events.enddate;
+        this.getCountdown(); 
+      })
+    },
     getCountdown(){
         var endCount = moment(this.endDate).format(
         "YYYY-MM-DDT11:00:00Z"
@@ -383,6 +437,7 @@ export default {
     selectTicket(item) {
       this.ticketSelected = true;
       this.formDatas = item;
+      this.checkQuantity()
     },
     buyTicket(paymentGateway, price) {
       let amount = price * this.ticketQuantity;
@@ -410,7 +465,9 @@ export default {
             TransactionService.makeTransaction(this.transactForm).then(
               (response) => {
                 //this.modal.hide();
-                this.message = response.data.message;
+                this.getEvent()
+                this.ticketSelected = false;
+                this.message = "Ticket has been sccessfully booked!!";
                 //this.resetForm();
               }
             );
@@ -445,7 +502,9 @@ export default {
             TransactionService.makeTransaction(this.transactForm).then(
               (response) => {
                 //this.modal.hide();
-                this.message = response.data.message;
+                this.getEvent()
+                this.ticketSelected = false;
+                this.message = "Ticket has been sccessfully booked!!";
                 //this.resetForm();
               }
             );
@@ -471,11 +530,11 @@ export default {
         const paystack = new window.PaystackPop();
         paystack.newTransaction(paymentOptions);
       } else if (paymentGateway == "flutterwave") {
-        let paymentParams = {
+        let paymentParams = FlutterwaveCheckout({
           public_key: this.flw_public_key,
           tx_ref: this.reference,
           amount: amount.toString(),
-          currency: "NGN",
+          currency: "{{currency_symbol}}",
           customer: {
             email: this.email,
             phone_number: this.phone,
@@ -490,16 +549,21 @@ export default {
             });
             TransactionService.makeTransaction(this.transactForm).then(
               (response) => {
-                this.message = response.data.message;
+                this.message = "Ticket has been sccessfully booked!!";
                 //this.resetForm();
+                this.getEvent()
+                this.ticketSelected = false;
+                paymentParams.close()
+                window.close()
+
               }
             );
             //this.$router.push("/fill-form/" + id);
           },
           onclose: () => this.onclose(),
-        };
+        });
 
-        window.FlutterwaveCheckout(paymentParams);
+       // window.FlutterwaveCheckout(paymentParams);
       } else {
       }
     },
