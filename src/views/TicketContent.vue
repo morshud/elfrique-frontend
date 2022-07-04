@@ -16,41 +16,57 @@
         <div class="col-md-6">
           <div class="text-title-area">
             <h1>{{ event.title }}</h1>
-            <small
-              >Organised by : <span>{{ event.organisation }}</span></small
-            >
+            <small>Organised by : <span>{{ event.organisation }}</span></small>
             <div class="details-header">
               <h5>Location</h5>
               <p><i class="bi bi-geo-alt-fill"></i> : {{ event.venue }}</p>
-              <h5>Date</h5>
+              <h5>Start Date</h5>
               <p>
                 <i class="bi bi-calendar3"></i> :
                 {{ format_date(event.startdate) }}
               </p>
-              <h5>Time</h5>
-              <p><i class="bi bi-alarm-fill"></i> : 13:50</p>
+              <h5>End Date</h5>
+              <p>
+                <i class="bi bi-calendar3"></i> :
+                {{ format_date(event.enddate) }}
+              </p>
             </div>
             <div class="details-social">
               <h5>Share on:</h5>
-              <a href="#" title="Share on facebook"
-                ><img src="@/assets/images/share-facebook.png"
-              /></a>
-              <a href="#" title="Share on whatsapp"
-                ><img src="@/assets/images/share-whatsapp.png"
-              /></a>
-              <a href="#" title="Share on telegram"
-                ><img src="@/assets/images/share-telegram.png"
-              /></a>
-              <a href="#" title="Share on instagram"
-                ><img src="@/assets/images/share-instagram.png"
-              /></a>
-              <a href="#" title="Share on twitter"
-                ><img src="@/assets/images/share-twitter.png"
-              /></a>
-              <a href="#" title="Share through email"
-                ><img src="@/assets/images/share-email.png"
-              /></a>
+              <a href="#" title="Share on facebook"><img src="@/assets/images/share-facebook.png" /></a>
+              <a href="#" title="Share on whatsapp"><img src="@/assets/images/share-whatsapp.png" /></a>
+              <a href="#" title="Share on telegram"><img src="@/assets/images/share-telegram.png" /></a>
+              <a href="#" title="Share on instagram"><img src="@/assets/images/share-instagram.png" /></a>
+              <a href="#" title="Share on twitter"><img src="@/assets/images/share-twitter.png" /></a>
+              <a href="#" title="Share through email"><img src="@/assets/images/share-email.png" /></a>
             </div>
+          </div>
+        </div>
+        <div class="col-md-2 justify-content-center text-center">
+          <div class="counter-div">
+            <div class="icon">
+              <i class="bi bi-alarm-fill"></i>
+            </div>
+            <div class="boxes days">
+              <span class="title">Days</span> <br />
+              <span>{{ countdown.days }}</span>
+            </div>
+            <div class="boxes hours">
+              <span class="title">Hours</span> <br />
+              <span>{{ countdown.hours }}</span>
+            </div>
+            <div class="boxes minutes">
+              <span class="title">Min</span> <br />
+              <span>{{ countdown.minutes }}</span>
+            </div>
+            <div class="boxes seconds">
+              <span class="title">Sec</span> <br />
+              <span>{{ countdown.seconds }}</span>
+            </div>
+            <div class="clear"></div>
+            <p v-if="ended == true" class="timeUpText" style="color: red">
+              Time is up
+            </p>
           </div>
         </div>
       </div>
@@ -61,43 +77,24 @@
         <div class="col-lg-12">
           <ul class="nav nav-pills mb-5 mt-2" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link active tabs-button"
-                id="pills-ticket-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-ticket"
-                type="button"
-                role="tab"
-                aria-controls="pills-ticket"
-                aria-selected="true"
-              >
+              <button class="nav-link active tabs-button" id="pills-ticket-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-ticket" type="button" role="tab" aria-controls="pills-ticket"
+                aria-selected="true">
                 <i class="bi bi-people-fill"></i> Ticket
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link tabs-button"
-                id="pills-organ-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-organ"
-                type="button"
-                role="tab"
-                aria-controls="pills-organ"
-                aria-selected="false"
-              >
+              <button class="nav-link tabs-button" id="pills-organ-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-organ" type="button" role="tab" aria-controls="pills-organ"
+                aria-selected="false">
                 <i class="fas fa-tv"></i> Organisers
               </button>
             </li>
           </ul>
           <div class="tab-content" id="pills-tabContent">
             <!--Ticket-->
-            <div
-              class="tab-pane fade show active"
-              id="pills-ticket"
-              role="tabpanel"
-              aria-labelledby="pills-ticket-tab"
-            >
-              <div class="event-details">
+            <div class="tab-pane fade show active" id="pills-ticket" role="tabpanel" aria-labelledby="pills-ticket-tab">
+              <div class="event-details" v-if="ended == false">
                 <div class="row">
                   <div class="col-lg-6">
                     <h1>Ticket Details</h1>
@@ -106,33 +103,82 @@
                   <div class="col-lg-1"></div>
                   <div class="col-lg-5">
                     <h1>Buy Ticket</h1>
-                    <div class="row">
+                    <!-- <div class="row">
                       <div
                         v-for="con in event.eventsTickets"
                         :key="con.id"
                         class="col-lg-5"
                       >
+                      {{sales_time(con.salesstart) +' ' + momentT}}
+                      <div v-if="momentT < sales_time(con.salesstart)">
+                        <span>{{ con.name.toUpperCase() }} on Sale</span>
+                      </div>
+                      <div>
                         <button
-                          style="
-                            background: #038803;
-                            border: 0;
-                            color: #fff;
-                            border-radius: 5px;
-                            padding: 5px;
-                          "
-                          @click="selectTicket(con)"
-                        >
-                          {{ con.name.toUpperCase() }} (NGN {{ con.price }})
-                        </button>
+                            style="
+                              background: #038803;
+                              border: 0;
+                              color: #fff;
+                              border-radius: 5px;
+                              padding: 5px;
+                            "
+                            @click="selectTicket(con)"
+                          >
+                            {{ con.name.toUpperCase() }} ({{currency_symbol}} {{ convert_price(1000) }})
+                          </button>
+                      </div>
+                      <div v-else>
+                        <span>{{ con.name.toUpperCase() }} Sales Ended</span>
+                      </div>
+                      </div>
+                    </div> -->
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title mb-3 muted">Ticket</h5>
+                        <div class="row mt-4" v-for="con in event.eventsTickets" :key="con.id">
+                          <div class="col d-flex align-items-center">
+                            <span>{{ con.name.toUpperCase() }}</span>
+                          </div>
+                          <div class="col text-center d-flex align-items-center">
+                            <div v-if="con.price == 'free'">
+                              <span>Free</span>
+                            </div>
+                            <div v-if="con.price != 'free'">
+                              <span>{{ currency_symbol }}
+                                {{ (con.price / toRate).toFixed(2) }}</span>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <select disabled class="form-control" v-if="parseInt(con.quantity) == 0">
+                              <option>0</option>
+                            </select>
+                            <select @change="selectTicketQty(con, $event)" class="form-control" v-else>
+                              <option v-for="item in parseInt(con.quantity)" :value="item" :key="item">
+                                {{ item }}
+                              </option>
+                            </select>
+                            <!-- <input type="number" :max="con.quantity"  @keyup="checkQuantity"
+                            @keypress="isNumber($event)" v-model="tickets" class="form-control" min="1" id=""> -->
+                          </div>
+                        </div>
+                        <div class="col-lg-12 text-center d-grid gap-2">
+                          <button class="btn btn-buy-ticket btn-block" type="submit" @click="showModal">
+                            Buy Ticket
+                          </button>
+                        </div>
                       </div>
                     </div>
 
-                    <form v-if="ticketSelected" @submit.prevent="buyTicket(event.paymentgateway, formDatas.price)">
+                    <!-- <form v-if="ticketSelected" @submit.prevent="buyTicket(event.paymentgateway, convert_price(1000))">
                       <div class="row">
+                        <div  v-if="message" class= 'alert-success alert  alert-dismissible fade show' role="alert">
+                          {{message}} 
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                         <div class="col-lg-12 mb-3">
                           <label
-                            >{{ formDatas.name.toUpperCase() }} (NGN
-                            {{ formDatas.price }})</label
+                            >{{ formDatas.name.toUpperCase() }} ({{currency_symbol}}
+                            {{ convert_price(1000) }}) Availability ({{formDatas.quantity}})</label
                           >
                           <input
                             class="input mb-3"
@@ -176,25 +222,171 @@
                           />
                         </div>
                         <div class="col-lg-12 text-center">
-                          <button
+                          <button v-if="formDatas.quantity == 0"
+                            disabled
+                          >
+                            Purchase Completed
+                          </button>
+                          <button v-else
                             type="submit"
                           >
                             Buy Ticket
                           </button>
                         </div>
                       </div>
-                    </form>
+                    </form> -->
+                  </div>
+                </div>
+              </div>
+              <div class="container" v-if="ended == true">
+                <h6 style="color: red">
+                  oOps! This event has ended, goto event page to view another
+                  one
+                </h6>
+              </div>
+            </div>
+            <div style="z-index: 9999" class="modal fade" ref="exampleModal" data-backdrop="static"
+              data-keyboard="false" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
+              <div class="modal-dialog" style="top: 180px; max-width: 60%">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Choose Payment Option
+                    </h5>
+                    <button type="button" class="btn-close" @click="modal.hide()" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col">
+                        <div class="px-2">
+                          <div class="form-groug">
+                            <label>Email</label>
+                            <input type="email" v-model="email" class="form-control" placeholder="Email Required"
+                              required />
+                          </div>
+                          <div class="form-groug">
+                            <label>FirstName</label>
+                            <input type="text" v-model="firstname" class="form-control" placeholder="Firstname Required"
+                              required />
+                          </div>
+                          <div class="form-groug">
+                            <label>Lastname</label>
+                            <input type="text" v-model="lastname" class="form-control" placeholder="Lastname Required"
+                              required />
+                          </div>
+                          <div class="form-groug">
+                            <label>Phone Number</label>
+                            <input type="text" v-model="phone" class="form-control" placeholder="Phone Required"
+                              required />
+                          </div>
+                        </div>
+
+                        <!-- <div class="px-5" v-if="inPutFilled">
+                          <button
+                            class="btn"
+                            style="
+                              border: 0px none;
+                              margin: 10px;
+                              margin-top: 3px;
+                              background: #bfddb4;
+                              margin-top: 12px;
+                            "
+                            @click="payStack(eventContent.id)"
+                          >
+                            <img
+                              src="https://raw.githubusercontent.com/PaystackHQ/wordpress-payment-forms-for-paystack/master/icon.png"
+                              style="width: 105px; height: 42px"
+                            />
+                          </button>
+                          <button
+                            class="btn"
+                            style="
+                              border: 0px none;
+                              margin: 10px;
+                              margin-top: 3px;
+                              background: #bfddb4;
+                              margin-top: 12px;
+                            "
+                            @click="flutterWave(eventContent.id)"
+                          >
+                            <img
+                              src="https://bookface-images.s3.amazonaws.com/logos/630f2d7d83b9b94e29ea834681d64fdabac26af6.png"
+                              style="width: 105px; height: 42px"
+                            />
+                          </button>
+                          <button
+                            class="btn"
+                            style="
+                              border: 0px none;
+                              margin: 10px;
+                              margin-top: 3px;
+                              background: #bfddb4;
+                              margin-top: 12px;
+                            "
+                            @click="interSwitch(eventContent.id)"
+                          >
+                            <img
+                              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi2.wp.com%2Finnovation-village.com%2Fwp-content%2Fuploads%2F2016%2F02%2Finterswitch-e1505473879164.png%3Fresize%3D700%252C394%26ssl%3D1&f=1&nofb=1"
+                              style="width: 105px; height: 42px"
+                            />
+                          </button>
+                        </div> -->
+                      </div>
+                      <div class="col">
+                        <h6>Tickets</h6>
+                        <div v-for="item in newTicket" :key="item">
+                          <hr />
+                          <div class="row">
+                            <div class="col">
+                              <span>{{ item.quantity }}</span> <span> x </span>
+                              <span>{{ item.name }}</span>:
+                            </div>
+                            <div class="col">
+                              <span v-if="item.price == 'free'"><strong>{{ item.price }}</strong></span>
+                              <span v-else><strong>{{ item.price }}</strong></span>
+                            </div>
+                          </div>
+                          <div class="row mt-2">
+                            <div class="col">
+                              <span>Sub-Total:</span>
+                            </div>
+                            <div class="col">
+                              <span>
+                                <strong>{{ item.sub_total }}</strong>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col">
+                            <h5>Total:</h5>
+                          </div>
+                          <div class="col">
+                            <h5>
+                              <strong>{{ totalPrice.toFixed(2) }}</strong>
+                            </h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- <div v-else>
+                      <h3
+                        style="
+                          text-align: center;
+                          font-size: 16px;
+                          margin-top: 20px;
+                        "
+                      >
+                        Please fill the above required field to proceed
+                      </h3>
+                    </div> -->
                   </div>
                 </div>
               </div>
             </div>
             <!--Organiser-->
-            <div
-              class="tab-pane fade"
-              id="pills-organ"
-              role="tabpanel"
-              aria-labelledby="pills-organ-tab"
-            >
+            <div class="tab-pane fade" id="pills-organ" role="tabpanel" aria-labelledby="pills-organ-tab">
               <div class="container organiser-area">
                 <div class="row justify-content-center px-2">
                   <div class="col-lg-12">
@@ -217,7 +409,7 @@
     </div>
   </section>
 
-  <elfrique-footer />
+  <elfrique-footer></elfrique-footer>
 </template>
 
 <script>
@@ -225,8 +417,13 @@ import Header from "./elfrique-header.vue";
 import Footer from "./elfrique-footer.vue";
 import TransactionService from "../service/transaction.service";
 import Notification from "../service/notitfication-service";
+import EventService from "../service/event.service";
 import uniqid from "uniqid";
 import moment from "moment";
+import IPGeolocationAPI from "ip-geolocation-api-javascript-sdk";
+import axios from "axios";
+import { Modal } from "bootstrap";
+import { Store } from "vuex";
 export default {
   name: "Elfrique",
   components: {
@@ -235,18 +432,36 @@ export default {
   },
   data() {
     return {
-      ticketSelected: false,
+      momentT: moment().format(),
+      currency_symbol: "",
+      tickets: [],
+      ticketQuantity: 0,
+      toRate: "",
+      salesEnd: false,
       formDatas: "",
-      ticketQuantity: 1,
       email: "",
       admin_id: "",
       firstname: "",
       lastname: "",
-      method: "",
+      method: this.$store.state.vote.event.paymentgateway,
       phone: "",
       reference: this.genRef(),
       publicKey: "pk_test_be803d46f5a6348c3643967d0e6b7b2303d42b4f",
       flw_public_key: "FLWPUBK_TEST-0f353662b04aee976128e62946a59682-X",
+      ended: false,
+      endDate: "",
+      countdown: {
+        months: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      },
+      message: "",
+      event: "",
+      newTicket: [],
+      eventId: this.$route.params.id,
+      modal: false,
     };
   },
   created() {
@@ -254,16 +469,16 @@ export default {
     script.src =
       "https://qa.interswitchng.com/collections/public/javascripts/inline-checkout.js";
     document.getElementsByTagName("head")[0].appendChild(script);
+    this.convert_price();
+    this.getEvent();
   },
   computed: {
-    event() {
-      return this.$store.state.vote.event;
-    },
     transactForm() {
       return {
         admin_id: this.$store.state.vote.event.adminuserId,
         reference: this.reference,
         category: "Event Ticket",
+        ticketQuantity: this.newTicket,
         email: this.email,
         method: this.method,
         product_title: this.$store.state.vote.event.title,
@@ -271,30 +486,140 @@ export default {
         type: "paid",
         amount: this.formDatas.price * this.ticketQuantity,
         payer_name: this.firstname + " " + this.lastname,
-        phone_no: this.phone
+        phone_no: this.phone,
       };
+    },
+    totalPrice() {
+      if (this.newTicket.length > 0) {
+        let total = this.newTicket
+          .map((item) => {
+            if (item.price == "free") {
+              let free = 0 * item.quantity;
+              console.log(free);
+              return free;
+            } else {
+              let paid = item.price * item.quantity;
+              return paid;
+            }
+          })
+          .reduce((prev, next) => prev + next);
+        console.log(total);
+        return total;
+      } else {
+        return 0;
+      }
     },
   },
   methods: {
+    selectTicketQty(item, qty) {
+      const elementIndex = this.newTicket.findIndex((obj) => obj.id == item.id);
+      //console.log(elementIndex);
+      if (elementIndex == -1) {
+        if (item.price != "free") {
+          let newPrice = (item.price / this.toRate).toFixed(2);
+          let sub_total = (newPrice * qty.target.value).toFixed(2)
+          this.newTicket.push({
+            id: item.id,
+            name: item.name,
+            price: newPrice,
+            quantity: qty.target.value,
+            sub_total: sub_total,
+          });
+        } else {
+          let newPrice = "free";
+          this.newTicket.push({
+            id: item.id,
+            name: item.name,
+            price: newPrice,
+            quantity: qty.target.value,
+            sub_total: 0,
+          });
+        }
+      } else {
+        this.newTicket[elementIndex].quantity = qty.target.value;
+      }
+    },
+    convert_price() {
+      axios.get("http://ip-api.com/json/?fields=currency").then((res) => {
+        let currency = res.data.currency;
+        axios
+          .get(`https://api.exchangerate-api.com/v4/latest/${currency}`)
+          .then((res) => {
+            this.currency_symbol = res.data.base;
+            this.toRate = res.data.rates["NGN"];
+            /* let result = (value / toRate).toFixed(2)
+          let price = result */
+          });
+      });
+    },
+    sales_time(value) {
+      return moment(value).format();
+    },
+    getEvent() {
+      EventService.getSingleEvent(this.$route.params.id).then((res) => {
+        this.event = res.data.events;
+        this.endDate = res.data.events.enddate;
+        this.getCountdown();
+      });
+    },
+    getCountdown() {
+      var endCount = moment(this.endDate).format("YYYY-MM-DDT11:00:00Z");
+
+      // make it a moment object End
+      var event = moment(endCount);
+
+      // get current time/date
+      var current = moment().format();
+      /* console.log(current);
+      console.log(endCount); */
+      if (current >= endCount) {
+        this.ended = true;
+        this.countdown.days = 0;
+        this.countdown.hours = 0;
+        this.countdown.minutes = 0;
+        this.countdown.seconds = 0;
+      } else {
+        this.ended = false;
+        // get difference between event and current
+        var diffTime = event.diff(current);
+
+        // let moment.js make the duration out of the timestamp
+        var duration = moment.duration(diffTime, "milliseconds", true);
+
+        // Interval
+        var interval = 1000;
+        setInterval(() => {
+          duration = moment.duration(duration - interval, "milliseconds");
+          this.countdown.days = parseInt(duration.asDays());
+          this.countdown.hours = duration.hours();
+          this.countdown.minutes = duration.minutes();
+          this.countdown.seconds = duration.seconds();
+        }, interval);
+      }
+    },
     format_date(value) {
       if (value) {
         return moment(String(value)).format("MM/DD/YYYY hh:mm");
       }
     },
-    isNumber(evt) {  
-      const charCode = evt.which ? evt.which : evt.keyCode;  
-      if (  
-        charCode > 31 &&  
-        (charCode < 48 || charCode > 57) &&  
-        charCode !== 46  
-      ) {  
-        evt.preventDefault();  
-      }  
-    },  
-    checkQuantity(){
-        if (this.ticketQuantity > this.formDatas.quantity) {
-            this.ticketQuantity = this.formDatas.quantity;
-        }
+    isNumber(evt) {
+      const charCode = evt.which ? evt.which : evt.keyCode;
+      if (
+        charCode > 31 &&
+        (charCode < 48 || charCode > 57) &&
+        charCode !== 46
+      ) {
+        evt.preventDefault();
+      }
+    },
+    checkQuantity() {
+      if (this.ticketQuantity > this.formDatas.quantity) {
+        this.ticketQuantity = this.formDatas.quantity;
+      }
+    },
+    showModal() {
+      this.modal = new Modal(this.$refs.exampleModal);
+      this.modal.show();
     },
     genRef() {
       return uniqid();
@@ -302,6 +627,7 @@ export default {
     selectTicket(item) {
       this.ticketSelected = true;
       this.formDatas = item;
+      this.checkQuantity();
     },
     buyTicket(paymentGateway, price) {
       let amount = price * this.ticketQuantity;
@@ -329,7 +655,9 @@ export default {
             TransactionService.makeTransaction(this.transactForm).then(
               (response) => {
                 //this.modal.hide();
-                this.message = response.data.message;
+                this.getEvent();
+                this.ticketSelected = false;
+                this.message = "Ticket has been sccessfully booked!!";
                 //this.resetForm();
               }
             );
@@ -364,7 +692,9 @@ export default {
             TransactionService.makeTransaction(this.transactForm).then(
               (response) => {
                 //this.modal.hide();
-                this.message = response.data.message;
+                this.getEvent();
+                this.ticketSelected = false;
+                this.message = "Ticket has been sccessfully booked!!";
                 //this.resetForm();
               }
             );
@@ -390,11 +720,11 @@ export default {
         const paystack = new window.PaystackPop();
         paystack.newTransaction(paymentOptions);
       } else if (paymentGateway == "flutterwave") {
-        let paymentParams = {
+        let paymentParams = FlutterwaveCheckout({
           public_key: this.flw_public_key,
           tx_ref: this.reference,
           amount: amount.toString(),
-          currency: "NGN",
+          currency: "{{currency_symbol}}",
           customer: {
             email: this.email,
             phone_number: this.phone,
@@ -409,16 +739,20 @@ export default {
             });
             TransactionService.makeTransaction(this.transactForm).then(
               (response) => {
-                this.message = response.data.message;
+                this.message = "Ticket has been sccessfully booked!!";
                 //this.resetForm();
+                this.getEvent();
+                this.ticketSelected = false;
+                paymentParams.close();
+                window.close();
               }
             );
             //this.$router.push("/fill-form/" + id);
           },
           onclose: () => this.onclose(),
-        };
+        });
 
-        window.FlutterwaveCheckout(paymentParams);
+        // window.FlutterwaveCheckout(paymentParams);
       } else {
       }
     },
@@ -438,3 +772,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.btn.btn-buy-ticket {
+  background: #4c8f35;
+  color: #fff;
+  margin-top: 2rem;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 6px 50px;
+}
+</style>

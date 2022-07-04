@@ -7,6 +7,7 @@ const initialState = {
   player: {},
   country: "",
   paymentForm: {},
+  price: '',
 };
 
 export const vote = {
@@ -16,7 +17,9 @@ export const vote = {
     getVoteContent({ commit }, voteContent) {
       commit("setVoteContent", voteContent);
     },
-
+    Price({ commit }, price){
+      commit("SET_PRICE", price)
+    },
     getMessage({ commit }, message) {
       commit("setMessage", message);
     },
@@ -47,6 +50,9 @@ export const vote = {
   mutations: {
     setVoteContent(state, voteContent) {
       state.voteContent = voteContent;
+    },
+    SET_PRICE(state, data){
+      state.price = data
     },
     setMessage(state, message) {
       state.message = message;

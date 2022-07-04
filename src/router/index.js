@@ -366,7 +366,7 @@ const routes = [
     component: ServiceEventTicketManagementSystem,
   },
   {
-    path: "/ticket-content",
+    path: "/ticket-content/:id",
     name: "TicTicketContent",
     component: TicTicketContent,
   },

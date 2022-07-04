@@ -68,7 +68,7 @@
               <router-link
                 to="/ticket-content"
                 class="routers"
-                v-on:click="getEvent(con)"
+                v-on:click="getEvent(con.id)"
                 ><a class="btn-view">Buy Ticket</a></router-link
               >
             </div>
@@ -103,7 +103,7 @@ export default {
   created() {
     EventService.allEvents().then((response) => {
       this.eventContent = response.data.events;
-      console.log(this.eventContent);
+      console.log(response);
     });
   },
 
@@ -114,11 +114,8 @@ export default {
       }
     },
 
-    getEvent(contest) {
-      this.$store.dispatch("vote/getSingleEvent", contest).then(() => {
-        //console.log(this.$store.state.vote.voteContent)
-        /* this.$router.push('/voting-content'); */
-      });
+    getEvent(id) {
+      this.$router.push("/ticket-content/"+ id)
     },
   },
 
