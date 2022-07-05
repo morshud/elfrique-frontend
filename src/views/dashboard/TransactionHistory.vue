@@ -19,7 +19,7 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body card-table">
-                <div class="buttons-table">
+                <!-- <div class="buttons-table">
                     <button type="button">Copy</button>
                     <button type="button">CSV</button>
                     <button type="button">Excel</button>
@@ -30,7 +30,7 @@
                     <form>
                         <input type="text" placeholder="Search...">
                     </form>
-                </div>
+                </div> -->
                 <!--Table-->
                 <table class="table datatable card-table-table">
                     <thead>
@@ -52,13 +52,13 @@
                         <td>{{con.amount}}</td>
                         <td>{{con.category}}</td>
                         <td>{{con.product_title}}</td>
-                        <td>Successful</td>
+                        <!-- <td>Successful</td> -->
                         <td></td>
                        
                     </tr>
                     </tbody>
                 </table>
-                <nav>
+               <!--  <nav>
                     <ul class="pagination pagination-md">
                         <li class="page-item disabled">
                             <a class="page-link"><span aria-hidden="true">&laquo;</span></a>
@@ -70,7 +70,7 @@
                             <a class="page-link"><span aria-hidden="true">&raquo;</span></a>
                         </li>
                     </ul>
-                </nav>
+                </nav> -->
             </div>  
           </div>
         </div>
@@ -106,7 +106,7 @@
         },
         created(){
           if (!this.loggedIn) {
-                this.$router.push('/login');
+            this.$router.push('/login');
     }
 
             TransactionService.getTransactionHistory().then(response => {

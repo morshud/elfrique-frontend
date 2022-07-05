@@ -288,9 +288,9 @@
                           <th scope="col">Image</th>
                           <th scope="col">Type</th>
                           <th scope="col">Fee</th>
-                          <th scope="col">Fee</th>
+                          <th scope="col">Voting Limit</th>
                           <th scope="col">Payment</th>
-                          <th scope="col">Status</th>
+                          <!-- <th scope="col">Status</th> -->
                         </tr>
                       </thead>
                       <tbody>
@@ -304,7 +304,7 @@
                           <td>{{ item.fee }}</td>
                           <td>{{ item.votelimit }}</td>
                           <td>{{ item.paymentgateway }}</td>
-                          <td>{{ item.packagestatus }}</td>
+                          <!-- <td>{{ item.packagestatus }}</td> -->
                         </tr>
                       </tbody>
                     </table>
@@ -536,7 +536,7 @@
                           <th scope="col">Image</th>
                           <th scope="col">Type</th>
                           <th scope="col">Duration</th>
-                          <th scope="col">Options</th>
+                          <!-- <th scope="col">Options</th> -->
                         </tr>
                       </thead>
                       <tbody>
