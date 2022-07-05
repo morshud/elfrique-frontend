@@ -444,7 +444,7 @@ export default {
         method: this.method,
         product_title: this.eventContent.title,
         product_id: this.eventContent.id,
-        currency_symbol: this.currency_symbol,
+        currency: this.currency_symbol,
         type: "paid",
         amount: (this.eventContent.fee / this.toRate).toFixed(2),
         payer_name: this.firstname + " " + this.lastname,

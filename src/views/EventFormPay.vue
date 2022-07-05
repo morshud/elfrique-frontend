@@ -133,7 +133,7 @@ export default {
       this.email = data.email
       this.name = data.payer_name
       this.amount = data.amount
-      this.currency_symbol = data.currency_symbol
+      this.currency_symbol = data.currency
       this.data = data
       this.method = data.method
       this.product_title = data.product_title
