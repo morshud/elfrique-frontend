@@ -100,7 +100,7 @@
               </div>
               <div>
               <p>
-                  <strong>Each vote cost NGN {{ contest.fee }}</strong>
+                  <strong>Each vote cost {{currency_symbol}} {{ (contest.fee / toRate).toFixed(2)  }}</strong>
                 </p>
               </div>
               <div v-if="contest.type == 'free'" class="col-lg-12 mb-3">
@@ -192,6 +192,7 @@ import Footer from "./elfrique-footer.vue";
 import VoteService from "../service/vote.service";
 import TransactionService from "../service/transaction.service";
 import Notification from '../service/notitfication-service'
+import axios from 'axios';
 
 export default {
   name: "Elfrique",
@@ -203,6 +204,8 @@ export default {
   data() {
     return {
       contest: "",
+      currency_symbol: '',
+      toRate: '',
       contestant: "",
       method: '',
       email: "",
@@ -221,7 +224,6 @@ export default {
   },
   computed: {
     otherContestants() {
-      console.log(this.contest);
       const OC = this.contest.contestants.filter(
         (contestant) => contestant.id !== this.contestant.id
       );
@@ -239,12 +241,12 @@ export default {
         phone: this.phone,  
         reference: this.reference,
         numberOfVotes: this.numberOfVotes,
-
+        currency_symbol: this.currency_symbol
       };
     },
 
     amount() {
-      return Number(this.numberOfVotes) * Number(this.contest.fee);
+      return ((Number(this.numberOfVotes) * Number(this.contest.fee)) / this.toRate).toFixed(2);
     },
 
     voteForm() {
@@ -272,6 +274,8 @@ export default {
       });
     });
 
+    this.convert_price();
+
     const script = document.createElement("script");
     script.src =
       "https://qa.interswitchng.com/collections/public/javascripts/inline-checkout.js";
@@ -279,6 +283,17 @@ export default {
   },
 
   methods: {
+    convert_price() {
+      axios.get("https://ipapi.co/currency").then((res) => {
+        let currency = res.data;
+        axios
+          .get(`https://api.exchangerate-api.com/v4/latest/${currency}`)
+          .then((res) => {
+            this.currency_symbol = res.data.base;
+            this.toRate = res.data.rates["NGN"];
+          });
+      });
+    },
     format_date(value) {
       if (value) {
         return moment(String(value)).format("MM/DD/YYYY hh:mm");

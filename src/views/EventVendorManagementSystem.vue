@@ -59,250 +59,76 @@
 
   <!--Service Event-Vendor-->
   <section class="event-vendor">
-    <div class="container service-vendor">
-      <div class="row">
-        <div class="col-lg-12 header mb-4">
-          <h1>Popular Services</h1>
-        </div>
-        <div class="col-lg-12">
-          <div class="row mainService-box">
-            <router-link
-              to="/event-decorator"
-              class="routers vendorService-box"
-            >
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-eventdecorator.png"
-                  ondragstart="return false;"
-                />
-                <h4>Event Decorators</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-photographer.png"
-                  ondragstart="return false;"
-                />
-                <h4>Photographers</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-caterers.png"
-                  ondragstart="return false;"
-                />
-                <h4>Caterers</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-dj.png"
-                  ondragstart="return false;"
-                />
-                <h4>Disc Jockey (DJ's)</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-fashion.png"
-                  ondragstart="return false;"
-                />
-                <h4>Fashion Designers</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-eventplaner.png"
-                  ondragstart="return false;"
-                />
-                <h4>Event Planers</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-printing.png"
-                  ondragstart="return false;"
-                />
-                <h4>Invitations & Printing Services</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-makeup.png"
-                  ondragstart="return false;"
-                />
-                <h4>Make-Up Artist</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/default-icon.png"
-                  ondragstart="return false;"
-                />
-                <h4>More Category</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/default-icon.png"
-                  ondragstart="return false;"
-                />
-                <h4>More Category</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/default-icon.png"
-                  ondragstart="return false;"
-                />
-                <h4>More Category</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/default-icon.png"
-                  ondragstart="return false;"
-                />
-                <h4>More Category</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/default-icon.png"
-                  ondragstart="return false;"
-                />
-                <h4>More Category</h4>
-              </div>
-            </router-link>
-            <div class="col-lg-12 text-center py-4">
-              <a href="#" id="loadMore" class="loadMoreBtn">Load More</a>
-            </div>
-          </div>
-        </div>
-
-        <!--Advert Here-->
-        <div class="col-lg-12 horizontal-advert mt-3">
-          <a :href="currentImg.ref_link" target="_blank">
-            <img
-              :src="currentImg.img_url"
-              ondragstart="return false;"
-              alt="advert"
-              width="1300"
-              height="200"
-            />
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container service-vendor">
-      <div class="row">
-        <div class="col-lg-12 header mb-3">
-          <h1>Available Jobs</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-9">
-          <div class="row">
-            <div v-for="con in Content" :key="con.id" class="col-lg-4 vendorJob-box">
-              <div class="card">
-                <router-link :href="'/details-vendor/' + con.id">
-                  <div class="img-area">
-                    <img :src="con.event.image" />
-                  </div>
-                </router-link>
-                <div class="card-body">
-                  <router-link
-                    :href="'/details-vendor/' + con.id"
-                    class="routers"
-                  >
-                    <h1 title="Needed Service">{{ con.job_type }} Needed</h1>
-                  </router-link>
-                  <div class="line-rule"></div>
-                  <span class="eventname" title="Event Type"
-                    ><i class="bi bi-stack"></i> {{ con.event.title }}</span
-                  >
-                  <span class="date" title="Bid Closing Date"
-                    ><i class="bi bi-calendar-week-fill"></i>
-                    {{ format_date(con.event.startdate) }}</span
-                  >
-                  <span class="location" title="Event Location"
-                    ><i class="bi bi-geo-alt-fill"></i> {{ con.location }}</span
-                  >
-                  <span class="price" title="Starting Price"
-                    ><i class="bi bi-cash"></i> Starts at
-                    <strong>&#8358;{{ con.budget }}</strong></span
-                  >
-                  <button>
-                    <router-link
-                      class="btnA"
-                      :href="'/details-vendor/' + con.id"
-                      >View</router-link
-                    >
-                  </button>
+        <div class="container service-vendor">
+            <div class="row">
+                <div class="col-lg-12 header mb-3">
+                    <h1>Available Jobs</h1>
                 </div>
-              </div>
             </div>
-            <div class="col-md-12 text-center mt-5">
-              <a href="/view-more-vendor" class="btn-all-service">View More</a>
-            </div>
-          </div>
-        </div>
-        <!--Advert Here-->
-        <div class="col-lg-3">
-          <div class="advert-area">
-            <a :href="currentImg.ref_link" target="_blank">
-              <img
-                :src="currentImg2.img_url"
-                ondragstart="return false;"
-                alt="advert"
-                width="300"
-                height="450"
-              />
-            </a>
-          </div>
-          <div class="advert-area">
-            <a :href="currentImg.ref_link" target="_blank">
-              <img
-                :src="currentImg2.img_url"
-                ondragstart="return false;"
-                alt="advert"
-                width="300"
-                height="450"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+            <div class="row">
+                <div v-for="con in Content" :key="con.id" class="vendorJob-box col-lg-3">
+                    <div class="card">
+                        <a :href="'/details-vendor/' + con.id">
+                            <div class="img-area">
+                                <img :src="con.event.image">
+                            </div>
+                        </a>
+                        <div class="card-body">
+                            <a :href="'/details-vendor/' + con.id" class="routers">
+                                <h1 title="Needed Service">{{ con.job_type }} Needed</h1>
+                            </a>
+                            <div class="line-rule"></div>
+                            <span class="eventname" title="Event Type"><i class="bi bi-stack"></i>
+                                {{ con.event.title }}</span>
+                            <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i>
+                                {{ format_date(con.event.startdate) }}</span>
+                            <!-- <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i>
+                                {{ con.location }}</span> -->
+                            <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at
+                                <strong>&#8358;{{ con.budget }}</strong></span>
+                            <button><a class="btnA" :href="'/details-vendor/' + con.id">View</a></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
 
-    <!--Advert Here-->
-    <div class="container">
-      <div class="col-lg-12 horizontal-advert mt-3">
-        <a :href="currentImg.ref_link" target="_blank">
-          <img
-            :src="currentImg.img_url"
-            ondragstart="return false;"
-            alt="advert"
-            width="1300"
-            height="200"
-          />
-        </a>
-      </div>
-    </div>
-  </section>
+            </div>
+
+
+            <!-- <div class="col-md-12 text-center mt-5 paginationDivArea">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div> -->
+
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 horizontal-advert mt-3">
+                    <a :href="currentImg.ref_link" target="_blank">
+                        <img :src="currentImg.img_url" ondragstart="return false;" alt="advert" width="1300"
+                            height="200">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
   <!--Service Event-Vendor Ends-->
 
   <elfrique-footer />
@@ -353,7 +179,9 @@ export default {
     },
     currentImg: function () {
       return this.adsContent[
-        Math.abs(this.currentIndex) % this.adsContent.length
+        Math.abs(
+          this.currentIndex + Math.floor(Math.random() * this.adsContent.length)
+        ) % this.adsContent.length
       ];
     },
     currentImg2: function () {

@@ -28,13 +28,13 @@
                 <i class="bi bi-calendar3"></i> :
                 {{ format_date(eventContent.startdate) }}
               </p>
-              <p><i class="bi bi-alarm"></i> : 00:01</p>
+              <!-- <p><i class="bi bi-alarm"></i> : 00:01</p> -->
               <h5>End</h5>
               <p>
                 <i class="bi bi-calendar3"></i> :
                 {{ format_date(eventContent.closedate) }}
               </p>
-              <p><i class="bi bi-alarm"></i> : 23:99</p>
+              <!-- <p><i class="bi bi-alarm"></i> : 23:99</p> -->
             </div>
             <div class="details-social">
               <h5>Share on:</h5>
@@ -165,9 +165,9 @@
                               <input v-model="email" class="input" type="email" placeholder="Enter email address">
                           </div>
                           <div class="col-lg-12 text-center">
-                              <button v-if="eventContent.type == 'paid'"  @click="proceedPay">Proceed</button>
+                              <button v-if="eventContent.type == 'paid'"  @click="proceedPay()">Proceed</button>
                               <!--Note This proceed button will direct them to EventFormPay.vue page for the summary-->
-                              <button v-else @click="continueForm">Proceed</button>
+                              <button v-else @click="continueForm(eventContent.id)">Proceed</button>
                           </div>
                       </div>
                   </form>
@@ -384,6 +384,7 @@ import uniqid from "uniqid";
 import { Modal } from "bootstrap";
 import paystack from "vue-paystack";
 import moment from "moment";
+import axios from "axios";
 export default {
   name: "Elfrique",
   components: {
@@ -393,6 +394,8 @@ export default {
   data() {
     return {
       ended: true,
+      currency_symbol: "",
+      toRate: "",
       eventContent: {
         adminuser: {
           profile: {},
@@ -441,8 +444,9 @@ export default {
         method: this.method,
         product_title: this.eventContent.title,
         product_id: this.eventContent.id,
+        currency: this.currency_symbol,
         type: "paid",
-        amount: this.eventContent.fee,
+        amount: (this.eventContent.fee / this.toRate).toFixed(2),
         payer_name: this.firstname + " " + this.lastname,
       };
     },
@@ -458,6 +462,7 @@ export default {
       this.getCountdown();
       //console.log(response.data.form);
     });
+    this.convert_price();
     const script = document.createElement("script");
     script.src =
       "https://qa.interswitchng.com/collections/public/javascripts/inline-checkout.js";
@@ -465,6 +470,17 @@ export default {
   },
 
   methods: {
+    convert_price() {
+      axios.get("https://ipapi.co/currency").then((res) => {
+        let currency = res.data;
+        axios
+          .get(`https://api.exchangerate-api.com/v4/latest/${currency}`)
+          .then((res) => {
+            this.currency_symbol = res.data.base;
+            this.toRate = res.data.rates["NGN"];
+          });
+      });
+    },
     getCountdown(){
       var endCount = moment(this.endDate).format(
         "YYYY-MM-DDT11:00:00Z"
@@ -507,7 +523,7 @@ export default {
         return moment(String(value)).format("MM/DD/YYYY hh:mm");
       }
     },
-    continueForm(){
+    continueForm(id){
       let data = {
         "name": this.firstname + " " + this.lastname,
         "email": this.email

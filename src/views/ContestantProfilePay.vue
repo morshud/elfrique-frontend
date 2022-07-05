@@ -40,51 +40,61 @@
           </div>
 
           <div class="contestantPaySection">
-              <h4>Ensure the contestant is who you actually want to vote. There would be no refund or reversal of vote if you choose a wrong contestant.</h4>
-              <hr>
-              <h5>Summary of your order</h5>
-              <div>
-                <h6>Votes</h6>
-                <p>{{payContent.numberOfVotes}}</p>
-              </div>
-              <div>
-                <h6>amount</h6>
-                <p>{{payContent.amount}} NGN</p>
-              </div>
-              <h5>Voter's Details</h5>
-              <div>
-                <h6>Email</h6>
-                <p>{{payContent.email}}</p>
-              </div>
-              <div>
-                <h6>Phone number</h6>
-                <p>{{payContent.phone}}</p>
-              </div>
-              <div>
-                <h6>Reference number</h6>
-                <p>{{payContent.reference}}</p>
-              </div>
-              <h5>Choose Payment Gateway</h5>
+            <h4>Ensure the contestant is who you actually want to vote. There would be no refund or reversal of vote if
+              you choose a wrong contestant.</h4>
+            <hr>
+            <h5>Summary of your order</h5>
+            <div>
+              <h6>Votes</h6>
+              <p>{{ payContent.numberOfVotes }}</p>
+            </div>
+            <div>
+              <h6>amount</h6>
+              <p>{{ payContent.currency_symbol }} {{ payContent.amount }}</p>
+            </div>
+            <h5>Voter's Details</h5>
+            <div>
+              <h6>Email</h6>
+              <p>{{ payContent.email }}</p>
+            </div>
+            <div>
+              <h6>Phone number</h6>
+              <p>{{ payContent.phone }}</p>
+            </div>
+            <div>
+              <h6>Reference number</h6>
+              <p>{{ payContent.reference }}</p>
+            </div>
+            <h5>Choose Payment Gateway</h5>
           </div>
-          <div class="col-lg-12 mb-3" v-if="method == 'paystack'">
-            <button @click="payWithPaystack">
-              Pay Now – Local
-            </button>
+          <div v-if="currency_code != 'NGN'">
+            <div class="col-lg-12 mb-3">
+              <button @click="payWithFlutter">
+                Pay Now – International
+              </button>
+            </div>
           </div>
-          <div class="col-lg-12 mb-3" v-if="method == 'flutterwave'">
-            <button @click="payWithFlutter">
-              Pay Now – Local & International
-            </button>
-          </div>
-          <div class="col-lg-12 mb-3" v-if="method == 'interswitch'">
-            <button @click="payWithInterswitch">
-              Pay Now – Local & International
-            </button>
-          </div>
-          <div class="col-lg-12 mb-3" v-if="method == 'aimstoget'">
-            <button :disabled="loading" @click="callAtgPay">
-              Pay Now – Airtime – Nigeria Only 
-            </button>
+          <div v-else>
+            <div class="col-lg-12 mb-3" v-if="method == 'paystack'">
+              <button @click="payWithPaystack">
+                Pay Now – Local
+              </button>
+            </div>
+            <div class="col-lg-12 mb-3" v-if="method == 'flutterwave'">
+              <button @click="payWithFlutter">
+                Pay Now – Local & International
+              </button>
+            </div>
+            <div class="col-lg-12 mb-3" v-if="method == 'interswitch'">
+              <button @click="payWithInterswitch">
+                Pay Now – Local & International
+              </button>
+            </div>
+            <div class="col-lg-12 mb-3" v-if="method == 'aimstoget'">
+              <button :disabled="loading" @click="callAtgPay">
+                Pay Now – Airtime – Nigeria Only
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -97,11 +107,7 @@
             Other Contestant(s)
           </h1>
         </div>
-        <div
-          class="col-md-3 py-2"
-          v-for="con in otherContestants"
-          :key="con.id"
-        >
+        <div class="col-md-3 py-2" v-for="con in otherContestants" :key="con.id">
           <div class="card">
             <img :src="con.image" class="card-img-top" />
             <div class="card-body">
@@ -115,9 +121,8 @@
               <p class="card-text card-text-after">
                 <i class="bi bi-activity"></i>: {{ con.voteCount }} (votes)
               </p>
-              <router-link :to="'/contestant-profile/' + con.id" class="routers"
-                ><a class="btn-view-contest">View Profile</a></router-link
-              >
+              <router-link :to="'/contestant-profile/' + con.id" class="routers"><a class="btn-view-contest">View
+                  Profile</a></router-link>
             </div>
           </div>
         </div>
@@ -183,11 +188,11 @@ export default {
       return OC;
     },
 
-    payContent(){
-        return this.$store.state.vote.paymentForm;
+    payContent() {
+      return this.$store.state.vote.paymentForm;
     },
 
-    method(){
+    method() {
       return this.payContent.method
     },
 
@@ -206,7 +211,7 @@ export default {
       };
     },
 
-  
+
   },
 
   created() {
@@ -228,6 +233,7 @@ export default {
   },
 
   methods: {
+
     format_date(value) {
       if (value) {
         return moment(String(value)).format("MM/DD/YYYY hh:mm");
@@ -348,43 +354,77 @@ export default {
     },
 
     payWithFlutter() {
-      let paymentParams = FlutterwaveCheckout({
-        public_key: this.flw_public_key,
-        tx_ref: this.payContent.reference,
-        amount: this.payContent.amount,
-        currency: "NGN",
-        customer: {
-          email: this.payContent.email,
-          phone_number: this.payContent.phone,
-        },
-        callback: (response) => {
-          console.log(response);
-          this.loading = false;
-          this.method = "Flutterwave";
-          Notification.addNotification({
-            receiverId: this.adminId,
-            type: "voting",
-            message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
-          })
-          TransactionService.submitVote(this.contestant.id, this.voteForm).then(
-            (response) => {
-              this.loading = false;
-              this.message = response.data.message;
-              this.resetForm();
-              
-            }
-          );
-          paymentParams.close()
-          this.$router.push("/contestant-profile/" + this.contestant.id);
-          window.close()
-        },
-        onclose: () => paymentParams.close()
-      });
+      if (this.payContent.currency_symbol != 'NGN') {
+        let paymentParams = FlutterwaveCheckout({
+          public_key: this.flw_public_key,
+          tx_ref: this.payContent.reference,
+          amount: this.payContent.amount,
+          currency: 'USD',
+          customer: {
+            email: this.payContent.email,
+            phone_number: this.payContent.phone,
+          },
+          callback: (response) => {
+            console.log(response);
+            this.loading = false;
+            this.method = "Flutterwave";
+            Notification.addNotification({
+              receiverId: this.adminId,
+              type: "voting",
+              message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
+            })
+            TransactionService.submitVote(this.contestant.id, this.voteForm).then(
+              (response) => {
+                this.loading = false;
+                this.message = response.data.message;
+              }
+            );
+            paymentParams.close()
+            this.$router.push("/contestant-profile/" + this.contestant.id);
+            window.close()
+          },
+          onclose: () => paymentParams.close()
+        });
+      } else {
+        let paymentParams = FlutterwaveCheckout({
+          public_key: this.flw_public_key,
+          tx_ref: this.payContent.reference,
+          amount: this.payContent.amount,
+          currency: "NGN",
+          customer: {
+            email: this.payContent.email,
+            phone_number: this.payContent.phone,
+          },
+          callback: (response) => {
+            console.log(response);
+            this.loading = false;
+            this.method = "Flutterwave";
+            Notification.addNotification({
+              receiverId: this.adminId,
+              type: "voting",
+              message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
+            })
+            TransactionService.submitVote(this.contestant.id, this.voteForm).then(
+              (response) => {
+                this.loading = false;
+                this.message = response.data.message;
+                this.resetForm();
+
+              }
+            );
+            paymentParams.close()
+            this.$router.push("/contestant-profile/" + this.contestant.id);
+            window.close()
+          },
+          onclose: () => paymentParams.close()
+        });
+      }
+
 
       //window.FlutterwaveCheckout(paymentParams);
     },
 
-    onclose(){
+    onclose() {
       this.$router.push("/contestant-profile/" + this.contestant.id);
       console.log('go');
     },
@@ -423,11 +463,11 @@ export default {
             message: `Someone just voted ${this.payContent.fullname} with ${this.payContent.numberOfVotes} vote`
           })
           TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
-                this.loading = false;
-                this.message = response.data.message;
-                this.resetForm();
-                this.$router.push('/contestant-profile/' + this.contestant.id)
-            })
+            this.loading = false;
+            this.message = response.data.message;
+            this.resetForm();
+            this.$router.push('/contestant-profile/' + this.contestant.id)
+          })
           //get reference and verify payment before awarding value
         },
       });

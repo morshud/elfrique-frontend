@@ -36,22 +36,40 @@
                 <h6>Reference</h6>
                 <p>{{reference}}</p>
               </div>
+              <div>
+                <h6><strong>Amount</strong></h6>
+                <p>{{currency_symbol}} {{amount}}</p>
+              </div>
               <h5>Choose Payment Gateway</h5>
           </div>
-          <div class="col-lg-12 mb-3" v-if="method == 'paystack'">
-            <button>
-              Pay Now – Local
-            </button>
+          <div v-if="currency_symbol != 'NGN'">
+            <div class="col-lg-12 mb-3">
+                <button @click="flutterWave(form_id)">
+                  Pay Now – International
+                </button>
+              </div>
           </div>
-          <div class="col-lg-12 mb-3" v-if="method == 'flutterwave'">
-            <button>
-              Pay Now – Local & International
-            </button>
-          </div>
-          <div class="col-lg-12 mb-3" v-if="method == 'interswitch'">
-            <button>
-              Pay Now – Local & International
-            </button>
+          <div v-else>
+            <div class="col-lg-12 mb-3" v-if="method == 'paystack'">
+              <button @click="Paystack(form_id)">
+                Pay Now – Local
+              </button>
+            </div>
+            <div class="col-lg-12 mb-3" v-if="method == 'flutterwave'">
+              <button @click="flutterWave(form_id)">
+                Pay Now – Local & International
+              </button>
+            </div>
+            <div class="col-lg-12 mb-3" v-if="method == 'interswitch'">
+              <button @click="Interswitch(form_id)">
+                Pay Now – Local & International
+              </button>
+            </div>
+            <!-- <div class="col-lg-12 mb-3" v-if="method == 'aimstoget'">
+              <button :disabled="loading" @click="callAtgPay(form_id)">
+                Pay Now – Airtime – Nigeria Only 
+              </button>
+            </div> -->
           </div>
           <!-- <div class="col-lg-12 mb-3">
             <button>
@@ -93,8 +111,10 @@ export default {
       amount: '',
       method: '',
       product_title: '',
-      
-
+      currency_symbol: '',
+      form_id: '',
+      publicKey: "pk_test_be803d46f5a6348c3643967d0e6b7b2303d42b4f",
+      flw_public_key: "FLWPUBK_TEST-0f353662b04aee976128e62946a59682-X"
     }
   },
   created() {
@@ -108,14 +128,15 @@ export default {
     getData(){
       let data = this.transData
       this.reference = data.reference
+      this.form_id = data.product_id
       this.admin_id = data.admin_id
       this.email = data.email
       this.name = data.payer_name
       this.amount = data.amount
+      this.currency_symbol = data.currency
       this.data = data
       this.method = data.method
       this.product_title = data.product_title
-      console.log(data);
     },
     payStack(id) {
       //  options
@@ -137,7 +158,7 @@ export default {
           Notification.addNotification({
             receiverId: this.admin_id,
             type: "Event Form",
-            message: `Someone just Successfully Applied for Event Form`,
+            message: `Someone just Successfully Applied for ${this.name} Event Form`,
           });
           TransactionService.makeTransaction(this.data).then(
             (response) => {
@@ -146,7 +167,7 @@ export default {
               //this.resetForm();
             }
           );
-          /* this.$router.push("/fill-form/" + id); */
+          this.$router.push("/fill-form/" + id);
         },
         /*  onCancel: () => {
                 this.onCancel();
@@ -169,35 +190,69 @@ export default {
       this.modal.hide();
     },
     flutterWave(id) {
-      let paymentParams = {
-        public_key: "FLWPUBK_TEST-0f353662b04aee976128e62946a59682-X",
-        tx_ref: this.reference,
-        amount: this.amount.toString(),
-        currency: "NGN",
-        customer: {
-          email: this.email,
-          /* phone_number: this.phone, */
-        },
-        callback: (response) => {
-          console.log(response);
-          this.method = "Flutterwave";
-          Notification.addNotification({
-            receiverId: this.admin_id,
-            type: "Event Form",
-            message: `Someone just Successfully Applied for Event Form`,
-          });
-          TransactionService.makeTransaction(this.data).then(
-            (response) => {
-              this.message = response.data.message;
-              //this.resetForm();
-            }
-          );
-          /* this.$router.push("/fill-form/" + id); */
-        },
-        onclose: () => this.onclose(),
-      };
-      window.FlutterwaveCheckout(paymentParams);
-      this.modal.hide();
+       if (this.currency_symbol != 'NGN') {
+        let paymentParams = FlutterwaveCheckout({
+          public_key: this.flw_public_key,
+          tx_ref: this.reference,
+          amount: this.amount,
+          currency: 'USD',
+          customer: {
+            email: this.email,
+            /* phone_number: this.payContent.phone, */
+          },
+          callback: (response) => {
+            console.log(response);
+            this.loading = false;
+            this.method = "Flutterwave";
+            Notification.addNotification({
+              receiverId: this.adminId,
+              type: "Event Form",
+              message: `Someone just Successfully Applied for ${this.name} Event Form`
+            })
+            TransactionService.makeTransaction(this.data).then(
+              (response) => {
+                this.loading = false;
+                this.message = response.data.message;
+              }
+            );
+            paymentParams.close()
+            this.$router.push("/form-fill/" + id);
+            window.close()
+          },
+          onclose: () => paymentParams.close()
+        });
+      } else {
+        let paymentParams = FlutterwaveCheckout({
+          public_key: this.flw_public_key,
+          tx_ref: this.payContent.reference,
+          amount: this.payContent.amount,
+          currency: "NGN",
+          customer: {
+            email: this.payContent.email,
+            phone_number: this.payContent.phone,
+          },
+          callback: (response) => {
+            console.log(response);
+            this.loading = false;
+            this.method = "Flutterwave";
+            Notification.addNotification({
+              receiverId: this.adminId,
+              type: "Event Form",
+              message: `Someone just Successfully Applied for ${this.name} Event Form`
+            })
+            TransactionService.makeTransaction(this.data).then(
+              (response) => {
+                this.loading = false;
+                //this.message = response.data.message;
+              }
+            );
+            paymentParams.close()
+            this.$router.push("/fill-form/" + id);
+            window.close()
+          },
+          onclose: () => paymentParams.close()
+        });
+      }
     },
     interSwitch(id) {
       let samplePaymentRequest = {
@@ -216,7 +271,7 @@ export default {
           Notification.addNotification({
             receiverId: this.admin_id,
             type: "Event Form",
-            message: `Someone just Successfully Applied for Event Form`,
+            message: `Someone just Successfully Applied for ${this.name} Event Form`,
           });
           TransactionService.makeTransaction(this.data).then(
             (response) => {
@@ -225,7 +280,7 @@ export default {
               //this.resetForm();
             }
           );
-          /* this.$router.push("/fill-form/" + id); */
+          this.$router.push("/fill-form/" + id);
         },
         mode: "TEST",
       };

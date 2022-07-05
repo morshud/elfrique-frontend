@@ -29,13 +29,13 @@
                 {{ format_date(contest.startdate) }}
               </p>
 
-              <p><i class="bi bi-alarm"></i> : 00:01</p>
+              <!-- <p><i class="bi bi-alarm"></i> : 00:01</p> -->
               <h5>End</h5>
               <p>
                 <i class="bi bi-calendar3"></i> :
                 {{ format_date(contest.closedate) }}
               </p>
-              <p><i class="bi bi-alarm"></i> : 23:99</p>
+              <!-- <p><i class="bi bi-alarm"></i> : 23:99</p> -->
             </div>
             <div class="details-social">
               <h5>Share on:</h5>

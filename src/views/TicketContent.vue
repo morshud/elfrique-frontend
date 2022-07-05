@@ -562,7 +562,8 @@ export default {
         product_title: this.event.title,
         product_id: this.event.id,
         type: "paid",
-        amount: this.currency_symbol +' '+ this.totalPrice,
+        amount: this.totalPrice,
+        currency: this.currency_symbol,
         payer_name: this.firstname + " " + this.lastname,
         phone_no: this.phone,
       };

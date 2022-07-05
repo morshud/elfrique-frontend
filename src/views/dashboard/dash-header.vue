@@ -1,4 +1,5 @@
 <template>
+<div>
   <link
     rel="shortcut icon"
     href="@/assets/images/favicon.png"
@@ -142,7 +143,7 @@
       </ul>
     </nav>
   </header>
-
+  
   <!--------Sidebar--------->
   <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
@@ -569,6 +570,7 @@
       </li>
     </ul>
   </aside>
+  </div>
 </template>
 <style scoped src="@/assets/css/dashStyle.css"></style>
 <script>
@@ -587,7 +589,7 @@ export default {
   created() {
     ProfileService.getProfile().then(
       (response) => {
-        this.userId = response.data.profile.id;
+        this.userId = response.data.profile.adminuser.id;
         Notification.findUserNotification({
           receiverId: this.userId,
         }).then((res) => {
@@ -655,12 +657,7 @@ export default {
     }
     window.scrollTo(0, 0);
 
-    let externalScript = document.createElement("script");
-    externalScript.setAttribute(
-      "src",
-      "https://cdn.statically.io/gh/NathTimi/scripts/main/main.js"
-    );
-    document.head.appendChild(externalScript);
+    
   },
 };
 </script>
