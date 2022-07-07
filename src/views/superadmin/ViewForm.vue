@@ -21,18 +21,18 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body card-table">
-                <div class="buttons-table">
+                <!-- <div class="buttons-table">
                     <button type="button">Copy</button>
                     <button type="button">CSV</button>
                     <button type="button">Excel</button>
                     <button type="button">PDF</button>
                     <button type="button">Print</button>
-                </div>
-                <div class="search-table">
+                </div> -->
+                <!-- <div class="search-table">
                     <form>
                         <input type="text" placeholder="Search...">
                     </form>
-                </div>
+                </div> -->
                 <!--Table-->
                 <p class="text-muted p-text">Forms Uploaded</p>
                 <table class="table datatable card-table-table">
@@ -55,7 +55,7 @@
                     <tr>
                         
                         <td>{{idx + 1}}</td>
-                        <td>{{con.adminuser.email}}</td>
+                        <td>{{con.organisation}}</td>
                         <td>{{con.id}}</td>
                         <td>{{con.title}}</td>
                         <td><img :src="con.image" alt="event-pics" contain height="100" width="150" ></td>
