@@ -138,7 +138,9 @@
                         </ul>
                       </div>
                     </td>
-                    <td><a href="#">Form Link</a></td>
+                    <td>
+                      <a :href="'/event-form-content/' + con.id">Form Link</a>
+                    </td>
                   </tr>
                 </tbody>
               </table>
