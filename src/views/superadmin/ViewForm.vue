@@ -80,7 +80,7 @@
                     </td>
                     <td>{{ format_date(con.createdAt) }}</td>
                     <td>{{ format_date(con.startdate) }}</td>
-                    <td>{{ format_date(con.enddate) }}</td>
+                    <td>{{ format_date(con.closedate) }}</td>
                     <td>On</td>
                     <td>
                       <div class="dropdown">
