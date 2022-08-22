@@ -24,6 +24,7 @@ class EventForm {
   } */
 
   getForms() {
+    //forms by user
     return axios.get(API_URL + "getAllForm", { headers: authHeader() });
   }
 
@@ -80,7 +81,7 @@ class EventForm {
   }
 
   allFormForAdmin() {
-    return axios.get(API_URL + "getForms", { headers: authHeader() });
+    return axios.get(API_URL + "allForms", { headers: authHeader() });
   }
 }
 
