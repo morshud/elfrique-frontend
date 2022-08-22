@@ -2,11 +2,12 @@ import axios from "axios";
 import authHeader from "./auth-header2";
 import authHeader2 from "./auth-header";
 import spHeader from "./super-authHeader";
+import { _API_URL } from "../configs";
 
-const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
+const API_URL = _API_URL;
 //const API_URL = "http://localhost:3000/api/v1/";
 
-class TransactionService {  
+class TransactionService {
   createVote(voteForm) {
     return axios.post(API_URL + "createVote", voteForm, {
       headers: authHeader(),
@@ -14,7 +15,7 @@ class TransactionService {
   }
 
   makeTransaction(transactForm) {
-    return axios.post(API_URL + "makeTransaction", transactForm)
+    return axios.post(API_URL + "makeTransaction", transactForm);
   }
 
   submitVote(contestantId, voteForm) {

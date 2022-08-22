@@ -1,9 +1,9 @@
 import axios from "axios";
 import authHeader from "./auth-header2";
 import authHeader2 from "./auth-header";
+import { _API_URL } from "../configs";
 
-const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
-
+const API_URL = _API_URL;
 class EventForm {
   createForm(eventForm) {
     return axios.post(API_URL + "createForm", eventForm, {
