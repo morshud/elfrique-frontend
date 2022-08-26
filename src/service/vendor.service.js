@@ -1,9 +1,9 @@
 import axios from "axios";
 import authHeader from "./auth-header2";
 import authHeader2 from "./auth-header";
+import { _API_URL } from "../configs";
 
-const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
-
+const API_URL = _API_URL;
 class VendorService {
   getEvents() {
     return axios.get(API_URL + "getAllEvents", { headers: authHeader() });
@@ -30,13 +30,9 @@ class VendorService {
   }
 
   createUrl(urlForm) {
-    return axios.post(
-      "https://elfrique-proj.herokuapp.com/api/v1/url/shorten",
-      urlForm,
-      {
-        headers: authHeader2(),
-      }
-    );
+    return axios.post(API_URL + "url/shorten", urlForm, {
+      headers: authHeader2(),
+    });
   }
 
   createVendor(vendorForm) {

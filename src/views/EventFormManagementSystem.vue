@@ -26,9 +26,17 @@
       <div class="row justify-content-center mt-5">
         <div class="col-lg-11 mb-5 search-section">
           <form>
-            <input class="searchbox-input input" type="text" placeholder="Search here ..." />
+            <input
+              class="searchbox-input input"
+              type="text"
+              placeholder="Search here ..."
+            />
             <input class="date-input input" type="date" />
-            <input class="search-input input" type="submit" value="Search &#128269;" />
+            <input
+              class="search-input input"
+              type="submit"
+              value="Search &#128269;"
+            />
           </form>
         </div>
       </div>
@@ -40,7 +48,7 @@
   <section class="event-form-content">
     <div class="container">
       <div class="row">
-        <!-- <div class="col-md-3 py-2" v-for="con in eventContent" :key="con.id">
+        <div class="col-md-3 py-2" v-for="con in eventContent" :key="con.id">
           <div class="card">
             <img :src="con.image" class="card-img-top" />
             <div class="card-body">
@@ -61,8 +69,9 @@
               >
             </div>
           </div>
-        </div> -->
-        <div class="user" v-for="user in users" :key="user.first">
+        </div>
+
+        <!-- <div class="user" v-for="user in users" :key="user.first">
           <div class="user-avatar">
             <img :src="user.picture.large" />
           </div>
@@ -76,7 +85,7 @@
               <li><strong>Location:</strong> {{ user.location.city }}, {{ user.location.state }}</li>
             </ul>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -102,7 +111,7 @@ export default {
   data() {
     return {
       eventContent: "",
-      users: []
+      users: [],
     };
   },
 
@@ -130,15 +139,17 @@ export default {
     },
     getNextUser() {
       window.onscroll = () => {
-        let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight / 2 === 1578.5;
+        let bottomOfWindow =
+          document.documentElement.scrollTop + window.innerHeight / 2 ===
+          1578.5;
         console.log(window.innerHeight);
         if (bottomOfWindow) {
-          axios.get(`https://randomuser.me/api/`).then(response => {
+          axios.get(`https://randomuser.me/api/`).then((response) => {
             this.users.push(response.data.results[0]);
           });
         }
-      }
-    }
+      };
+    },
   },
   beforeMount() {
     this.getInitialUsers();
