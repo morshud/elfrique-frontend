@@ -43,7 +43,7 @@
       <div class="col-lg-12 horizontal-advert mt-3">
         <a href="#">
           <img
-            src="@/assets/images/advert-banner3.jpg"
+            src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1661185447/Elfrique_v2/WhatsApp_Image_2022-08-22_at_5.04.47_PM_3_phhjjh.jpg"
             ondragstart="return false;"
             alt="advert"
           />
@@ -171,7 +171,7 @@
         <div class="col-lg-12 horizontal-advert mt-3">
           <a href="#">
             <img
-              src="@/assets/images/advert-banner3.jpg"
+              src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1661185447/Elfrique_v2/WhatsApp_Image_2022-08-22_at_5.04.47_PM_3_phhjjh.jpg"
               ondragstart="return false;"
               alt="advert"
             />
@@ -424,7 +424,7 @@
         <div class="col-lg-12 horizontal-advert mt-3">
           <a href="#">
             <img
-              src="@/assets/images/advert-banner3.jpg"
+              src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1661185447/Elfrique_v2/WhatsApp_Image_2022-08-22_at_5.04.47_PM_3_phhjjh.jpg"
               ondragstart="return false;"
               alt="advert"
             />

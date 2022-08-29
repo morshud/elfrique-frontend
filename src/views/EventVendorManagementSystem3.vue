@@ -25,7 +25,7 @@
             <input
               v-model="search.location"
               class="location-input input"
-              type="text" 
+              type="text"
               placeholder="Enter location"
             />
             <input
@@ -59,43 +59,52 @@
 
   <!--Service Event-Vendor-->
   <section class="event-vendor">
-        <div class="container service-vendor">
-            <div class="row">
-                <div class="col-lg-12 header mb-3">
-                    <h1>Available Jobs</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div v-for="con in Content" :key="con.id" class="vendorJob-box col-lg-3">
-                    <div class="card">
-                        <a :href="'/details-vendor/' + con.id">
-                            <div class="img-area">
-                                <img :src="con.event.image">
-                            </div>
-                        </a>
-                        <div class="card-body">
-                            <a :href="'/details-vendor/' + con.id" class="routers">
-                                <h1 title="Needed Service">{{ con.job_type }} Needed</h1>
-                            </a>
-                            <div class="line-rule"></div>
-                            <span class="eventname" title="Event Type"><i class="bi bi-stack"></i>
-                                {{ con.event.title }}</span>
-                            <span class="date" title="Bid Closing Date"><i class="bi bi-calendar-week-fill"></i>
-                                {{ format_date(con.event.startdate) }}</span>
-                            <!-- <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i>
+    <div class="container service-vendor">
+      <div class="row">
+        <div class="col-lg-12 header mb-3">
+          <h1>Available Jobs</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          v-for="con in Content"
+          :key="con.id"
+          class="vendorJob-box col-lg-3"
+        >
+          <div class="card">
+            <a :href="'/details-vendor/' + con.id">
+              <div class="img-area">
+                <img :src="con.event.image" />
+              </div>
+            </a>
+            <div class="card-body">
+              <a :href="'/details-vendor/' + con.id" class="routers">
+                <h1 title="Needed Service">{{ con.job_type }} Needed</h1>
+              </a>
+              <div class="line-rule"></div>
+              <span class="eventname" title="Event Type"
+                ><i class="bi bi-stack"></i> {{ con.event.title }}</span
+              >
+              <span class="date" title="Bid Closing Date"
+                ><i class="bi bi-calendar-week-fill"></i>
+                {{ format_date(con.event.startdate) }}</span
+              >
+              <!-- <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i>
                                 {{ con.location }}</span> -->
-                            <span class="price" title="Starting Price"><i class="bi bi-cash"></i> Starts at
-                                <strong>&#8358;{{ con.budget }}</strong></span>
-                            <button><a class="btnA" :href="'/details-vendor/' + con.id">View</a></button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Modal -->
-
+              <span class="price" title="Starting Price"
+                ><i class="bi bi-cash"></i> Starts at
+                <strong>&#8358;{{ con.budget }}</strong></span
+              >
+              <button>
+                <a class="btnA" :href="'/details-vendor/' + con.id">View</a>
+              </button>
             </div>
+          </div>
+        </div>
+        <!-- Modal -->
+      </div>
 
-
-            <!-- <div class="col-md-12 text-center mt-5 paginationDivArea">
+      <!-- <div class="col-md-12 text-center mt-5 paginationDivArea">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
@@ -114,21 +123,24 @@
                     </ul>
                 </nav>
             </div> -->
+    </div>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 horizontal-advert mt-3">
+          <a :href="currentImg.ref_link" target="_blank">
+            <img
+              :src="currentImg.img_url"
+              ondragstart="return false;"
+              alt="advert"
+              width="1300"
+              height="200"
+            />
+          </a>
         </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 horizontal-advert mt-3">
-                    <a :href="currentImg.ref_link" target="_blank">
-                        <img :src="currentImg.img_url" ondragstart="return false;" alt="advert" width="1300"
-                            height="200">
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </section>
+      </div>
+    </div>
+  </section>
   <!--Service Event-Vendor Ends-->
 
   <elfrique-footer />
