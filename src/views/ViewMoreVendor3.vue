@@ -90,7 +90,7 @@
                 {{ format_date(con.event.startdate) }}</span
               >
               <!-- <span class="location" title="Event Location"><i class="bi bi-geo-alt-fill"></i>
-                                {{ con.location }}</span> -->
+                                  {{ con.location }}</span> -->
               <span class="price" title="Starting Price"
                 ><i class="bi bi-cash"></i> Starts at
                 <strong>&#8358;{{ con.budget }}</strong></span
@@ -105,24 +105,24 @@
       </div>
 
       <!-- <div class="col-md-12 text-center mt-5 paginationDivArea">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div> -->
+                  <nav aria-label="Page navigation example">
+                      <ul class="pagination justify-content-center">
+                          <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Previous">
+                                  <span aria-hidden="true">&laquo;</span>
+                              </a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Next">
+                                  <span aria-hidden="true">&raquo;</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </nav>
+              </div> -->
     </div>
 
     <div class="container">
