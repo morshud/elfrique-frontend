@@ -25,11 +25,6 @@
     <!--Nav Icon-->
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-        <li>
-          <a href="/user/dashboard" class="switch-link-header"
-            >Switch To User Dashboard <i class="bi bi-record2-fill"></i
-          ></a>
-        </li>
         <!--Notification Nav-->
         <li class="nav-item dropdown">
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
