@@ -22,8 +22,8 @@
 
     <div v-if="role == 'normalUser'" class="alert alert-danger alert-dismissible fade show" role="alert">
                 please 
-                <button type="button"  data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"  class="btn-close">click here</button>
+                <a type="button"  data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"  class="">click here</a>
                 to update your profile details
                 
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
