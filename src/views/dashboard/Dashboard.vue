@@ -1198,7 +1198,8 @@ export default {
           this.successful = true;
           this.loading = false;
           this.modal = "";
-          this.$router.push("/organiser/dashboard");
+          window.location.reload()
+          //this.$router.push("/organiser/dashboard");
         },
         (error) => {
           this.message =
