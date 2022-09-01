@@ -23,7 +23,7 @@
     <div v-if="role == 'normalUser'" class="alert alert-danger alert-dismissible fade show" role="alert">
                 please 
                 <button type="button"  data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"  class="btn btn-success">click here</button>
+                data-bs-target="#staticBackdrop"  class="btn-close">click here</button>
                 to update your profile details
                 
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -995,7 +995,6 @@
                   v-model="profile.twitterURL"
                   type="url"
                   class="input"
-                  required
                 />
               </div>
               <div class="col-lg-6 mb-2">
@@ -1004,7 +1003,6 @@
                   v-model="profile.facebookURL"
                   type="url"
                   class="input"
-                  required
                 />
               </div>
               <div class="col-lg-6 mb-2">
@@ -1013,7 +1011,6 @@
                   v-model="profile.instagramURL"
                   type="url"
                   class="input"
-                  required
                 />
               </div>
               <div class="col-lg-12 mt-2">
@@ -1200,7 +1197,8 @@ export default {
           this.message = response.data.message;
           this.successful = true;
           this.loading = false;
-          this.modal = "modal";
+          this.modal = "";
+          this.$router.push("/organiser/dashboard");
         },
         (error) => {
           this.message =
