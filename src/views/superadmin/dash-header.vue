@@ -100,10 +100,12 @@
                         </li>
     
                         <li>
-                            <router-link to="/superadmin/profile" class="routers"><a class="dropdown-item d-flex align-items-center">
-                                <i class="bi bi-person"></i>
-                                <span>My Profile</span>
-                            </a></router-link>
+                            <router-link to="/superadmin/profile" class="routers">
+                                <a class="dropdown-item d-flex align-items-center">
+                                    <i class="bi bi-person"></i>
+                                    <span>My Profile</span>
+                                </a>
+                            </router-link>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
@@ -113,12 +115,12 @@
                             <hr class="dropdown-divider">
                         </li>
     
-                        <li>
+                        <!-- <li>
                             <hr class="dropdown-divider">
-                        </li>
+                        </li> -->
     
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" type="button" @click="logOut">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -155,13 +157,13 @@
                     <li><router-link to="/superadmin/overview-general" class="routers"><a><i class="bi bi-circle"></i><span>Overview</span></a></router-link></li>
                     <li><router-link to="/superadmin/view-organisers" class="routers"><a><i class="bi bi-circle"></i><span>View Organisers</span></a></router-link></li>
                     <li><router-link to="/superadmin/short-links" class="routers"><a><i class="bi bi-circle"></i><span>Short Links</span></a></router-link></li>
-                    <li><router-link to="/superadmin/subscribers" class="routers"><a><i class="bi bi-circle"></i><span>Subscribers</span></a></router-link></li>
+                    <!-- <li><router-link to="/superadmin/subscribers" class="routers"><a><i class="bi bi-circle"></i><span>Subscribers</span></a></router-link></li>
                     <li><router-link to="/superadmin/add-subscribers" class="routers"><a><i class="bi bi-circle"></i><span>Add Subscribers</span></a></router-link></li>
                     <li><router-link to="/superadmin/search-airtime" class="routers"><a><i class="bi bi-circle"></i><span>Search Airtime</span></a></router-link></li>
-                    <li><router-link to="/superadmin/view-airtime-logs" class="routers"><a><i class="bi bi-circle"></i><span>View Airtime Logs</span></a></router-link></li>
+                    <li><router-link to="/superadmin/view-airtime-logs" class="routers"><a><i class="bi bi-circle"></i><span>View Airtime Logs</span></a></router-link></li> -->
                     <li><router-link to="/superadmin/view-payout" class="routers"><a><i class="bi bi-circle"></i><span>View Payout</span></a></router-link></li>
-                    <li><router-link to="/superadmin/payu-log" class="routers"><a><i class="bi bi-circle"></i><span>Payu Log</span></a></router-link></li>
-                    <li><router-link to="/superadmin/search-payu-logs" class="routers"><a><i class="bi bi-circle"></i><span>Search Payu Logs</span></a></router-link></li>
+                    <!-- <li><router-link to="/superadmin/payu-log" class="routers"><a><i class="bi bi-circle"></i><span>Payu Log</span></a></router-link></li>
+                    <li><router-link to="/superadmin/search-payu-logs" class="routers"><a><i class="bi bi-circle"></i><span>Search Payu Logs</span></a></router-link></li> -->
                     <li><router-link to="/superadmin/add-faq" class="routers"><a><i class="bi bi-circle"></i><span>Add FAQ</span></a></router-link></li>
                     <li><router-link to="/superadmin/view-faqs" class="routers"><a><i class="bi bi-circle"></i><span>View FAQs</span></a></router-link></li>
                     <li><router-link to="/login" class="routers"><a><i class="bi bi-circle"></i><span>Admin-User-Login</span></a></router-link></li>
@@ -319,7 +321,7 @@
             </li>
             <!--Log Out-->
             <li class="nav-item">
-                <a class="nav-link collapsed" href @click.prevent="logOut">
+                <a class="nav-link collapsed" type="button" @click="logOut">
                     <img src="@/assets/images/menu-logout.png">
                     <span>Log Out</span>
                 </a>
@@ -341,7 +343,7 @@ export default {
    methods: {
     logOut() {
       this.$store.dispatch('admin/logout');
-      this.$router.push('/');
+      this.$router.push('/superadmin');
     }
   },
     mounted() {
