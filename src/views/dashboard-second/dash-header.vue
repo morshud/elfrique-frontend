@@ -42,10 +42,7 @@
             }}</span>
           </a>
           <ul
-            class="
-              dropdown-menu dropdown-menu-end dropdown-menu-arrow
-              notifications
-            "
+            class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications"
           >
             <li class="dropdown-header">
               You have {{ notificationCount }} new notifications
@@ -641,21 +638,11 @@
               </div>
               <div class="col-lg-6 mb-2">
                 <label>Your Twitter Account URL</label>
-                <input
-                  v-model="profile.twitterURL"
-                  type="url"
-                  class="input"
-                  required
-                />
+                <input v-model="profile.twitterURL" type="url" class="input" />
               </div>
               <div class="col-lg-6 mb-2">
                 <label>Your Facebook Account URL</label>
-                <input
-                  v-model="profile.facebookURL"
-                  type="url"
-                  class="input"
-                  required
-                />
+                <input v-model="profile.facebookURL" type="url" class="input" />
               </div>
               <div class="col-lg-6 mb-2">
                 <label>Your Instagram Account URL</label>
@@ -663,7 +650,6 @@
                   v-model="profile.instagramURL"
                   type="url"
                   class="input"
-                  required
                 />
               </div>
               <div class="col-lg-12 mt-2">
