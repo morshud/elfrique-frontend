@@ -111,14 +111,15 @@ export default {
             () => {
               console.log(this.$store.state.auth.user);
               let data = this.$store.state.auth.user;
-              if (data.user.role == "seller") {
+              if (data.user.role == "seller" || data.user.role == "normalUser") {
                 this.$router.push('/organiser/dashboard');
-              } else {
-                this.$router.push('/user/dashboard');
+              }
+              if (data.user.role == "admin") {
+                this.$router.push('/superadmin/dashboard');
               }
               //this.$router.push('/user/dashboard');
             },
-            error => {
+            error => {gi
               this.loading = false;
               this.message =
                 (error.response && error.response.data && error.response.data.message) ||

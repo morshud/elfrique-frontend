@@ -358,46 +358,12 @@
               </div>
             </div>
           </div>
-          <div class="mainJob-box mt-5">
-            <div v-for="con in Content" :key="con.id" class="vendorJob-box">
-              <div class="card">
-                <div class="img-area">
-                  <img :src="con.event.image" />
-                </div>
-                <div class="card-body">
-                  <h1 title="Needed Service">{{ con.job_type }} Needed</h1>
-                  <div class="line-rule"></div>
-                  <span class="eventname" title="Event Type"
-                    ><i class="bi bi-stack"></i> {{ con.event.title }}</span
-                  >
-                  <span class="date" title="Bid Closing Date"
-                    ><i class="bi bi-calendar-week-fill"></i>
-                    {{ format_date(con.event.startdate) }}</span
-                  >
-                  <span class="location" title="Event Location"
-                    ><i class="bi bi-geo-alt-fill"></i> {{ con.location }}</span
-                  >
-                  <span class="price" title="Starting Price"
-                    ><i class="bi bi-cash"></i> Starts at
-                    <strong>&#8358;{{ con.budget }}</strong></span
-                  >
-                  <button
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                  >
-                    Bid
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="col-md-12 text-center mt-5">
             <a href="/view-more-vendor" class="btn-all-service">View More</a>
           </div>
         </div>
         <div class="col-lg-3">
-          <div class="advert-area">
+         <!--  <div class="advert-area">
             <a href="#">
               <img
                 src="@/assets/images/advert-banner1.jpg"
@@ -405,7 +371,7 @@
                 alt="advert"
               />
             </a>
-          </div>
+          </div> -->
           <div class="advert-area">
             <a href="#">
               <img
@@ -473,7 +439,6 @@ export default {
   },
   created() {
     VendorService.getAllJobs()
-      .then((resp) => resp.json())
       .then((response) => {
         this.Content = response.data;
         console.log(this.Content);

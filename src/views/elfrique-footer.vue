@@ -5,7 +5,8 @@
           <div class="col-lg-5">
             <div class="main-ft">
               <router-link to="/" class="routers"><img src="@/assets/images/logo.png"></router-link>
-              <h5>An innovative and complete goal-oriented company. We use through our website and short codes to help customers achieve their goals.</h5>
+              <h5>Elfrique is a creative and innovative management company. "We constantly strive to help our customers achieve their goal by 
+              using our website resources and shortcodes."</h5>
               <p><span><i class="bi bi-telephone-fill"></i></span> <a href="tel:+2349071130455">+234 907 113 0455</a></p>
               <p><span><i class="bi bi-whatsapp"></i></span> <a href="tel:+2349013209138">+234 901 320 9138</a></p>
               <p><span><i class="bi bi-envelope-fill"></i></span> <a href="mailto:info@elfrique.com">info@elfrique.com</a></p>
