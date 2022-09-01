@@ -20,10 +20,12 @@
     </div>
 
 
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                please update your profile <br>
+    <div v-if="role == 'normalUser'" class="alert alert-danger alert-dismissible fade show" role="alert">
+                please 
                 <button type="button"  data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"  class="btn btn-success">Update Now</button>
+                data-bs-target="#staticBackdrop"  class="btn btn-success">click here</button>
+                to update your profile details
+                
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <!--Page Body-->
@@ -1063,6 +1065,7 @@ export default {
   data() {
     return {
       ref_Id: "",
+      role: '',
       referral: "",
       message: "",
       content: "",
@@ -1127,6 +1130,7 @@ export default {
     ProfileService.getProfile().then(
       (response) => {
         this.ref_Id = response.data.profile.adminuser.reference;
+        this.role = response.data.profile.adminuser.role;
         this.referral =
           "https://elfrique-proj.netlify.app/signup?referral=" + this.ref_Id;
         this.adminId = response.data.profile.adminuser.id;
