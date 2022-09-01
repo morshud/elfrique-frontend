@@ -119,7 +119,7 @@ export default {
               }
               //this.$router.push('/user/dashboard');
             },
-            error => {
+            error => {gi
               this.loading = false;
               this.message =
                 (error.response && error.response.data && error.response.data.message) ||
