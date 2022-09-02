@@ -2113,6 +2113,27 @@ header .logo img {
   font-size: 16px;
   transition: 0.6s;
 }
+.modal-body .connet textarea{
+  display: block;
+  width: 100%;
+  padding: 10px 5px 10px 20px;
+  border-radius: 5px;
+  border: 2px solid #2B521E;
+  letter-spacing: 0.8px;
+  background-color: #fff;
+  font-size: 16px;
+  transition: 0.6s;
+}
+.table td button{
+  border: none;
+  background-color: #fff;
+}
+.table td button:hover{
+  color: #26471b;
+  border: none;
+  background-color: #fff;
+  text-decoration: underline;
+}
 .modal-body .connet input::placeholder{
   font-size: 13px;
   color: #000;

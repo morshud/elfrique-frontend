@@ -1,20 +1,20 @@
 <template>
-    <title>Sales-Analytics | Elfrique</title>
+    <title>Update Answer | Elfrique</title>
     <dash-header/>
 
     <!--------Main Content--------->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1 class="create">Sales Analytics</h1>
+            <h1 class="create">Update Answer</h1>
             <nav>
                 <!-- HAMZAT UPDATE ON REGISTRATION -->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
                     <li class="breadcrumb-item active">
-                        Registration
+                        Trivia
                     </li>
                     <li class="breadcrumb-item active">
-                        Sales Analytics
+                        Update Answer
                     </li>
                 </ol>
             </nav>
@@ -28,14 +28,14 @@
                     <form>
                         <div class="row">
                             <div class="col-lg-12 mt-4">
-                                <label for="vote option" class="create">Sales-Analytics</label>
+                                <label class="create" for="vote option">Update Question</label>
                                 <select id="gateway" required>
-                                    <option value="select vote option" >Select Your Event Option 1</option>
-                                    <option value="select vote option" >Select Your Event Option 2</option>
+                                    <option value="select vote option" >Kindly Update your Question</option>
+                                    <option value="select vote option" >Kindly Update your Question</option>
                                 </select>
                             </div>
                             <div class="col-lg-12 mt-4">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Analytics</button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" value="Submit" required>Submit</button>
                             </div>
                         </div>
                     </form>
@@ -47,16 +47,42 @@
         <div class="modal-dialog modal-xl container">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"><b>Sales-Analytics</b></h5>
+                <h5 class="modal-title" id="staticBackdropLabel"><b>Update Question</b></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="text-center">
-                           <b>
-                                Choose an Event From the List
-                           </b>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="connet">
+                                    <label>Attach Your File</label>
+                                    <div class="row">
+                                        <div class="col-md-12 mb-4">
+                                            <input type="file" accept="image/*">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="connet">
+                                    <label>Question</label>
+                                    <div class="row">
+                                        <div class="col-md-12 mb-4">
+                                            <textarea required class="input" cols="20" placeholder="Enter your Answer." rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="connet">
+                                    <button>
+                                        <router-link to="Addsha" class="routers">
+                                            <a>
+                                                Update Answers
+                                            </a>
+                                        </router-link>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

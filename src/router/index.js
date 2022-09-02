@@ -76,6 +76,8 @@ import DashViewEvent from "../views/dashboard/ViewEvent.vue";
 import CreateReferral from "../views/dashboard/CreateReferral.vue";
 import ViewReferral from "../views/dashboard/ViewReferral.vue";
 import SalesAnalytics from "../views/dashboard/SalesAnalytics.vue";
+import UpdateQuestion from "../views/dashboard/UpdateQuestion.vue";
+import UpdateAnswer from "../views/dashboard/UpdateAnswer.vue";
 /* import DashSearchEvent from "../views/dashboard/SearchEvent.vue"; */
 import DashEventSalesAnalytics from "../views/dashboard/EventSalesAnalytics.vue";
 import DashPersonalTicket from "../views/dashboard/PersonalTicket.vue";
@@ -589,6 +591,16 @@ const routes = [
     path: "/organiser/view-result",
     name: "DashViewResult",
     component: DashViewResult,
+  },
+  {
+    path: "/organiser/update-question",
+    name: "UpdateQuestion",
+    component: UpdateQuestion,
+  },
+  {
+    path: "/organiser/update-answer",
+    name: "UpdateAnswer",
+    component: UpdateAnswer,
   },
   {
     path: "/organiser/trivia-sales-analytics",

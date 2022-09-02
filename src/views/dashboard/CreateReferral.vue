@@ -11,32 +11,10 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
                     <li class="breadcrumb-item active">
-                        <router-link to="/organiser/create-event" class="routers">
-                            <a>
-                                Create Event
-                            </a>
-                        </router-link>
+                        Registration
                     </li>
                     <li class="breadcrumb-item active">
-                        <router-link to="/organiser/add-ticket" class="routers">
-                            <a>
-                                Add Ticket
-                            </a>
-                        </router-link>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        <router-link to="/organiser/add-ticket" class="routers">
-                            <a>
-                                View Event
-                            </a>
-                        </router-link>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        <router-link to="/organiser/create-referral" class="routers">
-                            <a>
-                                Create Referral
-                            </a>
-                        </router-link>
+                        Create Referral
                     </li>
                 </ol>
             </nav>
@@ -110,11 +88,7 @@
                             <div class="col-md-3">
                                 <div class="connet">
                                     <button>
-                                        <router-link to="Addsha" class="routers">
-                                            <a>
-                                                Add Referral
-                                            </a>
-                                        </router-link>
+                                        Add Referral
                                     </button>
                                 </div>
                             </div>

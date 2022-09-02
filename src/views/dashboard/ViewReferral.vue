@@ -11,39 +11,10 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
                     <li class="breadcrumb-item active">
-                        <router-link to="/organiser/create-event" class="routers">
-                            <a>
-                                Create Event
-                            </a>
-                        </router-link>
+                        Registration
                     </li>
                     <li class="breadcrumb-item active">
-                        <router-link to="/organiser/add-ticket" class="routers">
-                            <a>
-                                Add Ticket
-                            </a>
-                        </router-link>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        <router-link to="/organiser/add-ticket" class="routers">
-                            <a>
-                                View Event
-                            </a>
-                        </router-link>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        <router-link to="/organiser/create-referral" class="routers">
-                            <a>
-                                Create Referral
-                            </a>
-                        </router-link>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        <router-link to="/organiser/view-referral" class="routers">
-                            <a>
-                                View Referral
-                            </a>
-                        </router-link>
+                        View Referral
                     </li>
                 </ol>
             </nav>
@@ -75,31 +46,35 @@
                     <table id="vote" ref="vote" class="table datatable card-table-table">
                       <thead>
                         <tr>
-                          <th scope="col">S/N</th>
-                          <th scope="col">Name</th>
-                          <th scope="col">Email</th>
-                          <th scope="col">Referral Code</th>
-                          <th scope="col">Edit Referral</th>
-                          <th scope="col">View Sales</th>
-                          <th scope="col">Date Added</th>
+                            <th scope="col">S/N</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Referral Code</th>
+                            <th scope="col">Edit Referral</th>
+                            <th scope="col">View Sales</th>
+                            <th scope="col">Date Added</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <th scope="row">1</th>
-                          <td>Hamzat</td>
-                          <td>greenmouse@gmail.com</td>
-                          <td>121212</td>
-                          <td>121212</td>
-                          <td>Label 1</td>
-                          <td>02/09/2022</td>
+                            <th scope="row">1</th>
+                            <td>Hamzat</td>
+                            <td>greenmouse@gmail.com</td>
+                            <td>121212</td>
+                            <td>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit Referral</button>
+                            </td>
+                            <td>Label 1</td>
+                            <td>02/09/2022</td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
                             <td>Chukka</td>
                             <td>greenmouse@gmail.com</td>
                             <td>121212</td>
-                            <td>121212</td>
+                            <td>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit Referral</button>
+                            </td>
                             <td>Label 2</td>
                             <td>02/09/2022</td>
                         </tr>
@@ -108,7 +83,9 @@
                             <td>Radi-Dev</td>
                             <td>greenmouse@gmail.com</td>
                             <td>121212</td>
-                            <td>121212</td>
+                            <td>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit Referral</button>
+                            </td>
                             <td>Label 3</td>
                             <td>02/09/2022</td>
                         </tr>
@@ -122,7 +99,7 @@
         <div class="modal-dialog modal-xl container">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"><b>Create referral</b></h5>
+                <h5 class="modal-title" id="staticBackdropLabel"><b>Update Referral</b></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -134,7 +111,7 @@
                                     <label>Name</label>
                                     <div class="row">
                                         <div class="col-md-12 mb-4">
-                                            <input type="text" placeholder="Enter Your Name" name="firstname" class="input" required>
+                                            <input type="text" value="Hamzat" name="firstname" class="input" required>
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +121,7 @@
                                     <label>Email</label>
                                     <div class="row">
                                         <div class="col-md-12 mb-4">
-                                            <input type="text" placeholder="Enter Your Email" name="email" class="input" required>
+                                            <input type="text" value="greenmouse@gmail.com" name="email" class="input" required>
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +131,7 @@
                                     <label>Referral Code</label>
                                     <div class="row">
                                         <div class="col-md-12 mb-4">
-                                            <input type="text" placeholder="Enter Your Referral Code" name="email" class="input" required>
+                                            <input type="text" value="121212" name="email" class="input" required>
                                         </div>
                                     </div>
                                 </div>
@@ -162,11 +139,7 @@
                             <div class="col-md-3">
                                 <div class="connet">
                                     <button>
-                                        <router-link to="Addsha" class="routers">
-                                            <a>
-                                                Add Referral
-                                            </a>
-                                        </router-link>
+                                        Update Referral
                                     </button>
                                 </div>
                             </div>
