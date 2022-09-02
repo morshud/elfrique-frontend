@@ -1,39 +1,40 @@
 <template>
-    <title>Form Sales Analytics | Elfrique</title>
+    <title>Create-Referral | Elfrique</title>
     <dash-header/>
 
     <!--------Main Content--------->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1 class="create">Form Sales Analytics</h1>
+            <h1 class="create">Create Referral</h1>
             <nav>
                 <!-- HAMZAT UPDATE ON REGISTRATION -->
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <router-link to="/organiser/dashboard" class="routers">
+                    <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
+                    <li class="breadcrumb-item active">
+                        <router-link to="/organiser/create-event" class="routers">
                             <a>
-                                Home
+                                Create Event
                             </a>
                         </router-link>
                     </li>
                     <li class="breadcrumb-item active">
-                        <router-link to="/organiser/view-form" class="routers">
+                        <router-link to="/organiser/add-ticket" class="routers">
                             <a>
-                                Forms
+                                Add Ticket
                             </a>
                         </router-link>
                     </li>
                     <li class="breadcrumb-item active">
-                        <router-link to="/organiser/personal-form" class="routers">
+                        <router-link to="/organiser/add-ticket" class="routers">
                             <a>
-                                Personal Form
+                                View Event
                             </a>
                         </router-link>
                     </li>
                     <li class="breadcrumb-item active">
-                        <router-link to="/organiser/form-sales-analytics" class="routers">
+                        <router-link to="/organiser/create-referral" class="routers">
                             <a>
-                                Sale Analytics
+                                Create Referral
                             </a>
                         </router-link>
                     </li>
@@ -49,14 +50,15 @@
                     <form>
                         <div class="row">
                             <div class="col-lg-12 mt-4">
-                                <label for="vote option" class="create">Sales-Analytics</label>
+                                <label for="vote option">Create referral</label>
                                 <select id="gateway" required>
-                                    <option value="select vote option" >Select Your Form Sale Option 1</option>
-                                    <option value="select vote option" >Select Your Form Sale Option 2</option>
+                                    <option value="select vote option" >LABEL 1</option>
+                                    <option value="select vote option" >LABEL 2</option>
+                                    <option value="select vote option" >LABEL 3</option>
                                 </select>
                             </div>
                             <div class="col-lg-12 mt-4">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Analytics</button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -68,16 +70,54 @@
         <div class="modal-dialog modal-xl container">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"><b>Form Sales Analytics</b></h5>
+                <h5 class="modal-title" id="staticBackdropLabel"><b>Create referral</b></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="text-center">
-                           <b>
-                                Choose an Event From the List
-                           </b>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="connet">
+                                    <label>Name</label>
+                                    <div class="row">
+                                        <div class="col-md-12 mb-4">
+                                            <input type="text" placeholder="Enter Your Name" name="firstname" class="input" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="connet">
+                                    <label>Email</label>
+                                    <div class="row">
+                                        <div class="col-md-12 mb-4">
+                                            <input type="text" placeholder="Enter Your Email" name="email" class="input" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="connet">
+                                    <label>Referral Code</label>
+                                    <div class="row">
+                                        <div class="col-md-12 mb-4">
+                                            <input type="text" placeholder="Enter Your Referral Code" name="email" class="input" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="connet">
+                                    <button>
+                                        <router-link to="Addsha" class="routers">
+                                            <a>
+                                                Add Referral
+                                            </a>
+                                        </router-link>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -89,6 +129,7 @@
         </div>
         </div>
     </main>
+
     <dash-footer/>
 </template>
 <style scoped src="@/assets/css/dashStyle.css"></style>
@@ -139,6 +180,8 @@
      if (!this.loggedIn) {
       this.$router.push('/login');
     }
+
+
     VoteService.getAwards().then
     (
         response => {
@@ -146,6 +189,7 @@
         }
     )
     },
+
     methods: {
         addCategory(){
 
@@ -156,6 +200,9 @@
                 let formData = new FormData();
                 formData.append('name', this.categoryForm[i].name);
                 formData.append('description', this.categoryForm[i].description);
+            
+               
+                
                 VoteService.addCategory(this.categoryForm[i], this.contestId).then
                 (
                     response => {

@@ -156,24 +156,6 @@
           </a></router-link
         >
       </li>
-      <!--Profile-->
-      <li class="nav-item">
-        <router-link to="/organiser/profile" class="routers"
-          ><a class="nav-link collapsed">
-            <img src="@/assets/images/menu-profile.png" />
-            <span>Profile</span>
-          </a></router-link
-        >
-      </li>
-      <!--transaction  history-->
-      <li class="nav-item">
-        <router-link to="/organiser/transactionhistory" class="routers"
-          ><a class="nav-link collapsed">
-            <img src="@/assets/images/menu-form.png" />
-            <span>Transaction History</span>
-          </a></router-link
-        >
-      </li>
       <!--Voting-->
       <li class="nav-item">
         <a
@@ -292,6 +274,21 @@
               ><i class="bi bi-circle"></i><span>View Event</span></router-link
             >
           </li>
+          <li>
+            <router-link to="/organiser/create-referral" class="routers"
+              ><i class="bi bi-circle"></i><span>Create Referral</span></router-link
+            >
+          </li>
+          <li>
+            <router-link to="/organiser/view-referral" class="routers"
+              ><i class="bi bi-circle"></i><span>View Referral</span></router-link
+            >
+          </li>
+          <li>
+            <router-link to="/organiser/sales-analytics" class="routers"
+              ><i class="bi bi-circle"></i><span>Sales Analytics</span></router-link
+            >
+          </li>
           <!-- <li>
             <router-link to="/organiser/personal-ticket" class="routers"
               ><i class="bi bi-circle"></i><span>Personal Ticket</span></router-link
@@ -347,7 +344,7 @@
               ></router-link
             >
           </li>
-          <!-- <li>
+          <li>
             <router-link to="/organiser/personal-form" class="routers"
               ><a
                 ><i class="bi bi-circle"></i><span>Personal Forms</span></a
@@ -367,7 +364,7 @@
                 ><i class="bi bi-circle"></i><span>Search For Forms</span></a
               ></router-link
             >
-          </li> -->
+          </li>
         </ul>
       </li>
       <!--Trivia-->
@@ -555,6 +552,24 @@
             >
           </li>
         </ul>
+      </li>
+      <!--transaction  history-->
+      <li class="nav-item">
+        <router-link to="/organiser/transactionhistory" class="routers"
+          ><a class="nav-link collapsed">
+            <img src="@/assets/images/menu-form.png" />
+            <span>Transaction History</span>
+          </a></router-link
+        >
+      </li>
+      <!--Profile-->
+      <li class="nav-item">
+        <router-link to="/organiser/profile" class="routers"
+          ><a class="nav-link collapsed">
+            <img src="@/assets/images/menu-profile.png" />
+            <span>Profile</span>
+          </a></router-link
+        >
       </li>
       <!--Log Out-->
       <li class="nav-item">
