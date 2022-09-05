@@ -72,6 +72,12 @@ import DashCreateEvent from "../views/dashboard/CreateEvent.vue";
 import DashAddTicket from "../views/dashboard/AddTicket.vue";
 import DashAddQuestion from "../views/dashboard/AddQuestion.vue";
 import DashViewEvent from "../views/dashboard/ViewEvent.vue";
+/* LATEST IMPORT FROM HAMZAT; */
+import CreateReferral from "../views/dashboard/CreateReferral.vue";
+import ViewReferral from "../views/dashboard/ViewReferral.vue";
+import SalesAnalytics from "../views/dashboard/SalesAnalytics.vue";
+import UpdateQuestion from "../views/dashboard/UpdateQuestion.vue";
+import UpdateAnswer from "../views/dashboard/UpdateAnswer.vue";
 /* import DashSearchEvent from "../views/dashboard/SearchEvent.vue"; */
 import DashEventSalesAnalytics from "../views/dashboard/EventSalesAnalytics.vue";
 import DashPersonalTicket from "../views/dashboard/PersonalTicket.vue";
@@ -495,6 +501,22 @@ const routes = [
     name: "DashViewEvent",
     component: DashViewEvent,
   },
+  // LASTEST CHANGES FROM HAMZAT
+  {
+    path: "/organiser/create-referral",
+    name: "CreateReferral",
+    component: CreateReferral,
+  },
+  {
+    path: "/organiser/view-referral",
+    name: "ViewReferral",
+    component: ViewReferral,
+  },
+  {
+    path: "/organiser/sales-analytics",
+    name: "SalesAnalytics",
+    component: SalesAnalytics,
+  },
   /* {
     path: "/organiser/search-event",
     name: "DashSearchEvent",
@@ -569,6 +591,16 @@ const routes = [
     path: "/organiser/view-result",
     name: "DashViewResult",
     component: DashViewResult,
+  },
+  {
+    path: "/organiser/update-question",
+    name: "UpdateQuestion",
+    component: UpdateQuestion,
+  },
+  {
+    path: "/organiser/update-answer",
+    name: "UpdateAnswer",
+    component: UpdateAnswer,
   },
   {
     path: "/organiser/trivia-sales-analytics",

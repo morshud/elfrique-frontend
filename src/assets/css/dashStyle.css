@@ -628,9 +628,9 @@ header .logo img {
   align-items: center;
   font-size: 15px;
   font-weight: 600;
-  color: #3B702A;
+  color: #000;
   transition: 0.3;
-  background: #f6f9ff;
+  background: #3B702A;
   padding: 10px 15px;
   border-radius: 4px;
 }
@@ -651,11 +651,11 @@ header .logo img {
   color: #000000;
 }
 .sidebar-nav .nav-link:hover {
-  color: #172c10;
-  background: #c8f1ba;
+  color: #fff;
+  background: #3B702A;
 }
 .sidebar-nav .nav-link:hover i {
-  color: #3B702A;
+  color: #fff;
 }
 .sidebar-nav .nav-link .bi-chevron-down {
   margin-right: 0;
@@ -676,9 +676,20 @@ header .logo img {
   font-weight: 600;
   color: #000000;
   transition: 0.3;
-  padding: 5px 0 5px 20px;
+  padding: 7px 0 7px 20px;
   transition: 0.3s;
 }
+.sidebar-nav .nav-content a:hover{
+  background-color: #3B702A;
+  color: #fff;
+  transition: 0.3s;
+  border-radius: 4px;
+  padding: 7px 0 7px 20px;
+}
+/* .sidebar-nav .nav-content a.active{
+  background-color: #3B702A;
+  color: #fff;
+} */
 .sidebar-nav .nav-content a i {
   font-size: 6px;
   margin-right: 8px;
@@ -687,10 +698,17 @@ header .logo img {
 }
 .sidebar-nav .nav-content a:hover,
 .sidebar-nav .nav-content a.active {
-  color: #3B702A;
+  color: #fff;
+  background-color: #3B702A;
 }
 .sidebar-nav .nav-content a.active i {
   background-color: #3B702A;
+}
+.sidebar-nav .nav-content a.active{
+  transition: 0.3;
+  background: #3B702A;
+  padding: 10px 15px;
+  border-radius: 4px;
 }
 
 /*--------------------------------------------------------------
@@ -1991,4 +2009,161 @@ header .logo img {
   color: #000;
   text-align: center;
   font-size: 20px;
+}
+
+/*--------------------------------------------------------------
+# CREATE REFERRALS
+--------------------------------------------------------------*/
+.create-refer-div{
+  padding: 10px 10px 40px 10px;
+}
+.start-voting-inner-div{
+  background-color:  #fff;
+  box-shadow: 0px 0px 20px #acacac3a;
+  padding: 20px 30px !important;
+  border-radius: 10px;
+}
+.create-refer-div .start-vote-details{
+  background-color: #F8D7DA;
+  color: #000;
+  padding: 10px 40px 10px 20px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.create-refer-div form label{
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0px 0px 20px 0px;
+  padding-bottom: 5px;
+}
+.modal-dialog {
+  padding: 120px 0 0 0;
+  max-width: 80% !important;
+  margin: auto !important;
+}
+.create-refer-div form span{
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 40px;
+}
+.create-refer-div form select, .create-refer-div form .input{
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  border: 1px solid #6e6e6e;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #ffffff;
+}
+.create-refer-div form select:focus, .create-refer-div form .input:focus{
+  outline: none;
+  border: 2px solid #3B702A;
+  background-color: #ffffff;
+}
+.create-refer-div form button{
+  background-color: #3B702A;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+  padding: 10px 15px;
+}
+.create-refer-div form button:hover{
+  background-color: #2b521e;
+}
+@media(max-width: 565px){
+  .create-refer-div{
+    padding: 10px 5px 20px 5px;
+  }
+  .start-voting-inner-div{
+    padding: 20px 20px !important;
+  }
+  .create-refer-div form span{
+    margin-right: 20px;
+  }
+}
+.modal-body .connet{
+  padding: 0px 20px 0px 20px ;
+}
+.modal-body .connet label{
+  padding: 0px 0px 10px 0;
+  font-size: 15px;
+  font-size: 700;
+}
+.modal-body .connet .bi{
+  position: absolute;
+  margin-top: 8px;
+  margin-left: 15px;
+  font-size: 19px;
+  padding-right: 15px;
+  padding-top: 2px;
+}
+.modal-body .connet input{
+  display: block;
+  width: 100%;
+  padding: 10px 5px 10px 20px;
+  border-radius: 5px;
+  border: 2px solid #2B521E;
+  letter-spacing: 0.8px;
+  background-color: #fff;
+  font-size: 16px;
+  transition: 0.6s;
+}
+.modal-body .connet textarea{
+  display: block;
+  width: 100%;
+  padding: 10px 5px 10px 20px;
+  border-radius: 5px;
+  border: 2px solid #2B521E;
+  letter-spacing: 0.8px;
+  background-color: #fff;
+  font-size: 16px;
+  transition: 0.6s;
+}
+.table td button{
+  border: none;
+  background-color: #fff;
+}
+.table td button:hover{
+  color: #26471b;
+  border: none;
+  background-color: #fff;
+  text-decoration: underline;
+}
+.modal-body .connet input::placeholder{
+  font-size: 13px;
+  color: #000;
+}
+.modal-body .connet button{
+  border: none;
+  background-color: #2B521E;
+  padding: 15px 30px 15px 30px;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+}
+.modal-body .connet .routers{
+  color: #fff;
+}
+.modal-body .connet .routers:hover{
+  color: #fff;
+}
+.create{
+  padding: 0px 0px 10px 0px;
+}
+.modal-footer button{
+  color: #000;
+  padding: 5px 10px 5px 10px;
+  border-radius: 4px;
+  border: none;
+  background-color: #fff;
+}
+.modal-footer button:hover{
+  background-color: #26471b !important;
+  color: #fff !important;
+  padding: 5px 10px 5px 10px;
 }

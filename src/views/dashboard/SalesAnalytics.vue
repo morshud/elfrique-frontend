@@ -1,41 +1,20 @@
 <template>
-    <title>Form Sales Analytics | Elfrique</title>
+    <title>Sales-Analytics | Elfrique</title>
     <dash-header/>
 
     <!--------Main Content--------->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1 class="create">Form Sales Analytics</h1>
+            <h1 class="create">Sales Analytics</h1>
             <nav>
                 <!-- HAMZAT UPDATE ON REGISTRATION -->
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <router-link to="/organiser/dashboard" class="routers">
-                            <a>
-                                Home
-                            </a>
-                        </router-link>
+                    <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
+                    <li class="breadcrumb-item active">
+                        Registration
                     </li>
                     <li class="breadcrumb-item active">
-                        <router-link to="/organiser/view-form" class="routers">
-                            <a>
-                                Forms
-                            </a>
-                        </router-link>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        <router-link to="/organiser/personal-form" class="routers">
-                            <a>
-                                Personal Form
-                            </a>
-                        </router-link>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        <router-link to="/organiser/form-sales-analytics" class="routers">
-                            <a>
-                                Sale Analytics
-                            </a>
-                        </router-link>
+                        Sales Analytics
                     </li>
                 </ol>
             </nav>
@@ -51,8 +30,8 @@
                             <div class="col-lg-12 mt-4">
                                 <label for="vote option" class="create">Sales-Analytics</label>
                                 <select id="gateway" required>
-                                    <option value="select vote option" >Select Your Form Sale Option 1</option>
-                                    <option value="select vote option" >Select Your Form Sale Option 2</option>
+                                    <option value="select vote option" >Select Your Event Option 1</option>
+                                    <option value="select vote option" >Select Your Event Option 2</option>
                                 </select>
                             </div>
                             <div class="col-lg-12 mt-4">
@@ -68,7 +47,7 @@
         <div class="modal-dialog modal-xl container">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"><b>Form Sales Analytics</b></h5>
+                <h5 class="modal-title" id="staticBackdropLabel"><b>Sales-Analytics</b></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -89,6 +68,7 @@
         </div>
         </div>
     </main>
+
     <dash-footer/>
 </template>
 <style scoped src="@/assets/css/dashStyle.css"></style>
@@ -139,6 +119,8 @@
      if (!this.loggedIn) {
       this.$router.push('/login');
     }
+
+
     VoteService.getAwards().then
     (
         response => {
@@ -146,6 +128,7 @@
         }
     )
     },
+
     methods: {
         addCategory(){
 
@@ -156,6 +139,9 @@
                 let formData = new FormData();
                 formData.append('name', this.categoryForm[i].name);
                 formData.append('description', this.categoryForm[i].description);
+            
+               
+                
                 VoteService.addCategory(this.categoryForm[i], this.contestId).then
                 (
                     response => {

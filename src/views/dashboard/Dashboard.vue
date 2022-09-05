@@ -33,7 +33,7 @@
       <div class="col-lg-12">
         <div class="row justify-content-center">
           <!--Box 1-->
-          <div class="col-xxl-2 col-md-6">
+          <div class="col-xxl-6 col-md-6">
             <div class="card info-card vote-card">
               <div class="card-body">
                 <h5 class="card-title">Votes</h5>
@@ -73,7 +73,7 @@
                         </div>
                     </div> -->
           <!--Box 3-->
-          <div class="col-xxl-2 col-md-6">
+          <div class="col-xxl-6 col-md-6">
             <div class="card info-card form-card">
               <div class="card-body">
                 <h5 class="card-title">Forms</h5>
@@ -97,7 +97,7 @@
             </div>
           </div>
           <!--Box 4-->
-          <div class="col-xxl-2 col-md-6">
+          <div class="col-xxl-6 col-md-6">
             <div class="card info-card trivia-card">
               <div class="card-body">
                 <h5 class="card-title">Trivia</h5>
@@ -121,7 +121,7 @@
             </div>
           </div>
           <!--Box 5-->
-          <div class="col-xxl-2 col-md-6">
+          <div class="col-xxl-6 col-md-6">
             <div class="card info-card event-card">
               <div class="card-body">
                 <h5 class="card-title">Events</h5>
@@ -145,7 +145,7 @@
             </div>
           </div>
           <!--Box 6-->
-          <!-- <div class="col-xxl-2 col-md-6">
+          <!-- <div class="col-xxl-6 col-md-6">
                         <div class="card info-card vendor-card">
                             <div class="card-body">
                                 <h5 class="card-title">Vendor</h5>
