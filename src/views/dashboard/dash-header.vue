@@ -176,7 +176,7 @@
           <li>
             <router-link to="/organiser/start-voting" class="routers"
               ><a
-                ><i class="bi bi-circle"></i><span>Start Voting</span></a
+                ><i class="bi bi-circle"></i><span>Create Voting</span></a
               ></router-link
             >
           </li>
@@ -252,7 +252,7 @@
           href="#"
         >
           <img src="@/assets/images/menu-registration.png" /><span></span
-          >Registration<i class="bi bi-chevron-down ms-auto"></i>
+          >Event Registration<i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul
           id="reg-nav"
@@ -260,7 +260,7 @@
           data-bs-parent="#sidebar-nav"
         >
           <li>
-            <router-link to="/organiser/create-even" class="routers"
+            <router-link to="/organiser/create-event" class="routers"
               ><a
                 ><i class="bi bi-circle"></i><span>Create Event</span></a
               ></router-link
