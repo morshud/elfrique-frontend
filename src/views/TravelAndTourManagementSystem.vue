@@ -82,7 +82,11 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-lg-12 text-center mt-2">
-                                            <button type="submit"><i class="bi bi-search"></i></button>
+                                            <router-link to="/travel-tour-page" class="routers">
+                                                <a>
+                                                    <button type="submit"><i class="bi bi-search"></i></button>
+                                                </a>
+                                            </router-link>
                                         </div>
                                     </div>
                                 </div>
@@ -131,7 +135,11 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-lg-12 text-center mt-2">
-                                            <button type="submit"><i class="bi bi-search"></i></button>
+                                            <!-- <router-link to="/travel-tour-page" class="routers">
+                                                <a> -->
+                                                    <button type="submit"><i class="bi bi-search"></i></button>
+                                                <!-- </a>
+                                            </router-link> -->
                                         </div>
                                     </div>
                                 </div>
