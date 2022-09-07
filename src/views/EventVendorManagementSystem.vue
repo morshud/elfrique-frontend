@@ -91,106 +91,116 @@
               type="button"
               @click="filterVendor('eventdecorators')"
               class="routers vendorService-box"
-            >
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-eventdecorator.png"
-                  ondragstart="return false;"
-                />
-                <h4>Event Decorators</h4>
-              </div>
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-eventdecorator.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Event Decorators</h4>
+                </div></a
+              >
             </a>
             <a
               type="button"
               @click="filterVendor('photographers')"
               class="routers vendorService-box"
-            >
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-photographer.png"
-                  ondragstart="return false;"
-                />
-                <h4>Photographers</h4>
-              </div>
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-photographer.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Photographers</h4>
+                </div></a
+              >
             </a>
             <a
               type="button"
               @click="filterVendor('caterers')"
               class="routers vendorService-box"
               ondragstart="return false;"
-            >
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-caterers.png"
-                  ondragstart="return false;"
-                />
-                <h4>Caterers</h4>
-              </div>
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-caterers.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Caterers</h4>
+                </div></a
+              >
             </a>
+
             <a
               type="button"
               @click="filterVendor('diskJockey')"
               class="routers vendorService-box"
             >
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-dj.png"
-                  ondragstart="return false;"
-                />
-                <h4>Disc Jockey (DJ's)</h4>
-              </div>
-            </a>
+              <a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-dj.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Disc Jockey (DJ's)</h4>
+                </div>
+              </a></a
+            >
             <a
               type="button"
               @click="filterVendor('fashionDesigners')"
               class="routers vendorService-box"
-            >
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-fashion.png"
-                  ondragstart="return false;"
-                />
-                <h4>Fashion Designers</h4>
-              </div>
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-fashion.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Fashion Designers</h4>
+                </div></a
+              >
             </a>
             <a
               type="button"
               @click="filterVendor('eventPlanners')"
               class="routers vendorService-box"
-            >
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-eventplaner.png"
-                  ondragstart="return false;"
-                />
-                <h4>Event Planers</h4>
-              </div>
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-eventplaner.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Event Planers</h4>
+                </div></a
+              >
             </a>
             <a
               type="button"
               @click="filterVendor('invitationAndPrinting')"
               class="routers vendorService-box"
-            >
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-printing.png"
-                  ondragstart="return false;"
-                />
-                <h4>Invitations & Printing Services</h4>
-              </div>
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-printing.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Invitations & Printing Services</h4>
+                </div></a
+              >
             </a>
             <a
               type="button"
               @click="filterVendor('makeUpArtist')"
               class="routers vendorService-box"
-            >
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-makeup.png"
-                  ondragstart="return false;"
-                />
-                <h4>Make-Up Artist</h4>
-              </div>
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-makeup.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Make-Up Artist</h4>
+                </div></a
+              >
             </a>
           </div>
         </div>
@@ -209,7 +219,7 @@
     <div class="container service-vendor">
       <div class="row">
         <div class="col-lg-12 header mb-3">
-          <h1>Available Jobs</h1>
+          <h1 id="jump">Available Jobs</h1>
         </div>
       </div>
       <div class="row">
