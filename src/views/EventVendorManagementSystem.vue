@@ -377,7 +377,9 @@ export default {
 
     filterVendor(value){
       if (value.length > 0) {
-        this.Content = this.Content.filter(item => value.includes(item.eventCategory));
+        
+        this.Content = this.Content.filter(item => item.eventCategory.toLowerCase().indexOf(value.toLowerCase()) != -1);
+        console.log(this.Content)
         if(this.Content == ""){
           this.getVendors()
         }
