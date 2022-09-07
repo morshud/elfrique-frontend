@@ -14,7 +14,7 @@ class VendorService {
   }
 
   getSingleJob(jobId) {
-    return axios.get(API_URL + "getJob/" + jobId, { headers: authHeader() });
+    return axios.get(API_URL + "getJob/" + jobId);
   }
 
   getAllUrls() {
@@ -60,9 +60,7 @@ class VendorService {
   }
 
   createProposal(bidForm, eventId) {
-    return axios.post(API_URL + "createProposal/" + eventId, bidForm, {
-      headers: authHeader(),
-    });
+    return axios.post(API_URL + "createProposal/" + eventId, bidForm);
   }
 
   getCategories(contestId) {

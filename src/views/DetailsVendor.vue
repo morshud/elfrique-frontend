@@ -40,24 +40,53 @@
           </div>
           <div class="details-social">
             <h5>Share on:</h5>
-            <a href="#" title="Share on facebook"
-              ><img src="@/assets/images/share-facebook.png"
-            /></a>
-            <a href="#" title="Share on whatsapp"
-              ><img src="@/assets/images/share-whatsapp.png"
-            /></a>
-            <a href="#" title="Share on telegram"
-              ><img src="@/assets/images/share-telegram.png"
-            /></a>
-            <a href="#" title="Share on instagram"
-              ><img src="@/assets/images/share-instagram.png"
-            /></a>
-            <a href="#" title="Share on twitter"
-              ><img src="@/assets/images/share-twitter.png"
-            /></a>
-            <a href="#" title="Share through email"
-              ><img src="@/assets/images/share-email.png"
-            /></a>
+            <ShareNetwork
+                network="facebook"
+                :url="currentUrl"
+                :title="Content.job_type"
+                :description="Content.job_description"
+                :quote="Content.job_type"
+                :hashtags="'Elfrique, Event, Job,'+ Content.job_type"
+              >
+                <img src="@/assets/images/share-facebook.png"
+              />
+            </ShareNetwork>
+            <ShareNetwork
+                network="whatsapp"
+                :url="currentUrl"
+                :title="Content.job_type"
+                :description="Content.job_description"
+              >
+                <img src="@/assets/images/share-whatsapp.png"
+              />
+            </ShareNetwork>
+            <ShareNetwork
+                network="telegram"
+                :url="currentUrl"
+                :title="Content.job_type"
+                :description="Content.job_description"
+              >
+                <img src="@/assets/images/share-telegram.png"
+              />
+            </ShareNetwork>
+            <ShareNetwork
+                network="twitter"
+                :url="currentUrl"
+                :title="Content.job_type"
+                twitter-user="@elfrique"
+                :hashtags="'Elfrique, Event, Job,'+ Content.job_type"
+              >
+                <img src="@/assets/images/share-twitter.png"/>
+            </ShareNetwork>
+            <ShareNetwork
+                network="email"
+                :url="currentUrl"
+                :title="Content.job_type"
+                :description="Content.job_description"
+              >
+                <img src="@/assets/images/share-email.png"
+              />
+            </ShareNetwork>
           </div>
         </div>
       </div>
@@ -173,8 +202,8 @@
             <div class="col-lg-6 mb-3">
               <label>First name</label>
               <input
-                v-model="profile.firstname"
-                disabled
+                v-model="bid.firstname"
+                required
                 type="text"
                 class="input"
               />
@@ -182,8 +211,8 @@
             <div class="col-lg-6 mb-3">
               <label>Last name</label>
               <input
-                v-model="profile.lastname"
-                disabled
+                v-model="bid.surname"
+                required
                 type="text"
                 class="input"
               />
@@ -191,23 +220,23 @@
             <div class="col-lg-12 mb-3">
               <label>Email address</label>
               <input
-                v-model="profile.email"
-                disabled
+                v-model="bid.email"
+                required
                 type="email"
                 class="input"
               />
             </div>
             <div class="col-lg-6 mb-3">
               <label>Phone number</label>
-              <input v-model="profile.phonenumber" type="tel" class="input" />
+              <input v-model="bid.phone" type="tel" required class="input" />
             </div>
             <div class="col-lg-6 mb-3">
               <label>Bid amount (NGN)</label>
-              <input type="text" class="input" />
+              <input type="text" v-model="bid.price" required class="input" />
             </div>
             <div class="col-lg-12 mb-3">
               <label>Additional info</label>
-              <div class="textarea" contenteditable></div>
+              <textarea class="textarea" required v-model="bid.description"></textarea>
             </div>
             <div class="col-lg-12">
               <button class="button" type="submit" :disabled="loading">
@@ -217,12 +246,12 @@
                 ></span>
               </button>
             </div>
-            <div v-if="!loggedIn" class="col-lg-12">
+            <!-- <div v-if="!loggedIn" class="col-lg-12">
               <button type="submit" class="button">
                 You have to log in to continue
               </button>
-            </div>
-            <div
+            </div> -->
+            <!-- <div
               v-if="error"
               class="alert-danger alert alert-dismissible fade show"
               role="alert"
@@ -234,8 +263,8 @@
                 data-bs-dismiss="alert"
                 aria-label="Close"
               ></button>
-            </div>
-            <div
+            </div> -->
+            <!-- <div
               v-if="message"
               class="alert-success alert alert-dismissible fade show"
               role="alert"
@@ -247,7 +276,7 @@
                 data-bs-dismiss="alert"
                 aria-label="Close"
               ></button>
-            </div>
+            </div> -->
           </div>
         </form>
       </div>
@@ -264,6 +293,7 @@ import Footer from "./elfrique-footer.vue";
 import VendorService from "../service/vendor.service";
 import ProfileService from "../service/profile.service";
 import moment from "moment";
+import Swal from "sweetalert2"
 import $ from "jquery";
 export default {
   name: "Elfrique",
@@ -287,12 +317,20 @@ export default {
       bid: {
         description: "",
         price: "",
+        name: "",
+        email: "",
+        phone: "",
+        firstname: "",
+        surname: ""
       },
     };
   },
   computed: {
     loggedIn() {
       return this.$store.state.auth.status.loggedIn;
+    },
+    currentUrl(){
+      return window.location.href
     },
   },
   created() {
@@ -303,6 +341,7 @@ export default {
       ProfileService.getProfile().then(
         (response) => {
           this.profile = response.data.profile;
+          console.log(this.profile)
         },
         (error) => {
           this.error = error.response.data.message;
@@ -319,17 +358,41 @@ export default {
 
     submitBid() {
       this.loading = true;
-      VendorService.createProposal(this.bid, this.Content.id).then(
+      VendorService.createProposal(this.bid, this.$route.params.id).then(
         (response) => {
-          this.message = response.data.message;
+          //this.message = response.data.message;
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: `${response.data.message}`,
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.clearForm();
           this.loading = false;
         },
         (error) => {
           this.error = error.response.data.message;
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: `${error.response.data.message}`,
+            showConfirmButton: false,
+            timer: 1500
+          })
           this.loading = false;
         }
       );
     },
+
+    clearForm(){
+      this.bid.email = ""
+      this.bid.firstname = ""
+      this.bid.surname = ""
+      this.bid.price = ""
+      this.bid.description = ""
+      this.bid.phone = ""
+    }
   },
   mounted() {
     window.scrollTo(0, 0);
