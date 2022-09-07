@@ -18,6 +18,9 @@ class EventService {
       headers: authHeader(),
     });
   } */
+  getUserEvents() {
+    return axios.get(API_URL + "getAllUserEvents", { headers: authHeader() });
+  }
 
   getEvents() {
     return axios.get(API_URL + "getAllEvents", { headers: authHeader() });
