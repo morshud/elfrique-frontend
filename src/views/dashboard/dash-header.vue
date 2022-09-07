@@ -176,7 +176,7 @@
           <li>
             <router-link to="/organiser/start-voting" class="routers"
               ><a
-                ><i class="bi bi-circle"></i><span>Start Voting</span></a
+                ><i class="bi bi-circle"></i><span>Create Voting</span></a
               ></router-link
             >
           </li>
@@ -252,7 +252,7 @@
           href="#"
         >
           <img src="@/assets/images/menu-registration.png" /><span></span
-          >Registration<i class="bi bi-chevron-down ms-auto"></i>
+          >Event Registration<i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul
           id="reg-nav"
@@ -261,55 +261,49 @@
         >
           <li>
             <router-link to="/organiser/create-event" class="routers"
-              ><i class="bi bi-circle"></i><span>Create Event</span></router-link
+              ><a
+                ><i class="bi bi-circle"></i><span>Create Event</span></a
+              ></router-link
             >
           </li>
           <li>
             <router-link to="/organiser/add-ticket" class="routers"
-              ><i class="bi bi-circle"></i><span>Add Ticket</span></router-link
+              ><a
+                ><i class="bi bi-circle"></i><span>Add Ticket</span></a
+              ></router-link
             >
           </li>
           <li>
             <router-link to="/organiser/view-event" class="routers"
-              ><i class="bi bi-circle"></i><span>View Event</span></router-link
+              ><a
+                ><i class="bi bi-circle"></i><span>View Event</span></a
+              ></router-link
             >
           </li>
           <li>
             <router-link to="/organiser/create-referral" class="routers"
-              ><i class="bi bi-circle"></i><span>Create Referral</span></router-link
+              ><a
+                ><i class="bi bi-circle"></i><span>Create Referral</span></a
+              ></router-link
             >
           </li>
           <li>
             <router-link to="/organiser/view-referral" class="routers"
-              ><i class="bi bi-circle"></i><span>View Referral</span></router-link
+              ><a
+                ><i class="bi bi-circle"></i><span>View Referral</span></a
+              ></router-link
             >
           </li>
           <li>
             <router-link to="/organiser/sales-analytics" class="routers"
-              ><i class="bi bi-circle"></i><span>Sales Analytics</span></router-link
-            >
-          </li>
-          <!-- <li>
-            <router-link to="/organiser/personal-ticket" class="routers"
-              ><i class="bi bi-circle"></i><span>Personal Ticket</span></router-link
-            >
-          </li>
-          <li>
-            <router-link to="/organiser/event-sales-analytics" class="routers"
               ><a
                 ><i class="bi bi-circle"></i><span>Sales Analytics</span></a
               ></router-link
             >
           </li>
-          <li>
-            <router-link to="/organiser/search-ticket" class="routers"
-              ><a
-                ><i class="bi bi-circle"></i><span>Search For Tickets</span></a
-              ></router-link
-            >
-          </li> -->
         </ul>
       </li>
+
       <!--Forms-->
       <li class="nav-item">
         <a
@@ -465,17 +459,30 @@
           data-bs-parent="#sidebar-nav"
         >
           <li>
-            <a href="/organiser/create-vendor-service" class="routers"
+            <router-link to="/organiser/create-vendor-service" class="routers"
               ><a
-                ><i class="bi bi-circle"></i
-                ><span>Create Vendor Service</span></a
-              ></a
+                ><i class="bi bi-circle"></i><span>Create Vendor Service</span></a
+              ></router-link
+            >
+          </li>
+          <li>
+            <router-link to="/organiser/view-vendor-service" class="routers"
+              ><a
+                ><i class="bi bi-circle"></i><span>View All Vendor Service</span></a
+              ></router-link
+            >
+          </li>
+          <li>
+            <router-link to="/organiser/edit-vendor-service" class="routers"
+              ><a
+                ><i class="bi bi-circle"></i><span>Edit Vendor Service </span></a
+              ></router-link
             >
           </li>
           <li>
             <router-link to="/organiser/bidders-vendor" class="routers"
               ><a
-                ><i class="bi bi-circle"></i><span>View Bidders </span></a
+                ><i class="bi bi-circle"></i><span>View All Bidders Project </span></a
               ></router-link
             >
           </li>
@@ -503,7 +510,14 @@
           <li>
             <router-link to="/organiser/advert-listing" class="routers"
               ><a
-                ><i class="bi bi-circle"></i><span>Advert Listing</span></a
+                ><i class="bi bi-circle"></i><span> View All Advert Listing</span></a
+              ></router-link
+            >
+          </li>
+          <li>
+            <router-link to="/organiser/view-enquiries" class="routers"
+              ><a
+                ><i class="bi bi-circle"></i><span>View Enquiries</span></a
               ></router-link
             >
           </li>

@@ -1287,7 +1287,7 @@ header nav .offcanvas-header button i {
 
 /*********Newsletter*********/
 .newsletter {
-  padding: 200px 0px 50px 0px;
+  padding: 120px 0px 50px 0px;
 }
 .newsletter .container {
   background-color: #f4fff0;
@@ -3433,9 +3433,9 @@ header nav .offcanvas-header button i {
 /*********Footer*********/
 footer {
   background-color: #000000;
-  padding: 90px 10px 30px 10px;
+  padding: 90px 10px 30px 10px !important;
   color: #cecece;
-  margin-top: 50px;
+  margin-top: 50px !important;
 }
 footer .main-ft {
   margin-top: -20px;

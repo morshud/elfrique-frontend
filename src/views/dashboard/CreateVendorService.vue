@@ -5,7 +5,9 @@
     <!--------Main Content--------->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Create Event</h1>
+            <h1 class="create">
+                Create Vendor Service
+            </h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
@@ -16,8 +18,6 @@
         </div><!-- End Page Title -->
 
         <div class="container start-voting-div create-event-div">
-            
-                
                     <div class="row justify-content-center">
                         <div class="col-lg-11 start-voting-inner-div">
                             <div class="start-vote-details alert alert-dismissible fade show" role="alert">
