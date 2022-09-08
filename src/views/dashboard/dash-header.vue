@@ -142,12 +142,6 @@
   <!--------Sidebar--------->
   <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
-      <li class="nav-item sider-switch-link">
-        <a href="/user/dashboard" class="nav-link collapsed">
-          <i class="bi bi-record2-fill"></i>
-          <span>Switch To User Dashboard</span>
-        </a>
-      </li>
       <li class="nav-item">
         <router-link to="/organiser/dashboard" class="routers"
           ><a class="nav-link collapsed">
