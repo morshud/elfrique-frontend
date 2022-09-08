@@ -69,7 +69,7 @@
                                     what sup
                                 </td>
                                 <td>
-                                    <button class="btn btn-danger btn-sm mx-1 text-dark m-1">
+                                    <button style="color: #000 !important; " class="btn btn-danger btn-sm mx-1 text-dark m-1">
                                         Delete
                                     </button>
                                 </td>

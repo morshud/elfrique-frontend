@@ -9,7 +9,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-center">
       <a class="logo">
-        <router-link to="/organiser/dashboard" class="routers">
+        <router-link to="/" class="routers">
           <img src="@/assets/images/logo.png" alt="Elfrique Logo" />
         </router-link>
       </a>
