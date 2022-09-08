@@ -19,15 +19,28 @@
       </nav>
     </div>
 
+    <div
+      v-if="role == 'normalUser'"
+      class="alert alert-danger alert-dismissible fade show"
+      role="alert"
+    >
+      please
+      <a
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+        class=""
+        >click here</a
+      >
+      to update your profile details
 
-    <div v-if="role == 'normalUser'" class="alert alert-danger alert-dismissible fade show" role="alert">
-                please 
-                <a type="button"  data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"  class="">click here</a>
-                to update your profile details
-                
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
     <!--Page Body-->
     <section class="section dashboard mt-3">
       <div class="col-lg-12">
@@ -39,13 +52,7 @@
                 <h5 class="card-title">Votes</h5>
                 <div class="d-flex align-items-center">
                   <div
-                    class="
-                      card-icon
-                      rounded-circle
-                      d-flex
-                      align-items-center
-                      justify-content-center
-                    "
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
                   >
                     <img src="@/assets/images/icon-vote.png" />
                   </div>
@@ -79,13 +86,7 @@
                 <h5 class="card-title">Forms</h5>
                 <div class="d-flex align-items-center">
                   <div
-                    class="
-                      card-icon
-                      rounded-circle
-                      d-flex
-                      align-items-center
-                      justify-content-center
-                    "
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
                   >
                     <img src="@/assets/images/icon-form.png" />
                   </div>
@@ -103,13 +104,7 @@
                 <h5 class="card-title">Trivia</h5>
                 <div class="d-flex align-items-center">
                   <div
-                    class="
-                      card-icon
-                      rounded-circle
-                      d-flex
-                      align-items-center
-                      justify-content-center
-                    "
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
                   >
                     <img src="@/assets/images/icon-trivia.png" />
                   </div>
@@ -127,13 +122,7 @@
                 <h5 class="card-title">Events</h5>
                 <div class="d-flex align-items-center">
                   <div
-                    class="
-                      card-icon
-                      rounded-circle
-                      d-flex
-                      align-items-center
-                      justify-content-center
-                    "
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
                   >
                     <img src="@/assets/images/icon-event.png" />
                   </div>
@@ -285,7 +274,11 @@
                       </form>
                     </div>
                     <!--Table-->
-                    <table id="vote" ref="vote" class="table datatable card-table-table">
+                    <table
+                      id="vote"
+                      ref="vote"
+                      class="table datatable card-table-table"
+                    >
                       <thead>
                         <tr>
                           <th scope="col">#</th>
@@ -791,255 +784,257 @@
       </div>
     </section>
     <div
-    class="modal fade sellerModal"
-    id="staticBackdrop"
-    data-bs-backdrop="static"
-    data-bs-keyboard="false"
-    tabindex="-1"
-    aria-labelledby="staticBackdropLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Become a Seller</h5>
-        </div>
-        <div class="modal-body">
-          <form @submit.prevent="seller">
-            <div class="row">
-              <div class="col-lg-12">
-                <p>Fill up your info below to continue</p>
+      class="modal fade sellerModal"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">
+              Become a Seller
+            </h5>
+          </div>
+          <div class="modal-body">
+            <form @submit.prevent="seller">
+              <div class="row">
+                <div class="col-lg-12">
+                  <p>Fill up your info below to continue</p>
+                </div>
+                <div class="col-lg-6 mb-2">
+                  <label>Bank Account Name</label>
+                  <input
+                    v-model="profile.accountname"
+                    type="text"
+                    class="input"
+                    required
+                  />
+                </div>
+                <div class="col-lg-6 mb-2">
+                  <label>BankAccount Number</label>
+                  <input
+                    v-model="profile.accountnumber"
+                    type="number"
+                    class="input"
+                    required
+                  />
+                </div>
+                <div class="col-lg-12 mb-2">
+                  <label>Bank Name</label>
+                  <select v-model="profile.bankname" class="input" required>
+                    <option value="Choose Bank Name" hidden>
+                      Choose Bank Name
+                    </option>
+                    <option value="AB Microfinance Bank">
+                      AB Microfinance Bank
+                    </option>
+                    <option value="ASOSavings & Loan">ASOSavings & Loan</option>
+                    <option value="Access Bank Plc">Access Bank Plc</option>
+                    <option value="Access Money">Access Money</option>
+                    <option value="Access Y'ello & Beta">
+                      Access Y'ello & Beta
+                    </option>
+                    <option value="ACCIONO MFB">ACCIONO MFB</option>
+                    <option value="Addosser Microfinance Bank">
+                      Addosser Microfinance Bank
+                    </option>
+                    <option value="Advans La Fayette">Advans La Fayette</option>
+                    <option value="Alat By Wema">Alat By Wema</option>
+                    <option value="AssetMatrix MFB">AssetMatrix MFB</option>
+                    <option value="Bowen MFB">Bowen MFB</option>
+                    <option value="Carbon">Carbon</option>
+                    <option value="Cellulant">Cellulant</option>
+                    <option value="CIti Bank">CIti Bank</option>
+                    <option value="Contec Global">Contec Global</option>
+                    <option value="CoreStep Microfinance Bank">
+                      CoreStep Microfinance Bank
+                    </option>
+                    <option value="Coronation">Coronation</option>
+                    <option value="Diamond Bank">Diamond Bank</option>
+                    <option value="Eartholeum">Eartholeum</option>
+                    <option value="e-BARCs MFB">e-BARCs MFB</option>
+                    <option value="Ecobank Mobile">Ecobank Mobile</option>
+                    <option value="Ecobank Nigeria Plc">
+                      Ecobank Nigeria Plc
+                    </option>
+                    <option value="Ecobank Xpress Account">
+                      Ecobank Xpress Account
+                    </option>
+                    <option value="Ekondo MFB">Ekondo MFB</option>
+                    <option value="Enterprise Bank">Enterprise Bank</option>
+                    <option value="Eyowo">Eyowo</option>
+                    <option value="eTranzact">eTranzact</option>
+                    <option value="FBN Mobile">FBN Mobile</option>
+                    <option value="FCMB Easy Account">FCMB Easy Account</option>
+                    <option value="FET">FET</option>
+                    <option value="FFS MFB">FFS MFB</option>
+                    <option value="FINCA MFB">FINCA MFB</option>
+                    <option value="FirstMonie Wallet">FirstMonie Wallet</option>
+                    <option value="Fidelity Bank">Fidelity Bank</option>
+                    <option value="Fidelity Mobile">Fidelity Mobile</option>
+                    <option value="FinaTrust MFB">FinaTrust MFB</option>
+                    <option value="First Bank Of Nigeria">
+                      First Bank Of Nigeria
+                    </option>
+                    <option value="First City Monument Bank FCMB">
+                      First City Monument Bank FCMB
+                    </option>
+                    <option value="FortisMobile">FortisMobile</option>
+                    <option value="GTMobile">GTMobile</option>
+                    <option value="Globus Bank">Globus Bank</option>
+                    <option value="GoMoney">GoMoney</option>
+                    <option value="Guaranty Trust Bank GTB">
+                      Guaranty Trust Bank GTB
+                    </option>
+                    <option value="Hedonmark">Hedonmark</option>
+                    <option value="Heritage Banking">Heritage Banking</option>
+                    <option value="Hope PSB">Hope PSB</option>
+                    <option value="Innovectives Kesh">Innovectives Kesh</option>
+                    <option value="Intellifin">Intellifin</option>
+                    <option value="Jaiz Bank Plc">Jaiz Bank Plc</option>
+                    <option value="Kegow">Kegow</option>
+                    <option value="Keystone Bank">Keystone Bank</option>
+                    <option value="Kredi Money Microfinance Bank">
+                      Kredi Money Microfinance Bank
+                    </option>
+                    <option value="Kuda MFB">Kuda MFB</option>
+                    <option value="Letshego Microfinance Bank">
+                      Letshego Microfinance Bank
+                    </option>
+                    <option value="Lotus Bank">Lotus Bank</option>
+                    <option value="Mint - Finex MFB">Mint - Finex MFB</option>
+                    <option value="Monie Point">Monie Point</option>
+                    <option value="Mkudi">Mkudi</option>
+                    <option value="MoneyBox">MoneyBox</option>
+                    <option value="Nigeria Int'l Bank (CITIGROUP)">
+                      Nigeria Int'l Bank (CITIGROUP)
+                    </option>
+                    <option value="One Finance">One Finance</option>
+                    <option value="Paga">Paga</option>
+                    <option value="Palmpay">Palmpay</option>
+                    <option value="Parkway">Parkway</option>
+                    <option value="Parkway-ReadyCash">Parkway-ReadyCash</option>
+                    <option value="Polaris Bank Plc">Polaris Bank Plc</option>
+                    <option value="Providus Bank Plc">Providus Bank Plc</option>
+                    <option value="Rubies MFB">Rubies MFB</option>
+                    <option value="Stanbic IBTC @ease Wallet">
+                      Stanbic IBTC @ease Wallet
+                    </option>
+                    <option value="Stanbic Mobile">Stanbic Mobile</option>
+                    <option value="Standard Chartered Bank">
+                      Standard Chartered Bank
+                    </option>
+                    <option value="Sterling Bank">Sterling Bank</option>
+                    <option value="TRJBank">TRJBank</option>
+                    <option value="TagPay">TagPay</option>
+                    <option value="TessyMobile">TessyMobile</option>
+                    <option value="Titan Trust Bank">Titan Trust Bank"</option>
+                    <option value="Union Bank Of Nigeria">
+                      Union Bank Of Nigeria
+                    </option>
+                    <option value="United Bank For Africa">
+                      United Bank For Africa
+                    </option>
+                    <option value="Unity Bank Plc">Unity Bank Plc</option>
+                    <option value="VFB MFB">VFB MFB</option>
+                    <option value="VNetworks">VNetworks</option>
+                    <option value="Wema Bank">Wema Bank</option>
+                    <option value="Wetland MFB">Wetland MFB</option>
+                    <option value="Zenith Bank">Zenith Bank</option>
+                    <option value="Zenith Mobile">Zenith Mobile</option>
+                    <option value="Zinternet - KongaPay">
+                      Zinternet - KongaPay
+                    </option>
+                    <option value="9PSB">9PSB</option>
+                  </select>
+                </div>
+                <div class="col-lg-6 mb-2">
+                  <label>About You</label>
+                  <input
+                    v-model="profile.about"
+                    class="textarea"
+                    name="about"
+                    id="about"
+                    cols="40"
+                    rows="4"
+                    placeholder="Tell us about yourself"
+                  />
+                </div>
+                <div class="col-lg-6 mb-2">
+                  <label>Address</label>
+                  <input
+                    v-model="profile.address"
+                    class="textarea"
+                    name="address"
+                    id="address"
+                    cols="40"
+                    rows="15"
+                    placeholder="Enter your address"
+                  />
+                </div>
+                <div class="col-lg-12 mb-2">
+                  <label>Gender</label>
+                  <select v-model="profile.gender" class="input" required>
+                    <option hidden>Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+                </div>
+                <div class="col-lg-6 mb-2">
+                  <label>Your Twitter Account URL</label>
+                  <input
+                    v-model="profile.twitterURL"
+                    type="url"
+                    class="input"
+                  />
+                </div>
+                <div class="col-lg-6 mb-2">
+                  <label>Your Facebook Account URL</label>
+                  <input
+                    v-model="profile.facebookURL"
+                    type="url"
+                    class="input"
+                  />
+                </div>
+                <div class="col-lg-6 mb-2">
+                  <label>Your Instagram Account URL</label>
+                  <input
+                    v-model="profile.instagramURL"
+                    type="url"
+                    class="input"
+                  />
+                </div>
+                <div class="col-lg-12 mt-2">
+                  <button
+                    type="submit"
+                    class="btn btn-success"
+                    :disabled="loading"
+                  >
+                    Submit Details<span
+                      v-show="loading"
+                      class="spinner-border spinner-border-sm"
+                    ></span>
+                  </button>
+                </div>
               </div>
-              <div class="col-lg-6 mb-2">
-                <label>Bank Account Name</label>
-                <input
-                  v-model="profile.accountname"
-                  type="text"
-                  class="input"
-                  required
-                />
-              </div>
-              <div class="col-lg-6 mb-2">
-                <label>BankAccount Number</label>
-                <input
-                  v-model="profile.accountnumber"
-                  type="number"
-                  class="input"
-                  required
-                />
-              </div>
-              <div class="col-lg-12 mb-2">
-                <label>Bank Name</label>
-                <select v-model="profile.bankname" class="input" required>
-                  <option value="Choose Bank Name" hidden>
-                    Choose Bank Name
-                  </option>
-                  <option value="AB Microfinance Bank">
-                    AB Microfinance Bank
-                  </option>
-                  <option value="ASOSavings & Loan">ASOSavings & Loan</option>
-                  <option value="Access Bank Plc">Access Bank Plc</option>
-                  <option value="Access Money">Access Money</option>
-                  <option value="Access Y'ello & Beta">
-                    Access Y'ello & Beta
-                  </option>
-                  <option value="ACCIONO MFB">ACCIONO MFB</option>
-                  <option value="Addosser Microfinance Bank">
-                    Addosser Microfinance Bank
-                  </option>
-                  <option value="Advans La Fayette">Advans La Fayette</option>
-                  <option value="Alat By Wema">Alat By Wema</option>
-                  <option value="AssetMatrix MFB">AssetMatrix MFB</option>
-                  <option value="Bowen MFB">Bowen MFB</option>
-                  <option value="Carbon">Carbon</option>
-                  <option value="Cellulant">Cellulant</option>
-                  <option value="CIti Bank">CIti Bank</option>
-                  <option value="Contec Global">Contec Global</option>
-                  <option value="CoreStep Microfinance Bank">
-                    CoreStep Microfinance Bank
-                  </option>
-                  <option value="Coronation">Coronation</option>
-                  <option value="Diamond Bank">Diamond Bank</option>
-                  <option value="Eartholeum">Eartholeum</option>
-                  <option value="e-BARCs MFB">e-BARCs MFB</option>
-                  <option value="Ecobank Mobile">Ecobank Mobile</option>
-                  <option value="Ecobank Nigeria Plc">
-                    Ecobank Nigeria Plc
-                  </option>
-                  <option value="Ecobank Xpress Account">
-                    Ecobank Xpress Account
-                  </option>
-                  <option value="Ekondo MFB">Ekondo MFB</option>
-                  <option value="Enterprise Bank">Enterprise Bank</option>
-                  <option value="Eyowo">Eyowo</option>
-                  <option value="eTranzact">eTranzact</option>
-                  <option value="FBN Mobile">FBN Mobile</option>
-                  <option value="FCMB Easy Account">FCMB Easy Account</option>
-                  <option value="FET">FET</option>
-                  <option value="FFS MFB">FFS MFB</option>
-                  <option value="FINCA MFB">FINCA MFB</option>
-                  <option value="FirstMonie Wallet">FirstMonie Wallet</option>
-                  <option value="Fidelity Bank">Fidelity Bank</option>
-                  <option value="Fidelity Mobile">Fidelity Mobile</option>
-                  <option value="FinaTrust MFB">FinaTrust MFB</option>
-                  <option value="First Bank Of Nigeria">
-                    First Bank Of Nigeria
-                  </option>
-                  <option value="First City Monument Bank FCMB">
-                    First City Monument Bank FCMB
-                  </option>
-                  <option value="FortisMobile">FortisMobile</option>
-                  <option value="GTMobile">GTMobile</option>
-                  <option value="Globus Bank">Globus Bank</option>
-                  <option value="GoMoney">GoMoney</option>
-                  <option value="Guaranty Trust Bank GTB">
-                    Guaranty Trust Bank GTB
-                  </option>
-                  <option value="Hedonmark">Hedonmark</option>
-                  <option value="Heritage Banking">Heritage Banking</option>
-                  <option value="Hope PSB">Hope PSB</option>
-                  <option value="Innovectives Kesh">Innovectives Kesh</option>
-                  <option value="Intellifin">Intellifin</option>
-                  <option value="Jaiz Bank Plc">Jaiz Bank Plc</option>
-                  <option value="Kegow">Kegow</option>
-                  <option value="Keystone Bank">Keystone Bank</option>
-                  <option value="Kredi Money Microfinance Bank">
-                    Kredi Money Microfinance Bank
-                  </option>
-                  <option value="Kuda MFB">Kuda MFB</option>
-                  <option value="Letshego Microfinance Bank">
-                    Letshego Microfinance Bank
-                  </option>
-                  <option value="Lotus Bank">Lotus Bank</option>
-                  <option value="Mint - Finex MFB">Mint - Finex MFB</option>
-                  <option value="Monie Point">Monie Point</option>
-                  <option value="Mkudi">Mkudi</option>
-                  <option value="MoneyBox">MoneyBox</option>
-                  <option value="Nigeria Int'l Bank (CITIGROUP)">
-                    Nigeria Int'l Bank (CITIGROUP)
-                  </option>
-                  <option value="One Finance">One Finance</option>
-                  <option value="Paga">Paga</option>
-                  <option value="Palmpay">Palmpay</option>
-                  <option value="Parkway">Parkway</option>
-                  <option value="Parkway-ReadyCash">Parkway-ReadyCash</option>
-                  <option value="Polaris Bank Plc">Polaris Bank Plc</option>
-                  <option value="Providus Bank Plc">Providus Bank Plc</option>
-                  <option value="Rubies MFB">Rubies MFB</option>
-                  <option value="Stanbic IBTC @ease Wallet">
-                    Stanbic IBTC @ease Wallet
-                  </option>
-                  <option value="Stanbic Mobile">Stanbic Mobile</option>
-                  <option value="Standard Chartered Bank">
-                    Standard Chartered Bank
-                  </option>
-                  <option value="Sterling Bank">Sterling Bank</option>
-                  <option value="TRJBank">TRJBank</option>
-                  <option value="TagPay">TagPay</option>
-                  <option value="TessyMobile">TessyMobile</option>
-                  <option value="Titan Trust Bank">Titan Trust Bank"</option>
-                  <option value="Union Bank Of Nigeria">
-                    Union Bank Of Nigeria
-                  </option>
-                  <option value="United Bank For Africa">
-                    United Bank For Africa
-                  </option>
-                  <option value="Unity Bank Plc">Unity Bank Plc</option>
-                  <option value="VFB MFB">VFB MFB</option>
-                  <option value="VNetworks">VNetworks</option>
-                  <option value="Wema Bank">Wema Bank</option>
-                  <option value="Wetland MFB">Wetland MFB</option>
-                  <option value="Zenith Bank">Zenith Bank</option>
-                  <option value="Zenith Mobile">Zenith Mobile</option>
-                  <option value="Zinternet - KongaPay">
-                    Zinternet - KongaPay
-                  </option>
-                  <option value="9PSB">9PSB</option>
-                </select>
-              </div>
-              <div class="col-lg-6 mb-2">
-                <label>About You</label>
-                <input
-                  v-model="profile.about"
-                  class="textarea"
-                  name="about"
-                  id="about"
-                  cols="40"
-                  rows="4"
-                  placeholder="Tell us about yourself"
-                />
-              </div>
-              <div class="col-lg-6 mb-2">
-                <label>Address</label>
-                <input
-                  v-model="profile.address"
-                  class="textarea"
-                  name="address"
-                  id="address"
-                  cols="40"
-                  rows="15"
-                  placeholder="Enter your address"
-                />
-              </div>
-              <div class="col-lg-12 mb-2">
-                <label>Gender</label>
-                <select v-model="profile.gender" class="input" required>
-                  <option hidden>Select Gender</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              </div>
-              <div class="col-lg-6 mb-2">
-                <label>Your Twitter Account URL</label>
-                <input
-                  v-model="profile.twitterURL"
-                  type="url"
-                  class="input"
-                />
-              </div>
-              <div class="col-lg-6 mb-2">
-                <label>Your Facebook Account URL</label>
-                <input
-                  v-model="profile.facebookURL"
-                  type="url"
-                  class="input"
-                />
-              </div>
-              <div class="col-lg-6 mb-2">
-                <label>Your Instagram Account URL</label>
-                <input
-                  v-model="profile.instagramURL"
-                  type="url"
-                  class="input"
-                />
-              </div>
-              <div class="col-lg-12 mt-2">
-                <button
-                  type="submit"
-                  class="btn btn-success"
-                  :disabled="loading"
-                >
-                  Submit Details<span
-                    v-show="loading"
-                    class="spinner-border spinner-border-sm"
-                  ></span>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            :data-bs-dismiss="modal"
-          >
-            Skip Form
-          </button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              :data-bs-dismiss="modal"
+            >
+              Skip Form
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </main>
 
   <dash-footer />
@@ -1053,6 +1048,8 @@ import Footer from "./dash-footer.vue";
 import ProfileService from "../../service/profile.service";
 import ReferralService from "../../service/referral.service";
 import GetDashboard from "../../service/getDashboard";
+
+import { _BASE_URL } from "../../configs";
 export default {
   name: "Elfrique",
   components: {
@@ -1062,7 +1059,7 @@ export default {
   data() {
     return {
       ref_Id: "",
-      role: '',
+      role: "",
       referral: "",
       message: "",
       content: "",
@@ -1129,7 +1126,12 @@ export default {
         this.ref_Id = response.data.profile.adminuser.reference;
         this.role = response.data.profile.adminuser.role;
         this.referral =
-          "https://elfrique-proj.netlify.app/signup?referral=" + this.ref_Id;
+          "https://" +
+          window.location.href.split("/")[2] +
+          "/signup?referral=" +
+          this.ref_Id;
+        // console.log(window.location.href.split("/"));
+        //  _BASE_URL + "signup?referral=" + this.ref_Id;
         this.adminId = response.data.profile.adminuser.id;
 
         GetDashboard.getDashboard(this.adminId).then((res) => {
@@ -1172,7 +1174,6 @@ export default {
     );
   },
 
-   
   methods: {
     exportCSV(array) {
       let csvContent = "data:text/csv;charset=utf-8,";
@@ -1181,7 +1182,7 @@ export default {
         ...array.map((item) => Object.values(item).join(";")),
       ]
         .join("\n")
-        
+
         .replace(/(^\[)|(\]$)/gm, "");
 
       const data = encodeURI(csvContent);
@@ -1198,7 +1199,7 @@ export default {
           this.successful = true;
           this.loading = false;
           this.modal = "";
-          window.location.reload()
+          window.location.reload();
           //this.$router.push("/organiser/dashboard");
         },
         (error) => {
@@ -1217,39 +1218,38 @@ export default {
     tableToExcel(table, name) {
       let tableName = table;
       if (tableName == "vote") {
-          if (!table.nodeType) table = this.$refs.vote;
+        if (!table.nodeType) table = this.$refs.vote;
         var ctx = { worksheet: name || "Worksheet", table: table.innerHTML };
         window.location.href =
-            this.uri + this.base64(this.format(this.template, ctx));
-        }
+          this.uri + this.base64(this.format(this.template, ctx));
+      }
 
-        if (tableName == "form") {
-          if (!table.nodeType) table = this.$refs.form;
+      if (tableName == "form") {
+        if (!table.nodeType) table = this.$refs.form;
         var ctx = { worksheet: name || "Worksheet", table: table.innerHTML };
         window.location.href =
-            this.uri + this.base64(this.format(this.template, ctx));
-        }
+          this.uri + this.base64(this.format(this.template, ctx));
+      }
 
-        if (tableName == "trivia") {
-          if (!table.nodeType) table = this.$refs.trivia;
+      if (tableName == "trivia") {
+        if (!table.nodeType) table = this.$refs.trivia;
         var ctx = { worksheet: name || "Worksheet", table: table.innerHTML };
         window.location.href =
-            this.uri + this.base64(this.format(this.template, ctx));
-        }
-        if (tableName == "event") {
-          if (!table.nodeType) table = this.$refs.event;
+          this.uri + this.base64(this.format(this.template, ctx));
+      }
+      if (tableName == "event") {
+        if (!table.nodeType) table = this.$refs.event;
         var ctx = { worksheet: name || "Worksheet", table: table.innerHTML };
         window.location.href =
-            this.uri + this.base64(this.format(this.template, ctx));
-        }
+          this.uri + this.base64(this.format(this.template, ctx));
+      }
 
-        if (tableName == "referrer") {
-          if (!table.nodeType) table = this.$refs.referrer;
+      if (tableName == "referrer") {
+        if (!table.nodeType) table = this.$refs.referrer;
         var ctx = { worksheet: name || "Worksheet", table: table.innerHTML };
         window.location.href =
-            this.uri + this.base64(this.format(this.template, ctx));
-        }
-
+          this.uri + this.base64(this.format(this.template, ctx));
+      }
     },
   },
   mounted() {
