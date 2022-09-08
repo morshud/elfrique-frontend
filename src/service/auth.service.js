@@ -1,8 +1,8 @@
 import axios from "axios";
 import spHeader from "./super-authHeader";
+import { _API_URL } from "../configs";
 
-const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
-
+const API_URL = _API_URL;
 class AuthService {
   async login(user) {
     const response = await axios.post(API_URL + "login", {

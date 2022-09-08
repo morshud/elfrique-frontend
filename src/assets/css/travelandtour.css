@@ -1,0 +1,686 @@
+@import url("https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: "Sarabun", sans-serif !important;
+  scroll-behavior: smooth;
+}
+body {
+  overflow-y: scroll !important;
+}
+.routers {
+  text-decoration: none;
+}
+.Tour{
+    background-color: #3B702A;
+    margin-top: 120px;
+}
+.Tour .text p{
+    color: #fff;
+    font-size: 17px;
+}
+.Tour .text {
+    padding: 30px 0px 20px 0px;
+    flex-direction: row !important;
+    border-right: 1px solid #fff;
+    text-align: center;
+}
+.Tour .text p span{
+    padding: 0px 0px 0px 30px;
+}
+.Tour .modify {
+    margin-top: 20px !important;
+}
+.Tour .modify button{
+    border: 1px solid #fff;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+    color: #fff;
+    background-color: #3B702A;
+    padding: 10px 20px 10px 20px;
+    font-size: 17px;
+}
+@media (max-width:764px) {
+    .Tour .text {
+        padding: 30px 0px 0px 0px;
+        flex-direction: row !important;
+        border-right: 1px solid #3B702A;
+        text-align: center;
+    }
+    .Tour .modify {
+        margin-bottom: 20px !important;
+    }
+}
+/*  */
+  .search-travel-house-div .header-text h1 {
+    font-weight: 700;
+    color: #fff;
+    text-transform: capitalize;
+    text-shadow: 0px 0px 10px #000;
+  }
+  .search-travel-house-div .search-travel-section {
+    padding: 50px 40px 20px 40px !important;
+    border-radius: 10px;
+    border: 1px solid #305d21;
+    background-color: #fff;
+  }
+  .search-travel-house-div .search-travel-section button.active {
+    color: #305d21 !important;
+    background-color: #fff !important;
+    border-top: 6px solid #305d21;
+    border-left: 1px solid #305d21;
+    border-right: 1px solid #305d21;
+  }
+  .search-travel-house-div .search-travel-section .tabs-button {
+    background-color: transparent !important;
+    color: #000000 !important;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0px 0px;
+    margin-right: 10px;
+  }
+  .search-travel-house-div .search-travel-section .tabs-button:focus {
+    background-color: #fff !important;
+    color: #305d21 !important;
+    border-top: 6px solid #305d21;
+    border-left: 1px solid #305d21;
+    border-right: 1px solid #305d21;
+  }
+  .search-travel-house-div .search-travel-section .tabs-button span {
+    padding-left: 5px;
+  }
+  .search-travel-house-div .search-travel-section .tab-content {
+    background-color: #fff;
+    border: none;
+    padding: 15px 5px 20px 5px;
+  }
+  .search-travel-house-div .search-travel-section .tab-content .tabOne select {
+    padding: 7px 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #a5a5a5;
+    background-color: #fff;
+    font-weight: 600;
+    margin-top: 20px;
+  }
+  .search-travel-house-div .search-travel-section .tab-content .tabOne select:focus {
+    outline: none;
+    border: 2px solid #305d21;
+  }
+  .search-travel-house-div .search-travel-section .tab-content .tabOne .label-number {
+    display: block;
+    position: inherit !important;
+    margin-left: 1px !important;
+    margin-top: 1px !important;
+    color: #2a2a2a;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .search-travel-house-div .search-travel-section .tab-content .tabOne .input-number {
+    width: 100%;
+    padding: 6px 10px !important;
+    border: 1px solid #a5a5a5;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+.search-travel-house-div
+  .search-travel-section
+  .tab-content
+  .tabOne
+  .input-number:focus {
+  outline: none;
+  border: 2px solid #305d21 !important;
+}
+.search-travel-house-div .search-travel-section .tab-content .tabOne label {
+    display: block;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 8px;
+    color: #a5a5a5;
+    font-size: 14px;
+}
+  .search-travel-house-div .search-travel-section .tab-content .tabOne input {
+    width: 100%;
+    padding: 35px 10px 10px 20px;
+    font-weight: 600;
+    font-size: 17px;
+    border: 1px solid #a5a5a5;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  .search-travel-house-div .search-travel-section .tab-content .tabOne input:focus {
+    outline: none;
+    border: 1px solid #a5a5a5;
+    border-bottom: 3px solid #305d21;
+  }
+  .search-travel-house-div .search-travel-section .tab-content .tabOne button {
+    border: none;
+    background-color: #305d21;
+    padding: 10px 1px;
+    width: 150px;
+    color: #fff;
+    font-size: 23px;
+    font-weight: 700;
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+  .search-travel-house-div .search-travel-section .tab-content .tabOne button:hover {
+    background-color: #234418;
+  }
+  .search-travel-house-div .search-travel-section .tab-content .tabOne .icon-to-fro {
+    position: absolute;
+    padding-top: 22px;
+  }
+  .search-travel-house-div
+    .search-travel-section
+    .tab-content
+    .tabOne
+    .icon-to-fro
+    i {
+    font-size: 23px;
+    font-weight: 800;
+    color: #305d21;
+    background-color: #ffffff;
+    padding: 8px 10px;
+    border-radius: 50%;
+  }
+  @media (max-width: 1199px) {
+    .search-travel-house-div
+      .search-travel-section
+      .tab-content
+      .tabOne
+      .label-number {
+      font-size: 10px;
+      font-weight: 800;
+    }
+  }
+  @media (max-width: 991px) {
+    .search-travel-house-div {
+      background-color: #ffffff00;
+      padding: 1px !important;
+      overflow-x: hidden;
+      margin-bottom: 50px;
+    }
+    .search-travel-house-div
+      .search-travel-section
+      .tab-content
+      .tabOne
+      .label-number {
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 10px !important;
+    }
+    .search-travel-house-div
+      .search-travel-section
+      .tab-content
+      .tabOne
+      .icon-to-fro {
+      padding-top: 1px;
+      margin-top: 75px;
+      width: 50px !important;
+    }
+    .search-travel-house-div
+      .search-travel-section
+      .tab-content
+      .tabOne
+      .icon-to-fro
+      i {
+      font-size: 25px;
+    }
+    .search-travel-house-div .search-travel-section .tab-content .tabOne .div-input {
+      margin-top: 10px !important;
+    }
+  }
+  @media (max-width: 481px) {
+    .search-travel-house-div .search-travel-section {
+      padding: 30px 25px 10px 25px !important;
+    }
+  }
+  @media (max-width: 498px) {
+    .search-travel-house-div .search-travel-section .tabs-button {
+      font-size: 15px;
+      font-weight: 700;
+      padding: 10px 15px;
+      margin-right: 2px;
+    }
+  }
+  /********************************/
+
+  /******filter************/
+.filter{
+    padding: 30px 0px 10px 0px;
+}
+.filter .clear{
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 0px 0px 20px 0px;
+    box-shadow: 0px 10px 20px #0000001c;
+}
+.filter .clear .text {
+    padding: 10px 10px 10px 10px;
+    border-bottom: 1px solid #305d21;
+}
+.filter .clear .text p{
+    font-size: 17px;
+    font-weight: 500;
+}
+.filter .clear .text span{
+    font-size: 17px;
+    float: right;
+    clear: both;
+}
+.filter .left{
+    padding: 30px 10px 10px 10px;
+}
+.filter .left p{
+    font-size: 17px;
+    font-weight: 900;
+    color: #000;
+}
+.filter .left span{
+    font-size: 13px;
+    float: right;
+    clear: both;
+}
+.filter .left .bi{
+    font-size: 20px !important;
+}
+.filter .grop{
+    width: 100%;
+    padding: 10px 10px 20px 10px;
+    border-bottom: 1px solid #3B702A;
+
+}
+.filter .grop .form-control-range{
+  width: 100% !important;
+  color: #3B702A !important;
+}
+.filter .naira{
+  font-size: 14px;
+  font-weight: 700;
+}
+.filter .form-check .move{
+  font-size: 13px;
+  float: right !important;
+  clear: both !important;
+}
+.range-div{
+  box-shadow: 0px 10px 20px #0000001c;
+  background-color: #fff;
+  padding: 20px 0px 10px 0;
+  border-radius: 7px;
+}
+.range-div .btn-div img{
+  width: 25%;
+  pointer-events: none;
+  display: block !important;
+  margin: auto !important;
+}
+.range-div .btn-div p{
+  padding: 20px 0px 10px 0px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 0;
+}
+.range-div .line{
+  border-top: 1px solid #3B702A;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+.range-div .linee{
+  border-top: 1px solid #3B702A;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+.sort{
+  margin-top: -320px;
+}
+
+@media (max-width:806px) {
+  .sort{
+    margin-top:30px;
+  }
+  .range-div .btn-div img{
+    width: 15%;
+    display: block !important;
+    margin: auto !important;
+  }
+  .range-div{
+    margin-top:30px;
+  }
+  .filter .sort .learnt .pull p{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px 0px 10px 0;
+    border-bottom: 1px solid #3B702A;
+  }
+  .filter .sort .tab-content .tabOne button {
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #305d21;
+    padding: 10px 20px 10px 20px ;
+    color: #fff;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+}
+.sort span{
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 15px;
+  font-weight: 900;
+  padding: 0px 20px 0px 0px;
+}
+.sort .pull img{
+  display: block;
+  margin: auto;
+}
+.search-travel-house-div .header-text h1 {
+  font-weight: 700;
+  color: #fff;
+  text-transform: capitalize;
+  text-shadow: 0px 0px 10px #000;
+}
+.filter .sort {
+  padding: 50px 40px 20px 40px !important;
+  border-radius: 10px;
+  border: 1px solid #305d21;
+  background-color: #fff;
+}
+.filter .sort .close{
+  font-size: 15px;
+  font-weight: 900;
+  color: #000;
+  background-color: #fff !important;
+  border: 1px solid #fff !important;
+}
+.filter .sort button.active {
+  color: #305d21 !important;
+  background-color: #fff !important;
+  border-top: 1px solid #305d21;
+  border-left: 1px solid #305d21;
+  border-right: 1px solid #305d21;
+  border-bottom: 1px solid #fff;
+}
+.filter .sort .tabs-button {
+  background-color: transparent !important;
+  color: #000000 !important;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 10px 10px 0px 0px;
+  margin-right: 10px;
+}
+.filter .sort .tabs-button:focus {
+  background-color: #fff !important;
+  color: #305d21 !important;
+  border-top: 1px solid #305d21;
+  border-left: 1px solid #305d21;
+  border-right: 1px solid #305d21;
+  border-bottom: 1px solid #fff;
+}
+.filter .sort .tabs-button span {
+  padding-left: 5px;
+}
+.filter .sort .tab-content {
+  background-color: #fff;
+  border: none;
+  padding: 15px 5px 20px 5px;
+}
+.filter .sort .tab-content .tabOne select {
+  padding: 7px 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #a5a5a5;
+  background-color: #fff;
+  font-weight: 600;
+  margin-top: 20px;
+}
+.filter .sort .tab-content .tabOne select:focus {
+  outline: none;
+  border: 2px solid #305d21;
+}
+.filter .sort .tab-content .tabOne .pull{
+  display: block;
+  position: inherit !important;
+  margin-left: 1px !important;
+  margin-top: 1px !important;
+  color: #2a2a2a;
+  font-weight: 600;
+  font-size: 13px;
+}
+.filter .sort .tab-content .tabOne .label-number {
+  display: block;
+  position: inherit !important;
+  margin-left: 1px !important;
+  margin-top: 1px !important;
+  color: #2a2a2a;
+  font-weight: 600;
+  font-size: 13px;
+}
+.filter .sort .tab-content .tabOne .input-number {
+  width: 100%;
+  padding: 6px 10px !important;
+  border: 1px solid #a5a5a5;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.search-travel-house-div
+.search-travel-section
+.tab-content
+.tabOne
+.input-number:focus {
+outline: none;
+border: 1px solid #305d21 !important;
+}
+.filter .sort .tab-content .tabOne label {
+  display: block;
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 8px;
+  color: #a5a5a5;
+  font-size: 14px;
+}
+.filter .sort .tab-content .tabOne input {
+  width: 100%;
+  padding: 35px 10px 10px 20px;
+  font-weight: 600;
+  font-size: 17px;
+  border: 1px solid #a5a5a5;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.filter .sort .tab-content .tabOne input:focus {
+  outline: none;
+  border: 1px solid #a5a5a5;
+  border-bottom: 3px solid #305d21;
+}
+.filter .sort .tab-content .tabOne button {
+  border: none;
+  margin-top: 10px;
+  background-color: #305d21;
+  padding: 5px 20px 5px 20px ;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.filter .sort .tab-content .tabOne button:hover {
+  background-color: #000;
+}
+.filter .sort .tab-content .tabOne .icon-to-fro {
+  position: absolute;
+  padding-top: 22px;
+}
+.search-travel-house-div
+  .search-travel-section
+  .tab-content
+  .tabOne
+  .icon-to-fro
+  i {
+  font-size: 23px;
+  font-weight: 800;
+  color: #305d21;
+  background-color: #ffffff;
+  padding: 8px 10px;
+  border-radius: 50%;
+}
+@media (max-width: 1199px) {
+  .search-travel-house-div
+    .search-travel-section
+    .tab-content
+    .tabOne
+    .label-number {
+    font-size: 10px;
+    font-weight: 800;
+  }
+}
+@media (max-width: 991px) {
+  .search-travel-house-div {
+    background-color: #ffffff00;
+    padding: 1px !important;
+    overflow-x: hidden;
+    margin-bottom: 50px;
+  }
+  .search-travel-house-div
+    .search-travel-section
+    .tab-content
+    .tabOne
+    .label-number {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px !important;
+  }
+  .search-travel-house-div
+    .search-travel-section
+    .tab-content
+    .tabOne
+    .icon-to-fro {
+    padding-top: 1px;
+    margin-top: 75px;
+    width: 50px !important;
+  }
+  .search-travel-house-div
+    .search-travel-section
+    .tab-content
+    .tabOne
+    .icon-to-fro
+    i {
+    font-size: 25px;
+  }
+  .filter .sort .tab-content .tabOne .div-input {
+    margin-top: 10px !important;
+  }
+}
+@media (max-width: 481px) {
+  .filter .sort {
+    padding: 30px 25px 10px 25px !important;
+  }
+}
+@media (max-width: 498px) {
+  .filter .sort .tabs-button {
+    font-size: 15px;
+    font-weight: 700;
+    padding: 10px 15px;
+    margin-right: 2px;
+  }
+}
+.filter .sort .learnt{
+  background-color: #fff;
+  box-shadow: 10px 10px 10px 10px #0000001c;
+  border-radius: 8px;
+  padding: 20px 20px 20px 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.filter .sort .learnt .pull p{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+/******filter Ends**********/
+
+/******Modal Lastest**********/
+.modal-header h5{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+  color: #000;
+  font-weight: 900;
+}
+.modal-body .teuday p{
+  text-align: center;
+}
+.modal-body .summary{
+  background-color: #fff;
+  box-shadow: 10px 10px 10px 10px #0000001c;
+  border-radius: 10px;
+  padding: 20px 20px 50px 20px;
+}
+.modal-body .summary h1{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 15px;
+  color: #000;
+  font-weight: 900;
+  padding: 0px 0px 20px 0px;
+  border-bottom: 1px solid #3B702A;
+}
+.death .summary .fare p{
+  color: #000;
+  margin-top: 0;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.death .summary .fare .adult{
+  padding: 15px 0 0 0;
+}
+.death .summary .fare p span{
+  float: right;
+  clear: both;
+}
+.death .summary .fare .to{
+  font-weight: 900;
+  font-size: 16px;
+}
+.death .summary .fare .clo{
+  border-bottom: 1px solid #3B702A;
+  padding: 0 0 10px 0;
+}
+.death .summary .fare button{
+  width: 100%;
+  display: block;
+  margin: auto;
+  text-align: center;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px !important;
+  background-color: #3B702A;
+  padding: 10px 20px 10px 20px;
+}
+/******Modal Lastest Ends**********/

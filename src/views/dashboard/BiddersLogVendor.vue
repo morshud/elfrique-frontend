@@ -1,11 +1,11 @@
 <template>
-    <title>Vendor Bidders | Elfrique</title>
+    <title>View All Bidders Project| Elfrique</title>
     <dash-header/>
 
     <!--------Main Content--------->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Bidders (vendor)</h1>
+            <h1 class="create">View All Bidders Project (vendor)</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>

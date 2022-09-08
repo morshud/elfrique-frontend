@@ -1,9 +1,9 @@
 import axios from "axios";
 import authHeader from "./auth-header2";
 import authHeader2 from "./auth-header";
+import { _API_URL } from "../configs";
 
-const API_URL = "https://elfrique-proj.herokuapp.com/api/v1/";
-
+const API_URL = _API_URL;
 class TriviaService {
   createTrivia(TriviaForm) {
     return axios.post(API_URL + "createTrivia", TriviaForm, {
@@ -47,7 +47,6 @@ class TriviaService {
   contactUs(data) {
     return axios.post(API_URL + "contact-us/", data);
   }
-
 }
 
 export default new TriviaService();

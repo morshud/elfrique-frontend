@@ -218,7 +218,7 @@
                   Trivias
                 </button>
               </li>
-              <li class="nav-item" role="presentation">
+              <!-- <li class="nav-item" role="presentation">
                 <button
                   class="nav-link"
                   id="referrals-tab"
@@ -231,7 +231,7 @@
                 >
                   Referrals
                 </button>
-              </li>
+              </li> -->
               <!-- <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="payout-tab" data-bs-toggle="tab" data-bs-target="#payout" type="button" role="tab"
                                     aria-controls="blog" aria-selected="false">Payouts</button>
@@ -271,8 +271,8 @@
                       <button @click="tableToExcel('vote', 'Vote')">
                         Excel
                       </button>
-                      <button type="button">PDF</button>
-                      <button type="button">Print</button>
+                      <!-- <button type="button">PDF</button>
+                      <button type="button">Print</button> -->
                     </div>
                     <div class="search-table">
                       <form>
@@ -353,8 +353,8 @@
                       <button @click="tableToExcel('event', 'Event')">
                         Excel
                       </button>
-                      <button type="button">PDF</button>
-                      <button type="button">Print</button>
+                      <!-- <button type="button">PDF</button>
+                      <button type="button">Print</button> -->
                     </div>
                     <div class="search-table">
                       <form>
@@ -434,8 +434,8 @@
                       <button @click="tableToExcel('form', 'Form')">
                         Excel
                       </button>
-                      <button type="button">PDF</button>
-                      <button type="button">Print</button>
+                      <!-- <button type="button">PDF</button>
+                      <button type="button">Print</button> -->
                     </div>
                     <div class="search-table">
                       <form>
@@ -515,8 +515,8 @@
                       <button @click="tableToExcel('trivia', 'Trivia')">
                         Excel
                       </button>
-                      <button type="button">PDF</button>
-                      <button type="button">Print</button>
+                      <!-- <button type="button">PDF</button>
+                      <button type="button">Print</button> -->
                     </div>
                     <div class="search-table">
                       <form>
@@ -603,8 +603,8 @@
                       <button @click="tableToExcel('referral', 'Refer')">
                         Excel
                       </button>
-                      <button type="button">PDF</button>
-                      <button type="button">Print</button>
+                      <!-- <button type="button">PDF</button>
+                      <button type="button">Print</button> -->
                     </div>
                     <div class="search-table">
                       <form>

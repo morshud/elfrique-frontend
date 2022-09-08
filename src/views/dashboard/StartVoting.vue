@@ -1,16 +1,16 @@
 <template>
-    <title>Start Voting Form | Elfrique</title>
+    <title>Create Voting Form | Elfrique</title>
     <dash-header/>
 
     <!--------Main Content--------->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Start Voting</h1>
+            <h1 class="create">Create Voting</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/organiser/dashboard" class="routers"><a>Home</a></router-link></li>
                     <li class="breadcrumb-item active">Voting</li>
-                    <li class="breadcrumb-item active">Start Voting</li>
+                    <li class="breadcrumb-item active">Create Voting</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->

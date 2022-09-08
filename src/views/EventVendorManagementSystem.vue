@@ -15,17 +15,15 @@
       </div>
       <div class="row justify-content-center mt-1">
         <div class="col-lg-11 mb-5 search-section-vendor">
-          <form @submit.prevent="searchVendor">
+          <form>
             <input
-              v-model="search.keyword"
               class="searchbox-input input"
               type="text"
               placeholder="What service are you searching for?"
             />
             <input
-              v-model="search.location"
               class="location-input input"
-              type="text" 
+              type="text"
               placeholder="Enter location"
             />
             <input
@@ -40,17 +38,14 @@
   </section>
   <!--Service Header Ends-->
 
-  <!--Advert Here-->
   <div class="container">
     <div class="row">
       <div class="col-lg-12 horizontal-advert mt-3">
-        <a :href="currentImg.ref_link" target="_blank">
+        <a href="#">
           <img
-            :src="currentImg.img_url"
+            src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1661185447/Elfrique_v2/WhatsApp_Image_2022-08-22_at_5.04.47_PM_3_phhjjh.jpg"
             ondragstart="return false;"
             alt="advert"
-            width="1300"
-            height="200"
           />
         </a>
       </div>
@@ -64,143 +59,157 @@
         <div class="col-lg-12 header mb-4">
           <h1>Popular Services</h1>
         </div>
+        <div
+          v-if="error"
+          class="alert-danger alert alert-dismissible fade show"
+          role="alert"
+        >
+          {{ error }}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div
+          v-if="message"
+          class="alert-success alert alert-dismissible fade show"
+          role="alert"
+        >
+          {{ message }}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
         <div class="col-lg-12">
-          <div class="row mainService-box">
-            <router-link
-              to="/event-decorator"
+          <div class="row justify-content-center mainService-box">
+            <a
+              type="button"
+              @click="filterVendor('eventdecorators')"
+              class="routers vendorService-box"
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-eventdecorator.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Event Decorators</h4>
+                </div></a
+              >
+            </a>
+            <a
+              type="button"
+              @click="filterVendor('photographers')"
+              class="routers vendorService-box"
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-photographer.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Photographers</h4>
+                </div></a
+              >
+            </a>
+            <a
+              type="button"
+              @click="filterVendor('caterers')"
+              class="routers vendorService-box"
+              ondragstart="return false;"
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-caterers.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Caterers</h4>
+                </div></a
+              >
+            </a>
+
+            <a
+              type="button"
+              @click="filterVendor('diskJockey')"
               class="routers vendorService-box"
             >
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-eventdecorator.png"
-                  ondragstart="return false;"
-                />
-                <h4>Event Decorators</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-photographer.png"
-                  ondragstart="return false;"
-                />
-                <h4>Photographers</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-caterers.png"
-                  ondragstart="return false;"
-                />
-                <h4>Caterers</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-dj.png"
-                  ondragstart="return false;"
-                />
-                <h4>Disc Jockey (DJ's)</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-fashion.png"
-                  ondragstart="return false;"
-                />
-                <h4>Fashion Designers</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-eventplaner.png"
-                  ondragstart="return false;"
-                />
-                <h4>Event Planers</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-printing.png"
-                  ondragstart="return false;"
-                />
-                <h4>Invitations & Printing Services</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/vendor-icon-makeup.png"
-                  ondragstart="return false;"
-                />
-                <h4>Make-Up Artist</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/default-icon.png"
-                  ondragstart="return false;"
-                />
-                <h4>More Category</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/default-icon.png"
-                  ondragstart="return false;"
-                />
-                <h4>More Category</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/default-icon.png"
-                  ondragstart="return false;"
-                />
-                <h4>More Category</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/default-icon.png"
-                  ondragstart="return false;"
-                />
-                <h4>More Category</h4>
-              </div>
-            </router-link>
-            <router-link to="#" class="routers vendorService-box">
-              <div>
-                <img
-                  src="@/assets/images/default-icon.png"
-                  ondragstart="return false;"
-                />
-                <h4>More Category</h4>
-              </div>
-            </router-link>
-            <div class="col-lg-12 text-center py-4">
-              <a href="#" id="loadMore" class="loadMoreBtn">Load More</a>
-            </div>
+              <a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-dj.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Disc Jockey (DJ's)</h4>
+                </div>
+              </a></a
+            >
+            <a
+              type="button"
+              @click="filterVendor('fashionDesigners')"
+              class="routers vendorService-box"
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-fashion.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Fashion Designers</h4>
+                </div></a
+              >
+            </a>
+            <a
+              type="button"
+              @click="filterVendor('eventPlanners')"
+              class="routers vendorService-box"
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-eventplaner.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Event Planers</h4>
+                </div></a
+              >
+            </a>
+            <a
+              type="button"
+              @click="filterVendor('invitationAndPrinting')"
+              class="routers vendorService-box"
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-printing.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Invitations & Printing Services</h4>
+                </div></a
+              >
+            </a>
+            <a
+              type="button"
+              @click="filterVendor('makeUpArtist')"
+              class="routers vendorService-box"
+              ><a href="#jump" style="text-decoration: none">
+                <div>
+                  <img
+                    src="@/assets/images/vendor-icon-makeup.png"
+                    ondragstart="return false;"
+                  />
+                  <h4>Make-Up Artist</h4>
+                </div></a
+              >
+            </a>
           </div>
         </div>
-
-        <!--Advert Here-->
         <div class="col-lg-12 horizontal-advert mt-3">
-          <a :href="currentImg.ref_link" target="_blank">
+          <a href="#">
             <img
-              :src="currentImg.img_url"
+              src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1661185447/Elfrique_v2/WhatsApp_Image_2022-08-22_at_5.04.47_PM_3_phhjjh.jpg"
               ondragstart="return false;"
               alt="advert"
-              width="1300"
-              height="200"
             />
           </a>
         </div>
@@ -210,26 +219,27 @@
     <div class="container service-vendor">
       <div class="row">
         <div class="col-lg-12 header mb-3">
-          <h1>Available Jobs</h1>
+          <h1 id="jump">Available Jobs</h1>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-9">
           <div class="row">
-            <div v-for="con in Content" :key="con.id" class="col-lg-4 vendorJob-box">
+            <div
+              v-for="con in resultQuery"
+              :key="con.id"
+              class="vendorJob-box col-lg-4"
+            >
               <div class="card">
-                <router-link :href="'/details-vendor/' + con.id">
+                <a :href="'/details-vendor/' + con.id">
                   <div class="img-area">
                     <img :src="con.event.image" />
                   </div>
-                </router-link>
+                </a>
                 <div class="card-body">
-                  <router-link
-                    :href="'/details-vendor/' + con.id"
-                    class="routers"
-                  >
+                  <a :href="'/details-vendor/' + con.id" class="routers">
                     <h1 title="Needed Service">{{ con.job_type }} Needed</h1>
-                  </router-link>
+                  </a>
                   <div class="line-rule"></div>
                   <span class="eventname" title="Event Type"
                     ><i class="bi bi-stack"></i> {{ con.event.title }}</span
@@ -246,41 +256,65 @@
                     <strong>&#8358;{{ con.budget }}</strong></span
                   >
                   <button>
-                    <router-link
-                      class="btnA"
-                      :href="'/details-vendor/' + con.id"
+                    <router-link class="btnA" :to="'/details-vendor/' + con.id"
                       >View</router-link
                     >
                   </button>
                 </div>
               </div>
             </div>
-            <div class="col-md-12 text-center mt-5">
-              <a href="/view-more-vendor" class="btn-all-service">View More</a>
-            </div>
+            <!-- Modal -->
           </div>
+
+          <div class="col-md-12 text-center mt-5 paginationDivArea">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                <li class="page-item">
+                  <a
+                    class="page-link"
+                    type="button"
+                    @click="prevPage()"
+                    aria-label="Previous"
+                  >
+                    <span aria-hidden="true">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">{{ current_page }}</a>
+                </li>
+                <li class="page-item">
+                  <a
+                    type="button"
+                    @click="nextPage()"
+                    class="page-link"
+                    aria-label="Next"
+                  >
+                    <span aria-hidden="true">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- <div class="col-md-12 text-center mt-5">
+            <a href="/view-more-vendor" class="btn-all-service">View More</a>
+          </div> -->
         </div>
-        <!--Advert Here-->
         <div class="col-lg-3">
-          <div class="advert-area">
-            <a :href="currentImg.ref_link" target="_blank">
+          <!--  <div class="advert-area">
+            <a href="#">
               <img
-                :src="currentImg2.img_url"
+                src="@/assets/images/advert-banner1.jpg"
                 ondragstart="return false;"
                 alt="advert"
-                width="300"
-                height="450"
               />
             </a>
-          </div>
+          </div> -->
           <div class="advert-area">
-            <a :href="currentImg.ref_link" target="_blank">
+            <a href="#">
               <img
-                :src="currentImg2.img_url"
+                src="@/assets/images/advert-banner1.jpg"
                 ondragstart="return false;"
                 alt="advert"
-                width="300"
-                height="450"
               />
             </a>
           </div>
@@ -288,18 +322,17 @@
       </div>
     </div>
 
-    <!--Advert Here-->
     <div class="container">
-      <div class="col-lg-12 horizontal-advert mt-3">
-        <a :href="currentImg.ref_link" target="_blank">
-          <img
-            :src="currentImg.img_url"
-            ondragstart="return false;"
-            alt="advert"
-            width="1300"
-            height="200"
-          />
-        </a>
+      <div class="row">
+        <div class="col-lg-12 horizontal-advert mt-3">
+          <a href="#">
+            <img
+              src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1661185447/Elfrique_v2/WhatsApp_Image_2022-08-22_at_5.04.47_PM_3_phhjjh.jpg"
+              ondragstart="return false;"
+              alt="advert"
+            />
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -314,7 +347,7 @@ import Newsletter from "./elfrique-newsletter.vue";
 import Footer from "./elfrique-footer.vue";
 import VendorService from "../service/vendor.service";
 import moment from "moment";
-import $ from "jquery";
+
 export default {
   name: "Elfrique",
   components: {
@@ -325,7 +358,6 @@ export default {
   data() {
     return {
       Content: "",
-      adsContent: "",
       eventId: "",
       file: "",
       bid: {
@@ -335,72 +367,65 @@ export default {
       message: "",
       error: "",
       loading: false,
-      currentImage: {
-        img_url: "",
-        link: "",
-      },
-      timer: null,
-      currentIndex: 0,
-      search: {
-        location: "",
-        keyword: "",
-      },
+      size: 3,
+      current_page: 1,
     };
   },
   computed: {
     loggedIn() {
       return this.$store.state.auth.status.loggedIn;
     },
-    currentImg: function () {
-      return this.adsContent[
-        Math.abs(this.currentIndex) % this.adsContent.length
-      ];
-    },
-    currentImg2: function () {
-      return this.adsContent[
-        Math.abs(
-          this.currentIndex + Math.floor(Math.random() * this.adsContent.length)
-        ) % this.adsContent.length
-      ];
+    resultQuery() {
+      return this.Content.filter((row, index) => {
+        let start = (this.current_page - 1) * this.size;
+        let end = this.current_page * this.size;
+        if (index >= start && index < end) return true;
+      });
     },
   },
   created() {
-    VendorService.getAllJobs().then((response) => {
-      this.Content = response.data;
-    });
-
-    VendorService.getAllAds().then((response) => {
-      this.adsContent = response.data.data;
-    });
+    this.getVendors();
   },
 
   methods: {
-    searchVendor() {
-      this.$router.push({
-        name: "SearchEventVendor",
-        params: {
-          location: this.search.location,
-        },
-        query: {
-          keyword: this.search.keyword,
-        },
-      });
-    },
-
-    startSlide: function () {
-      this.timer = setInterval(this.next, 6000);
-    },
-
-    next: function () {
-      this.currentIndex += 1;
-    },
-
     getEventId(id) {
       this.eventId = id;
     },
     format_date(value) {
       if (value) {
         return moment(String(value)).format("MM/DD/YYYY hh:mm");
+      }
+    },
+
+    getVendors() {
+      VendorService.getAllJobs().then((response) => {
+        this.Content = response.data;
+        console.log(this.Content);
+      });
+    },
+
+    nextPage() {
+      //console.log('helo')
+      if (this.current_page * this.size < this.Content.length)
+        this.current_page++;
+    },
+    prevPage() {
+      if (this.current_page > 1) this.current_page--;
+    },
+
+    filterVendor(value) {
+      if (value.length > 0) {
+        this.Content = this.Content.filter(
+          (item) =>
+            item.eventCategory.toLowerCase().indexOf(value.toLowerCase()) != -1
+        );
+        console.log(this.Content);
+        if (this.Content == "") {
+          this.getVendors();
+        }
+      } else {
+        this.getVendors();
+        this.Content = this.Content;
       }
     },
 
@@ -433,20 +458,9 @@ export default {
       this.file = this.$refs.file.files[0];
     },
   },
-  mounted() {
-    this.startSlide();
-    window.scrollTo(0, 0);
 
-    $(document).ready(function () {
-      $(".vendorService-box").slice(0, 4).show();
-      $("#loadMore").on("click", function (e) {
-        e.preventDefault();
-        $(".vendorService-box:hidden").slice(0, 4).slideDown();
-        if ($(".vendorService-box:hidden").length == 0) {
-          $("#loadMore").text("No Service").addClass("noContent");
-        }
-      });
-    });
+  mounted() {
+    window.scrollTo(0, 0);
   },
 };
 </script>

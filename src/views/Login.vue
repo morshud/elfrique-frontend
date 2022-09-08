@@ -6,9 +6,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 text-area">
-                        <a href="/" class="routers">
+                        <router-link to="/" class="routers">
                             <img src="@/assets/images/logo.png" alt="Elfrique Logo">
-                        </a>
+                        </router-link>
                         <p class="text-first">Log In</p>
                         <div class="line-rule"></div>
                         <h1>Welcome back!</h1>
@@ -111,14 +111,15 @@ export default {
             () => {
               console.log(this.$store.state.auth.user);
               let data = this.$store.state.auth.user;
-              if (data.user.role == "seller") {
+              if (data.user.role == "seller" || data.user.role == "normalUser") {
                 this.$router.push('/organiser/dashboard');
-              } else {
-                this.$router.push('/user/dashboard');
+              }
+              if (data.user.role == "admin") {
+                this.$router.push('/superadmin/dashboard');
               }
               //this.$router.push('/user/dashboard');
             },
-            error => {
+            error => {gi
               this.loading = false;
               this.message =
                 (error.response && error.response.data && error.response.data.message) ||

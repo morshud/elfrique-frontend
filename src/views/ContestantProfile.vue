@@ -99,14 +99,19 @@
                 />
               </div>
               <div>
-              <p>
-                  <strong>Each vote cost NGN {{ contest.fee }}</strong>
+                <p v-if="contest.type == 'free'"><strong>Free</strong></p>
+
+                <p v-else>
+                  <strong
+                    >Each vote cost {{ currency_symbol }}
+                    {{ (contest.fee / toRate).toFixed(2) }}</strong
+                  >
                 </p>
               </div>
               <div v-if="contest.type == 'free'" class="col-lg-12 mb-3">
                 <button type="submit">Vote</button>
               </div>
-              <div class="col-lg-12 mb-3">
+              <div v-else class="col-lg-12 mb-3">
                 <button type="submit">Proceed</button>
               </div>
             </div>
@@ -191,7 +196,8 @@ import Header from "./elfrique-header.vue";
 import Footer from "./elfrique-footer.vue";
 import VoteService from "../service/vote.service";
 import TransactionService from "../service/transaction.service";
-import Notification from '../service/notitfication-service'
+import Notification from "../service/notitfication-service";
+import axios from "axios";
 
 export default {
   name: "Elfrique",
@@ -203,8 +209,10 @@ export default {
   data() {
     return {
       contest: "",
+      currency_symbol: "",
+      toRate: "",
       contestant: "",
-      method: '',
+      method: "",
       email: "",
       loading: false,
       reference: this.genRef(),
@@ -221,14 +229,13 @@ export default {
   },
   computed: {
     otherContestants() {
-      console.log(this.contest);
       const OC = this.contest.contestants.filter(
         (contestant) => contestant.id !== this.contestant.id
       );
       return OC;
     },
 
-    paymentForm () {
+    paymentForm() {
       return {
         email: this.email,
         amount: this.amount,
@@ -236,15 +243,18 @@ export default {
         firstname: this.firstname,
         lastname: this.lastname,
         fullname: this.firstname + " " + this.lastname,
-        phone: this.phone,  
+        phone: this.phone,
         reference: this.reference,
         numberOfVotes: this.numberOfVotes,
-
+        currency_symbol: this.currency_symbol,
       };
     },
 
     amount() {
-      return Number(this.numberOfVotes) * Number(this.contest.fee);
+      return (
+        (Number(this.numberOfVotes) * Number(this.contest.fee)) /
+        this.toRate
+      ).toFixed(2);
     },
 
     voteForm() {
@@ -262,15 +272,17 @@ export default {
   created() {
     VoteService.getAContestant(this.$route.params.id).then((response) => {
       this.contestant = response.data.contestants;
-      
+
       VoteService.getSingleContest(
         response.data.contestants.votingContest.id
       ).then((response) => {
         this.adminId = response.data.voteContest.adminuserId;
         this.contest = response.data.voteContest;
-        this.method = response.data.voteContest.paymentgateway
+        this.method = response.data.voteContest.paymentgateway;
       });
     });
+
+    this.convert_price();
 
     const script = document.createElement("script");
     script.src =
@@ -279,19 +291,28 @@ export default {
   },
 
   methods: {
+    convert_price() {
+      axios.get("https://ipapi.co/currency").then((res) => {
+        let currency = res.data;
+        axios
+          .get(`https://api.exchangerate-api.com/v4/latest/${currency}`)
+          .then((res) => {
+            this.currency_symbol = res.data.base;
+            this.toRate = res.data.rates["NGN"];
+          });
+      });
+    },
     format_date(value) {
       if (value) {
         return moment(String(value)).format("MM/DD/YYYY hh:mm");
       }
     },
 
-    proceedtopay(){
-      this.$store.dispatch('vote/getPaymentForm',this.paymentForm).then(
-            () => {
-            //console.log(this.$store.state.vote.voteContent)
-              this.$router.push('/contestant-profile-pay/' + this.contestant.id);
-          }
-            )
+    proceedtopay() {
+      this.$store.dispatch("vote/getPaymentForm", this.paymentForm).then(() => {
+        //console.log(this.$store.state.vote.voteContent)
+        this.$router.push("/contestant-profile-pay/" + this.contestant.id);
+      });
     },
     getContestant(con) {
       this.$store.dispatch("vote/getContestant", con);
@@ -324,8 +345,8 @@ export default {
       Notification.addNotification({
         receiverId: this.adminId,
         type: "voting",
-        message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
-      })
+        message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`,
+      });
       TransactionService.submitVote(this.contestant.id, this.voteForm).then(
         (response) => {
           this.loading = false;
@@ -390,8 +411,8 @@ export default {
           Notification.addNotification({
             receiverId: this.adminId,
             type: "voting",
-            message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
-          })
+            message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`,
+          });
           /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
             this.loading = false;
             this.message = response.data.message;
@@ -423,11 +444,9 @@ export default {
           Notification.addNotification({
             receiverId: this.adminId,
             type: "voting",
-            message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
-          })
+            message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`,
+          });
 
-
-          
           /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(
             (response) => {
               this.loading = false;
@@ -469,12 +488,12 @@ export default {
           let reference = data.reference;
           this.loading = true;
           this.method = "AimToGet";
-          this.amount = data.amount
+          this.amount = data.amount;
           Notification.addNotification({
             receiverId: this.adminId,
             type: "voting",
-            message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`
-          })
+            message: `Someone just voted ${this.contestant.fullname} with ${this.numberOfVotes} vote`,
+          });
           /* TransactionService.submitVote(this.contestant.id, this.voteForm).then(response => {
                 this.loading = false;
                 this.message = response.data.message;

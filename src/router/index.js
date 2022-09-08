@@ -50,6 +50,8 @@ import ServiceEventTicketManagementSystem from "../views/EventTicketManagementSy
 import TicTicketContent from "../views/TicketContent.vue";
 //Travel And Tour System
 import ServiceTravelAndTourManagementSystem from "../views/TravelAndTourManagementSystem.vue";
+// Hamzat TravelAndTourPage
+import TravelAndTourPage from "../views/TravelAndTourPage.vue";
 //Event Vendor
 import ServiceEventVendorManagementSystem from "../views/EventVendorManagementSystem.vue";
 import ServiceViewMoreVendor from "../views/ViewMoreVendor.vue";
@@ -72,6 +74,15 @@ import DashCreateEvent from "../views/dashboard/CreateEvent.vue";
 import DashAddTicket from "../views/dashboard/AddTicket.vue";
 import DashAddQuestion from "../views/dashboard/AddQuestion.vue";
 import DashViewEvent from "../views/dashboard/ViewEvent.vue";
+/* LATEST IMPORT FROM HAMZAT; */
+import CreateReferral from "../views/dashboard/CreateReferral.vue";
+import ViewReferral from "../views/dashboard/ViewReferral.vue";
+import SalesAnalytics from "../views/dashboard/SalesAnalytics.vue";
+import UpdateQuestion from "../views/dashboard/UpdateQuestion.vue";
+import UpdateAnswer from "../views/dashboard/UpdateAnswer.vue";
+import ViewEnquiries from "../views/dashboard/ViewEnquiries.vue";
+import ViewVendorService from "../views/dashboard/ViewVendorService.vue";
+import EditVendorService from "../views/dashboard/EditVendorService.vue";
 /* import DashSearchEvent from "../views/dashboard/SearchEvent.vue"; */
 import DashEventSalesAnalytics from "../views/dashboard/EventSalesAnalytics.vue";
 import DashPersonalTicket from "../views/dashboard/PersonalTicket.vue";
@@ -376,6 +387,12 @@ const routes = [
     name: "ServiceTravelAndTourManagementSystem",
     component: ServiceTravelAndTourManagementSystem,
   },
+  // Hamzat Page Travel And Tour Page
+  {
+    path: "/travel-tour-page",
+    name: "TravelAndTourPage",
+    component: TravelAndTourPage,
+  },
   //Event Vendor
   {
     path: "/event-vendor-management",
@@ -495,6 +512,22 @@ const routes = [
     name: "DashViewEvent",
     component: DashViewEvent,
   },
+  // LASTEST CHANGES FROM HAMZAT
+  {
+    path: "/organiser/create-referral",
+    name: "CreateReferral",
+    component: CreateReferral,
+  },
+  {
+    path: "/organiser/view-referral",
+    name: "ViewReferral",
+    component: ViewReferral,
+  },
+  {
+    path: "/organiser/sales-analytics",
+    name: "SalesAnalytics",
+    component: SalesAnalytics,
+  },
   /* {
     path: "/organiser/search-event",
     name: "DashSearchEvent",
@@ -571,6 +604,16 @@ const routes = [
     component: DashViewResult,
   },
   {
+    path: "/organiser/update-question",
+    name: "UpdateQuestion",
+    component: UpdateQuestion,
+  },
+  {
+    path: "/organiser/update-answer",
+    name: "UpdateAnswer",
+    component: UpdateAnswer,
+  },
+  {
     path: "/organiser/trivia-sales-analytics",
     name: "DashTriviaSalesAnalytics",
     component: DashTriviaSalesAnalytics,
@@ -612,11 +655,27 @@ const routes = [
     component: DashSearchVendor,
   },
   {
+    path: "/organiser/view-vendor-service",
+    name: "ViewVendorService",
+    component: ViewVendorService,
+  },
+  {
+    path: "/organiser/edit-vendor-service",
+    name: "EditVendorService",
+    component: EditVendorService,
+  },
+  {
     path: "/organiser/bidders-vendor",
     name: "DashBiddersLogVendor",
     component: DashBiddersLogVendor,
   },
   { path: "/organiser/reviews", name: "DashReviews", component: DashReviews },
+  {
+    path: "/organiser/view-enquiries",
+    name: "ViewEnquiries",
+    component: ViewEnquiries,
+  },
+  // Latest Hamzat Update on Vendor Side
 
   //seller dashboard
   {
