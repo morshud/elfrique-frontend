@@ -52,13 +52,7 @@
                 <h5 class="card-title">Votes</h5>
                 <div class="d-flex align-items-center">
                   <div
-                    class="
-                      card-icon
-                      rounded-circle
-                      d-flex
-                      align-items-center
-                      justify-content-center
-                    "
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
                   >
                     <img src="@/assets/images/icon-vote.png" />
                   </div>
@@ -92,13 +86,7 @@
                 <h5 class="card-title">Forms</h5>
                 <div class="d-flex align-items-center">
                   <div
-                    class="
-                      card-icon
-                      rounded-circle
-                      d-flex
-                      align-items-center
-                      justify-content-center
-                    "
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
                   >
                     <img src="@/assets/images/icon-form.png" />
                   </div>
@@ -116,13 +104,7 @@
                 <h5 class="card-title">Trivia</h5>
                 <div class="d-flex align-items-center">
                   <div
-                    class="
-                      card-icon
-                      rounded-circle
-                      d-flex
-                      align-items-center
-                      justify-content-center
-                    "
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
                   >
                     <img src="@/assets/images/icon-trivia.png" />
                   </div>
@@ -140,13 +122,7 @@
                 <h5 class="card-title">Events</h5>
                 <div class="d-flex align-items-center">
                   <div
-                    class="
-                      card-icon
-                      rounded-circle
-                      d-flex
-                      align-items-center
-                      justify-content-center
-                    "
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
                   >
                     <img src="@/assets/images/icon-event.png" />
                   </div>
@@ -885,6 +861,8 @@ import Footer from "./dash-footer.vue";
 import ProfileService from "../../service/profile.service";
 import ReferralService from "../../service/referral.service";
 import GetDashboard from "../../service/getDashboard";
+
+import { _BASE_URL } from "../../configs";
 export default {
   name: "Elfrique",
   components: {
@@ -961,7 +939,12 @@ export default {
         this.ref_Id = response.data.profile.adminuser.reference;
         this.role = response.data.profile.adminuser.role;
         this.referral =
-          "https://elfrique-proj.netlify.app/signup?referral=" + this.ref_Id;
+          "https://" +
+          window.location.href.split("/")[2] +
+          "/signup?referral=" +
+          this.ref_Id;
+        // console.log(window.location.href.split("/"));
+        //  _BASE_URL + "signup?referral=" + this.ref_Id;
         this.adminId = response.data.profile.adminuser.id;
 
         GetDashboard.getDashboard(this.adminId).then((res) => {
@@ -1062,6 +1045,7 @@ export default {
         }
       );
     },
+
   },
   mounted() {
     if (!this.currentUser) {
