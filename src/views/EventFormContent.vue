@@ -132,7 +132,7 @@
                 <i class="bi bi-people-fill"></i> Forms
               </button>
             </li>
-            <li class="nav-item" role="presentation">
+            <!-- <li class="nav-item" role="presentation">
               <button
                 class="nav-link tabs-button"
                 id="pills-organ-tab"
@@ -145,7 +145,7 @@
               >
                 <i class="fas fa-tv"></i> Organisers
               </button>
-            </li>
+            </li> -->
             <li class="nav-item" role="presentation">
               <button
                 class="nav-link tabs-button"
