@@ -4,9 +4,10 @@
 
     <!-- Tour New Added -->
         <section class="Tour">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
+            <div class="container-fluid">
+                <div class="row justify-content-center mt-5">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-10">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="text">
@@ -44,12 +45,13 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-1"></div>
                 </div>
             </div>
         </section>
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl container">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -143,9 +145,10 @@
 
     <!-- Filter Added -->
         <section class="filter">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-10">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="clear">
@@ -241,7 +244,7 @@
                             <div class="col-md-2">
                                 <div class="range-div">
                                     <div class="btn-div">
-                                        <img src="@/assets/images/plane.png" alt="logo">
+                                        <img src="@/assets/images/plane.png" draggable="false" alt="logo">
                                         <p>Flight To China</p>
                                     </div>
                                     <div class="line">
@@ -255,7 +258,7 @@
                             <div class="col-md-2">
                                 <div class="range-div">
                                     <div class="btn-div">
-                                        <img src="@/assets/images/plane.png" alt="logo">
+                                        <img src="@/assets/images/plane.png" draggable="false" alt="logo">
                                         <p>Flight To France</p>
                                     </div>
                                     <div class="line">
@@ -269,7 +272,7 @@
                             <div class="col-md-2">
                                 <div class="range-div">
                                     <div class="btn-div">
-                                        <img src="@/assets/images/plane.png" alt="logo">
+                                        <img src="@/assets/images/plane.png" draggable="false" alt="logo">
                                         <p>Flight To London</p>
                                     </div>
                                     <div class="line">
@@ -283,7 +286,7 @@
                             <div class="col-md-2">
                                 <div class="range-div">
                                     <div class="btn-div">
-                                        <img src="@/assets/images/plane.png" alt="logo">
+                                        <img src="@/assets/images/plane.png" draggable="false" alt="logo">
                                         <p>Flight To Nigeria</p>
                                     </div>
                                     <div class="line">
@@ -662,6 +665,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-1"></div>
                 </div>
             </div>
         </section>

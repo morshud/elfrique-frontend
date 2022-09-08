@@ -318,6 +318,7 @@ body {
 }
 .range-div .btn-div img{
   width: 25%;
+  pointer-events: none;
   display: block !important;
   margin: auto !important;
 }
