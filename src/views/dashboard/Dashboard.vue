@@ -1038,22 +1038,6 @@ export default {
   },
 
   methods: {
-    exportCSV(array) {
-      let csvContent = "data:text/csv;charset=utf-8,";
-      csvContent += [
-        Object.keys(array[0]).join(";"),
-        ...array.map((item) => Object.values(item).join(";")),
-      ]
-        .join("\n")
-
-        .replace(/(^\[)|(\]$)/gm, "");
-
-      const data = encodeURI(csvContent);
-      const link = document.createElement("a");
-      link.setAttribute("href", data);
-      link.setAttribute("download", "export.csv");
-      link.click();
-    },
     seller() {
       this.loading = true;
       ProfileService.becomeSeller(this.profile).then(
@@ -1077,42 +1061,6 @@ export default {
           this.loading = false;
         }
       );
-    },
-    tableToExcel(table, name) {
-      let tableName = table;
-      if (tableName == "vote") {
-        if (!table.nodeType) table = this.$refs.vote;
-        var ctx = { worksheet: name || "Worksheet", table: table.innerHTML };
-        window.location.href =
-          this.uri + this.base64(this.format(this.template, ctx));
-      }
-
-      if (tableName == "form") {
-        if (!table.nodeType) table = this.$refs.form;
-        var ctx = { worksheet: name || "Worksheet", table: table.innerHTML };
-        window.location.href =
-          this.uri + this.base64(this.format(this.template, ctx));
-      }
-
-      if (tableName == "trivia") {
-        if (!table.nodeType) table = this.$refs.trivia;
-        var ctx = { worksheet: name || "Worksheet", table: table.innerHTML };
-        window.location.href =
-          this.uri + this.base64(this.format(this.template, ctx));
-      }
-      if (tableName == "event") {
-        if (!table.nodeType) table = this.$refs.event;
-        var ctx = { worksheet: name || "Worksheet", table: table.innerHTML };
-        window.location.href =
-          this.uri + this.base64(this.format(this.template, ctx));
-      }
-
-      if (tableName == "referrer") {
-        if (!table.nodeType) table = this.$refs.referrer;
-        var ctx = { worksheet: name || "Worksheet", table: table.innerHTML };
-        window.location.href =
-          this.uri + this.base64(this.format(this.template, ctx));
-      }
     },
   },
   mounted() {
